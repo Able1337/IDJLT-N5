@@ -10,6 +10,7 @@ const GROUP_LABELS = {
   fruits: "Фрукты",
   lesson3: "Урок 3",
   lesson4: "Урок 4",
+  lesson6: "Урок 6",
   lesson7: "Урок 7",
   family_own: "Семья (своя)",
   family_other: "Семья (вежл.)",
@@ -28,6 +29,33 @@ const GROUP_LABELS = {
   verbs_daily: "Глаголы: повседневные",
   verbs_comm: "Глаголы: общение"
 };
+
+const GROUP_ORDER = [
+  "lesson1",
+  "lesson2",
+  "lesson3",
+  "lesson4",
+  "lesson6",
+  "lesson7",
+  "countries",
+  "fruits",
+  "family_own",
+  "family_other",
+  "colors",
+  "food",
+  "body",
+  "clothes",
+  "house",
+  "transport",
+  "adj_i",
+  "adj_na",
+  "questions",
+  "verbs_lesson4",
+  "verbs_lesson5",
+  "verbs_motion",
+  "verbs_daily",
+  "verbs_comm"
+];
 
 const VOWELS = [
   { row: "vowels", r: "a", h: "あ", k: "ア" },
@@ -153,9 +181,10 @@ function parseCsv(text) {
 }
 
 async function loadWordData() {
-  const [vocabText, verbsText, lesson7Text] = await Promise.all([
+  const [vocabText, verbsText, lesson6Text, lesson7Text] = await Promise.all([
     fetch("data/vocab.csv").then(r => r.text()),
     fetch("data/verbs.csv").then(r => r.text()),
+    fetch("data/lesson6.csv").then(r => r.text()),
     fetch("data/lesson7.csv").then(r => r.text())
   ]);
 
@@ -171,6 +200,7 @@ async function loadWordData() {
   }));
 
   const vocab = makeVocab(vocabText, "vocab");
+  const lesson6 = makeVocab(lesson6Text, "lesson6");
   const lesson7 = makeVocab(lesson7Text, "lesson7");
 
   const verbs = parseCsv(verbsText).map(([group, ru, en, stem, romajiStem], i) => ({
@@ -184,7 +214,8 @@ async function loadWordData() {
     script: "h"
   }));
 
-  allWords = [...vocab, ...lesson7, ...verbs];
+  allWords = [...vocab, ...lesson6, ...lesson7, ...verbs];
+  allWords.forEach((word, index) => { word.order = index; });
   if (!state.selectedGroups.length) {
     state.selectedGroups = ["lesson7"];
   }
@@ -206,9 +237,16 @@ function groupLabel(group) {
   return GROUP_LABELS[group] || group.replace(/_/g, " ");
 }
 
+function groupRank(group) {
+  const index = GROUP_ORDER.indexOf(group);
+  return index === -1 ? GROUP_ORDER.length + 100 : index;
+}
+
 function selectedWords() {
   const selected = new Set(state.selectedGroups);
-  return allWords.filter(word => selected.has(word.group));
+  return allWords
+    .filter(word => selected.has(word.group))
+    .sort((a, b) => groupRank(a.group) - groupRank(b.group) || a.order - b.order);
 }
 
 function wordById(id) {
@@ -286,7 +324,8 @@ function rebuildWordDeck() {
 
 function renderSets() {
   const list = $("setList");
-  const groups = [...new Set(allWords.map(w => w.group))];
+  const groups = [...new Set(allWords.map(w => w.group))]
+    .sort((a, b) => groupRank(a) - groupRank(b) || groupLabel(a).localeCompare(groupLabel(b), "ru"));
   const selected = new Set(state.selectedGroups);
   list.innerHTML = groups.map(group => {
     const count = allWords.filter(w => w.group === group).length;
