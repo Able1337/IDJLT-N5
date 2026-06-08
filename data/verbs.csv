@@ -1,0 +1,37 @@
+# Kana Night — словарь глаголов
+# Формат: group,ru,en,stem_masu,romaji_stem
+# Из stem_masu программа автоматически строит все формы:
+#   ます (настоящее/будущее утв.)
+#   ました (прошедшее утв.)
+#   ません (настоящее/будущее отриц.)
+#   ませんでした (прошедшее отриц.)
+#   ましょう (давайте...)
+# Пустые строки и строки начинающиеся с # игнорируются
+
+# ── УРОК 4 — основные глаголы ────────────────────────────
+lesson4,Просыпаться,To wake up,おき,oki
+lesson4,Спать / Ложиться спать,To sleep / go to bed,ね,ne
+lesson4,Работать,To work,はたらき,hataraki
+lesson4,Отдыхать,To rest,やすみ,yasumi
+lesson4,Учиться / Заниматься,To study,べんきょうし,benkyoushi
+
+# ── УРОК 5 — глаголы движения ────────────────────────────
+lesson5,Идти / Ехать,To go,い,i
+lesson5,Приходить / Приезжать,To come,き,ki
+lesson5,Возвращаться,To return / go back,かえり,kaeri
+
+# ── УРОК 5 — глаголы действия ───────────────────────────
+lesson5,Есть / Кушать,To eat,たべ,tabe
+lesson5,Пить,To drink,のみ,nomi
+lesson5,Делать,To do,し,shi
+lesson5,Смотреть / Видеть,To look / watch,み,mi
+lesson5,Слушать,To listen,きき,kiki
+lesson5,Читать,To read,よみ,yomi
+lesson5,Писать,To write,かき,kaki
+lesson5,Говорить,To speak / talk,はなし,hanashi
+lesson5,Понимать,To understand,わかり,wakari
+lesson5,Покупать,To buy,かい,kai
+lesson5,Ждать,To wait,まち,machi
+lesson5,Встречать / Встречаться,To meet,あい,ai
+lesson5,Начинать,To begin / start,はじめ,hajime
+lesson5,Заканчивать,To finish / end,おわり,owari

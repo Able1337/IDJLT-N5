@@ -1,0 +1,148 @@
+# Kana Night — словарь слов
+# Формат: group,ru,en,japanese,romaji,script
+# script: h = хирагана, k = катакана, hk = оба (хирагана основная)
+# Пустые строки и строки начинающиеся с # игнорируются
+
+# ── УРОК 1 — Местоимения и профессии ──────────────────────
+lesson1,Я,I,わたし,watashi,h
+lesson1,Ты,You,あなた,anata,h
+lesson1,Тот человек (нейтр.),That person,あのひと,ano hito,h
+lesson1,Тот человек (вежл.),That person (polite),あのかた,ano kata,h
+lesson1,Кто?,Who?,だれ,dare,h
+lesson1,Да,Yes,はい,hai,h
+lesson1,Нет,No,いいえ,iie,h
+lesson1,Это (предмет),This,これ,kore,h
+lesson1,Книга,Book,ほん,hon,h
+lesson1,Журнал,Magazine,ざっし,zasshi,h
+lesson1,Словарь,Dictionary,じしょ,jisho,h
+lesson1,Ручка,Pen,ペン,pen,k
+lesson1,Карандаш,Pencil,えんぴつ,enpitsu,h
+lesson1,Учитель,Teacher,きょうし,kyoushi,h
+lesson1,Студент,Student,がくせい,gakusei,h
+lesson1,Сотрудник фирмы,Company employee,かいしゃいん,kaishain,h
+lesson1,Служащий банка,Bank employee,ぎんこういん,ginkouin,h
+lesson1,Врач,Doctor,いしゃ,isha,h
+lesson1,Исследователь,Researcher,けんきゅうしゃ,kenkyuusha,h
+lesson1,Домохозяйка,Housewife,しゅふ,shufu,h
+
+# ── УРОК 1 — Страны ──────────────────────────────────────
+countries,Япония,Japan,にほん,nihon,h
+countries,Россия,Russia,ロシア,roshia,k
+countries,Китай,China,ちゅうごく,chuugoku,h
+countries,Южная Корея,South Korea,かんこく,kankoku,h
+countries,Франция,France,フランス,furansu,k
+countries,Италия,Italy,イタリア,itaria,k
+countries,Германия,Germany,ドイツ,doitsu,k
+countries,Америка,America,アメリカ,amerika,k
+countries,Испания,Spain,スペイン,supein,k
+countries,Англия,England,イギリス,igirisu,k
+countries,Австралия,Australia,オーストラリア,oosutoraria,k
+countries,Индия,India,インド,indo,k
+
+# ── УРОК 2 — Указательные местоимения ───────────────────
+lesson2,Это (близко к говорящему),This (near speaker),これ,kore,h
+lesson2,То (близко к собеседнику),That (near listener),それ,sore,h
+lesson2,Вон то,That over there,あれ,are,h
+lesson2,Этот,This (adj),この,kono,h
+lesson2,Тот,That (adj),その,sono,h
+lesson2,Вон тот,That over there (adj),あの,ano,h
+lesson2,Что?,What?,なん,nan,h
+lesson2,Газета,Newspaper,しんぶん,shinbun,h
+lesson2,Тетрадь,Notebook,ノート,nooto,k
+lesson2,Записная книжка,Datebook,てちょう,techou,h
+lesson2,Велосипед,Bicycle,じてんしゃ,jitensha,h
+lesson2,Ключ,Key,かぎ,kagi,h
+lesson2,Часы,Watch/Clock,とけい,tokei,h
+lesson2,Зонт,Umbrella,かさ,kasa,h
+lesson2,Сумка,Bag,かばん,kaban,h
+lesson2,Кошелёк,Wallet,さいふ,saifu,h
+lesson2,Обувь,Shoes,くつ,kutsu,h
+lesson2,Шапка,Hat/Cap,ぼうし,boushi,h
+lesson2,Компьютер,Computer,コンピューター,konpyuutaa,k
+lesson2,Автомобиль,Car,くるま,kuruma,h
+lesson2,Путешествие,Travel,りょこう,ryokou,h
+lesson2,Мода,Fashion,ファッション,fasshon,k
+lesson2,Музыка,Music,おんがく,ongaku,h
+lesson2,Спорт,Sport,スポーツ,supootsu,k
+
+# ── УРОК 2 — Фрукты ──────────────────────────────────────
+fruits,Яблоко,Apple,りんご,ringo,h
+fruits,Груша,Pear,なし,nashi,h
+fruits,Арбуз,Watermelon,すいか,suika,h
+fruits,Ананас,Pineapple,パイナップル,painappuru,k
+fruits,Мандарин,Mandarin,みかん,mikan,h
+fruits,Банан,Banana,バナナ,banana,k
+fruits,Апельсин,Orange,オレンジ,orenji,k
+fruits,Лимон,Lemon,レモン,remon,k
+fruits,Хурма,Persimmon,かき,kaki,h
+fruits,Виноград,Grapes,ぶどう,budou,h
+
+# ── УРОК 3 — Местоимения места и заведения ───────────────
+lesson3,Здесь,Here,ここ,koko,h
+lesson3,Там,There,そこ,soko,h
+lesson3,Вон там,Over there,あそこ,asoko,h
+lesson3,Где?,Where?,どこ,doko,h
+lesson3,Офис,Office,じむしょ,jimusho,h
+lesson3,Аудитория,Classroom,きょうしつ,kyoushitsu,h
+lesson3,Туалет,Restroom,トイレ,toire,k
+lesson3,Столовая,Cafeteria,しょくどう,shokudou,h
+lesson3,Переговорная,Meeting room,かいぎしつ,kaigishitsu,h
+lesson3,Комната,Room,へや,heya,h
+lesson3,Лифт,Elevator,エレベーター,erebeetaa,k
+lesson3,Эскалатор,Escalator,エスカレーター,esukareetaa,k
+lesson3,Компания,Company,かいしゃ,kaisha,h
+lesson3,Дом,Home,うち,uchi,h
+lesson3,Школа,School,がっこう,gakkou,h
+lesson3,Университет,University,だいがく,daigaku,h
+lesson3,Больница,Hospital,びょういん,byouin,h
+lesson3,Банк,Bank,ぎんこう,ginkou,h
+lesson3,Почта,Post office,ゆうびんきょく,yuubinkyoku,h
+lesson3,Библиотека,Library,としょかん,toshokan,h
+lesson3,Супермаркет,Supermarket,スーパー,suupaa,k
+lesson3,Ресторан,Restaurant,レストラン,resutoran,k
+lesson3,Вокзал,Station,えき,eki,h
+lesson3,Спортзал,Gym,ジム,jimu,k
+
+# ── УРОК 4 — Время и семья ───────────────────────────────
+lesson4,Сегодня,Today,きょう,kyou,h
+lesson4,Завтра,Tomorrow,あした,ashita,h
+lesson4,Послезавтра,Day after tomorrow,あさって,asatte,h
+lesson4,Вчера,Yesterday,きのう,kinou,h
+lesson4,Позавчера,Day before yesterday,おととい,ototoi,h
+lesson4,Этот месяц,This month,こんげつ,kongetsu,h
+lesson4,Следующий месяц,Next month,らいげつ,raigetsu,h
+lesson4,Прошлый месяц,Last month,せんげつ,sengetsu,h
+lesson4,Этот год,This year,ことし,kotoshi,h
+lesson4,Следующий год,Next year,らいねん,rainen,h
+lesson4,Прошлый год,Last year,きょねん,kyonen,h
+lesson4,Каждое утро,Every morning,まいあさ,maiasa,h
+lesson4,Каждый вечер,Every evening,まいばん,maiban,h
+lesson4,Каждый день,Every day,まいにち,mainichi,h
+
+# ── СЕМЬЯ (своя) ─────────────────────────────────────────
+family_own,Бабушка (своя),Grandmother (own),そぼ,sobo,h
+family_own,Дедушка (свой),Grandfather (own),そふ,sofu,h
+family_own,Мать (своя),Mother (own),はは,haha,h
+family_own,Отец (свой),Father (own),ちち,chichi,h
+family_own,Младшая сестра (своя),Younger sister (own),いもうと,imouto,h
+family_own,Младший брат (свой),Younger brother (own),おとうと,otouto,h
+family_own,Старшая сестра (своя),Older sister (own),あね,ane,h
+family_own,Старший брат (свой),Older brother (own),あに,ani,h
+family_own,Жена (своя),Wife (own),つま,tsuma,h
+family_own,Муж (свой),Husband (own),おっと,otto,h
+family_own,Дочь (своя),Daughter (own),むすめ,musume,h
+family_own,Сын (свой),Son (own),むすこ,musuko,h
+
+# ── СЕМЬЯ (чужая, вежливо) ──────────────────────────────
+family_other,Бабушка (вежл.),Grandmother (polite),おばあさん,obaasan,h
+family_other,Дедушка (вежл.),Grandfather (polite),おじいさん,ojiisan,h
+family_other,Мать (вежл.),Mother (polite),おかあさん,okaasan,h
+family_other,Отец (вежл.),Father (polite),おとうさん,otousan,h
+family_other,Младшая сестра (вежл.),Younger sister (polite),いもうとさん,imoutosan,h
+family_other,Младший брат (вежл.),Younger brother (polite),おとうとさん,otoutosan,h
+family_other,Старшая сестра (вежл.),Older sister (polite),おねえさん,oneesan,h
+family_other,Старший брат (вежл.),Older brother (polite),おにいさん,oniisan,h
+family_other,Жена (вежл.),Wife (polite),おくさん,okusan,h
+family_other,Муж (вежл.),Husband (polite),ごしゅじん,goshujin,h
+family_other,Дочь (вежл.),Daughter (polite),むすめさん,musumesan,h
+family_other,Сын (вежл.),Son (polite),むすこさん,musukosan,h

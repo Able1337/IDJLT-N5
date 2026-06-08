@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japanese Trainer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+  <header class="app-shell">
+    <div class="brand">
+      <span class="brand-mark">日</span>
+      <div>
+        <h1>Japanese Trainer</h1>
+        <p>Слова, кана, учебники и аудирование</p>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Разделы">
+      <button class="tab active" data-view="words">Слова</button>
+      <button class="tab" data-view="kana">Кана</button>
+      <button class="tab" data-view="books">Учебники</button>
+    </nav>
+
+    <div class="theme-tools">
+      <label>
+        <span>Тема</span>
+        <select id="themeSelect">
+          <option value="dark">Темная</option>
+          <option value="oled">OLED</option>
+          <option value="light">Светлая</option>
+        </select>
+      </label>
+      <button id="exportBtn">Сохранить в файл</button>
+      <label class="file-action">
+        Загрузить
+        <input id="importInput" type="file" accept="application/json">
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section id="wordsView" class="view active">
+      <aside class="sets-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Наборы слов</h2>
+            <p id="setSummary">Загрузка...</p>
+          </div>
+          <button id="selectAllBtn">Все</button>
+        </div>
+        <div id="setList" class="set-list"></div>
+      </aside>
+
+      <section class="trainer-panel">
+        <div class="trainer-toolbar">
+          <div class="toolbar-group">
+            <label>
+              <span>Фронт</span>
+              <select id="wordFront">
+                <option value="native">Перевод → JP</option>
+                <option value="jp">JP → перевод</option>
+              </select>
+            </label>
+            <label>
+              <span>Порядок</span>
+              <select id="wordOrder">
+                <option value="random">Случайный</option>
+                <option value="sequential">По порядку</option>
+              </select>
+            </label>
+          </div>
+          <div class="toolbar-group">
+            <button id="wordTableBtn">Таблица</button>
+            <button id="resetWordsBtn">Сбросить счетчики</button>
+          </div>
+        </div>
+
+        <article id="wordCard" class="study-card" tabindex="0">
+          <div id="cardGroup" class="card-meta"></div>
+          <div id="cardFront" class="card-front">Выберите набор</div>
+          <div id="cardAnswer" class="card-answer"></div>
+        </article>
+
+        <div class="actions-row">
+          <button id="unknownBtn" class="danger">Не знаю</button>
+          <button id="knownBtn" class="primary">Знаю</button>
+        </div>
+
+        <details class="word-pools" open>
+          <summary>
+            <span>Пулы раунда</span>
+            <span id="roundSummary">Раунд 1</span>
+          </summary>
+          <div class="pool-columns">
+            <section>
+              <h3>Знаю <b id="knownPoolCount">0</b></h3>
+              <div id="knownPoolList" class="pool-list">пусто</div>
+            </section>
+            <section>
+              <h3>Не знаю <b id="unknownPoolCount">0</b></h3>
+              <div id="unknownPoolList" class="pool-list">пусто</div>
+            </section>
+          </div>
+        </details>
+      </section>
+    </section>
+
+    <section id="kanaView" class="view">
+      <section class="kana-layout">
+        <aside class="sets-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Настройки каны</h2>
+              <p id="kanaSummary">Хирагана и катакана</p>
+            </div>
+          </div>
+          <div class="controls-stack">
+            <label>
+              <span>Азбука</span>
+              <select id="kanaScript">
+                <option value="hiragana">Хирагана</option>
+                <option value="katakana">Катакана</option>
+                <option value="both_mix">Обе, микс</option>
+                <option value="both_together">Обе вместе</option>
+              </select>
+            </label>
+            <label>
+              <span>Порядок</span>
+              <select id="kanaOrder">
+                <option value="random">Случайный</option>
+                <option value="sequential">По порядку</option>
+              </select>
+            </label>
+            <label class="check"><input id="kanaDakuten" type="checkbox"> Дакутен</label>
+            <label class="check"><input id="kanaYoon" type="checkbox"> Ёон</label>
+            <label class="check"><input id="kanaReverse" type="checkbox"> Обратный квиз</label>
+            <label>
+              <span>Вариантов в квизе</span>
+              <select id="kanaChoicesN">
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+            <div id="kanaRows" class="row-picks"></div>
+          </div>
+        </aside>
+
+        <section class="trainer-panel">
+          <div class="trainer-toolbar">
+            <button id="kanaTableBtn">Таблица каны</button>
+            <button id="resetKanaBtn">Сброс</button>
+          </div>
+          <article id="kanaCard" class="study-card" tabindex="0">
+            <div id="kanaMeta" class="card-meta"></div>
+            <div id="kanaFront" class="card-front kana-front">あ</div>
+            <div id="kanaAnswer" class="card-answer"></div>
+            <div id="kanaChoices" class="choice-grid"></div>
+          </article>
+          <div class="actions-row">
+            <button id="kanaUnknownBtn" class="danger">Не знаю</button>
+            <button id="kanaRevealBtn">Показать</button>
+            <button id="kanaKnownBtn" class="primary">Знаю</button>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <section id="booksView" class="view">
+      <section class="books-grid">
+        <aside class="sets-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Учебники</h2>
+              <p>PDF открываются прямо в приложении</p>
+            </div>
+          </div>
+          <div class="book-buttons">
+            <button class="book-btn active" data-pdf="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_I_-_Uchebnik.pdf">MNN I - Учебник</button>
+            <button class="book-btn" data-pdf="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_Beginner_I_Kanji.pdf">MNN Beginner I - Kanji</button>
+          </div>
+          <h3>Аудирование</h3>
+          <div id="audioList" class="audio-list"></div>
+        </aside>
+        <section class="reader-panel">
+          <iframe id="pdfFrame" title="Учебник" src="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_I_-_Uchebnik.pdf"></iframe>
+          <div class="audio-player">
+            <strong id="audioTitle">Трек 01</strong>
+            <audio id="audioPlayer" controls preload="metadata" src="https://raw.githubusercontent.com/Able1337/7-.pdf/main/cd/01.mp3"></audio>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="tableDialog">
+    <div class="dialog-head">
+      <h2 id="tableTitle">Таблица</h2>
+      <button id="closeTableBtn">Закрыть</button>
+    </div>
+    <div id="tableContent" class="table-content"></div>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
