@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Japanese Trainer</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body data-theme="dark">
   <header class="app-shell">
@@ -178,14 +178,14 @@
             </div>
           </div>
           <div class="book-buttons">
-            <button class="book-btn active" data-pdf="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_I_-_Uchebnik.pdf">MNN I - Учебник</button>
-            <button class="book-btn" data-pdf="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_Beginner_I_Kanji.pdf">MNN Beginner I - Kanji</button>
+            <button class="book-btn active" data-pdf="assets/books/MNN_I_Uchebnik.pdf">MNN I - Учебник</button>
+            <button class="book-btn" data-pdf="assets/books/MNN_Beginner_I_Kanji.pdf">MNN Beginner I - Kanji</button>
           </div>
           <h3>Аудирование</h3>
           <div id="audioList" class="audio-list"></div>
         </aside>
         <section class="reader-panel">
-          <iframe id="pdfFrame" title="Учебник" src="https://raw.githubusercontent.com/Able1337/7-.pdf/main/MNN_I_-_Uchebnik.pdf"></iframe>
+          <iframe id="pdfFrame" title="Учебник" src="assets/books/MNN_I_Uchebnik.pdf"></iframe>
           <div class="audio-player">
             <strong id="audioTitle">Трек 01</strong>
             <audio id="audioPlayer" controls preload="metadata" src="https://raw.githubusercontent.com/Able1337/7-.pdf/main/cd/01.mp3"></audio>
@@ -203,6 +203,6 @@
     <div id="tableContent" class="table-content"></div>
   </dialog>
 
-  <script src="app.js" defer></script>
+  <script src="app.js?v=3" defer></script>
 </body>
 </html>
