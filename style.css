@@ -79,6 +79,14 @@ body {
 h1 { font-size: 26px; margin: 0 0 8px; }
 .sub { color: var(--muted); margin: 0 0 18px; line-height: 1.45; }
 .nav { margin-bottom: 14px; }
+.lesson-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.lesson-head h1 { margin: 0; }
+.lesson-head .btn { flex: 0 0 auto; }
 
 .top {
   display: flex;
@@ -273,6 +281,9 @@ th { color: var(--muted); font-size: 13px; }
   .topbar { align-items: flex-start; padding: 10px 14px; }
   .toolbar { gap: 6px; }
   .wrap { padding: 18px 14px; }
+  .lesson-head { gap: 10px; align-items: center; }
+  .lesson-head h1 { font-size: 24px; }
+  .lesson-head .btn { padding: 10px 11px; }
   .ru { font-size: 32px; }
   .jp { font-size: 40px; }
   .card { min-height: 230px; }
