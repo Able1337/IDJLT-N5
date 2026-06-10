@@ -32,6 +32,7 @@ const I18N = {
     reverseKana: "Обратный квиз", rows: "Ряды",
     kanjiSub: "Карточки для знаков и слов из кандзи.",
     kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова"
+    , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры"
   },
   en: {
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
@@ -58,6 +59,7 @@ const I18N = {
     reverseKana: "Reverse quiz", rows: "Rows",
     kanjiSub: "Cards for kanji characters and kanji words.",
     kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only"
+    , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples"
   }
 };
 
@@ -494,7 +496,7 @@ function buildKanjiCards() {
     type: "kanji-single",
     front: item.kanji,
     answer: kanjiSingleAnswer(item),
-    tableReading: item.readings.slice(0, 4).join(" / "),
+    tableReading: [`${t("kunReading")}: ${item.kun?.join(" / ") || "—"}`, `${t("onReading")}: ${item.on?.join(" / ") || "—"}`].join("\n"),
     tableMeaning: item.meaning
   }));
   const wordCards = KANJI_DATA.words.map(item => ({
@@ -517,9 +519,10 @@ function nativeKanjiText(item) {
 function kanjiSingleAnswer(item) {
   const lines = [];
   if (item.meaning) lines.push(item.meaning);
-  if (item.readings?.length) lines.push(item.readings.slice(0, 6).join(" / "));
+  lines.push(`${t("kunReading")}: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
+  lines.push(`${t("onReading")}: ${item.on?.length ? item.on.join(" / ") : "—"}`);
   if (item.examples?.length) {
-    lines.push(item.examples.slice(0, 3).map(ex => `${ex.term} ${ex.reading ? "· " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
+    lines.push(`${t("examples")}:\n${item.examples.slice(0, 4).map(ex => `${ex.term} ${ex.reading ? "· " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n")}`);
   }
   return lines.join("\n");
 }
