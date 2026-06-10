@@ -31,6 +31,7 @@ body[data-theme="oled"] {
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -135,8 +136,8 @@ h1 { font-size: 26px; margin: 0 0 8px; }
   pointer-events: none;
   transition: opacity .08s ease;
 }
-.swipe-left { left: 22px; color: #991b1b; background: #fee2e2; }
-.swipe-right { right: 22px; color: #166534; background: #dcfce7; transform: rotate(8deg); }
+.swipe-left { right: 22px; color: #991b1b; background: #fee2e2; transform: rotate(8deg); }
+.swipe-right { left: 22px; color: #166534; background: #dcfce7; }
 .card.swiping-left .swipe-left,
 .card.swiping-right .swipe-right { opacity: 1; }
 
