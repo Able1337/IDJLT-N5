@@ -1454,8 +1454,8 @@ window.IDJLT_DICTIONARIES = [
   {
     "id": "countries",
     "title": {
-      "ru": "countries",
-      "en": "countries"
+      "ru": "Страны",
+      "en": "Countries"
     },
     "order": 999,
     "cards": [
@@ -1548,8 +1548,8 @@ window.IDJLT_DICTIONARIES = [
   {
     "id": "fruits",
     "title": {
-      "ru": "fruits",
-      "en": "fruits"
+      "ru": "Фрукты",
+      "en": "Fruit"
     },
     "order": 999,
     "cards": [
