@@ -342,6 +342,7 @@ function wordSettingsHtml() {
 function kanjiSettingsHtml() {
   return `
     <label><span data-i18n="kanjiSet">${t("kanjiSet")}</span><select id="kanjiMode"><option value="mixed" data-i18n="kanjiMixed">${t("kanjiMixed")}</option><option value="single" data-i18n="kanjiSingles">${t("kanjiSingles")}</option><option value="words" data-i18n="kanjiWords">${t("kanjiWords")}</option></select></label>
+    <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
 }
@@ -401,15 +402,18 @@ function updateFocusButton() {
   const btn = $("focusBtn");
   if (!btn) return;
   const active = document.body.classList.contains("card-focus");
+  btn.disabled = !active && (!current || session?.done);
   btn.textContent = active ? t("exitFullscreen") : t("fullscreen");
   if ($("focusExitBtn")) $("focusExitBtn").textContent = t("exitFullscreen");
 }
 
 async function toggleCardFocus() {
+  if (!document.body.classList.contains("card-focus") && (!current || session?.done)) return;
   setCardFocus(!document.body.classList.contains("card-focus"), true);
 }
 
 async function setCardFocus(active, useNative) {
+  if (active && (!current || session?.done)) return;
   document.body.classList.toggle("card-focus", active);
   updateFocusButton();
   if (!useNative) return;
@@ -541,8 +545,8 @@ function renderMode() {
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
     $("jp").style.display = shown ? "block" : "none";
-    $("romaji").textContent = currentKind === "word" && current.romaji ? current.romaji : "";
-    $("romaji").style.display = shown && currentKind === "word" && settings.showRomaji && current.romaji ? "block" : "none";
+    $("romaji").textContent = (currentKind === "word" || currentKind === "kanji") && current.romaji ? current.romaji : "";
+    $("romaji").style.display = shown && (currentKind === "word" || currentKind === "kanji") && settings.showRomaji && current.romaji ? "block" : "none";
     $("hint").textContent = shown ? (settings.showButtons ? t("chooseHint") : t("swipeHint")) : t("tapHint");
   }
   $("knowBtn").disabled = false;
@@ -609,7 +613,8 @@ function buildKanjiCards() {
     type: "kanji-single",
     front: item.kanji,
     answer: kanjiSingleAnswer(item),
-    tableReading: [`${t("kunReading")}: ${item.kun?.join(" / ") || "—"}`, `${t("onReading")}: ${item.on?.join(" / ") || "—"}`].join("\n"),
+    romaji: kanjiReadingRomaji(item),
+    tableReading: kanjiShortReadings(item),
     tableMeaning: item.meaning
   }));
   const wordCards = KANJI_DATA.words.map(item => ({
@@ -617,6 +622,7 @@ function buildKanjiCards() {
     type: "kanji-word",
     front: item.term,
     answer: [item.reading, nativeKanjiText(item)].filter(Boolean).join("\n"),
+    romaji: kanaToRomaji(item.reading || ""),
     tableReading: item.reading,
     tableMeaning: nativeKanjiText(item)
   }));
@@ -631,13 +637,56 @@ function nativeKanjiText(item) {
 
 function kanjiSingleAnswer(item) {
   const lines = [];
-  lines.push(item.kun?.length ? item.kun.join(" / ") : "—");
-  lines.push(item.on?.length ? item.on.join(" / ") : "—");
+  lines.push(`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
+  lines.push(`он: ${item.on?.length ? item.on.join(" / ") : "—"}`);
   if (item.meaning) lines.push(item.meaning);
   if (item.examples?.length) {
     lines.push(item.examples.slice(0, 4).map(ex => `${ex.term}${ex.reading ? " · " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
   }
   return lines.join("\n");
+}
+
+function kanjiShortReadings(item) {
+  return [`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`, `он: ${item.on?.length ? item.on.join(" / ") : "—"}`].join("\n");
+}
+
+const ROMAJI_DIGRAPHS = {
+  きゃ: "kya", きゅ: "kyu", きょ: "kyo", しゃ: "sha", しゅ: "shu", しょ: "sho", ちゃ: "cha", ちゅ: "chu", ちょ: "cho",
+  にゃ: "nya", にゅ: "nyu", にょ: "nyo", ひゃ: "hya", ひゅ: "hyu", ひょ: "hyo", みゃ: "mya", みゅ: "myu", みょ: "myo",
+  りゃ: "rya", りゅ: "ryu", りょ: "ryo", ぎゃ: "gya", ぎゅ: "gyu", ぎょ: "gyo", じゃ: "ja", じゅ: "ju", じょ: "jo",
+  びゃ: "bya", びゅ: "byu", びょ: "byo", ぴゃ: "pya", ぴゅ: "pyu", ぴょ: "pyo"
+};
+const ROMAJI_KANA = {
+  あ: "a", い: "i", う: "u", え: "e", お: "o", か: "ka", き: "ki", く: "ku", け: "ke", こ: "ko",
+  さ: "sa", し: "shi", す: "su", せ: "se", そ: "so", た: "ta", ち: "chi", つ: "tsu", て: "te", と: "to",
+  な: "na", に: "ni", ぬ: "nu", ね: "ne", の: "no", は: "ha", ひ: "hi", ふ: "fu", へ: "he", ほ: "ho",
+  ま: "ma", み: "mi", む: "mu", め: "me", も: "mo", や: "ya", ゆ: "yu", よ: "yo",
+  ら: "ra", り: "ri", る: "ru", れ: "re", ろ: "ro", わ: "wa", を: "wo", ん: "n",
+  が: "ga", ぎ: "gi", ぐ: "gu", げ: "ge", ご: "go", ざ: "za", じ: "ji", ず: "zu", ぜ: "ze", ぞ: "zo",
+  だ: "da", ぢ: "ji", づ: "zu", で: "de", ど: "do", ば: "ba", び: "bi", ぶ: "bu", べ: "be", ぼ: "bo",
+  ぱ: "pa", ぴ: "pi", ぷ: "pu", ぺ: "pe", ぽ: "po", ー: "-"
+};
+function kanaToRomaji(text) {
+  const hira = String(text || "").replace(/[\u30a1-\u30f6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+  let out = "";
+  for (let i = 0; i < hira.length; i++) {
+    if (hira[i] === "っ" && i + 1 < hira.length) {
+      const next = ROMAJI_DIGRAPHS[hira.slice(i + 1, i + 3)] || ROMAJI_KANA[hira[i + 1]] || "";
+      out += next[0] || "";
+      continue;
+    }
+    const pair = hira.slice(i, i + 2);
+    if (ROMAJI_DIGRAPHS[pair]) {
+      out += ROMAJI_DIGRAPHS[pair];
+      i++;
+    } else {
+      out += ROMAJI_KANA[hira[i]] || hira[i];
+    }
+  }
+  return out.replace(/-/g, "");
+}
+function kanjiReadingRomaji(item) {
+  return [`kun: ${(item.kun || []).map(kanaToRomaji).join(" / ") || "—"}`, `on: ${(item.on || []).map(kanaToRomaji).join(" / ") || "—"}`].join("\n");
 }
 
 function kanjiTableHtml() {
