@@ -552,11 +552,11 @@ function nativeKanjiText(item) {
 
 function kanjiSingleAnswer(item) {
   const lines = [];
+  lines.push(item.kun?.length ? item.kun.join(" / ") : "—");
+  lines.push(item.on?.length ? item.on.join(" / ") : "—");
   if (item.meaning) lines.push(item.meaning);
-  lines.push(`${t("kunReading")}: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
-  lines.push(`${t("onReading")}: ${item.on?.length ? item.on.join(" / ") : "—"}`);
   if (item.examples?.length) {
-    lines.push(`${t("examples")}:\n${item.examples.slice(0, 4).map(ex => `${ex.term} ${ex.reading ? "· " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n")}`);
+    lines.push(item.examples.slice(0, 4).map(ex => `${ex.term}${ex.reading ? " · " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
   }
   return lines.join("\n");
 }

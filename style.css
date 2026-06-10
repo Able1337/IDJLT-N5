@@ -145,18 +145,18 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 
 .swipe-label {
   position: absolute;
-  top: 22px;
+  top: 50%;
   z-index: 1;
   opacity: 0;
   border-radius: 16px;
-  padding: 10px 14px;
+  padding: 14px 18px;
+  font-size: clamp(24px, 7vw, 42px);
   font-weight: 800;
-  transform: rotate(-8deg);
   pointer-events: none;
   transition: opacity .08s ease;
 }
-.swipe-left { right: 22px; color: #991b1b; background: #fee2e2; transform: rotate(8deg); }
-.swipe-right { left: 22px; color: #166534; background: #dcfce7; }
+.swipe-left { right: 22px; color: #991b1b; background: #fee2e2; transform: translateY(-50%) rotate(8deg); }
+.swipe-right { left: 22px; color: #166534; background: #dcfce7; transform: translateY(-50%) rotate(-8deg); }
 .card.swiping-left .swipe-left,
 .card.swiping-right .swipe-right { opacity: 1; }
 
