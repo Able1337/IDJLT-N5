@@ -20,6 +20,7 @@ const I18N = {
     left: "Осталось", known: "Знаю", unknown: "Не знаю", round: "Раунд",
     shuffle: "Перемешать", restart: "Сначала", roundDone: "Раунд закончен",
     repeatUnknown: "Повторить «не знаю»", restartAll: "Начать всё заново",
+    fullscreen: "На весь экран", exitFullscreen: "Свернуть",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
@@ -47,6 +48,7 @@ const I18N = {
     left: "Left", known: "Known", unknown: "Unknown", round: "Round",
     shuffle: "Shuffle", restart: "Restart", roundDone: "Round complete",
     repeatUnknown: "Repeat unknown", restartAll: "Start over",
+    fullscreen: "Fullscreen", exitFullscreen: "Exit",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
@@ -245,8 +247,10 @@ function ensureTrainerMarkup(kind) {
       <div class="pill"><span data-i18n="round">${t("round")}</span>: <b id="round">1</b></div>
       <button class="small secondary" id="shuffleBtn" data-i18n="shuffle">${t("shuffle")}</button>
       <button class="small secondary" id="resetBtn" data-i18n="restart">${t("restart")}</button>
+      <button class="small secondary" id="focusBtn" type="button" data-i18n="fullscreen">${t("fullscreen")}</button>
     </section>
     <section id="game">
+      <button class="focus-exit" id="focusExitBtn" type="button">${t("exitFullscreen")}</button>
       <article class="card" id="card" tabindex="0">
         <div class="swipe-label swipe-left" data-i18n="unknown">${t("unknown")}</div>
         <div class="swipe-label swipe-right" data-i18n="known">${t("known")}</div>
@@ -339,6 +343,29 @@ function restartAll() {
   renderMode();
 }
 
+function updateFocusButton() {
+  const btn = $("focusBtn");
+  if (!btn) return;
+  const active = document.body.classList.contains("card-focus");
+  btn.textContent = active ? t("exitFullscreen") : t("fullscreen");
+  if ($("focusExitBtn")) $("focusExitBtn").textContent = t("exitFullscreen");
+}
+
+async function toggleCardFocus() {
+  setCardFocus(!document.body.classList.contains("card-focus"), true);
+}
+
+async function setCardFocus(active, useNative) {
+  document.body.classList.toggle("card-focus", active);
+  updateFocusButton();
+  if (!useNative) return;
+  const game = $("game");
+  try {
+    if (active && game?.requestFullscreen && !document.fullscreenElement) await game.requestFullscreen();
+    if (!active && document.fullscreenElement) await document.exitFullscreen();
+  } catch {}
+}
+
 let trainerBound = false;
 function bindTrainer(kind) {
   if (trainerBound) return;
@@ -352,10 +379,15 @@ function bindTrainer(kind) {
   $("dontBtn")?.addEventListener("click", () => answer(false));
   $("shuffleBtn")?.addEventListener("click", () => { session.pool = shuffle(session.pool); saveSession(); renderMode(); });
   $("resetBtn")?.addEventListener("click", restartAll);
+  $("focusBtn")?.addEventListener("click", toggleCardFocus);
+  $("focusExitBtn")?.addEventListener("click", () => setCardFocus(false, true));
   $("fullRestartBtn")?.addEventListener("click", restartAll);
   $("repeatUnknownBtn")?.addEventListener("click", repeatUnknown);
   $("showButtonsSetting")?.addEventListener("change", e => { settings.showButtons = e.target.checked; saveSettings(); applyGlobal(); });
   $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); });
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) setCardFocus(false, false);
+  });
 }
 function onPointerDown(e) {
   if (!current) return;
@@ -418,6 +450,7 @@ function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
 function renderMode() {
   if (!session) return;
   current = session.current === null ? null : cardById(session.current);
+  if (session.done) setCardFocus(false, true);
   $("game").style.display = session.done ? "none" : "block";
   $("done").style.display = session.done ? "block" : "none";
   $("card")?.classList.toggle("kanji-card", currentKind === "kanji");
@@ -440,6 +473,7 @@ function renderMode() {
   $("doneText").textContent = session.unknown.length ? t("doneSome").replace("{n}", session.unknown.length) : t("doneAll");
   $("repeatUnknownBtn").style.display = session.unknown.length ? "inline-block" : "none";
   applyGlobal();
+  updateFocusButton();
 }
 function stackHtml(ids) {
   if (!ids.length) return t("noItems");
