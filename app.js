@@ -246,8 +246,6 @@ function kanaSettingsHtml() {
   return `
     <label><span data-i18n="script">${t("script")}</span><select id="kanaScript"><option value="hiragana" data-i18n="hiragana">${t("hiragana")}</option><option value="katakana" data-i18n="katakana">${t("katakana")}</option><option value="bothMix" data-i18n="bothMix">${t("bothMix")}</option><option value="bothTogether" data-i18n="bothTogether">${t("bothTogether")}</option></select></label>
     <label><span data-i18n="order">${t("order")}</span><select id="kanaOrder"><option value="random" data-i18n="random">${t("random")}</option><option value="sequential" data-i18n="sequential">${t("sequential")}</option></select></label>
-    <label class="check"><input type="checkbox" id="kanaDakuten"> <span data-i18n="dakuten">${t("dakuten")}</span></label>
-    <label class="check"><input type="checkbox" id="kanaYoon"> <span data-i18n="yoon">${t("yoon")}</span></label>
     <label class="check"><input type="checkbox" id="kanaReverse"> <span data-i18n="reverseKana">${t("reverseKana")}</span></label>
     <div><span class="settings-label" data-i18n="rows">${t("rows")}</span><div class="row-picks" id="kanaRows"></div></div>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
@@ -411,23 +409,48 @@ function renderTable(kind) {
   const wrap = $("wordTable");
   if (!wrap) return;
   if (kind === "kana") {
-    wrap.innerHTML = `<table><thead><tr><th>${t("kana")}</th><th>${t("reading")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${c.front}</td><td>${c.r}</td></tr>`).join("")}</tbody></table>`;
+    wrap.innerHTML = kanaTableHtml();
   } else {
     wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
   }
 }
 
+function kanaRowsForStudy() {
+  const selected = new Set(settings.kana.rows);
+  const rows = [];
+  if (selected.has("vowels")) rows.push({ id: "vowels", label: "あ", cells: VOWELS.map(x => [x.r, x.h, x.k]) });
+  for (const row of MAIN_ROWS) if (selected.has(row.id)) rows.push(row);
+  for (const row of DAKUTEN_ROWS) if (selected.has(row.id)) rows.push(row);
+  if (selected.has("yoon")) rows.push({ id: "yoon", label: "きゃ", cells: YOON.map(x => [x.r, x.h, x.k]) });
+  return rows;
+}
+
+function kanaDisplay(h, k, index = 0) {
+  if (settings.kana.script === "katakana") return k;
+  if (settings.kana.script === "bothTogether") return `${h} / ${k}`;
+  if (settings.kana.script === "bothMix") return index % 2 ? k : h;
+  return h;
+}
+
+function kanaTableHtml() {
+  const groups = kanaRowsForStudy();
+  if (!groups.length) return "";
+  return `<div class="kana-table-groups">${groups.map(group => `
+    <section class="kana-table-group">
+      <h3>${group.label}</h3>
+      <div class="kana-tile-grid">
+        ${group.cells.map(([r, h, k], i) => `<div class="kana-tile"><b>${kanaDisplay(h, k, i)}</b><span>${r.toUpperCase()}</span></div>`).join("")}
+      </div>
+    </section>
+  `).join("")}</div>`;
+}
+
 function buildKanaCards() {
-  const rows = new Set(settings.kana.rows);
-  let list = [];
-  if (rows.has("vowels")) list.push(...VOWELS);
-  for (const row of MAIN_ROWS) if (rows.has(row.id)) list.push(...row.cells.map(([r,h,k]) => ({ row: row.id, r, h, k })));
-  if (settings.kana.dakuten) for (const row of DAKUTEN_ROWS) if (rows.has(row.id) || rows.has("vowels")) list.push(...row.cells.map(([r,h,k]) => ({ row: row.id, r, h, k })));
-  if (settings.kana.yoon) list.push(...YOON);
+  const list = kanaRowsForStudy().flatMap(row => row.cells.map(([r,h,k]) => ({ row: row.id, r, h, k })));
   return list.map((x, i) => ({
-    id: `kana-${settings.kana.script}-${settings.kana.dakuten}-${settings.kana.yoon}-${settings.kana.rows.join(".")}-${i}`,
+    id: `kana-${settings.kana.script}-${settings.kana.rows.join(".")}-${i}`,
     type: "kana", r: x.r,
-    front: settings.kana.script === "katakana" ? x.k : settings.kana.script === "bothTogether" ? `${x.h} / ${x.k}` : settings.kana.script === "bothMix" ? (i % 2 ? x.k : x.h) : x.h
+    front: kanaDisplay(x.h, x.k, i)
   }));
 }
 function renderKanaSettings() {
@@ -435,8 +458,6 @@ function renderKanaSettings() {
   if (!rows) return;
   $("kanaScript").value = settings.kana.script;
   $("kanaOrder").value = settings.kana.order;
-  $("kanaDakuten").checked = settings.kana.dakuten;
-  $("kanaYoon").checked = settings.kana.yoon;
   $("kanaReverse").checked = settings.kana.reverse;
   rows.innerHTML = [["vowels","あ"], ...MAIN_ROWS.map(r => [r.id,r.label]), ...DAKUTEN_ROWS.map(r => [r.id,r.label]), ["yoon","きゃ"]]
     .map(([id,label]) => `<button class="row-btn ${settings.kana.rows.includes(id) ? "active" : ""}" data-row="${id}" type="button">${label}</button>`).join("");
@@ -448,8 +469,6 @@ function bindKanaSettings() {
     const id = e.target.id;
     if (id === "kanaScript") settings.kana.script = e.target.value;
     if (id === "kanaOrder") settings.kana.order = e.target.value;
-    if (id === "kanaDakuten") settings.kana.dakuten = e.target.checked;
-    if (id === "kanaYoon") settings.kana.yoon = e.target.checked;
     if (id === "kanaReverse") settings.kana.reverse = e.target.checked;
     saveSettings();
     startKana();

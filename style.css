@@ -289,6 +289,53 @@ th:first-child, td:first-child { border-left: 1px solid var(--line); border-radi
 th:last-child, td:last-child { border-right: 1px solid var(--line); border-radius: 0 12px 12px 0; }
 th { color: var(--muted); font-size: 13px; }
 
+.kana-table-groups {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.kana-table-group {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.kana-table-group h3 {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.kana-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+  gap: 8px;
+}
+
+.kana-tile {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.kana-tile b {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.kana-tile span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .settings-dialog {
   width: min(520px, calc(100vw - 28px));
   border: 1px solid var(--line);
