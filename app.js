@@ -21,6 +21,9 @@ const I18N = {
     shuffle: "Перемешать", restart: "Сначала", roundDone: "Раунд закончен",
     repeatUnknown: "Повторить «не знаю»", restartAll: "Начать всё заново",
     fullscreen: "На весь экран", exitFullscreen: "Свернуть",
+    installApp: "Установить приложение", installHelp: "Добавь сайт на главный экран, чтобы открывать его как приложение.",
+    installIosHelp: "На iPhone: нажми «Поделиться» и выбери «На экран Домой».",
+    installedApp: "Приложение уже установлено",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
@@ -49,6 +52,9 @@ const I18N = {
     shuffle: "Shuffle", restart: "Restart", roundDone: "Round complete",
     repeatUnknown: "Repeat unknown", restartAll: "Start over",
     fullscreen: "Fullscreen", exitFullscreen: "Exit",
+    installApp: "Install app", installHelp: "Add this site to your home screen to open it like an app.",
+    installIosHelp: "On iPhone: tap Share and choose Add to Home Screen.",
+    installedApp: "App is already installed",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
@@ -110,6 +116,7 @@ let swipeTimer = null;
 let mode = document.body.dataset.page;
 let currentKind = "";
 let kanaSettingsBound = false;
+let installPromptEvent = null;
 
 const $ = id => document.getElementById(id);
 const t = key => I18N[settings.lang]?.[key] || I18N.ru[key] || key;
@@ -147,11 +154,57 @@ function applyGlobal() {
   if ($("answerButtons")) $("answerButtons").hidden = !settings.showButtons;
   if ($("showButtonsSetting")) $("showButtonsSetting").checked = settings.showButtons;
   if ($("showRomajiSetting")) $("showRomajiSetting").checked = settings.showRomaji;
+  updatePwaInstallUi();
 }
 
 function bindGlobal() {
   $("themeSelect")?.addEventListener("change", e => { settings.theme = e.target.value; saveSettings(); applyGlobal(); });
   $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); if (currentKind === "kanji") renderKanjiTitle(); renderTable(currentKind); renderMode(); });
+}
+function isStandaloneApp() {
+  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+}
+function updatePwaInstallUi() {
+  const btn = $("installAppBtn");
+  const help = $("installHelp");
+  if (!btn || !help) return;
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (isStandaloneApp()) {
+    btn.disabled = true;
+    btn.textContent = t("installedApp");
+    help.textContent = t("installedApp");
+    return;
+  }
+  btn.disabled = false;
+  btn.textContent = t("installApp");
+  help.textContent = isIos && !installPromptEvent ? t("installIosHelp") : t("installHelp");
+}
+function setupPwaInstall() {
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+  const box = $("installBox");
+  const btn = $("installAppBtn");
+  const help = $("installHelp");
+  if (!box || !btn || !help) return;
+  window.addEventListener("beforeinstallprompt", e => {
+    e.preventDefault();
+    installPromptEvent = e;
+    updatePwaInstallUi();
+  });
+  window.addEventListener("appinstalled", () => {
+    installPromptEvent = null;
+    updatePwaInstallUi();
+  });
+  btn.addEventListener("click", async () => {
+    if (!installPromptEvent) {
+      updatePwaInstallUi();
+      return;
+    }
+    installPromptEvent.prompt();
+    await installPromptEvent.userChoice.catch(() => null);
+    installPromptEvent = null;
+    updatePwaInstallUi();
+  });
+  updatePwaInstallUi();
 }
 
 function renderDictionaryList() {
@@ -656,6 +709,7 @@ function bindKanaSettings() {
 
 bindGlobal();
 applyGlobal();
+setupPwaInstall();
 renderDictionaryList();
 renderCustomPicker();
 

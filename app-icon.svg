@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0f1220"/>
+  <path d="M0 378c70-38 140-52 210-43 79 11 164 0 302-76v253H0z" fill="#1e293b"/>
+  <text x="256" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="800" fill="#f8fafc">IDJLT</text>
+  <text x="256" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="170" font-weight="800" fill="#93c5fd">N5</text>
+</svg>

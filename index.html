@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1220">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="IDJLT N5">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="app-icon-192.png">
   <title>IDJLT N5 | IDJLT N5</title>
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body data-page="home">
   <header class="topbar">
@@ -18,6 +24,10 @@
     <section class="hero">
       <h1>IDJLT N5</h1>
       <p class="sub" data-i18n="homeSub">Тренажёр японского для слов и каны.</p>
+      <div class="install-box" id="installBox">
+        <button class="primary install-btn" id="installAppBtn" type="button" data-i18n="installApp">Установить приложение</button>
+        <p class="install-help" id="installHelp" data-i18n="installHelp">Добавь сайт на главный экран, чтобы открывать его как приложение.</p>
+      </div>
     </section>
     <section class="mode-grid">
       <a class="mode-card" href="words.html"><span data-i18n="wordsTitle">Слова</span><small data-i18n="wordsModeSub">Словари и карточки</small></a>
@@ -25,8 +35,8 @@
       <a class="mode-card" href="kanji.html"><span data-i18n="kanjiTitle">Кандзи</span><small data-i18n="kanjiModeSub">Знаки и сочетания</small></a>
     </section>
   </main>
-  <script src="data.js?v=18"></script>
-  <script src="app.js?v=18"></script>
+  <script src="data.js?v=19"></script>
+  <script src="app.js?v=19"></script>
 </body>
 </html>
 
