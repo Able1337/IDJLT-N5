@@ -1,48 +1,26 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Слова | IDJLT N5</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body data-page="words">
   <header class="topbar">
     <a class="brand" href="index.html">IDJLT N5</a>
     <div class="toolbar">
-      <select id="langSelect" aria-label="Language">
-        <option value="ru">RU</option>
-        <option value="en">EN</option>
-      </select>
-      <select id="themeSelect" aria-label="Theme">
-        <option value="dark" data-i18n="themeDark">Тёмная</option>
-        <option value="light" data-i18n="themeLight">Светлая</option>
-        <option value="oled" data-i18n="themeOled">OLED</option>
-      </select>
-      <button class="small secondary" id="settingsBtn" data-i18n="settings">Настройки</button>
+      <select id="langSelect" aria-label="Language"><option value="ru">RU</option><option value="en">EN</option></select>
+      <select id="themeSelect" aria-label="Theme"><option value="dark" data-i18n="themeDark">Тёмная</option><option value="light" data-i18n="themeLight">Светлая</option><option value="oled" data-i18n="themeOled">OLED</option></select>
     </div>
   </header>
-
   <main class="wrap">
-    <div class="nav"><a class="btn small secondary" href="index.html" data-i18n="backHome">← на главную</a></div>
-    <h1 data-i18n="dictTitle">Словари</h1>
-    <p class="sub" data-i18n="dictSub">Выбери урок. У каждого словаря отдельная HTML-страница, ссылку можно открыть напрямую.</p>
-    <section class="lessons" id="dictionaryList"></section>
+    <div class="lesson-head"><a class="btn small secondary" href="index.html" data-i18n="backHome">← Главная</a><h1 data-i18n="wordsTitle">Слова</h1></div>
+    <p class="sub" data-i18n="wordsSub">Выбери словарь или собери общий набор.</p>
+    <div id="dictionaryList"></div>
   </main>
-
-  <dialog id="settingsDialog" class="settings-dialog">
-    <form method="dialog">
-      <div class="dialog-head">
-        <h2 data-i18n="settings">Настройки</h2>
-        <button class="small secondary" value="close" data-i18n="close">Закрыть</button>
-      </div>
-      <label class="check">
-        <input type="checkbox" id="showButtonsSetting">
-        <span data-i18n="showButtons">Показывать кнопки «Знаю / Не знаю»</span>
-      </label>
-    </form>
-  </dialog>
-
-  <script src="app.js?v=5"></script>
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
+

@@ -1,53 +1,31 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IDJLT N5</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <title>IDJLT N5 | IDJLT N5</title>
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body data-page="home">
   <header class="topbar">
     <a class="brand" href="index.html">IDJLT N5</a>
     <div class="toolbar">
-      <select id="langSelect" aria-label="Language">
-        <option value="ru">RU</option>
-        <option value="en">EN</option>
-      </select>
-      <select id="themeSelect" aria-label="Theme">
-        <option value="dark" data-i18n="themeDark">Тёмная</option>
-        <option value="light" data-i18n="themeLight">Светлая</option>
-        <option value="oled" data-i18n="themeOled">OLED</option>
-      </select>
-      <button class="small secondary" id="settingsBtn" data-i18n="settings">Настройки</button>
+      <select id="langSelect" aria-label="Language"><option value="ru">RU</option><option value="en">EN</option></select>
+      <select id="themeSelect" aria-label="Theme"><option value="dark" data-i18n="themeDark">Тёмная</option><option value="light" data-i18n="themeLight">Светлая</option><option value="oled" data-i18n="themeOled">OLED</option></select>
     </div>
   </header>
-
   <main class="wrap">
-    <h1 data-i18n="homeTitle">Тренажёр японского</h1>
-    <p class="sub" data-i18n="homeSub">Выбери режим. Сейчас доступен режим слов.</p>
-    <section class="modes">
-      <a class="mode-card" href="words.html">
-        <span class="mode-kicker" data-i18n="wordsMode">Слова</span>
-        <h2 data-i18n="wordsTitle">Словари и уроки</h2>
-        <p data-i18n="wordsSub">Карточки, свайпы, раунды и стопки «знаю / не знаю».</p>
-      </a>
+    <section class="hero">
+      <h1>IDJLT N5</h1>
+      <p class="sub" data-i18n="homeSub">Тренажёр японского для слов и каны.</p>
+    </section>
+    <section class="mode-grid">
+      <a class="mode-card" href="words.html"><span data-i18n="wordsTitle">Слова</span><small data-i18n="wordsModeSub">Словари и карточки</small></a>
+      <a class="mode-card" href="kana.html"><span data-i18n="kanaTitle">Кана</span><small data-i18n="kanaModeSub">Хирагана и катакана</small></a>
     </section>
   </main>
-
-  <dialog id="settingsDialog" class="settings-dialog">
-    <form method="dialog">
-      <div class="dialog-head">
-        <h2 data-i18n="settings">Настройки</h2>
-        <button class="small secondary" value="close" data-i18n="close">Закрыть</button>
-      </div>
-      <label class="check">
-        <input type="checkbox" id="showButtonsSetting">
-        <span data-i18n="showButtons">Показывать кнопки «Знаю / Не знаю»</span>
-      </label>
-    </form>
-  </dialog>
-
-  <script src="app.js?v=5"></script>
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
+

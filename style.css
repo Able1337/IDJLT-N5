@@ -277,6 +277,58 @@ th { color: var(--muted); font-size: 13px; }
 .dialog-head h2 { margin: 0; }
 .check { display: flex; align-items: center; gap: 10px; color: var(--text); }
 
+.pick-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+.pick-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+.pick-row small { color: var(--muted); }
+.wide { width: 100%; }
+.mode-settings {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+.mode-settings label {
+  display: grid;
+  gap: 6px;
+}
+.mode-settings .check {
+  display: flex;
+}
+.settings-label {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.row-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.row-btn {
+  min-width: 46px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.row-btn.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 @media (max-width: 560px) {
   .topbar { align-items: flex-start; padding: 10px 14px; }
   .toolbar { gap: 6px; }

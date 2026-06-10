@@ -1,96 +1,26 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>6課 単語カード | IDJLT N5</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <title>Урок 6 | IDJLT N5</title>
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body data-page="lesson" data-dictionary="lesson6">
   <header class="topbar">
     <a class="brand" href="index.html">IDJLT N5</a>
     <div class="toolbar">
-      <select id="langSelect" aria-label="Language">
-        <option value="ru">RU</option>
-        <option value="en">EN</option>
-      </select>
-      <select id="themeSelect" aria-label="Theme">
-        <option value="dark" data-i18n="themeDark">Тёмная</option>
-        <option value="light" data-i18n="themeLight">Светлая</option>
-        <option value="oled" data-i18n="themeOled">OLED</option>
-      </select>
-      <button class="small secondary" id="settingsBtn" data-i18n="settings">Настройки</button>
+      <select id="langSelect" aria-label="Language"><option value="ru">RU</option><option value="en">EN</option></select>
+      <select id="themeSelect" aria-label="Theme"><option value="dark" data-i18n="themeDark">Тёмная</option><option value="light" data-i18n="themeLight">Светлая</option><option value="oled" data-i18n="themeOled">OLED</option></select>
     </div>
   </header>
-
   <main class="wrap">
-    <div class="lesson-head">
-      <a class="btn small secondary" href="words.html" data-i18n="backWords">← к словарям</a>
-      <h1 id="lessonTitle">6課 単語カード</h1>
-    </div>
-    <p class="sub" id="lessonSub">Слова из 6 урока.</p>
-
-    <section class="top">
-      <div class="pill"><span data-i18n="left">Осталось</span>: <b id="left">0</b></div>
-      <div class="pill"><span data-i18n="known">Знаю</span>: <b id="knownCount">0</b></div>
-      <div class="pill"><span data-i18n="unknown">Не знаю</span>: <b id="unknownCount">0</b></div>
-      <div class="pill"><span data-i18n="round">Раунд</span>: <b id="round">1</b></div>
-      <button class="small secondary" id="shuffleBtn" data-i18n="shuffle">Перемешать</button>
-      <button class="small secondary" id="resetBtn" data-i18n="restart">Сначала</button>
-    </section>
-
-    <section id="game">
-      <article class="card" id="card" tabindex="0">
-        <div class="swipe-label swipe-left" data-i18n="unknown">Не знаю</div>
-        <div class="swipe-label swipe-right" data-i18n="known">Знаю</div>
-        <div class="card-inner">
-          <div class="ru" id="ru"></div>
-          <div class="jp" id="jp"></div>
-          <div class="hint" id="hint"></div>
-        </div>
-      </article>
-      <div class="buttons" id="answerButtons">
-        <button class="dont" id="dontBtn" disabled data-i18n="unknown">Не знаю</button>
-        <button class="know" id="knowBtn" disabled data-i18n="known">Знаю</button>
-      </div>
-    </section>
-
-    <section class="done" id="done">
-      <h2 data-i18n="roundDone">Раунд закончен</h2>
-      <p id="doneText"></p>
-      <div class="actions">
-        <button class="primary" id="repeatUnknownBtn" data-i18n="repeatUnknown">Повторить «не знаю»</button>
-        <button class="restart" id="fullRestartBtn" data-i18n="restartAll">Начать всё заново</button>
-      </div>
-    </section>
-
-    <details class="bottom-panel" open>
-      <summary data-i18n="stacks">Стопки</summary>
-      <div class="stacks">
-        <div class="stack"><h3 data-i18n="known">Знаю</h3><div class="items" id="knownList"></div></div>
-        <div class="stack"><h3 data-i18n="unknown">Не знаю</h3><div class="items" id="unknownList"></div></div>
-      </div>
-    </details>
-
-    <details class="bottom-panel">
-      <summary data-i18n="table">Таблица слов</summary>
-      <div class="table-wrap" id="wordTable"></div>
-    </details>
+    <div class="lesson-head"><a class="btn small secondary" href="words.html" data-i18n="backWords">← К словарям</a><h1 id="lessonTitle"></h1></div>
+    <p class="sub" id="lessonSub"></p>
+    <div data-trainer></div>
   </main>
-
-  <dialog id="settingsDialog" class="settings-dialog">
-    <form method="dialog">
-      <div class="dialog-head">
-        <h2 data-i18n="settings">Настройки</h2>
-        <button class="small secondary" value="close" data-i18n="close">Закрыть</button>
-      </div>
-      <label class="check">
-        <input type="checkbox" id="showButtonsSetting">
-        <span data-i18n="showButtons">Показывать кнопки «Знаю / Не знаю»</span>
-      </label>
-    </form>
-  </dialog>
-
-  <script src="app.js?v=5"></script>
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
+
