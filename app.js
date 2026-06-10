@@ -106,6 +106,7 @@ let current = null;
 let shown = false;
 let drag = null;
 let suppressClick = false;
+let swipeTimer = null;
 let mode = document.body.dataset.page;
 let currentKind = "";
 let kanaSettingsBound = false;
@@ -390,7 +391,7 @@ function bindTrainer(kind) {
   });
 }
 function onPointerDown(e) {
-  if (!current) return;
+  if (!current || swipeTimer) return;
   drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, moved: false };
   $("card").setPointerCapture(e.pointerId);
   $("card").classList.add("dragging");
@@ -401,7 +402,7 @@ function onPointerMove(e) {
   const dy = e.clientY - drag.y;
   if (Math.abs(drag.dx) > 8 || Math.abs(dy) > 8) drag.moved = true;
   const card = $("card");
-  card.style.transform = `translateX(${drag.dx}px) rotate(${Math.max(-10, Math.min(10, drag.dx / 18))}deg)`;
+  card.style.transform = `translate3d(${drag.dx}px, 0, 0) rotate(${Math.max(-10, Math.min(10, drag.dx / 18))}deg)`;
   card.classList.toggle("swiping-right", drag.dx > 55);
   card.classList.toggle("swiping-left", drag.dx < -55);
   card.classList.toggle("known-glow", drag.dx > 55);
@@ -411,14 +412,39 @@ function onPointerUp(e) {
   if (!drag || e.pointerId !== drag.id) return;
   const dx = drag.dx;
   const moved = drag.moved;
-  clearDrag();
   suppressClick = moved;
-  if (Math.abs(dx) > 96) answer(dx > 0);
+  if (Math.abs(dx) > 96) finishSwipe(dx > 0);
+  else settleCardBack();
+}
+function finishSwipe(isKnown) {
+  const card = $("card");
+  if (!card) return;
+  card.classList.remove("dragging");
+  card.classList.add("settling", isKnown ? "known-glow" : "unknown-glow", isKnown ? "swiping-right" : "swiping-left");
+  card.style.transform = `translate3d(${isKnown ? "115vw" : "-115vw"}, 0, 0) rotate(${isKnown ? 14 : -14}deg)`;
+  clearTimeout(swipeTimer);
+  swipeTimer = setTimeout(() => {
+    clearDrag();
+    answer(isKnown);
+  }, 280);
+  drag = null;
+}
+function settleCardBack() {
+  const card = $("card");
+  if (!card) return;
+  card.classList.remove("dragging");
+  card.classList.add("settling");
+  card.style.transform = "";
+  clearTimeout(swipeTimer);
+  swipeTimer = setTimeout(clearDrag, 260);
+  drag = null;
 }
 function clearDrag() {
   const card = $("card");
+  clearTimeout(swipeTimer);
+  swipeTimer = null;
   if (card) {
-    card.classList.remove("dragging", "swiping-left", "swiping-right", "known-glow", "unknown-glow");
+    card.classList.remove("dragging", "settling", "swiping-left", "swiping-right", "known-glow", "unknown-glow");
     card.style.transform = "";
   }
   drag = null;

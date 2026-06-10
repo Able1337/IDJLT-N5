@@ -119,11 +119,15 @@ h1 { font-size: 26px; margin: 0 0 8px; }
   user-select: none;
   touch-action: pan-y;
   overflow: hidden;
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform .24s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease, border-color .18s ease;
 }
 
 .card:active { transform: scale(.99); }
 .card.dragging { transition: none; }
+.card.settling { transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease, border-color .18s ease; }
 .card.known-glow {
   border-color: color-mix(in srgb, var(--good), var(--line) 20%);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--good), transparent 45%), 0 12px 35px rgba(0,0,0,.18);
@@ -159,7 +163,7 @@ h1 { font-size: 26px; margin: 0 0 8px; }
   font-size: clamp(24px, 7vw, 42px);
   font-weight: 800;
   pointer-events: none;
-  transition: opacity .08s ease;
+  transition: opacity .14s ease;
 }
 .swipe-left { right: 22px; color: #991b1b; background: #fee2e2; transform: translateY(-50%) rotate(8deg); }
 .swipe-right { left: 22px; color: #166534; background: #dcfce7; transform: translateY(-50%) rotate(-8deg); }
