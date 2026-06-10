@@ -129,7 +129,9 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 
 .card-inner { position: relative; z-index: 2; width: 100%; }
 .ru { font-size: 42px; font-weight: 800; line-height: 1.12; overflow-wrap: anywhere; }
-.jp { margin-top: 22px; font-size: 52px; font-weight: 800; line-height: 1.15; display: none; overflow-wrap: anywhere; }
+.jp { margin-top: 22px; font-size: 52px; font-weight: 800; line-height: 1.15; display: none; overflow-wrap: anywhere; white-space: pre-line; }
+.kanji-card .ru { font-size: 72px; }
+.kanji-card .jp { font-size: 24px; line-height: 1.35; font-weight: 750; }
 .romaji {
   display: none;
   margin-top: 8px;
@@ -198,7 +200,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 
 .modes, .lessons, .mode-grid, #dictionaryList {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
   margin-top: 18px;
 }
@@ -334,6 +336,41 @@ th { color: var(--muted); font-size: 13px; }
   color: var(--muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.kanji-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.kanji-row {
+  min-height: 118px;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.kanji-row b {
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.kanji-row span {
+  color: var(--text);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.kanji-row small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .settings-dialog {

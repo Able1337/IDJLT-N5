@@ -1,15 +1,17 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
+const KANJI_SESSION_PREFIX = "idjlt.kanji.";
 
 const DICTIONARIES = window.IDJLT_DICTIONARIES || [];
+const KANJI_DATA = window.IDJLT_KANJI || { singles: [], words: [] };
 
 const I18N = {
   ru: {
     themeDark: "Тёмная", themeLight: "Светлая", themeOled: "OLED",
     homeTitle: "Тренажёр японского", homeSub: "Выбери режим.",
-    wordsMode: "Слова", kanaMode: "Кана", wordsTitle: "Слова", kanaTitle: "Кана",
-    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана",
+    wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи",
+    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана", kanjiModeSub: "Знаки и сочетания",
     wordsSub: "Словари, несколько словарей сразу, карточки и свайпы.",
     kanaSub: "Хирагана, катакана, дакутен и ёон по тем же правилам.",
     backHome: "← на главную", backWords: "← к словам", open: "Открыть", cards: "карточек",
@@ -27,13 +29,15 @@ const I18N = {
     native: "Русский", jp: "日本語", kana: "Кана", reading: "Чтение",
     script: "Азбука", hiragana: "Хирагана", katakana: "Катакана", bothMix: "Обе, микс", bothTogether: "Обе вместе",
     order: "Порядок", random: "Случайный", sequential: "По порядку", dakuten: "Дакутен", yoon: "Ёон",
-    reverseKana: "Обратный квиз", rows: "Ряды"
+    reverseKana: "Обратный квиз", rows: "Ряды",
+    kanjiSub: "Карточки для знаков и слов из кандзи.",
+    kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова"
   },
   en: {
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
     homeTitle: "Japanese trainer", homeSub: "Choose a mode.",
-    wordsMode: "Words", kanaMode: "Kana", wordsTitle: "Words", kanaTitle: "Kana",
-    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana",
+    wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji",
+    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana", kanjiModeSub: "Characters and compounds",
     wordsSub: "Dictionaries, multi-dictionary pools, cards, and swipes.",
     kanaSub: "Hiragana, katakana, dakuten, and yoon with the same flow.",
     backHome: "← home", backWords: "← words", open: "Open", cards: "cards",
@@ -51,7 +55,9 @@ const I18N = {
     native: "English", jp: "日本語", kana: "Kana", reading: "Reading",
     script: "Script", hiragana: "Hiragana", katakana: "Katakana", bothMix: "Both, mixed", bothTogether: "Both together",
     order: "Order", random: "Random", sequential: "Sequential", dakuten: "Dakuten", yoon: "Yoon",
-    reverseKana: "Reverse quiz", rows: "Rows"
+    reverseKana: "Reverse quiz", rows: "Rows",
+    kanjiSub: "Cards for kanji characters and kanji words.",
+    kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only"
   }
 };
 
@@ -108,10 +114,11 @@ function loadSettings() {
     return {
       theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
+      kanji: { mode: "mixed" },
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] } };
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed" } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -139,7 +146,7 @@ function applyGlobal() {
 
 function bindGlobal() {
   $("themeSelect")?.addEventListener("change", e => { settings.theme = e.target.value; saveSettings(); applyGlobal(); });
-  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); renderTable(currentKind); renderMode(); });
+  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); if (currentKind === "kanji") renderKanjiTitle(); renderTable(currentKind); renderMode(); });
 }
 
 function renderDictionaryList() {
@@ -210,6 +217,20 @@ function startKana() {
   renderMode();
 }
 
+function startKanji() {
+  currentKind = "kanji";
+  ensureTrainerMarkup("kanji");
+  cards = buildKanjiCards();
+  const key = KANJI_SESSION_PREFIX + settings.kanji.mode;
+  session = loadSession(key, cards);
+  if (session.current === null && !session.done) nextCard();
+  bindTrainer("kanji");
+  renderKanjiTitle();
+  renderKanjiSettings();
+  renderTable("kanji");
+  renderMode();
+}
+
 function ensureTrainerMarkup(kind) {
   const mount = document.querySelector("[data-trainer]");
   if (!mount || mount.dataset.ready) return;
@@ -234,12 +255,13 @@ function ensureTrainerMarkup(kind) {
     <section class="done" id="done"><h2 data-i18n="roundDone">${t("roundDone")}</h2><p id="doneText"></p><div class="actions"><button class="primary" id="repeatUnknownBtn" data-i18n="repeatUnknown">${t("repeatUnknown")}</button><button class="restart" id="fullRestartBtn" data-i18n="restartAll">${t("restartAll")}</button></div></section>
     <details class="bottom-panel" open><summary data-i18n="stacks">${t("stacks")}</summary><div class="stacks"><div class="stack"><h3 data-i18n="known">${t("known")}</h3><div class="items" id="knownList"></div></div><div class="stack"><h3 data-i18n="unknown">${t("unknown")}</h3><div class="items" id="unknownList"></div></div></div></details>
     <details class="bottom-panel"><summary data-i18n="table">${t("table")}</summary><div class="table-wrap" id="wordTable"></div></details>
-    <details class="bottom-panel"><summary data-i18n="settings">${t("settings")}</summary><div class="mode-settings" id="${kind === "kana" ? "kanaSettings" : "wordSettings"}"></div></details>
+    <details class="bottom-panel"><summary data-i18n="settings">${t("settings")}</summary><div class="mode-settings" id="${kind === "kana" ? "kanaSettings" : kind === "kanji" ? "kanjiSettings" : "wordSettings"}"></div></details>
   `;
-  const settingsBox = kind === "kana" ? $("kanaSettings") : $("wordSettings");
-  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : wordSettingsHtml();
+  const settingsBox = kind === "kana" ? $("kanaSettings") : kind === "kanji" ? $("kanjiSettings") : $("wordSettings");
+  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : kind === "kanji" ? kanjiSettingsHtml() : wordSettingsHtml();
   applyGlobal();
   if (kind === "kana") bindKanaSettings();
+  if (kind === "kanji") bindKanjiSettings();
 }
 
 function kanaSettingsHtml() {
@@ -254,6 +276,12 @@ function kanaSettingsHtml() {
 function wordSettingsHtml() {
   return `
     <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
+    <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
+  `;
+}
+function kanjiSettingsHtml() {
+  return `
+    <label><span data-i18n="kanjiSet">${t("kanjiSet")}</span><select id="kanjiMode"><option value="mixed" data-i18n="kanjiMixed">${t("kanjiMixed")}</option><option value="single" data-i18n="kanjiSingles">${t("kanjiSingles")}</option><option value="words" data-i18n="kanjiWords">${t("kanjiWords")}</option></select></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
 }
@@ -369,8 +397,20 @@ function renderWordTitle(ids) {
   else title.textContent = t("customTitle");
   $("lessonSub").textContent = ids.length === 1 ? `${cards.length} ${t("cards")}` : `${ids.length} · ${cards.length} ${t("cards")}`;
 }
-function frontText(card) { return card.type === "kana" ? (settings.kana.reverse ? card.r : card.front) : nativeText(card); }
-function answerText(card) { return card.type === "kana" ? (settings.kana.reverse ? card.front : card.r) : card.jp; }
+function renderKanjiTitle() {
+  if ($("lessonTitle")) $("lessonTitle").textContent = t("kanjiTitle");
+  if ($("lessonSub")) $("lessonSub").textContent = `${t("kanjiSub")} ${cards.length} ${t("cards")}`;
+}
+function frontText(card) {
+  if (card.type === "kana") return settings.kana.reverse ? card.r : card.front;
+  if (card.type === "kanji-single" || card.type === "kanji-word") return card.front;
+  return nativeText(card);
+}
+function answerText(card) {
+  if (card.type === "kana") return settings.kana.reverse ? card.front : card.r;
+  if (card.type === "kanji-single" || card.type === "kanji-word") return card.answer;
+  return card.jp;
+}
 function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
 
 function renderMode() {
@@ -378,6 +418,7 @@ function renderMode() {
   current = session.current === null ? null : cardById(session.current);
   $("game").style.display = session.done ? "none" : "block";
   $("done").style.display = session.done ? "block" : "none";
+  $("card")?.classList.toggle("kanji-card", currentKind === "kanji");
   $("left").textContent = session.pool.length + (current ? 1 : 0);
   $("knownCount").textContent = session.known.length;
   $("unknownCount").textContent = session.unknown.length;
@@ -410,6 +451,8 @@ function renderTable(kind) {
   if (!wrap) return;
   if (kind === "kana") {
     wrap.innerHTML = kanaTableHtml();
+  } else if (kind === "kanji") {
+    wrap.innerHTML = kanjiTableHtml();
   } else {
     wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
   }
@@ -445,6 +488,52 @@ function kanaTableHtml() {
   `).join("")}</div>`;
 }
 
+function buildKanjiCards() {
+  const singleCards = KANJI_DATA.singles.map(item => ({
+    id: item.id,
+    type: "kanji-single",
+    front: item.kanji,
+    answer: kanjiSingleAnswer(item),
+    tableReading: item.readings.slice(0, 4).join(" / "),
+    tableMeaning: item.meaning
+  }));
+  const wordCards = KANJI_DATA.words.map(item => ({
+    id: item.id,
+    type: "kanji-word",
+    front: item.term,
+    answer: [item.reading, nativeKanjiText(item)].filter(Boolean).join("\n"),
+    tableReading: item.reading,
+    tableMeaning: nativeKanjiText(item)
+  }));
+  if (settings.kanji.mode === "single") return singleCards;
+  if (settings.kanji.mode === "words") return wordCards;
+  return [...singleCards, ...wordCards];
+}
+
+function nativeKanjiText(item) {
+  return settings.lang === "en" ? item.en || item.ru : item.ru;
+}
+
+function kanjiSingleAnswer(item) {
+  const lines = [];
+  if (item.meaning) lines.push(item.meaning);
+  if (item.readings?.length) lines.push(item.readings.slice(0, 6).join(" / "));
+  if (item.examples?.length) {
+    lines.push(item.examples.slice(0, 3).map(ex => `${ex.term} ${ex.reading ? "· " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
+  }
+  return lines.join("\n");
+}
+
+function kanjiTableHtml() {
+  return `<div class="kanji-table">${cards.map(card => `
+    <div class="kanji-row">
+      <b>${card.front}</b>
+      <span>${card.tableReading || ""}</span>
+      <small>${card.tableMeaning || ""}</small>
+    </div>
+  `).join("")}</div>`;
+}
+
 function buildKanaCards() {
   const list = kanaRowsForStudy().flatMap(row => row.cells.map(([r,h,k]) => ({ row: row.id, r, h, k })));
   return list.map((x, i) => ({
@@ -452,6 +541,23 @@ function buildKanaCards() {
     type: "kana", r: x.r,
     front: kanaDisplay(x.h, x.k, i)
   }));
+}
+
+function renderKanjiSettings() {
+  if ($("kanjiMode")) $("kanjiMode").value = settings.kanji.mode;
+}
+
+let kanjiSettingsBound = false;
+function bindKanjiSettings() {
+  if (kanjiSettingsBound) return;
+  kanjiSettingsBound = true;
+  $("kanjiSettings")?.addEventListener("change", e => {
+    if (e.target.id === "kanjiMode") {
+      settings.kanji.mode = e.target.value;
+      saveSettings();
+      startKanji();
+    }
+  });
 }
 function renderKanaSettings() {
   const rows = $("kanaRows");
@@ -507,4 +613,7 @@ if (mode === "custom") {
 }
 if (mode === "kana") {
   startKana();
+}
+if (mode === "kanji") {
+  startKanji();
 }
