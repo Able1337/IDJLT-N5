@@ -9,6 +9,7 @@ const I18N = {
     themeDark: "Тёмная", themeLight: "Светлая", themeOled: "OLED",
     homeTitle: "Тренажёр японского", homeSub: "Выбери режим.",
     wordsMode: "Слова", kanaMode: "Кана", wordsTitle: "Слова", kanaTitle: "Кана",
+    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана",
     wordsSub: "Словари, несколько словарей сразу, карточки и свайпы.",
     kanaSub: "Хирагана, катакана, дакутен и ёон по тем же правилам.",
     backHome: "← на главную", backWords: "← к словам", open: "Открыть", cards: "карточек",
@@ -19,6 +20,7 @@ const I18N = {
     repeatUnknown: "Повторить «не знаю»", restartAll: "Начать всё заново",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
+    showRomaji: "Показывать ромаджи",
     tapHint: "тыкни, чтобы показать ответ", swipeHint: "свайп вправо — знаю, влево — не знаю",
     chooseHint: "выбери стопку", noItems: "пусто", doneAll: "Все карточки отмечены как известные. Отлично!",
     doneSome: "Неизвестных карточек: {n}. Их можно вернуть в пул и повторить.",
@@ -31,6 +33,7 @@ const I18N = {
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
     homeTitle: "Japanese trainer", homeSub: "Choose a mode.",
     wordsMode: "Words", kanaMode: "Kana", wordsTitle: "Words", kanaTitle: "Kana",
+    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana",
     wordsSub: "Dictionaries, multi-dictionary pools, cards, and swipes.",
     kanaSub: "Hiragana, katakana, dakuten, and yoon with the same flow.",
     backHome: "← home", backWords: "← words", open: "Open", cards: "cards",
@@ -41,6 +44,7 @@ const I18N = {
     repeatUnknown: "Repeat unknown", restartAll: "Start over",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
+    showRomaji: "Show romaji",
     tapHint: "tap to reveal the answer", swipeHint: "swipe right for known, left for unknown",
     chooseHint: "choose a stack", noItems: "empty", doneAll: "All cards are marked as known. Nice!",
     doneSome: "Unknown cards: {n}. Return them to the pool and repeat.",
@@ -102,12 +106,12 @@ const t = key => I18N[settings.lang]?.[key] || I18N.ru[key] || key;
 function loadSettings() {
   try {
     return {
-      theme: "dark", lang: "ru", showButtons: false,
+      theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] } };
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -130,6 +134,7 @@ function applyGlobal() {
   document.querySelectorAll("[data-i18n]").forEach(node => { node.textContent = t(node.dataset.i18n); });
   if ($("answerButtons")) $("answerButtons").hidden = !settings.showButtons;
   if ($("showButtonsSetting")) $("showButtonsSetting").checked = settings.showButtons;
+  if ($("showRomajiSetting")) $("showRomajiSetting").checked = settings.showRomaji;
 }
 
 function bindGlobal() {
@@ -222,7 +227,7 @@ function ensureTrainerMarkup(kind) {
       <article class="card" id="card" tabindex="0">
         <div class="swipe-label swipe-left" data-i18n="unknown">${t("unknown")}</div>
         <div class="swipe-label swipe-right" data-i18n="known">${t("known")}</div>
-        <div class="card-inner"><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="hint" id="hint"></div></div>
+        <div class="card-inner"><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="romaji" id="romaji"></div><div class="hint" id="hint"></div></div>
       </article>
       <div class="buttons" id="answerButtons"><button class="dont" id="dontBtn" data-i18n="unknown">${t("unknown")}</button><button class="know" id="knowBtn" data-i18n="known">${t("known")}</button></div>
     </section>
@@ -232,7 +237,7 @@ function ensureTrainerMarkup(kind) {
     <details class="bottom-panel"><summary data-i18n="settings">${t("settings")}</summary><div class="mode-settings" id="${kind === "kana" ? "kanaSettings" : "wordSettings"}"></div></details>
   `;
   const settingsBox = kind === "kana" ? $("kanaSettings") : $("wordSettings");
-  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : `<label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>`;
+  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : wordSettingsHtml();
   applyGlobal();
   if (kind === "kana") bindKanaSettings();
 }
@@ -245,6 +250,12 @@ function kanaSettingsHtml() {
     <label class="check"><input type="checkbox" id="kanaYoon"> <span data-i18n="yoon">${t("yoon")}</span></label>
     <label class="check"><input type="checkbox" id="kanaReverse"> <span data-i18n="reverseKana">${t("reverseKana")}</span></label>
     <div><span class="settings-label" data-i18n="rows">${t("rows")}</span><div class="row-picks" id="kanaRows"></div></div>
+    <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
+  `;
+}
+function wordSettingsHtml() {
+  return `
+    <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
 }
@@ -316,6 +327,7 @@ function bindTrainer(kind) {
   $("fullRestartBtn")?.addEventListener("click", restartAll);
   $("repeatUnknownBtn")?.addEventListener("click", repeatUnknown);
   $("showButtonsSetting")?.addEventListener("change", e => { settings.showButtons = e.target.checked; saveSettings(); applyGlobal(); });
+  $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); });
 }
 function onPointerDown(e) {
   if (!current) return;
@@ -376,6 +388,8 @@ function renderMode() {
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
     $("jp").style.display = shown ? "block" : "none";
+    $("romaji").textContent = currentKind === "word" && current.romaji ? current.romaji : "";
+    $("romaji").style.display = shown && currentKind === "word" && settings.showRomaji && current.romaji ? "block" : "none";
     $("hint").textContent = shown ? (settings.showButtons ? t("chooseHint") : t("swipeHint")) : t("tapHint");
   }
   $("knowBtn").disabled = false;

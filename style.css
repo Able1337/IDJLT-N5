@@ -130,6 +130,15 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 .card-inner { position: relative; z-index: 2; width: 100%; }
 .ru { font-size: 42px; font-weight: 800; line-height: 1.12; overflow-wrap: anywhere; }
 .jp { margin-top: 22px; font-size: 52px; font-weight: 800; line-height: 1.15; display: none; overflow-wrap: anywhere; }
+.romaji {
+  display: none;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
 .hint { margin-top: 18px; color: var(--muted); }
 
 .swipe-label {
@@ -187,11 +196,27 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   color: var(--text);
 }
 
-.modes, .lessons {
+.modes, .lessons, .mode-grid, #dictionaryList {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin-top: 18px;
+}
+
+.mode-grid .mode-card {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+}
+
+.mode-card span {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.mode-card small {
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .mode-card, .lesson {
@@ -338,6 +363,7 @@ th { color: var(--muted); font-size: 13px; }
   .lesson-head .btn { padding: 10px 11px; }
   .ru { font-size: 32px; }
   .jp { font-size: 40px; }
+  .romaji { font-size: 18px; }
   .card { min-height: 230px; }
-  .buttons, .stacks, .lessons, .modes { grid-template-columns: 1fr; }
+  .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList { grid-template-columns: 1fr; }
 }
