@@ -1,4 +1,7 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
+const APP_VERSION = "0.7.0";
+const APP_RELEASE_DATE = "2026-06-13";
+const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
 const KANJI_SESSION_PREFIX = "idjlt.kanji.";
@@ -26,6 +29,9 @@ const I18N = {
     installApp: "Установить приложение", installHelp: "Добавь сайт на главный экран, чтобы открывать его как приложение.",
     installIosHelp: "На iPhone: нажми «Поделиться» и выбери «На экран Домой».",
     installedApp: "Приложение уже установлено",
+    aboutApp: "О приложении", appVersion: "Версия", releaseDate: "Дата выпуска",
+    sourceCode: "Репозиторий GitHub", close: "Закрыть",
+    appDescription: "Тренажёр японского языка уровня N5 со словами, каной, кандзи и фразами.",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
@@ -59,6 +65,9 @@ const I18N = {
     installApp: "Install app", installHelp: "Add this site to your home screen to open it like an app.",
     installIosHelp: "On iPhone: tap Share and choose Add to Home Screen.",
     installedApp: "App is already installed",
+    aboutApp: "About", appVersion: "Version", releaseDate: "Release date",
+    sourceCode: "GitHub repository", close: "Close",
+    appDescription: "A Japanese N5 trainer for words, kana, kanji, and phrases.",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
@@ -163,6 +172,7 @@ function applyGlobal() {
   if ($("showButtonsSetting")) $("showButtonsSetting").checked = settings.showButtons;
   if ($("showRomajiSetting")) $("showRomajiSetting").checked = settings.showRomaji;
   updatePwaInstallUi();
+  updateAppInfoUi();
 }
 
 function bindGlobal() {
@@ -213,6 +223,48 @@ function setupPwaInstall() {
     updatePwaInstallUi();
   });
   updatePwaInstallUi();
+}
+function updateAppInfoUi() {
+  const btn = $("appInfoBtn");
+  if (btn) {
+    btn.title = t("aboutApp");
+    btn.setAttribute("aria-label", t("aboutApp"));
+  }
+  const close = $("appInfoClose");
+  if (close) close.setAttribute("aria-label", t("close"));
+}
+function setupAppInfo() {
+  const toolbar = document.querySelector(".toolbar");
+  if (!toolbar || $("appInfoBtn")) return;
+  const btn = document.createElement("button");
+  btn.id = "appInfoBtn";
+  btn.className = "info-btn";
+  btn.type = "button";
+  btn.textContent = "i";
+  toolbar.appendChild(btn);
+
+  const dialog = document.createElement("dialog");
+  dialog.id = "appInfoDialog";
+  dialog.className = "settings-dialog app-info-dialog";
+  dialog.innerHTML = `
+    <div class="dialog-head">
+      <h2 data-i18n="aboutApp">${t("aboutApp")}</h2>
+      <button class="info-close" id="appInfoClose" type="button">×</button>
+    </div>
+    <p data-i18n="appDescription">${t("appDescription")}</p>
+    <dl class="version-list">
+      <div><dt data-i18n="appVersion">${t("appVersion")}</dt><dd>v${APP_VERSION}</dd></div>
+      <div><dt data-i18n="releaseDate">${t("releaseDate")}</dt><dd>${APP_RELEASE_DATE}</dd></div>
+    </dl>
+    <a class="btn secondary wide app-repo-link" href="${APP_REPOSITORY}" target="_blank" rel="noopener" data-i18n="sourceCode">${t("sourceCode")}</a>
+  `;
+  document.body.appendChild(dialog);
+  btn.addEventListener("click", () => dialog.showModal());
+  $("appInfoClose").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", e => {
+    if (e.target === dialog) dialog.close();
+  });
+  updateAppInfoUi();
 }
 
 function renderDictionaryList() {
@@ -810,6 +862,7 @@ function bindKanaSettings() {
 }
 
 bindGlobal();
+setupAppInfo();
 applyGlobal();
 setupPwaInstall();
 renderDictionaryList();
