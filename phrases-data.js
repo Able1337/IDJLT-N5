@@ -32,14 +32,14 @@ window.IDJLT_PHRASES = [
     ru: "Вы занимались японским по телевизору?\n— Нет, по радио.",
     en: "Did you study Japanese using television?\n— No, using the radio.",
     jp: "テレビで 日本語を べんきょうしましたか。\n— いいえ、ラジオで べんきょうしました。",
-    romaji: "Terebi de nihongo o benkyou shimashita ka.\n— Iie, rajio de benkyou shimashita."
+    romaji: "Terebi de nihongo o benkyou shimashita ka.\n— iie, rajio de benkyou shimashita."
   },
   {
     id: "lesson7-phrase-6",
     ru: "Вы пишете доклад по-японски?\n— Нет, по-английски.",
     en: "Will you write the report in Japanese?\n— No, in English.",
     jp: "日本語で レポートを 書きますか。\n— いいえ、えいごで 書きます。",
-    romaji: "Nihongo de repooto o kakimasu ka.\n— Iie, eigo de kakimasu."
+    romaji: "Nihongo de repooto o kakimasu ka.\n— iie, eigo de kakimasu."
   },
   {
     id: "lesson7-phrase-7",
@@ -74,6 +74,6 @@ window.IDJLT_PHRASES = [
     ru: "Вы уже пообедали?\n— Нет ещё. Сейчас собираюсь поесть.",
     en: "Have you had lunch yet?\n— Not yet. I am going to eat now.",
     jp: "もう ひるごはんを たべましたか。\n— いいえ、まだです。これから たべます。",
-    romaji: "Mou hirugohan o tabemashita ka.\n— Iie, mada desu. Kore kara tabemasu."
+    romaji: "Mou hirugohan o tabemashita ka.\n— iie, mada desu. Kore kara tabemasu."
   }
 ];
