@@ -142,6 +142,17 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 .jp { margin-top: 22px; font-size: 52px; font-weight: 800; line-height: 1.15; display: none; overflow-wrap: anywhere; white-space: pre-line; }
 .kanji-card .ru { font-size: 72px; }
 .kanji-card .jp { font-size: 24px; line-height: 1.35; font-weight: 750; }
+.phrase-card .ru {
+  font-size: clamp(24px, 4.5vw, 38px);
+  line-height: 1.3;
+  white-space: pre-line;
+}
+.phrase-card .jp {
+  margin-top: 18px;
+  font-size: clamp(24px, 4.8vw, 40px);
+  line-height: 1.45;
+  white-space: pre-line;
+}
 .romaji {
   display: none;
   margin-top: 8px;
@@ -245,6 +256,11 @@ body.card-focus .kanji-card .ru {
 
 body.card-focus .kanji-card .jp {
   font-size: clamp(20px, 4.8vw, 36px);
+}
+
+body.card-focus .phrase-card .ru,
+body.card-focus .phrase-card .jp {
+  font-size: clamp(24px, 5vw, 52px);
 }
 
 button, .btn, select {

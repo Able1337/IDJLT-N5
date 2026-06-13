@@ -1,11 +1,13 @@
-const CACHE_NAME = "idjlt-n5-v2";
+const CACHE_NAME = "idjlt-n5-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css?v=20",
-  "./app.js?v=20",
-  "./data.js?v=20",
-  "./kanji-data.js?v=20",
+  "./style.css?v=21",
+  "./app.js?v=21",
+  "./data.js?v=21",
+  "./kanji-data.js?v=21",
+  "./phrases.html",
+  "./phrases-data.js?v=21",
   "./manifest.webmanifest",
   "./app-icon.svg",
   "./app-icon-192.png",
@@ -26,6 +28,16 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+        return response;
+      }).catch(() => caches.match(event.request).then(cached => cached || caches.match("./index.html")))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
       const copy = response.clone();

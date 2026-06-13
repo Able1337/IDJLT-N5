@@ -2,16 +2,18 @@ const SETTINGS_KEY = "idjlt.settings.v3";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
 const KANJI_SESSION_PREFIX = "idjlt.kanji.";
+const PHRASE_SESSION_PREFIX = "idjlt.phrases.";
 
 const DICTIONARIES = window.IDJLT_DICTIONARIES || [];
 const KANJI_DATA = window.IDJLT_KANJI || { singles: [], words: [] };
+const PHRASES_DATA = window.IDJLT_PHRASES || [];
 
 const I18N = {
   ru: {
     themeDark: "Тёмная", themeLight: "Светлая", themeOled: "OLED",
     homeTitle: "Тренажёр японского", homeSub: "Выбери режим.",
-    wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи",
-    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана", kanjiModeSub: "Знаки и сочетания",
+    wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", phrasesMode: "Фразы", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи", phrasesTitle: "Фразы",
+    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана", kanjiModeSub: "Знаки и сочетания", phrasesModeSub: "Предложения и диалоги",
     wordsSub: "Словари, несколько словарей сразу, карточки и свайпы.",
     kanaSub: "Хирагана, катакана, дакутен и ёон по тем же правилам.",
     backHome: "← на главную", backWords: "← к словам", open: "Открыть", cards: "карточек",
@@ -36,13 +38,15 @@ const I18N = {
     reverseKana: "Обратный квиз", rows: "Ряды",
     kanjiSub: "Карточки для знаков и слов из кандзи.",
     kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова"
-    , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры"
+    , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
+    phrasesSub: "Предложения и диалоги из урока 7.", direction: "Направление",
+    ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
   en: {
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
     homeTitle: "Japanese trainer", homeSub: "Choose a mode.",
-    wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji",
-    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana", kanjiModeSub: "Characters and compounds",
+    wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", phrasesMode: "Phrases", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji", phrasesTitle: "Phrases",
+    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana", kanjiModeSub: "Characters and compounds", phrasesModeSub: "Sentences and dialogues",
     wordsSub: "Dictionaries, multi-dictionary pools, cards, and swipes.",
     kanaSub: "Hiragana, katakana, dakuten, and yoon with the same flow.",
     backHome: "← home", backWords: "← words", open: "Open", cards: "cards",
@@ -67,7 +71,9 @@ const I18N = {
     reverseKana: "Reverse quiz", rows: "Rows",
     kanjiSub: "Cards for kanji characters and kanji words.",
     kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only"
-    , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples"
+    , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
+    phrasesSub: "Sentences and dialogues from lesson 7.", direction: "Direction",
+    ruToJp: "English → Japanese", jpToRu: "Japanese → English"
   }
 };
 
@@ -106,6 +112,7 @@ const YOON = [
 ].map(([r, h, k]) => ({ row: "yoon", r, h, k }));
 
 let settings = loadSettings();
+settings.phrases ||= { direction: "native-jp" };
 let session = null;
 let cards = [];
 let current = null;
@@ -127,10 +134,11 @@ function loadSettings() {
       theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
       kanji: { mode: "mixed" },
+      phrases: { direction: "native-jp" },
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed" } };
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed" }, phrases: { direction: "native-jp" } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -159,7 +167,7 @@ function applyGlobal() {
 
 function bindGlobal() {
   $("themeSelect")?.addEventListener("change", e => { settings.theme = e.target.value; saveSettings(); applyGlobal(); });
-  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); if (currentKind === "kanji") renderKanjiTitle(); renderTable(currentKind); renderMode(); });
+  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); if (currentKind === "kanji") renderKanjiTitle(); if (currentKind === "phrase") renderPhraseTitle(); renderTable(currentKind); renderMode(); });
 }
 function isStandaloneApp() {
   return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
@@ -289,6 +297,20 @@ function startKanji() {
   renderMode();
 }
 
+function startPhrases() {
+  currentKind = "phrase";
+  ensureTrainerMarkup("phrase");
+  cards = PHRASES_DATA.map(item => ({ ...item, type: "phrase" }));
+  const key = PHRASE_SESSION_PREFIX + settings.phrases.direction;
+  session = loadSession(key, cards);
+  if (session.current === null && !session.done) nextCard();
+  bindTrainer("phrase");
+  renderPhraseTitle();
+  renderPhraseSettings();
+  renderTable("phrase");
+  renderMode();
+}
+
 function ensureTrainerMarkup(kind) {
   const mount = document.querySelector("[data-trainer]");
   if (!mount || mount.dataset.ready) return;
@@ -315,13 +337,14 @@ function ensureTrainerMarkup(kind) {
     <section class="done" id="done"><h2 data-i18n="roundDone">${t("roundDone")}</h2><p id="doneText"></p><div class="actions"><button class="primary" id="repeatUnknownBtn" data-i18n="repeatUnknown">${t("repeatUnknown")}</button><button class="restart" id="fullRestartBtn" data-i18n="restartAll">${t("restartAll")}</button></div></section>
     <details class="bottom-panel" open><summary data-i18n="stacks">${t("stacks")}</summary><div class="stacks"><div class="stack"><h3 data-i18n="known">${t("known")}</h3><div class="items" id="knownList"></div></div><div class="stack"><h3 data-i18n="unknown">${t("unknown")}</h3><div class="items" id="unknownList"></div></div></div></details>
     <details class="bottom-panel"><summary data-i18n="table">${t("table")}</summary><div class="table-wrap" id="wordTable"></div></details>
-    <details class="bottom-panel"><summary data-i18n="settings">${t("settings")}</summary><div class="mode-settings" id="${kind === "kana" ? "kanaSettings" : kind === "kanji" ? "kanjiSettings" : "wordSettings"}"></div></details>
+    <details class="bottom-panel"><summary data-i18n="settings">${t("settings")}</summary><div class="mode-settings" id="${kind === "kana" ? "kanaSettings" : kind === "kanji" ? "kanjiSettings" : kind === "phrase" ? "phraseSettings" : "wordSettings"}"></div></details>
   `;
-  const settingsBox = kind === "kana" ? $("kanaSettings") : kind === "kanji" ? $("kanjiSettings") : $("wordSettings");
-  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : kind === "kanji" ? kanjiSettingsHtml() : wordSettingsHtml();
+  const settingsBox = kind === "kana" ? $("kanaSettings") : kind === "kanji" ? $("kanjiSettings") : kind === "phrase" ? $("phraseSettings") : $("wordSettings");
+  settingsBox.innerHTML = kind === "kana" ? kanaSettingsHtml() : kind === "kanji" ? kanjiSettingsHtml() : kind === "phrase" ? phraseSettingsHtml() : wordSettingsHtml();
   applyGlobal();
   if (kind === "kana") bindKanaSettings();
   if (kind === "kanji") bindKanjiSettings();
+  if (kind === "phrase") bindPhraseSettings();
 }
 
 function kanaSettingsHtml() {
@@ -342,6 +365,13 @@ function wordSettingsHtml() {
 function kanjiSettingsHtml() {
   return `
     <label><span data-i18n="kanjiSet">${t("kanjiSet")}</span><select id="kanjiMode"><option value="mixed" data-i18n="kanjiMixed">${t("kanjiMixed")}</option><option value="single" data-i18n="kanjiSingles">${t("kanjiSingles")}</option><option value="words" data-i18n="kanjiWords">${t("kanjiWords")}</option></select></label>
+    <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
+    <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
+  `;
+}
+function phraseSettingsHtml() {
+  return `
+    <label><span data-i18n="direction">${t("direction")}</span><select id="phraseDirection"><option value="native-jp" data-i18n="ruToJp">${t("ruToJp")}</option><option value="jp-native" data-i18n="jpToRu">${t("jpToRu")}</option></select></label>
     <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
@@ -518,14 +548,20 @@ function renderKanjiTitle() {
   if ($("lessonTitle")) $("lessonTitle").textContent = t("kanjiTitle");
   if ($("lessonSub")) $("lessonSub").textContent = `${t("kanjiSub")} ${cards.length} ${t("cards")}`;
 }
+function renderPhraseTitle() {
+  if ($("lessonTitle")) $("lessonTitle").textContent = t("phrasesTitle");
+  if ($("lessonSub")) $("lessonSub").textContent = `${t("phrasesSub")} ${cards.length} ${t("cards")}`;
+}
 function frontText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.r : card.front;
   if (card.type === "kanji-single" || card.type === "kanji-word") return card.front;
+  if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? card.jp : nativeText(card);
   return nativeText(card);
 }
 function answerText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.front : card.r;
   if (card.type === "kanji-single" || card.type === "kanji-word") return card.answer;
+  if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? nativeText(card) : card.jp;
   return card.jp;
 }
 function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
@@ -537,6 +573,7 @@ function renderMode() {
   $("game").style.display = session.done ? "none" : "block";
   $("done").style.display = session.done ? "block" : "none";
   $("card")?.classList.toggle("kanji-card", currentKind === "kanji");
+  $("card")?.classList.toggle("phrase-card", currentKind === "phrase");
   $("left").textContent = session.pool.length + (current ? 1 : 0);
   $("knownCount").textContent = session.known.length;
   $("unknownCount").textContent = session.unknown.length;
@@ -545,8 +582,8 @@ function renderMode() {
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
     $("jp").style.display = shown ? "block" : "none";
-    $("romaji").textContent = (currentKind === "word" || currentKind === "kanji") && current.romaji ? current.romaji : "";
-    $("romaji").style.display = shown && (currentKind === "word" || currentKind === "kanji") && settings.showRomaji && current.romaji ? "block" : "none";
+    $("romaji").textContent = (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && current.romaji ? current.romaji : "";
+    $("romaji").style.display = shown && (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && settings.showRomaji && current.romaji ? "block" : "none";
     $("hint").textContent = shown ? (settings.showButtons ? t("chooseHint") : t("swipeHint")) : t("tapHint");
   }
   $("knowBtn").disabled = false;
@@ -724,6 +761,22 @@ function bindKanjiSettings() {
     }
   });
 }
+function renderPhraseSettings() {
+  if ($("phraseDirection")) $("phraseDirection").value = settings.phrases.direction;
+}
+
+let phraseSettingsBound = false;
+function bindPhraseSettings() {
+  if (phraseSettingsBound) return;
+  phraseSettingsBound = true;
+  $("phraseSettings")?.addEventListener("change", e => {
+    if (e.target.id === "phraseDirection") {
+      settings.phrases.direction = e.target.value;
+      saveSettings();
+      startPhrases();
+    }
+  });
+}
 function renderKanaSettings() {
   const rows = $("kanaRows");
   if (!rows) return;
@@ -782,4 +835,7 @@ if (mode === "kana") {
 }
 if (mode === "kanji") {
   startKanji();
+}
+if (mode === "phrases") {
+  startPhrases();
 }
