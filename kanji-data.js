@@ -1445,7 +1445,7 @@ window.IDJLT_KANJI = {
     {
       "id": "kanji-single-35",
       "kanji": "校",
-      "meaning": "школа",
+      "meaning": "учебное учреждение (в составе слов)",
       "readings": [
         "がっこう"
       ],
@@ -1454,7 +1454,7 @@ window.IDJLT_KANJI = {
           "term": "学校",
           "reading": "がっこう",
           "ru": "школа",
-          "en": "школа"
+          "en": "school"
         }
       ],
       "kun": [],
@@ -2188,7 +2188,7 @@ window.IDJLT_KANJI = {
       "term": "学校",
       "reading": "がっこう",
       "ru": "школа",
-      "en": "школа",
+      "en": "school",
       "page": 12
     },
     {
