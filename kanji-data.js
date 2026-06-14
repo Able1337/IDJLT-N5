@@ -966,11 +966,23 @@ window.IDJLT_KANJI = {
     {
       "id": "kanji-single-20",
       "kanji": "本",
-      "meaning": "Япония; основа; книга",
+      "meaning": "книга; основа; происхождение",
       "readings": [
         "にほんじん"
       ],
       "examples": [
+        {
+          "term": "本",
+          "reading": "ほん",
+          "ru": "книга",
+          "en": "book"
+        },
+        {
+          "term": "日本",
+          "reading": "にほん",
+          "ru": "Япония",
+          "en": "Japan"
+        },
         {
           "term": "日本人",
           "reading": "にほんじん",
