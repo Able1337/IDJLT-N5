@@ -160,6 +160,18 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 }
 
 .card-inner { position: relative; z-index: 2; width: 100%; }
+.card-kind {
+  display: none;
+  width: fit-content;
+  margin: 0 auto 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--panel);
+  font-size: 13px;
+  font-weight: 800;
+}
 .ru { font-size: 42px; font-weight: 800; line-height: 1.12; overflow-wrap: anywhere; }
 .jp { margin-top: 22px; font-size: 52px; font-weight: 800; line-height: 1.15; display: none; overflow-wrap: anywhere; white-space: pre-line; }
 .kanji-card .ru { font-size: 72px; }
@@ -510,6 +522,16 @@ th { color: var(--muted); font-size: 13px; }
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
   margin-top: 12px;
+}
+
+.kanji-table-sections {
+  display: grid;
+  gap: 20px;
+}
+
+.kanji-table-section > h3 {
+  margin: 12px 0 0;
+  font-size: 18px;
 }
 
 .kanji-row {

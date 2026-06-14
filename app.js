@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.9.3";
+const APP_VERSION = "0.10.0";
 const APP_RELEASE_DATE = "2026-06-14";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -43,7 +43,7 @@ const I18N = {
     order: "Порядок", random: "Случайный", sequential: "По порядку", dakuten: "Дакутен", yoon: "Ёон",
     reverseKana: "Обратный квиз", rows: "Ряды",
     kanjiSub: "Карточки для знаков и слов из кандзи.",
-    kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи"
+    kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи", cardKanji: "Кандзи", cardWord: "Слово"
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
     phrasesSub: "Предложения и диалоги из урока 7.", direction: "Направление",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
@@ -79,7 +79,7 @@ const I18N = {
     order: "Order", random: "Random", sequential: "Sequential", dakuten: "Dakuten", yoon: "Yoon",
     reverseKana: "Reverse quiz", rows: "Rows",
     kanjiSub: "Cards for kanji characters and kanji words.",
-    kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji"
+    kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji", cardKanji: "Kanji", cardWord: "Word"
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
     phrasesSub: "Sentences and dialogues from lesson 7.", direction: "Direction",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
@@ -450,7 +450,7 @@ function ensureTrainerMarkup(kind) {
       <article class="card" id="card" tabindex="0">
         <div class="swipe-label swipe-left" data-i18n="unknown">${t("unknown")}</div>
         <div class="swipe-label swipe-right" data-i18n="known">${t("known")}</div>
-        <div class="card-inner"><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="romaji" id="romaji"></div><div class="kanji-examples" id="kanjiExamples"></div><div class="hint" id="hint"></div></div>
+        <div class="card-inner"><div class="card-kind" id="cardKind"></div><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="romaji" id="romaji"></div><div class="kanji-examples" id="kanjiExamples"></div><div class="hint" id="hint"></div></div>
       </article>
       <div class="buttons" id="answerButtons"><button class="dont" id="dontBtn" data-i18n="unknown">${t("unknown")}</button><button class="know" id="knowBtn" data-i18n="known">${t("known")}</button></div>
     </section>
@@ -685,14 +685,15 @@ function frontText(card) {
   if (card.type === "kanji-single" || card.type === "kanji-word") {
     if (!settings.kanji.reverse) return card.front;
     if (card.type === "kanji-word") return settings.lang === "en" ? card.reverseFrontEn : card.reverseFrontRu;
-    return card.reverseFront;
+    return nativeKanjiMeaning(card.sourceItem);
   }
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? card.jp : nativeText(card);
   return nativeText(card);
 }
 function answerText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.front : card.r;
-  if (card.type === "kanji-single" || card.type === "kanji-word") return settings.kanji.reverse ? card.reverseAnswer : card.answer;
+  if (card.type === "kanji-single") return settings.kanji.reverse ? card.reverseAnswer : kanjiSingleAnswer(card.sourceItem);
+  if (card.type === "kanji-word") return settings.kanji.reverse ? card.reverseAnswer : [card.sourceItem.reading, nativeKanjiText(card.sourceItem)].filter(Boolean).join("\n");
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? nativeText(card) : card.jp;
   return card.jp;
 }
@@ -718,6 +719,9 @@ function renderMode() {
   $("unknownCount").textContent = session.unknown.length;
   $("round").textContent = session.round;
   if (current) {
+    const isSingleKanji = current.type === "kanji-single";
+    $("cardKind").textContent = currentKind === "kanji" ? t(isSingleKanji ? "cardKanji" : "cardWord") : "";
+    $("cardKind").style.display = currentKind === "kanji" ? "inline-flex" : "none";
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
     $("jp").style.display = shown ? "block" : "none";
@@ -791,14 +795,14 @@ function buildKanjiCards() {
   const singleCards = KANJI_DATA.singles.map(item => ({
     id: item.id,
     type: "kanji-single",
+    sourceItem: item,
     front: item.kanji,
     answer: kanjiSingleAnswer(item),
-    reverseFront: item.meaning,
     reverseAnswer: [item.kanji, kanjiShortReadings(item)].filter(Boolean).join("\n"),
     romaji: kanjiReadingRomaji(item),
     examples: item.examples || [],
     tableReading: kanjiShortReadings(item),
-    tableMeaning: item.meaning
+    tableMeaning: nativeKanjiMeaning(item)
   }));
   const wordCards = KANJI_DATA.words.map(item => {
     const characters = [...item.term].filter(character => kanjiCharacters.has(character));
@@ -808,6 +812,7 @@ function buildKanjiCards() {
     return {
     id: item.id,
     type: "kanji-word",
+    sourceItem: item,
     front: item.term,
     answer: [item.reading, nativeKanjiText(item)].filter(Boolean).join("\n"),
     reverseFrontRu: item.ru,
@@ -828,11 +833,15 @@ function nativeKanjiText(item) {
   return settings.lang === "en" ? item.en || item.ru : item.ru;
 }
 
+function nativeKanjiMeaning(item) {
+  return settings.lang === "en" ? item.meaningEn || item.meaning : item.meaning;
+}
+
 function kanjiSingleAnswer(item) {
   const lines = [];
   lines.push(`он: ${item.on?.length ? item.on.join(" / ") : "—"}`);
   lines.push(`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
-  if (item.meaning) lines.push(item.meaning);
+  if (item.meaning) lines.push(nativeKanjiMeaning(item));
   return lines.join("\n");
 }
 
@@ -880,13 +889,23 @@ function kanjiReadingRomaji(item) {
 }
 
 function kanjiTableHtml() {
-  return `<div class="kanji-table">${cards.map(card => `
+  const rowHtml = card => {
+    const meaning = card.type === "kanji-single" ? nativeKanjiMeaning(card.sourceItem) : nativeKanjiText(card.sourceItem);
+    return `
     <div class="kanji-row">
       <b>${card.front}</b>
       <span>${card.tableReading || ""}</span>
-      <small>${card.tableMeaning || ""}</small>
-    </div>
-  `).join("")}</div>`;
+      <small>${meaning || ""}</small>
+    </div>`;
+  };
+  const sections = [
+    { type: "kanji-single", title: t("cardKanji") },
+    { type: "kanji-word", title: t("cardWord") }
+  ].map(section => {
+    const sectionCards = cards.filter(card => card.type === section.type);
+    return sectionCards.length ? `<section class="kanji-table-section"><h3>${section.title}</h3><div class="kanji-table">${sectionCards.map(rowHtml).join("")}</div></section>` : "";
+  }).join("");
+  return `<div class="kanji-table-sections">${sections}</div>`;
 }
 
 function buildKanaCards() {

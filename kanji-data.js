@@ -17,25 +17,25 @@ window.IDJLT_KANJI = {
           "term": "一つ",
           "reading": "ひとつ",
           "ru": "один",
-          "en": "один"
+          "en": "one"
         },
         {
           "term": "一人",
           "reading": "ひとり",
           "ru": "один человек",
-          "en": "один человек"
+          "en": "one person"
         },
         {
           "term": "一月",
           "reading": "いちがつ",
           "ru": "январь",
-          "en": "январь"
+          "en": "January"
         },
         {
           "term": "一年",
           "reading": "いちねん",
           "ru": "один год",
-          "en": "один год"
+          "en": "one year"
         },
         {
           "term": "一万円",
@@ -51,7 +51,8 @@ window.IDJLT_KANJI = {
       "on": [
         "イチ",
         "イツ"
-      ]
+      ],
+      "meaningEn": "one"
     },
     {
       "id": "kanji-single-1",
@@ -76,31 +77,31 @@ window.IDJLT_KANJI = {
           "term": "一人",
           "reading": "ひとり",
           "ru": "один человек",
-          "en": "один человек"
+          "en": "one person"
         },
         {
           "term": "二人",
           "reading": "ふたり",
           "ru": "два человека",
-          "en": "два человека"
+          "en": "two people"
         },
         {
           "term": "三人",
           "reading": "さんにん",
-          "ru": "три человек",
-          "en": "три человек"
+          "ru": "три человека",
+          "en": "three people"
         },
         {
           "term": "四人",
           "reading": "よにん",
           "ru": "четыре человека",
-          "en": "четыре человека"
+          "en": "four people"
         },
         {
           "term": "五人",
           "reading": "ごにん",
           "ru": "пять человек",
-          "en": "пять человек"
+          "en": "five people"
         }
       ],
       "kun": [
@@ -109,7 +110,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ジン",
         "ニン"
-      ]
+      ],
+      "meaningEn": "person"
     },
     {
       "id": "kanji-single-2",
@@ -134,31 +136,31 @@ window.IDJLT_KANJI = {
           "term": "一月",
           "reading": "いちがつ",
           "ru": "январь",
-          "en": "январь"
+          "en": "January"
         },
         {
           "term": "二月",
           "reading": "にがつ",
           "ru": "февраль",
-          "en": "февраль"
+          "en": "February"
         },
         {
           "term": "三月",
           "reading": "さんがつ",
           "ru": "март",
-          "en": "март"
+          "en": "March"
         },
         {
           "term": "四月",
           "reading": "しがつ",
           "ru": "апрель",
-          "en": "апрель"
+          "en": "April"
         },
         {
           "term": "五月",
           "reading": "ごがつ",
           "ru": "Май",
-          "en": "Май"
+          "en": "May"
         }
       ],
       "kun": [
@@ -167,7 +169,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ゲツ",
         "ガツ"
-      ]
+      ],
+      "meaningEn": "month; moon"
     },
     {
       "id": "kanji-single-3",
@@ -193,31 +196,31 @@ window.IDJLT_KANJI = {
           "term": "一年",
           "reading": "いちねん",
           "ru": "один год",
-          "en": "один год"
+          "en": "one year"
         },
         {
           "term": "二年",
           "reading": "にねん",
           "ru": "два года",
-          "en": "два года"
+          "en": "two years"
         },
         {
           "term": "三年",
           "reading": "さんねん",
           "ru": "три года",
-          "en": "три года"
+          "en": "three years"
         },
         {
           "term": "四年",
           "reading": "よねん",
           "ru": "четыре года",
-          "en": "четыре года"
+          "en": "four years"
         },
         {
           "term": "五年",
           "reading": "ごねん",
           "ru": "пять лет",
-          "en": "пять лет"
+          "en": "five years"
         }
       ],
       "kun": [
@@ -225,7 +228,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ネン"
-      ]
+      ],
+      "meaningEn": "year"
     },
     {
       "id": "kanji-single-4",
@@ -243,25 +247,25 @@ window.IDJLT_KANJI = {
           "term": "二つ",
           "reading": "ふたつ",
           "ru": "два",
-          "en": "два"
+          "en": "two"
         },
         {
           "term": "二人",
           "reading": "ふたり",
           "ru": "два человека",
-          "en": "два человека"
+          "en": "two people"
         },
         {
           "term": "二月",
           "reading": "にがつ",
           "ru": "февраль",
-          "en": "февраль"
+          "en": "February"
         },
         {
           "term": "二年",
           "reading": "にねん",
           "ru": "два года",
-          "en": "два года"
+          "en": "two years"
         },
         {
           "term": "二百",
@@ -276,7 +280,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ニ"
-      ]
+      ],
+      "meaningEn": "two"
     },
     {
       "id": "kanji-single-5",
@@ -295,25 +300,25 @@ window.IDJLT_KANJI = {
           "term": "三つ",
           "reading": "みっつ",
           "ru": "три",
-          "en": "три"
+          "en": "three"
         },
         {
           "term": "三人",
           "reading": "さんにん",
-          "ru": "три человек",
-          "en": "три человек"
+          "ru": "три человека",
+          "en": "three people"
         },
         {
           "term": "三月",
           "reading": "さんがつ",
           "ru": "март",
-          "en": "март"
+          "en": "March"
         },
         {
           "term": "三年",
           "reading": "さんねん",
           "ru": "три года",
-          "en": "три года"
+          "en": "three years"
         },
         {
           "term": "三百",
@@ -328,7 +333,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "サン"
-      ]
+      ],
+      "meaningEn": "three"
     },
     {
       "id": "kanji-single-6",
@@ -346,31 +352,31 @@ window.IDJLT_KANJI = {
           "term": "四つ",
           "reading": "よっつ",
           "ru": "четыре",
-          "en": "четыре"
+          "en": "four"
         },
         {
           "term": "四人",
           "reading": "よにん",
           "ru": "четыре человека",
-          "en": "четыре человека"
+          "en": "four people"
         },
         {
           "term": "四月",
           "reading": "しがつ",
           "ru": "апрель",
-          "en": "апрель"
+          "en": "April"
         },
         {
           "term": "四年",
           "reading": "よねん",
           "ru": "четыре года",
-          "en": "четыре года"
+          "en": "four years"
         },
         {
-          "term": "四じ",
+          "term": "四時",
           "reading": "よじ",
           "ru": "четыре часа",
-          "en": "четыре часа"
+          "en": "four o'clock"
         }
       ],
       "kun": [
@@ -380,7 +386,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "シ"
-      ]
+      ],
+      "meaningEn": "four"
     },
     {
       "id": "kanji-single-7",
@@ -398,31 +405,31 @@ window.IDJLT_KANJI = {
           "term": "五つ",
           "reading": "いつつ",
           "ru": "пять",
-          "en": "пять"
+          "en": "five"
         },
         {
           "term": "五人",
           "reading": "ごにん",
           "ru": "пять человек",
-          "en": "пять человек"
+          "en": "five people"
         },
         {
           "term": "五月",
           "reading": "ごがつ",
           "ru": "Май",
-          "en": "Май"
+          "en": "May"
         },
         {
           "term": "五年",
           "reading": "ごねん",
           "ru": "пять лет",
-          "en": "пять лет"
+          "en": "five years"
         },
         {
           "term": "五百円",
           "reading": "ごひゃくえん",
           "ru": "500 иен",
-          "en": "500 иен"
+          "en": "500 yen"
         }
       ],
       "kun": [
@@ -431,7 +438,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ゴ"
-      ]
+      ],
+      "meaningEn": "five"
     },
     {
       "id": "kanji-single-8",
@@ -449,25 +457,25 @@ window.IDJLT_KANJI = {
           "term": "六つ",
           "reading": "むっつ",
           "ru": "шесть",
-          "en": "шесть"
+          "en": "six"
         },
         {
           "term": "六人",
           "reading": "ろくにん",
           "ru": "шесть человек",
-          "en": "шесть человек"
+          "en": "six people"
         },
         {
           "term": "六月",
           "reading": "ろくがつ",
           "ru": "Июнь",
-          "en": "Июнь"
+          "en": "June"
         },
         {
           "term": "六年",
           "reading": "ろくねん",
           "ru": "шесть лет",
-          "en": "шесть лет"
+          "en": "six years"
         },
         {
           "term": "六百",
@@ -482,7 +490,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ロク"
-      ]
+      ],
+      "meaningEn": "six"
     },
     {
       "id": "kanji-single-9",
@@ -501,31 +510,31 @@ window.IDJLT_KANJI = {
           "term": "七つ",
           "reading": "ななつ",
           "ru": "семь",
-          "en": "семь"
+          "en": "seven"
         },
         {
           "term": "七人",
           "reading": "ななにん",
           "ru": "семь человек",
-          "en": "семь человек"
+          "en": "seven people"
         },
         {
           "term": "七月",
           "reading": "しちがつ",
           "ru": "Июль",
-          "en": "Июль"
+          "en": "July"
         },
         {
           "term": "七年",
           "reading": "ななねん",
           "ru": "семь лет",
-          "en": "семь лет"
+          "en": "seven years"
         },
         {
-          "term": "七じ",
+          "term": "七時",
           "reading": "しちじ",
           "ru": "семь часов",
-          "en": "семь часов"
+          "en": "seven o'clock"
         }
       ],
       "kun": [
@@ -534,7 +543,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "シチ"
-      ]
+      ],
+      "meaningEn": "seven"
     },
     {
       "id": "kanji-single-10",
@@ -553,25 +563,25 @@ window.IDJLT_KANJI = {
           "term": "八つ",
           "reading": "やっつ",
           "ru": "восемь",
-          "en": "восемь"
+          "en": "eight"
         },
         {
           "term": "八人",
           "reading": "はちにん",
           "ru": "восемь человек",
-          "en": "восемь человек"
+          "en": "eight people"
         },
         {
           "term": "八月",
           "reading": "はちがつ",
           "ru": "Август",
-          "en": "Август"
+          "en": "August"
         },
         {
           "term": "八年",
           "reading": "はちねん",
           "ru": "восемь лет",
-          "en": "восемь лет"
+          "en": "eight years"
         },
         {
           "term": "八百",
@@ -586,7 +596,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ハチ"
-      ]
+      ],
+      "meaningEn": "eight"
     },
     {
       "id": "kanji-single-11",
@@ -605,31 +616,31 @@ window.IDJLT_KANJI = {
           "term": "九つ",
           "reading": "ここのつ",
           "ru": "девять",
-          "en": "девять"
+          "en": "nine"
         },
         {
           "term": "九人",
           "reading": "きゅうにん",
           "ru": "девять человек",
-          "en": "девять человек"
+          "en": "nine people"
         },
         {
           "term": "九月",
           "reading": "くがつ",
           "ru": "Сентябрь",
-          "en": "Сентябрь"
+          "en": "September"
         },
         {
           "term": "九年",
           "reading": "きゅうねん",
           "ru": "девять лет",
-          "en": "девять лет"
+          "en": "nine years"
         },
         {
-          "term": "九じ",
+          "term": "九時",
           "reading": "くじ",
           "ru": "девять часов",
-          "en": "девять часов"
+          "en": "nine o'clock"
         }
       ],
       "kun": [
@@ -639,7 +650,8 @@ window.IDJLT_KANJI = {
       "on": [
         "キュウ",
         "ク"
-      ]
+      ],
+      "meaningEn": "nine"
     },
     {
       "id": "kanji-single-12",
@@ -656,25 +668,25 @@ window.IDJLT_KANJI = {
           "term": "十",
           "reading": "とお",
           "ru": "десять",
-          "en": "десять"
+          "en": "ten"
         },
         {
           "term": "十人",
           "reading": "じゅうにん",
           "ru": "десять человек",
-          "en": "десять человек"
+          "en": "ten people"
         },
         {
           "term": "十月",
           "reading": "じゅうがつ",
           "ru": "Октябрь",
-          "en": "Октябрь"
+          "en": "October"
         },
         {
           "term": "十年",
           "reading": "じゅうねん",
           "ru": "десять лет",
-          "en": "десять лет"
+          "en": "ten years"
         }
       ],
       "kun": [
@@ -684,7 +696,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ジュウ",
         "ジッ"
-      ]
+      ],
+      "meaningEn": "ten"
     },
     {
       "id": "kanji-single-13",
@@ -727,13 +740,14 @@ window.IDJLT_KANJI = {
           "term": "百円",
           "reading": "ひゃくえん",
           "ru": "100 иен",
-          "en": "100 иен"
+          "en": "100 yen"
         }
       ],
       "kun": [],
       "on": [
         "ヒャク"
-      ]
+      ],
+      "meaningEn": "hundred"
     },
     {
       "id": "kanji-single-14",
@@ -751,31 +765,31 @@ window.IDJLT_KANJI = {
           "term": "三千",
           "reading": "さんぜん",
           "ru": "3000",
-          "en": "3000"
+          "en": "3,000"
         },
         {
           "term": "八千",
           "reading": "はっせん",
           "ru": "8000",
-          "en": "8000"
+          "en": "8,000"
         },
         {
           "term": "千円",
           "reading": "せんえん",
-          "ru": "1000 иен",
-          "en": "1000 иен"
+          "ru": "1 000 иен",
+          "en": "1,000 yen"
         },
         {
           "term": "七千円",
           "reading": "ななせんえん",
-          "ru": "7000 иен",
-          "en": "7000 иен"
+          "ru": "7 000 иен",
+          "en": "7,000 yen"
         },
         {
           "term": "九千円",
           "reading": "きゅうせんえん",
-          "ru": "9000 иен",
-          "en": "9000 иен"
+          "ru": "9 000 иен",
+          "en": "9,000 yen"
         }
       ],
       "kun": [
@@ -783,7 +797,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "セン"
-      ]
+      ],
+      "meaningEn": "thousand"
     },
     {
       "id": "kanji-single-15",
@@ -801,14 +816,14 @@ window.IDJLT_KANJI = {
         {
           "term": "千円",
           "reading": "せんえん",
-          "ru": "1000 иен",
-          "en": "1000 иен"
+          "ru": "1 000 иен",
+          "en": "1,000 yen"
         },
         {
           "term": "七千円",
           "reading": "ななせんえん",
-          "ru": "7000 иен",
-          "en": "7000 иен"
+          "ru": "7 000 иен",
+          "en": "7,000 yen"
         },
         {
           "term": "一万円",
@@ -820,13 +835,13 @@ window.IDJLT_KANJI = {
           "term": "百円",
           "reading": "ひゃくえん",
           "ru": "100 иен",
-          "en": "100 иен"
+          "en": "100 yen"
         },
         {
           "term": "五百円",
           "reading": "ごひゃくえん",
           "ru": "500 иен",
-          "en": "500 иен"
+          "en": "500 yen"
         }
       ],
       "kun": [
@@ -834,7 +849,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "エン"
-      ]
+      ],
+      "meaningEn": "yen; circle"
     },
     {
       "id": "kanji-single-16",
@@ -854,15 +870,16 @@ window.IDJLT_KANJI = {
         {
           "term": "万国",
           "reading": "ばんこく",
-          "ru": "Все страны",
-          "en": "Все страны"
+          "ru": "все страны",
+          "en": "all countries"
         }
       ],
       "kun": [],
       "on": [
         "マン",
         "バン"
-      ]
+      ],
+      "meaningEn": "ten thousand"
     },
     {
       "id": "kanji-single-17",
@@ -875,8 +892,8 @@ window.IDJLT_KANJI = {
         {
           "term": "万国",
           "reading": "ばんこく",
-          "ru": "Все страны",
-          "en": "Все страны"
+          "ru": "все страны",
+          "en": "all countries"
         }
       ],
       "kun": [
@@ -884,7 +901,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "コク"
-      ]
+      ],
+      "meaningEn": "country"
     },
     {
       "id": "kanji-single-18",
@@ -898,7 +916,7 @@ window.IDJLT_KANJI = {
           "term": "今年",
           "reading": "ことし",
           "ru": "этот год",
-          "en": "этот год"
+          "en": "this year"
         }
       ],
       "kun": [
@@ -907,7 +925,8 @@ window.IDJLT_KANJI = {
       "on": [
         "コン",
         "キン"
-      ]
+      ],
+      "meaningEn": "now"
     },
     {
       "id": "kanji-single-19",
@@ -927,31 +946,31 @@ window.IDJLT_KANJI = {
           "term": "日本人",
           "reading": "にほんじん",
           "ru": "японец",
-          "en": "японец"
+          "en": "Japanese person"
         },
         {
-          "term": "月よう日",
+          "term": "月曜日",
           "reading": "げつようび",
           "ru": "Понедельник",
-          "en": "Понедельник"
+          "en": "Monday"
         },
         {
-          "term": "木よう日",
+          "term": "木曜日",
           "reading": "もくようび",
           "ru": "Четверг",
-          "en": "Четверг"
+          "en": "Thursday"
         },
         {
-          "term": "水よう日",
+          "term": "水曜日",
           "reading": "すいようび",
           "ru": "Среда",
-          "en": "Среда"
+          "en": "Wednesday"
         },
         {
-          "term": "金よう日",
+          "term": "金曜日",
           "reading": "きんようび",
           "ru": "Пятница",
-          "en": "Пятница"
+          "en": "Friday"
         }
       ],
       "kun": [
@@ -961,7 +980,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ニチ",
         "ジツ"
-      ]
+      ],
+      "meaningEn": "day; sun"
     },
     {
       "id": "kanji-single-20",
@@ -987,7 +1007,7 @@ window.IDJLT_KANJI = {
           "term": "日本人",
           "reading": "にほんじん",
           "ru": "японец",
-          "en": "японец"
+          "en": "Japanese person"
         }
       ],
       "kun": [
@@ -995,7 +1015,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ホン"
-      ]
+      ],
+      "meaningEn": "book; origin; basis"
     },
     {
       "id": "kanji-single-21",
@@ -1010,13 +1031,13 @@ window.IDJLT_KANJI = {
           "term": "木",
           "reading": "き",
           "ru": "дерево",
-          "en": "дерево"
+          "en": "tree"
         },
         {
-          "term": "木よう日",
+          "term": "木曜日",
           "reading": "もくようび",
           "ru": "Четверг",
-          "en": "Четверг"
+          "en": "Thursday"
         }
       ],
       "kun": [
@@ -1026,7 +1047,8 @@ window.IDJLT_KANJI = {
       "on": [
         "モク",
         "ボク"
-      ]
+      ],
+      "meaningEn": "tree; wood"
     },
     {
       "id": "kanji-single-22",
@@ -1041,13 +1063,13 @@ window.IDJLT_KANJI = {
           "term": "水",
           "reading": "みず",
           "ru": "вода",
-          "en": "вода"
+          "en": "water"
         },
         {
-          "term": "水よう日",
+          "term": "水曜日",
           "reading": "すいようび",
           "ru": "Среда",
-          "en": "Среда"
+          "en": "Wednesday"
         }
       ],
       "kun": [
@@ -1055,7 +1077,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "スイ"
-      ]
+      ],
+      "meaningEn": "water"
     },
     {
       "id": "kanji-single-23",
@@ -1069,7 +1092,7 @@ window.IDJLT_KANJI = {
           "term": "川",
           "reading": "かわ",
           "ru": "река",
-          "en": "река"
+          "en": "river"
         }
       ],
       "kun": [
@@ -1077,7 +1100,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "セン"
-      ]
+      ],
+      "meaningEn": "river"
     },
     {
       "id": "kanji-single-24",
@@ -1093,19 +1117,19 @@ window.IDJLT_KANJI = {
           "term": "お金",
           "reading": "おかね",
           "ru": "деньги",
-          "en": "деньги"
+          "en": "money"
         },
         {
           "term": "金",
           "reading": "きん",
           "ru": "золото",
-          "en": "золото"
+          "en": "gold"
         },
         {
-          "term": "金よう日",
+          "term": "金曜日",
           "reading": "きんようび",
           "ru": "Пятница",
-          "en": "Пятница"
+          "en": "Friday"
         }
       ],
       "kun": [
@@ -1115,7 +1139,8 @@ window.IDJLT_KANJI = {
       "on": [
         "キン",
         "コン"
-      ]
+      ],
+      "meaningEn": "money; gold"
     },
     {
       "id": "kanji-single-25",
@@ -1131,19 +1156,19 @@ window.IDJLT_KANJI = {
           "term": "火",
           "reading": "ひ",
           "ru": "огонь",
-          "en": "огонь"
+          "en": "fire"
         },
         {
           "term": "火山",
           "reading": "かざん",
           "ru": "вулкан",
-          "en": "вулкан"
+          "en": "volcano"
         },
         {
-          "term": "火よう日",
+          "term": "火曜日",
           "reading": "かようび",
           "ru": "Вторник",
-          "en": "Вторник"
+          "en": "Tuesday"
         }
       ],
       "kun": [
@@ -1152,7 +1177,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "カ"
-      ]
+      ],
+      "meaningEn": "fire"
     },
     {
       "id": "kanji-single-26",
@@ -1168,19 +1194,19 @@ window.IDJLT_KANJI = {
           "term": "火山",
           "reading": "かざん",
           "ru": "вулкан",
-          "en": "вулкан"
+          "en": "volcano"
         },
         {
           "term": "山",
           "reading": "やま",
           "ru": "гора",
-          "en": "гора"
+          "en": "mountain"
         },
         {
           "term": "富士山",
           "reading": "ふじさん",
           "ru": "Гора Фудзи",
-          "en": "Гора Фудзи"
+          "en": "Mount Fuji"
         }
       ],
       "kun": [
@@ -1189,12 +1215,13 @@ window.IDJLT_KANJI = {
       "on": [
         "サン",
         "ザン"
-      ]
+      ],
+      "meaningEn": "mountain"
     },
     {
       "id": "kanji-single-27",
       "kanji": "富",
-      "meaning": "богатство",
+      "meaning": "богатство; изобилие",
       "readings": [
         "ふじさん"
       ],
@@ -1203,7 +1230,7 @@ window.IDJLT_KANJI = {
           "term": "富士山",
           "reading": "ふじさん",
           "ru": "Гора Фудзи",
-          "en": "Гора Фудзи"
+          "en": "Mount Fuji"
         }
       ],
       "kun": [
@@ -1212,12 +1239,13 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "フ"
-      ]
+      ],
+      "meaningEn": "wealth; abundance"
     },
     {
       "id": "kanji-single-28",
       "kanji": "士",
-      "meaning": "самурай; господин",
+      "meaning": "воин; специалист; человек определённого статуса",
       "readings": [
         "ふじさん"
       ],
@@ -1226,13 +1254,14 @@ window.IDJLT_KANJI = {
           "term": "富士山",
           "reading": "ふじさん",
           "ru": "Гора Фудзи",
-          "en": "Гора Фудзи"
+          "en": "Mount Fuji"
         }
       ],
       "kun": [],
       "on": [
         "シ"
-      ]
+      ],
+      "meaningEn": "warrior; professional; person of status"
     },
     {
       "id": "kanji-single-29",
@@ -1247,13 +1276,13 @@ window.IDJLT_KANJI = {
           "term": "土",
           "reading": "つち",
           "ru": "земля",
-          "en": "земля"
+          "en": "earth; soil"
         },
         {
-          "term": "土よう日",
+          "term": "土曜日",
           "reading": "どようび",
           "ru": "Суббота",
-          "en": "Суббота"
+          "en": "Saturday"
         }
       ],
       "kun": [
@@ -1262,7 +1291,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ド",
         "ト"
-      ]
+      ],
+      "meaningEn": "earth; soil"
     },
     {
       "id": "kanji-single-30",
@@ -1278,19 +1308,19 @@ window.IDJLT_KANJI = {
           "term": "先生",
           "reading": "せんせい",
           "ru": "учитель",
-          "en": "учитель"
+          "en": "teacher"
         },
         {
           "term": "お先にしつれいします。",
           "reading": "おさきにしつれいします",
-          "ru": "до свидания.",
-          "en": "до свидания."
+          "ru": "извините, я ухожу первым",
+          "en": "excuse me for leaving before you"
         },
         {
-          "term": "先しゅう",
+          "term": "先週",
           "reading": "せんしゅう",
-          "ru": "прошлой неделе",
-          "en": "прошлой неделе"
+          "ru": "прошлая неделя",
+          "en": "last week"
         }
       ],
       "kun": [
@@ -1298,7 +1328,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "セン"
-      ]
+      ],
+      "meaningEn": "ahead; previous; earlier"
     },
     {
       "id": "kanji-single-31",
@@ -1315,25 +1346,25 @@ window.IDJLT_KANJI = {
           "term": "先生",
           "reading": "せんせい",
           "ru": "учитель",
-          "en": "учитель"
+          "en": "teacher"
         },
         {
           "term": "学生",
           "reading": "がくせい",
           "ru": "студент",
-          "en": "студент"
+          "en": "student"
         },
         {
           "term": "生きます",
           "reading": "いきます",
           "ru": "жить",
-          "en": "жить"
+          "en": "to live"
         },
         {
           "term": "生まれます",
           "reading": "うまれます",
           "ru": "родиться",
-          "en": "родиться"
+          "en": "to be born"
         }
       ],
       "kun": [
@@ -1344,7 +1375,8 @@ window.IDJLT_KANJI = {
       "on": [
         "セイ",
         "ショウ"
-      ]
+      ],
+      "meaningEn": "life; birth"
     },
     {
       "id": "kanji-single-32",
@@ -1361,25 +1393,25 @@ window.IDJLT_KANJI = {
           "term": "学生",
           "reading": "がくせい",
           "ru": "студент",
-          "en": "студент"
+          "en": "student"
         },
         {
           "term": "大学",
           "reading": "だいがく",
           "ru": "университет",
-          "en": "университет"
+          "en": "university"
         },
         {
           "term": "学校",
           "reading": "がっこう",
           "ru": "школа",
-          "en": "школа"
+          "en": "school"
         },
         {
           "term": "学びます",
           "reading": "まなびます",
           "ru": "изучать",
-          "en": "изучать"
+          "en": "to study; learn"
         }
       ],
       "kun": [
@@ -1387,7 +1419,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "ガク"
-      ]
+      ],
+      "meaningEn": "study; learning"
     },
     {
       "id": "kanji-single-33",
@@ -1402,13 +1435,13 @@ window.IDJLT_KANJI = {
           "term": "父",
           "reading": "ちち",
           "ru": "отец",
-          "en": "отец"
+          "en": "father"
         },
         {
           "term": "お父さん",
           "reading": "おとうさん",
-          "ru": "чужой отец",
-          "en": "чужой отец"
+          "ru": "отец (вежливо: чужой или собеседника)",
+          "en": "father (polite)"
         }
       ],
       "kun": [
@@ -1416,7 +1449,8 @@ window.IDJLT_KANJI = {
       ],
       "on": [
         "フ"
-      ]
+      ],
+      "meaningEn": "father"
     },
     {
       "id": "kanji-single-34",
@@ -1430,7 +1464,7 @@ window.IDJLT_KANJI = {
           "term": "大学",
           "reading": "だいがく",
           "ru": "университет",
-          "en": "университет"
+          "en": "university"
         }
       ],
       "kun": [
@@ -1440,7 +1474,8 @@ window.IDJLT_KANJI = {
       "on": [
         "ダイ",
         "タイ"
-      ]
+      ],
+      "meaningEn": "big; large"
     },
     {
       "id": "kanji-single-35",
@@ -1460,7 +1495,8 @@ window.IDJLT_KANJI = {
       "kun": [],
       "on": [
         "コウ"
-      ]
+      ],
+      "meaningEn": "educational institution (used in compounds)"
     },
     {
       "id": "kanji-single-36",
@@ -1473,8 +1509,8 @@ window.IDJLT_KANJI = {
         {
           "term": "子ども",
           "reading": "こども",
-          "ru": "дети",
-          "en": "дети"
+          "ru": "ребёнок; дети",
+          "en": "child; children"
         }
       ],
       "kun": [
@@ -1483,7 +1519,60 @@ window.IDJLT_KANJI = {
       "on": [
         "シ",
         "ス"
-      ]
+      ],
+      "meaningEn": "child"
+    },
+    {
+      "id": "kanji-single-37",
+      "kanji": "私",
+      "meaning": "я; частный",
+      "readings": [
+        "わたし",
+        "わたくし"
+      ],
+      "examples": [
+        {
+          "term": "私",
+          "reading": "わたし",
+          "ru": "я",
+          "en": "I; me"
+        }
+      ],
+      "kun": [
+        "わたし",
+        "わたくし"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "I; private"
+    },
+    {
+      "id": "kanji-single-38",
+      "kanji": "行",
+      "meaning": "идти; движение; совершать",
+      "readings": [
+        "いきます"
+      ],
+      "examples": [
+        {
+          "term": "行きます",
+          "reading": "いきます",
+          "ru": "идти",
+          "en": "to go"
+        }
+      ],
+      "kun": [
+        "いく",
+        "ゆく",
+        "おこなう"
+      ],
+      "on": [
+        "コウ",
+        "ギョウ",
+        "アン"
+      ],
+      "meaningEn": "go; movement; carry out"
     }
   ],
   "words": [
@@ -1492,7 +1581,7 @@ window.IDJLT_KANJI = {
       "term": "一つ",
       "reading": "ひとつ",
       "ru": "один",
-      "en": "один",
+      "en": "one",
       "page": 1
     },
     {
@@ -1500,7 +1589,7 @@ window.IDJLT_KANJI = {
       "term": "一人",
       "reading": "ひとり",
       "ru": "один человек",
-      "en": "один человек",
+      "en": "one person",
       "page": 1
     },
     {
@@ -1508,7 +1597,7 @@ window.IDJLT_KANJI = {
       "term": "一月",
       "reading": "いちがつ",
       "ru": "январь",
-      "en": "январь",
+      "en": "January",
       "page": 1
     },
     {
@@ -1516,7 +1605,7 @@ window.IDJLT_KANJI = {
       "term": "一年",
       "reading": "いちねん",
       "ru": "один год",
-      "en": "один год",
+      "en": "one year",
       "page": 1
     },
     {
@@ -1524,7 +1613,7 @@ window.IDJLT_KANJI = {
       "term": "二つ",
       "reading": "ふたつ",
       "ru": "два",
-      "en": "два",
+      "en": "two",
       "page": 1
     },
     {
@@ -1532,7 +1621,7 @@ window.IDJLT_KANJI = {
       "term": "二人",
       "reading": "ふたり",
       "ru": "два человека",
-      "en": "два человека",
+      "en": "two people",
       "page": 1
     },
     {
@@ -1540,7 +1629,7 @@ window.IDJLT_KANJI = {
       "term": "二月",
       "reading": "にがつ",
       "ru": "февраль",
-      "en": "февраль",
+      "en": "February",
       "page": 1
     },
     {
@@ -1548,7 +1637,7 @@ window.IDJLT_KANJI = {
       "term": "二年",
       "reading": "にねん",
       "ru": "два года",
-      "en": "два года",
+      "en": "two years",
       "page": 1
     },
     {
@@ -1556,15 +1645,15 @@ window.IDJLT_KANJI = {
       "term": "三つ",
       "reading": "みっつ",
       "ru": "три",
-      "en": "три",
+      "en": "three",
       "page": 2
     },
     {
       "id": "kanji-word-9",
       "term": "三人",
       "reading": "さんにん",
-      "ru": "три человек",
-      "en": "три человек",
+      "ru": "три человека",
+      "en": "three people",
       "page": 2
     },
     {
@@ -1572,7 +1661,7 @@ window.IDJLT_KANJI = {
       "term": "三月",
       "reading": "さんがつ",
       "ru": "март",
-      "en": "март",
+      "en": "March",
       "page": 2
     },
     {
@@ -1580,7 +1669,7 @@ window.IDJLT_KANJI = {
       "term": "三年",
       "reading": "さんねん",
       "ru": "три года",
-      "en": "три года",
+      "en": "three years",
       "page": 2
     },
     {
@@ -1588,7 +1677,7 @@ window.IDJLT_KANJI = {
       "term": "四つ",
       "reading": "よっつ",
       "ru": "четыре",
-      "en": "четыре",
+      "en": "four",
       "page": 2
     },
     {
@@ -1596,7 +1685,7 @@ window.IDJLT_KANJI = {
       "term": "四人",
       "reading": "よにん",
       "ru": "четыре человека",
-      "en": "четыре человека",
+      "en": "four people",
       "page": 2
     },
     {
@@ -1604,7 +1693,7 @@ window.IDJLT_KANJI = {
       "term": "四月",
       "reading": "しがつ",
       "ru": "апрель",
-      "en": "апрель",
+      "en": "April",
       "page": 2
     },
     {
@@ -1612,15 +1701,15 @@ window.IDJLT_KANJI = {
       "term": "四年",
       "reading": "よねん",
       "ru": "четыре года",
-      "en": "четыре года",
+      "en": "four years",
       "page": 2
     },
     {
       "id": "kanji-word-16",
-      "term": "四じ",
+      "term": "四時",
       "reading": "よじ",
       "ru": "четыре часа",
-      "en": "четыре часа",
+      "en": "four o'clock",
       "page": 2
     },
     {
@@ -1628,7 +1717,7 @@ window.IDJLT_KANJI = {
       "term": "五つ",
       "reading": "いつつ",
       "ru": "пять",
-      "en": "пять",
+      "en": "five",
       "page": 3
     },
     {
@@ -1636,7 +1725,7 @@ window.IDJLT_KANJI = {
       "term": "五人",
       "reading": "ごにん",
       "ru": "пять человек",
-      "en": "пять человек",
+      "en": "five people",
       "page": 3
     },
     {
@@ -1644,7 +1733,7 @@ window.IDJLT_KANJI = {
       "term": "五月",
       "reading": "ごがつ",
       "ru": "Май",
-      "en": "Май",
+      "en": "May",
       "page": 3
     },
     {
@@ -1652,7 +1741,7 @@ window.IDJLT_KANJI = {
       "term": "五年",
       "reading": "ごねん",
       "ru": "пять лет",
-      "en": "пять лет",
+      "en": "five years",
       "page": 3
     },
     {
@@ -1660,7 +1749,7 @@ window.IDJLT_KANJI = {
       "term": "六つ",
       "reading": "むっつ",
       "ru": "шесть",
-      "en": "шесть",
+      "en": "six",
       "page": 3
     },
     {
@@ -1668,7 +1757,7 @@ window.IDJLT_KANJI = {
       "term": "六人",
       "reading": "ろくにん",
       "ru": "шесть человек",
-      "en": "шесть человек",
+      "en": "six people",
       "page": 3
     },
     {
@@ -1676,7 +1765,7 @@ window.IDJLT_KANJI = {
       "term": "六月",
       "reading": "ろくがつ",
       "ru": "Июнь",
-      "en": "Июнь",
+      "en": "June",
       "page": 3
     },
     {
@@ -1684,7 +1773,7 @@ window.IDJLT_KANJI = {
       "term": "六年",
       "reading": "ろくねん",
       "ru": "шесть лет",
-      "en": "шесть лет",
+      "en": "six years",
       "page": 3
     },
     {
@@ -1692,7 +1781,7 @@ window.IDJLT_KANJI = {
       "term": "七つ",
       "reading": "ななつ",
       "ru": "семь",
-      "en": "семь",
+      "en": "seven",
       "page": 4
     },
     {
@@ -1700,7 +1789,7 @@ window.IDJLT_KANJI = {
       "term": "七人",
       "reading": "ななにん",
       "ru": "семь человек",
-      "en": "семь человек",
+      "en": "seven people",
       "page": 4
     },
     {
@@ -1708,7 +1797,7 @@ window.IDJLT_KANJI = {
       "term": "七月",
       "reading": "しちがつ",
       "ru": "Июль",
-      "en": "Июль",
+      "en": "July",
       "page": 4
     },
     {
@@ -1716,15 +1805,15 @@ window.IDJLT_KANJI = {
       "term": "七年",
       "reading": "ななねん",
       "ru": "семь лет",
-      "en": "семь лет",
+      "en": "seven years",
       "page": 4
     },
     {
       "id": "kanji-word-29",
-      "term": "七じ",
+      "term": "七時",
       "reading": "しちじ",
       "ru": "семь часов",
-      "en": "семь часов",
+      "en": "seven o'clock",
       "page": 4
     },
     {
@@ -1732,7 +1821,7 @@ window.IDJLT_KANJI = {
       "term": "八つ",
       "reading": "やっつ",
       "ru": "восемь",
-      "en": "восемь",
+      "en": "eight",
       "page": 4
     },
     {
@@ -1740,7 +1829,7 @@ window.IDJLT_KANJI = {
       "term": "八人",
       "reading": "はちにん",
       "ru": "восемь человек",
-      "en": "восемь человек",
+      "en": "eight people",
       "page": 4
     },
     {
@@ -1748,7 +1837,7 @@ window.IDJLT_KANJI = {
       "term": "八月",
       "reading": "はちがつ",
       "ru": "Август",
-      "en": "Август",
+      "en": "August",
       "page": 4
     },
     {
@@ -1756,7 +1845,7 @@ window.IDJLT_KANJI = {
       "term": "八年",
       "reading": "はちねん",
       "ru": "восемь лет",
-      "en": "восемь лет",
+      "en": "eight years",
       "page": 4
     },
     {
@@ -1764,7 +1853,7 @@ window.IDJLT_KANJI = {
       "term": "九つ",
       "reading": "ここのつ",
       "ru": "девять",
-      "en": "девять",
+      "en": "nine",
       "page": 5
     },
     {
@@ -1772,7 +1861,7 @@ window.IDJLT_KANJI = {
       "term": "九人",
       "reading": "きゅうにん",
       "ru": "девять человек",
-      "en": "девять человек",
+      "en": "nine people",
       "page": 5
     },
     {
@@ -1780,7 +1869,7 @@ window.IDJLT_KANJI = {
       "term": "九月",
       "reading": "くがつ",
       "ru": "Сентябрь",
-      "en": "Сентябрь",
+      "en": "September",
       "page": 5
     },
     {
@@ -1788,15 +1877,15 @@ window.IDJLT_KANJI = {
       "term": "九年",
       "reading": "きゅうねん",
       "ru": "девять лет",
-      "en": "девять лет",
+      "en": "nine years",
       "page": 5
     },
     {
       "id": "kanji-word-38",
-      "term": "九じ",
+      "term": "九時",
       "reading": "くじ",
       "ru": "девять часов",
-      "en": "девять часов",
+      "en": "nine o'clock",
       "page": 5
     },
     {
@@ -1804,7 +1893,7 @@ window.IDJLT_KANJI = {
       "term": "十",
       "reading": "とお",
       "ru": "десять",
-      "en": "десять",
+      "en": "ten",
       "page": 5
     },
     {
@@ -1812,7 +1901,7 @@ window.IDJLT_KANJI = {
       "term": "十人",
       "reading": "じゅうにん",
       "ru": "десять человек",
-      "en": "десять человек",
+      "en": "ten people",
       "page": 5
     },
     {
@@ -1820,7 +1909,7 @@ window.IDJLT_KANJI = {
       "term": "十月",
       "reading": "じゅうがつ",
       "ru": "Октябрь",
-      "en": "Октябрь",
+      "en": "October",
       "page": 5
     },
     {
@@ -1828,7 +1917,7 @@ window.IDJLT_KANJI = {
       "term": "十年",
       "reading": "じゅうねん",
       "ru": "десять лет",
-      "en": "десять лет",
+      "en": "ten years",
       "page": 5
     },
     {
@@ -1868,7 +1957,7 @@ window.IDJLT_KANJI = {
       "term": "三千",
       "reading": "さんぜん",
       "ru": "3000",
-      "en": "3000",
+      "en": "3,000",
       "page": 6
     },
     {
@@ -1876,23 +1965,23 @@ window.IDJLT_KANJI = {
       "term": "八千",
       "reading": "はっせん",
       "ru": "8000",
-      "en": "8000",
+      "en": "8,000",
       "page": 6
     },
     {
       "id": "kanji-word-49",
       "term": "千円",
       "reading": "せんえん",
-      "ru": "1000 иен",
-      "en": "1000 иен",
+      "ru": "1 000 иен",
+      "en": "1,000 yen",
       "page": 6
     },
     {
       "id": "kanji-word-50",
       "term": "七千円",
       "reading": "ななせんえん",
-      "ru": "7000 иен",
-      "en": "7000 иен",
+      "ru": "7 000 иен",
+      "en": "7,000 yen",
       "page": 6
     },
     {
@@ -1907,8 +1996,8 @@ window.IDJLT_KANJI = {
       "id": "kanji-word-52",
       "term": "万国",
       "reading": "ばんこく",
-      "ru": "Все страны",
-      "en": "Все страны",
+      "ru": "все страны",
+      "en": "all countries",
       "page": 7
     },
     {
@@ -1916,7 +2005,7 @@ window.IDJLT_KANJI = {
       "term": "百円",
       "reading": "ひゃくえん",
       "ru": "100 иен",
-      "en": "100 иен",
+      "en": "100 yen",
       "page": 7
     },
     {
@@ -1924,15 +2013,15 @@ window.IDJLT_KANJI = {
       "term": "五百円",
       "reading": "ごひゃくえん",
       "ru": "500 иен",
-      "en": "500 иен",
+      "en": "500 yen",
       "page": 7
     },
     {
       "id": "kanji-word-55",
       "term": "九千円",
       "reading": "きゅうせんえん",
-      "ru": "9000 иен",
-      "en": "9000 иен",
+      "ru": "9 000 иен",
+      "en": "9,000 yen",
       "page": 7
     },
     {
@@ -1940,23 +2029,23 @@ window.IDJLT_KANJI = {
       "term": "今年",
       "reading": "ことし",
       "ru": "этот год",
-      "en": "этот год",
+      "en": "this year",
       "page": 7
     },
     {
       "id": "kanji-word-57",
-      "term": "きょ年",
+      "term": "去年",
       "reading": "きょねん",
       "ru": "прошлый год",
-      "en": "прошлый год",
+      "en": "last year",
       "page": 7
     },
     {
       "id": "kanji-word-58",
-      "term": "らい年",
+      "term": "来年",
       "reading": "らいねん",
       "ru": "следующий год",
-      "en": "следующий год",
+      "en": "next year",
       "page": 7
     },
     {
@@ -1964,7 +2053,7 @@ window.IDJLT_KANJI = {
       "term": "人",
       "reading": "ひと",
       "ru": "человек ;люди",
-      "en": "человек ;люди",
+      "en": "person; people",
       "page": 8
     },
     {
@@ -1972,7 +2061,7 @@ window.IDJLT_KANJI = {
       "term": "日本人",
       "reading": "にほんじん",
       "ru": "японец",
-      "en": "японец",
+      "en": "Japanese person",
       "page": 8
     },
     {
@@ -1980,15 +2069,15 @@ window.IDJLT_KANJI = {
       "term": "月",
       "reading": "つき",
       "ru": "луна",
-      "en": "луна",
+      "en": "moon",
       "page": 8
     },
     {
       "id": "kanji-word-62",
-      "term": "月よう日",
+      "term": "月曜日",
       "reading": "げつようび",
       "ru": "Понедельник",
-      "en": "Понедельник",
+      "en": "Monday",
       "page": 8
     },
     {
@@ -1996,15 +2085,15 @@ window.IDJLT_KANJI = {
       "term": "木",
       "reading": "き",
       "ru": "дерево",
-      "en": "дерево",
+      "en": "tree",
       "page": 8
     },
     {
       "id": "kanji-word-64",
-      "term": "木よう日",
+      "term": "木曜日",
       "reading": "もくようび",
       "ru": "Четверг",
-      "en": "Четверг",
+      "en": "Thursday",
       "page": 8
     },
     {
@@ -2012,15 +2101,15 @@ window.IDJLT_KANJI = {
       "term": "水",
       "reading": "みず",
       "ru": "вода",
-      "en": "вода",
+      "en": "water",
       "page": 9
     },
     {
       "id": "kanji-word-66",
-      "term": "水よう日",
+      "term": "水曜日",
       "reading": "すいようび",
       "ru": "Среда",
-      "en": "Среда",
+      "en": "Wednesday",
       "page": 9
     },
     {
@@ -2028,7 +2117,7 @@ window.IDJLT_KANJI = {
       "term": "川",
       "reading": "かわ",
       "ru": "река",
-      "en": "река",
+      "en": "river",
       "page": 9
     },
     {
@@ -2036,7 +2125,7 @@ window.IDJLT_KANJI = {
       "term": "お金",
       "reading": "おかね",
       "ru": "деньги",
-      "en": "деньги",
+      "en": "money",
       "page": 9
     },
     {
@@ -2044,15 +2133,15 @@ window.IDJLT_KANJI = {
       "term": "金",
       "reading": "きん",
       "ru": "золото",
-      "en": "золото",
+      "en": "gold",
       "page": 9
     },
     {
       "id": "kanji-word-70",
-      "term": "金よう日",
+      "term": "金曜日",
       "reading": "きんようび",
       "ru": "Пятница",
-      "en": "Пятница",
+      "en": "Friday",
       "page": 9
     },
     {
@@ -2060,7 +2149,7 @@ window.IDJLT_KANJI = {
       "term": "火",
       "reading": "ひ",
       "ru": "огонь",
-      "en": "огонь",
+      "en": "fire",
       "page": 10
     },
     {
@@ -2068,15 +2157,15 @@ window.IDJLT_KANJI = {
       "term": "火山",
       "reading": "かざん",
       "ru": "вулкан",
-      "en": "вулкан",
+      "en": "volcano",
       "page": 10
     },
     {
       "id": "kanji-word-73",
-      "term": "火よう日",
+      "term": "火曜日",
       "reading": "かようび",
       "ru": "Вторник",
-      "en": "Вторник",
+      "en": "Tuesday",
       "page": 10
     },
     {
@@ -2084,7 +2173,7 @@ window.IDJLT_KANJI = {
       "term": "山",
       "reading": "やま",
       "ru": "гора",
-      "en": "гора",
+      "en": "mountain",
       "page": 10
     },
     {
@@ -2092,7 +2181,7 @@ window.IDJLT_KANJI = {
       "term": "富士山",
       "reading": "ふじさん",
       "ru": "Гора Фудзи",
-      "en": "Гора Фудзи",
+      "en": "Mount Fuji",
       "page": 10
     },
     {
@@ -2100,15 +2189,15 @@ window.IDJLT_KANJI = {
       "term": "土",
       "reading": "つち",
       "ru": "земля",
-      "en": "земля",
+      "en": "earth; soil",
       "page": 10
     },
     {
       "id": "kanji-word-77",
-      "term": "土よう日",
+      "term": "土曜日",
       "reading": "どようび",
       "ru": "Суббота",
-      "en": "Суббота",
+      "en": "Saturday",
       "page": 10
     },
     {
@@ -2116,7 +2205,7 @@ window.IDJLT_KANJI = {
       "term": "先生",
       "reading": "せんせい",
       "ru": "учитель",
-      "en": "учитель",
+      "en": "teacher",
       "page": 11
     },
     {
@@ -2124,7 +2213,7 @@ window.IDJLT_KANJI = {
       "term": "学生",
       "reading": "がくせい",
       "ru": "студент",
-      "en": "студент",
+      "en": "student",
       "page": 11
     },
     {
@@ -2132,7 +2221,7 @@ window.IDJLT_KANJI = {
       "term": "生きます",
       "reading": "いきます",
       "ru": "жить",
-      "en": "жить",
+      "en": "to live",
       "page": 11
     },
     {
@@ -2140,23 +2229,23 @@ window.IDJLT_KANJI = {
       "term": "生まれます",
       "reading": "うまれます",
       "ru": "родиться",
-      "en": "родиться",
+      "en": "to be born",
       "page": 11
     },
     {
       "id": "kanji-word-82",
       "term": "お先にしつれいします。",
       "reading": "おさきにしつれいします",
-      "ru": "до свидания.",
-      "en": "до свидания.",
+      "ru": "извините, я ухожу первым",
+      "en": "excuse me for leaving before you",
       "page": 11
     },
     {
       "id": "kanji-word-83",
-      "term": "先しゅう",
+      "term": "先週",
       "reading": "せんしゅう",
-      "ru": "прошлой неделе",
-      "en": "прошлой неделе",
+      "ru": "прошлая неделя",
+      "en": "last week",
       "page": 11
     },
     {
@@ -2164,15 +2253,15 @@ window.IDJLT_KANJI = {
       "term": "父",
       "reading": "ちち",
       "ru": "отец",
-      "en": "отец",
+      "en": "father",
       "page": 12
     },
     {
       "id": "kanji-word-85",
       "term": "お父さん",
       "reading": "おとうさん",
-      "ru": "чужой отец",
-      "en": "чужой отец",
+      "ru": "отец (вежливо: чужой или собеседника)",
+      "en": "father (polite)",
       "page": 12
     },
     {
@@ -2180,7 +2269,7 @@ window.IDJLT_KANJI = {
       "term": "大学",
       "reading": "だいがく",
       "ru": "университет",
-      "en": "университет",
+      "en": "university",
       "page": 12
     },
     {
@@ -2196,16 +2285,24 @@ window.IDJLT_KANJI = {
       "term": "学びます",
       "reading": "まなびます",
       "ru": "изучать",
-      "en": "изучать",
+      "en": "to study; learn",
       "page": 12
     },
     {
       "id": "kanji-word-89",
       "term": "子ども",
       "reading": "こども",
-      "ru": "дети",
-      "en": "дети",
+      "ru": "ребёнок; дети",
+      "en": "child; children",
       "page": 12
+    },
+    {
+      "id": "kanji-word-90",
+      "term": "行きます",
+      "reading": "いきます",
+      "ru": "идти",
+      "en": "to go",
+      "page": 13
     }
   ]
 };
