@@ -1264,6 +1264,394 @@ window.IDJLT_DICTIONARIES = [
     ]
   },
   {
+    "id": "lesson8",
+    "title": {
+      "ru": "Урок 8",
+      "en": "Lesson 8"
+    },
+    "order": 8,
+    "cards": [
+      {
+        "id": "lesson8-0",
+        "ru": "красивый, привлекательный (о мужчине)",
+        "en": "handsome",
+        "jp": "ハンサムな",
+        "romaji": "hansamu na"
+      },
+      {
+        "id": "lesson8-1",
+        "ru": "красивый; чистый",
+        "en": "beautiful; clean",
+        "jp": "きれいな",
+        "romaji": "kirei na"
+      },
+      {
+        "id": "lesson8-2",
+        "ru": "тихий, спокойный",
+        "en": "quiet; peaceful",
+        "jp": "しずかな",
+        "romaji": "shizuka na"
+      },
+      {
+        "id": "lesson8-3",
+        "ru": "оживлённый",
+        "en": "lively",
+        "jp": "にぎやかな",
+        "romaji": "nigiyaka na"
+      },
+      {
+        "id": "lesson8-4",
+        "ru": "знаменитый",
+        "en": "famous",
+        "jp": "ゆうめいな",
+        "romaji": "yuumei na"
+      },
+      {
+        "id": "lesson8-5",
+        "ru": "добрый, доброжелательный",
+        "en": "kind; helpful",
+        "jp": "しんせつな",
+        "romaji": "shinsetsu na"
+      },
+      {
+        "id": "lesson8-6",
+        "ru": "здоровый, бодрый",
+        "en": "healthy; energetic",
+        "jp": "げんきな",
+        "romaji": "genki na"
+      },
+      {
+        "id": "lesson8-7",
+        "ru": "свободный (о времени)",
+        "en": "free; not busy",
+        "jp": "ひまな",
+        "romaji": "hima na"
+      },
+      {
+        "id": "lesson8-8",
+        "ru": "удобный",
+        "en": "convenient",
+        "jp": "べんりな",
+        "romaji": "benri na"
+      },
+      {
+        "id": "lesson8-9",
+        "ru": "прекрасный, чудесный, изящный",
+        "en": "lovely; wonderful",
+        "jp": "すてきな",
+        "romaji": "suteki na"
+      },
+      {
+        "id": "lesson8-10",
+        "ru": "большой",
+        "en": "big",
+        "jp": "おおきい",
+        "romaji": "ookii"
+      },
+      {
+        "id": "lesson8-11",
+        "ru": "маленький",
+        "en": "small",
+        "jp": "ちいさい",
+        "romaji": "chiisai"
+      },
+      {
+        "id": "lesson8-12",
+        "ru": "новый",
+        "en": "new",
+        "jp": "あたらしい",
+        "romaji": "atarashii"
+      },
+      {
+        "id": "lesson8-13",
+        "ru": "старый",
+        "en": "old",
+        "jp": "ふるい",
+        "romaji": "furui"
+      },
+      {
+        "id": "lesson8-14",
+        "ru": "хороший",
+        "en": "good",
+        "jp": "いい（よい）",
+        "romaji": "ii (yoi)"
+      },
+      {
+        "id": "lesson8-15",
+        "ru": "плохой",
+        "en": "bad",
+        "jp": "わるい",
+        "romaji": "warui"
+      },
+      {
+        "id": "lesson8-16",
+        "ru": "жаркий; горячий",
+        "en": "hot",
+        "jp": "あつい",
+        "romaji": "atsui"
+      },
+      {
+        "id": "lesson8-17",
+        "ru": "холодный (о погоде)",
+        "en": "cold (weather)",
+        "jp": "さむい",
+        "romaji": "samui"
+      },
+      {
+        "id": "lesson8-18",
+        "ru": "холодный, прохладный (на ощупь)",
+        "en": "cold (to touch)",
+        "jp": "つめたい",
+        "romaji": "tsumetai"
+      },
+      {
+        "id": "lesson8-19",
+        "ru": "трудный, сложный",
+        "en": "difficult",
+        "jp": "むずかしい",
+        "romaji": "muzukashii"
+      },
+      {
+        "id": "lesson8-20",
+        "ru": "лёгкий, простой",
+        "en": "easy; simple",
+        "jp": "やさしい",
+        "romaji": "yasashii"
+      },
+      {
+        "id": "lesson8-21",
+        "ru": "высокий; дорогой",
+        "en": "high; expensive",
+        "jp": "たかい",
+        "romaji": "takai"
+      },
+      {
+        "id": "lesson8-22",
+        "ru": "дешёвый",
+        "en": "cheap",
+        "jp": "やすい",
+        "romaji": "yasui"
+      },
+      {
+        "id": "lesson8-23",
+        "ru": "низкий",
+        "en": "low",
+        "jp": "ひくい",
+        "romaji": "hikui"
+      },
+      {
+        "id": "lesson8-24",
+        "ru": "интересный",
+        "en": "interesting",
+        "jp": "おもしろい",
+        "romaji": "omoshiroi"
+      },
+      {
+        "id": "lesson8-25",
+        "ru": "вкусный",
+        "en": "delicious",
+        "jp": "おいしい",
+        "romaji": "oishii"
+      },
+      {
+        "id": "lesson8-26",
+        "ru": "занятый",
+        "en": "busy",
+        "jp": "いそがしい",
+        "romaji": "isogashii"
+      },
+      {
+        "id": "lesson8-27",
+        "ru": "радостный, приятный, весёлый",
+        "en": "enjoyable; fun",
+        "jp": "たのしい",
+        "romaji": "tanoshii"
+      },
+      {
+        "id": "lesson8-28",
+        "ru": "белый",
+        "en": "white",
+        "jp": "しろい",
+        "romaji": "shiroi"
+      },
+      {
+        "id": "lesson8-29",
+        "ru": "чёрный",
+        "en": "black",
+        "jp": "くろい",
+        "romaji": "kuroi"
+      },
+      {
+        "id": "lesson8-30",
+        "ru": "красный",
+        "en": "red",
+        "jp": "あかい",
+        "romaji": "akai"
+      },
+      {
+        "id": "lesson8-31",
+        "ru": "синий",
+        "en": "blue",
+        "jp": "あおい",
+        "romaji": "aoi"
+      },
+      {
+        "id": "lesson8-32",
+        "ru": "сакура",
+        "en": "cherry blossom",
+        "jp": "さくら",
+        "romaji": "sakura"
+      },
+      {
+        "id": "lesson8-33",
+        "ru": "гора",
+        "en": "mountain",
+        "jp": "やま",
+        "romaji": "yama"
+      },
+      {
+        "id": "lesson8-34",
+        "ru": "город",
+        "en": "town; city",
+        "jp": "まち",
+        "romaji": "machi"
+      },
+      {
+        "id": "lesson8-35",
+        "ru": "еда, продукты",
+        "en": "food",
+        "jp": "たべもの",
+        "romaji": "tabemono"
+      },
+      {
+        "id": "lesson8-36",
+        "ru": "место",
+        "en": "place",
+        "jp": "ところ",
+        "romaji": "tokoro"
+      },
+      {
+        "id": "lesson8-37",
+        "ru": "общежитие",
+        "en": "dormitory",
+        "jp": "りょう",
+        "romaji": "ryou"
+      },
+      {
+        "id": "lesson8-38",
+        "ru": "ресторан",
+        "en": "restaurant",
+        "jp": "レストラン",
+        "romaji": "resutoran"
+      },
+      {
+        "id": "lesson8-39",
+        "ru": "жизнь, быт",
+        "en": "life; daily life",
+        "jp": "せいかつ",
+        "romaji": "seikatsu"
+      },
+      {
+        "id": "lesson8-40",
+        "ru": "работа",
+        "en": "work; job",
+        "jp": "（お）しごと",
+        "romaji": "(o)shigoto"
+      },
+      {
+        "id": "lesson8-41",
+        "ru": "как?",
+        "en": "how?",
+        "jp": "どう",
+        "romaji": "dou"
+      },
+      {
+        "id": "lesson8-42",
+        "ru": "какой? что за?",
+        "en": "what kind of?",
+        "jp": "どんな",
+        "romaji": "donna"
+      },
+      {
+        "id": "lesson8-43",
+        "ru": "очень",
+        "en": "very",
+        "jp": "とても",
+        "romaji": "totemo"
+      },
+      {
+        "id": "lesson8-44",
+        "ru": "не очень",
+        "en": "not very (with a negative)",
+        "jp": "あまり",
+        "romaji": "amari"
+      },
+      {
+        "id": "lesson8-45",
+        "ru": "и; затем; к тому же",
+        "en": "and; then",
+        "jp": "A。そして B。",
+        "romaji": "A. soshite B."
+      },
+      {
+        "id": "lesson8-46",
+        "ru": "A, но B; однако",
+        "en": "A, but B",
+        "jp": "Aが、B。",
+        "romaji": "A ga, B."
+      },
+      {
+        "id": "lesson8-47",
+        "ru": "Как дела? Как поживаете?",
+        "en": "How are you?",
+        "jp": "おげんきですか。",
+        "romaji": "ogenki desu ka"
+      },
+      {
+        "id": "lesson8-48",
+        "ru": "Ясно. Понятно. Вот как!",
+        "en": "I see; That's right",
+        "jp": "そうですね。",
+        "romaji": "sou desu ne"
+      },
+      {
+        "id": "lesson8-49",
+        "ru": "Не хотите ли ещё чашечку?",
+        "en": "Would you like another cup?",
+        "jp": "もういっぱい いかがですか。",
+        "romaji": "mou ippai ikaga desu ka"
+      },
+      {
+        "id": "lesson8-50",
+        "ru": "Уже ～, не правда ли?",
+        "en": "It's already ..., isn't it?",
+        "jp": "もう～ですね。",
+        "romaji": "mou ... desu ne"
+      },
+      {
+        "id": "lesson8-51",
+        "ru": "Пора прощаться.",
+        "en": "It's about time I left.",
+        "jp": "そろそろ しつれいします。",
+        "romaji": "sorosoro shitsurei shimasu"
+      },
+      {
+        "id": "lesson8-52",
+        "ru": "Не стоит благодарности.",
+        "en": "Not at all; you're welcome.",
+        "jp": "いいえ。",
+        "romaji": "iie"
+      },
+      {
+        "id": "lesson8-53",
+        "ru": "Приходите ещё.",
+        "en": "Please come again.",
+        "jp": "また いらっしゃって ください。",
+        "romaji": "mata irasshatte kudasai"
+      }
+    ]
+  },
+  {
     "id": "family_own",
     "title": {
       "ru": "Семья (своя)",
