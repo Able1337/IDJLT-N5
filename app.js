@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.7.0";
-const APP_RELEASE_DATE = "2026-06-13";
+const APP_VERSION = "0.8.0";
+const APP_RELEASE_DATE = "2026-06-14";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -30,7 +30,7 @@ const I18N = {
     installIosHelp: "На iPhone: нажми «Поделиться» и выбери «На экран Домой».",
     installedApp: "Приложение уже установлено",
     aboutApp: "О приложении", appVersion: "Версия", releaseDate: "Дата выпуска",
-    sourceCode: "Репозиторий GitHub", close: "Закрыть",
+    sourceCode: "Репозиторий GitHub", close: "Закрыть", shareApp: "Поделиться", shareCopied: "Ссылка скопирована",
     appDescription: "Тренажёр японского языка уровня N5 со словами, каной, кандзи и фразами.",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
@@ -43,7 +43,7 @@ const I18N = {
     order: "Порядок", random: "Случайный", sequential: "По порядку", dakuten: "Дакутен", yoon: "Ёон",
     reverseKana: "Обратный квиз", rows: "Ряды",
     kanjiSub: "Карточки для знаков и слов из кандзи.",
-    kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова"
+    kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи"
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
     phrasesSub: "Предложения и диалоги из урока 7.", direction: "Направление",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
@@ -66,7 +66,7 @@ const I18N = {
     installIosHelp: "On iPhone: tap Share and choose Add to Home Screen.",
     installedApp: "App is already installed",
     aboutApp: "About", appVersion: "Version", releaseDate: "Release date",
-    sourceCode: "GitHub repository", close: "Close",
+    sourceCode: "GitHub repository", close: "Close", shareApp: "Share", shareCopied: "Link copied",
     appDescription: "A Japanese N5 trainer for words, kana, kanji, and phrases.",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
@@ -79,7 +79,7 @@ const I18N = {
     order: "Order", random: "Random", sequential: "Sequential", dakuten: "Dakuten", yoon: "Yoon",
     reverseKana: "Reverse quiz", rows: "Rows",
     kanjiSub: "Cards for kanji characters and kanji words.",
-    kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only"
+    kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji"
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
     phrasesSub: "Sentences and dialogues from lesson 7.", direction: "Direction",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
@@ -122,6 +122,7 @@ const YOON = [
 
 let settings = loadSettings();
 settings.phrases ||= { direction: "native-jp" };
+settings.kanji = { mode: "mixed", reverse: false, ...(settings.kanji || {}) };
 let session = null;
 let cards = [];
 let current = null;
@@ -142,12 +143,12 @@ function loadSettings() {
     return {
       theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
-      kanji: { mode: "mixed" },
+      kanji: { mode: "mixed", reverse: false },
       phrases: { direction: "native-jp" },
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed" }, phrases: { direction: "native-jp" } };
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -225,6 +226,11 @@ function setupPwaInstall() {
   updatePwaInstallUi();
 }
 function updateAppInfoUi() {
+  const share = $("shareAppBtn");
+  if (share && !share.dataset.feedback) {
+    share.title = t("shareApp");
+    share.setAttribute("aria-label", t("shareApp"));
+  }
   const btn = $("appInfoBtn");
   if (btn) {
     btn.title = t("aboutApp");
@@ -232,6 +238,59 @@ function updateAppInfoUi() {
   }
   const close = $("appInfoClose");
   if (close) close.setAttribute("aria-label", t("close"));
+}
+function copyShareLink() {
+  const url = location.href;
+  const legacyCopy = () => {
+    const input = document.createElement("textarea");
+    input.value = url;
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+    document.body.appendChild(input);
+    input.select();
+    const copied = document.execCommand("copy");
+    input.remove();
+    return copied ? Promise.resolve() : Promise.reject(new Error("Copy failed"));
+  };
+  return navigator.clipboard?.writeText ? navigator.clipboard.writeText(url).catch(legacyCopy) : legacyCopy();
+}
+function showShareFeedback() {
+  const btn = $("shareAppBtn");
+  if (!btn) return;
+  btn.dataset.feedback = "1";
+  btn.textContent = "✓";
+  btn.title = t("shareCopied");
+  btn.setAttribute("aria-label", t("shareCopied"));
+  window.setTimeout(() => {
+    btn.textContent = "↗";
+    delete btn.dataset.feedback;
+    updateAppInfoUi();
+  }, 1600);
+}
+function setupShare() {
+  const toolbar = document.querySelector(".toolbar");
+  if (!toolbar || $("shareAppBtn")) return;
+  const btn = document.createElement("button");
+  btn.id = "shareAppBtn";
+  btn.className = "info-btn";
+  btn.type = "button";
+  btn.textContent = "↗";
+  toolbar.appendChild(btn);
+  btn.addEventListener("click", async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: document.title, text: t("appDescription"), url: location.href });
+      } else {
+        await copyShareLink();
+        showShareFeedback();
+      }
+    } catch (error) {
+      if (error?.name === "AbortError") return;
+      await copyShareLink().catch(() => {});
+      showShareFeedback();
+    }
+  });
+  updateAppInfoUi();
 }
 function setupAppInfo() {
   const toolbar = document.querySelector(".toolbar");
@@ -339,7 +398,7 @@ function startKanji() {
   currentKind = "kanji";
   ensureTrainerMarkup("kanji");
   cards = buildKanjiCards();
-  const key = KANJI_SESSION_PREFIX + settings.kanji.mode;
+  const key = `${KANJI_SESSION_PREFIX}${settings.kanji.mode}.${settings.kanji.reverse ? "reverse" : "normal"}`;
   session = loadSession(key, cards);
   if (session.current === null && !session.done) nextCard();
   bindTrainer("kanji");
@@ -417,6 +476,7 @@ function wordSettingsHtml() {
 function kanjiSettingsHtml() {
   return `
     <label><span data-i18n="kanjiSet">${t("kanjiSet")}</span><select id="kanjiMode"><option value="mixed" data-i18n="kanjiMixed">${t("kanjiMixed")}</option><option value="single" data-i18n="kanjiSingles">${t("kanjiSingles")}</option><option value="words" data-i18n="kanjiWords">${t("kanjiWords")}</option></select></label>
+    <label class="check"><input type="checkbox" id="kanjiReverse"> <span data-i18n="reverseKanji">${t("reverseKanji")}</span></label>
     <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
@@ -606,13 +666,17 @@ function renderPhraseTitle() {
 }
 function frontText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.r : card.front;
-  if (card.type === "kanji-single" || card.type === "kanji-word") return card.front;
+  if (card.type === "kanji-single" || card.type === "kanji-word") {
+    if (!settings.kanji.reverse) return card.front;
+    if (card.type === "kanji-word") return settings.lang === "en" ? card.reverseFrontEn : card.reverseFrontRu;
+    return card.reverseFront;
+  }
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? card.jp : nativeText(card);
   return nativeText(card);
 }
 function answerText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.front : card.r;
-  if (card.type === "kanji-single" || card.type === "kanji-word") return card.answer;
+  if (card.type === "kanji-single" || card.type === "kanji-word") return settings.kanji.reverse ? card.reverseAnswer : card.answer;
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? nativeText(card) : card.jp;
   return card.jp;
 }
@@ -625,6 +689,7 @@ function renderMode() {
   $("game").style.display = session.done ? "none" : "block";
   $("done").style.display = session.done ? "block" : "none";
   $("card")?.classList.toggle("kanji-card", currentKind === "kanji");
+  $("card")?.classList.toggle("kanji-reverse", currentKind === "kanji" && settings.kanji.reverse);
   $("card")?.classList.toggle("phrase-card", currentKind === "phrase");
   $("left").textContent = session.pool.length + (current ? 1 : 0);
   $("knownCount").textContent = session.known.length;
@@ -702,6 +767,8 @@ function buildKanjiCards() {
     type: "kanji-single",
     front: item.kanji,
     answer: kanjiSingleAnswer(item),
+    reverseFront: item.meaning,
+    reverseAnswer: [item.kanji, kanjiShortReadings(item)].filter(Boolean).join("\n"),
     romaji: kanjiReadingRomaji(item),
     tableReading: kanjiShortReadings(item),
     tableMeaning: item.meaning
@@ -711,6 +778,9 @@ function buildKanjiCards() {
     type: "kanji-word",
     front: item.term,
     answer: [item.reading, nativeKanjiText(item)].filter(Boolean).join("\n"),
+    reverseFrontRu: item.ru,
+    reverseFrontEn: item.en || item.ru,
+    reverseAnswer: [item.term, item.reading].filter(Boolean).join("\n"),
     romaji: kanaToRomaji(item.reading || ""),
     tableReading: item.reading,
     tableMeaning: nativeKanjiText(item)
@@ -799,6 +869,7 @@ function buildKanaCards() {
 
 function renderKanjiSettings() {
   if ($("kanjiMode")) $("kanjiMode").value = settings.kanji.mode;
+  if ($("kanjiReverse")) $("kanjiReverse").checked = settings.kanji.reverse;
 }
 
 let kanjiSettingsBound = false;
@@ -808,6 +879,11 @@ function bindKanjiSettings() {
   $("kanjiSettings")?.addEventListener("change", e => {
     if (e.target.id === "kanjiMode") {
       settings.kanji.mode = e.target.value;
+      saveSettings();
+      startKanji();
+    }
+    if (e.target.id === "kanjiReverse") {
+      settings.kanji.reverse = e.target.checked;
       saveSettings();
       startKanji();
     }
@@ -862,6 +938,7 @@ function bindKanaSettings() {
 }
 
 bindGlobal();
+setupShare();
 setupAppInfo();
 applyGlobal();
 setupPwaInstall();
