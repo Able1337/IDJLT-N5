@@ -1,13 +1,13 @@
-const CACHE_NAME = "idjlt-n5-v6";
+const CACHE_NAME = "idjlt-n5-v7";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css?v=24",
-  "./app.js?v=24",
-  "./data.js?v=24",
-  "./kanji-data.js?v=24",
+  "./style.css?v=25",
+  "./app.js?v=25",
+  "./data.js?v=25",
+  "./kanji-data.js?v=25",
   "./phrases.html",
-  "./phrases-data.js?v=24",
+  "./phrases-data.js?v=25",
   "./manifest.webmanifest",
   "./app-icon.svg",
   "./app-icon-192.png",

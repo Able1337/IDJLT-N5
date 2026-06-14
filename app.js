@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.8.0";
+const APP_VERSION = "0.8.1";
 const APP_RELEASE_DATE = "2026-06-14";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -796,8 +796,8 @@ function nativeKanjiText(item) {
 
 function kanjiSingleAnswer(item) {
   const lines = [];
-  lines.push(`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
   lines.push(`он: ${item.on?.length ? item.on.join(" / ") : "—"}`);
+  lines.push(`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
   if (item.meaning) lines.push(item.meaning);
   if (item.examples?.length) {
     lines.push(item.examples.slice(0, 4).map(ex => `${ex.term}${ex.reading ? " · " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
@@ -806,7 +806,7 @@ function kanjiSingleAnswer(item) {
 }
 
 function kanjiShortReadings(item) {
-  return [`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`, `он: ${item.on?.length ? item.on.join(" / ") : "—"}`].join("\n");
+  return [`он: ${item.on?.length ? item.on.join(" / ") : "—"}`, `кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`].join("\n");
 }
 
 const ROMAJI_DIGRAPHS = {
@@ -845,7 +845,7 @@ function kanaToRomaji(text) {
   return out.replace(/-/g, "");
 }
 function kanjiReadingRomaji(item) {
-  return [`kun: ${(item.kun || []).map(kanaToRomaji).join(" / ") || "—"}`, `on: ${(item.on || []).map(kanaToRomaji).join(" / ") || "—"}`].join("\n");
+  return [`on: ${(item.on || []).map(kanaToRomaji).join(" / ") || "—"}`, `kun: ${(item.kun || []).map(kanaToRomaji).join(" / ") || "—"}`].join("\n");
 }
 
 function kanjiTableHtml() {
