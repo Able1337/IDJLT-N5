@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.8.1";
+const APP_VERSION = "0.9.0";
 const APP_RELEASE_DATE = "2026-06-14";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -35,7 +35,7 @@ const I18N = {
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
-    tapHint: "тыкни, чтобы показать ответ", swipeHint: "свайп вправо — знаю, влево — не знаю",
+    tapHint: "тыкни, чтобы показать ответ", tapExamples: "нажми ещё раз, чтобы показать примеры", swipeHint: "свайп вправо — знаю, влево — не знаю",
     chooseHint: "выбери стопку", noItems: "пусто", doneAll: "Все карточки отмечены как известные. Отлично!",
     doneSome: "Неизвестных карточек: {n}. Их можно вернуть в пул и повторить.",
     native: "Русский", jp: "日本語", kana: "Кана", reading: "Чтение",
@@ -71,7 +71,7 @@ const I18N = {
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
-    tapHint: "tap to reveal the answer", swipeHint: "swipe right for known, left for unknown",
+    tapHint: "tap to reveal the answer", tapExamples: "tap again to show examples", swipeHint: "swipe right for known, left for unknown",
     chooseHint: "choose a stack", noItems: "empty", doneAll: "All cards are marked as known. Nice!",
     doneSome: "Unknown cards: {n}. Return them to the pool and repeat.",
     native: "English", jp: "日本語", kana: "Kana", reading: "Reading",
@@ -127,6 +127,7 @@ let session = null;
 let cards = [];
 let current = null;
 let shown = false;
+let examplesShown = false;
 let drag = null;
 let suppressClick = false;
 let swipeTimer = null;
@@ -370,6 +371,8 @@ function wordCardsFor(ids) {
 
 function startWords(ids) {
   currentKind = "word";
+  shown = false;
+  examplesShown = false;
   ensureTrainerMarkup("word");
   cards = wordCardsFor(ids);
   const key = WORD_SESSION_PREFIX + ids.join("+");
@@ -383,6 +386,8 @@ function startWords(ids) {
 
 function startKana() {
   currentKind = "kana";
+  shown = false;
+  examplesShown = false;
   ensureTrainerMarkup("kana");
   cards = buildKanaCards();
   session = loadSession(KANA_SESSION_KEY, cards, settings.kana.order);
@@ -396,6 +401,8 @@ function startKana() {
 
 function startKanji() {
   currentKind = "kanji";
+  shown = false;
+  examplesShown = false;
   ensureTrainerMarkup("kanji");
   cards = buildKanjiCards();
   const key = `${KANJI_SESSION_PREFIX}${settings.kanji.mode}.${settings.kanji.reverse ? "reverse" : "normal"}`;
@@ -410,6 +417,8 @@ function startKanji() {
 
 function startPhrases() {
   currentKind = "phrase";
+  shown = false;
+  examplesShown = false;
   ensureTrainerMarkup("phrase");
   cards = PHRASES_DATA.map(item => ({ ...item, type: "phrase" }));
   const key = PHRASE_SESSION_PREFIX + settings.phrases.direction;
@@ -441,7 +450,7 @@ function ensureTrainerMarkup(kind) {
       <article class="card" id="card" tabindex="0">
         <div class="swipe-label swipe-left" data-i18n="unknown">${t("unknown")}</div>
         <div class="swipe-label swipe-right" data-i18n="known">${t("known")}</div>
-        <div class="card-inner"><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="romaji" id="romaji"></div><div class="hint" id="hint"></div></div>
+        <div class="card-inner"><div class="ru" id="ru"></div><div class="jp" id="jp"></div><div class="romaji" id="romaji"></div><div class="kanji-examples" id="kanjiExamples"></div><div class="hint" id="hint"></div></div>
       </article>
       <div class="buttons" id="answerButtons"><button class="dont" id="dontBtn" data-i18n="unknown">${t("unknown")}</button><button class="know" id="knowBtn" data-i18n="known">${t("known")}</button></div>
     </section>
@@ -513,11 +522,18 @@ function nextCard() {
   session.current = session.pool.pop();
   current = cardById(session.current);
   shown = false;
+  examplesShown = false;
   session.done = false;
   saveSession();
 }
-function finishRound() { session.done = true; session.current = null; current = null; shown = false; saveSession(); }
-function reveal() { if (!current || shown) return; shown = true; renderMode(); }
+function finishRound() { session.done = true; session.current = null; current = null; shown = false; examplesShown = false; saveSession(); }
+function reveal() {
+  if (!current) return;
+  if (!shown) shown = true;
+  else if (currentKind === "kanji" && current.examples?.length && !examplesShown) examplesShown = true;
+  else return;
+  renderMode();
+}
 function answer(isKnown) {
   if (!current) return;
   (isKnown ? session.known : session.unknown).push(current.id);
@@ -680,6 +696,12 @@ function answerText(card) {
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? nativeText(card) : card.jp;
   return card.jp;
 }
+function kanjiExamplesText(card) {
+  return (card.examples || []).map(example => {
+    const translation = settings.lang === "en" ? example.en || example.ru : example.ru;
+    return `${example.term}${example.reading ? " · " + example.reading : ""}${translation ? "\n" + translation : ""}`;
+  }).join("\n\n");
+}
 function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
 
 function renderMode() {
@@ -701,7 +723,10 @@ function renderMode() {
     $("jp").style.display = shown ? "block" : "none";
     $("romaji").textContent = (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && current.romaji ? current.romaji : "";
     $("romaji").style.display = shown && (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && settings.showRomaji && current.romaji ? "block" : "none";
-    $("hint").textContent = shown ? (settings.showButtons ? t("chooseHint") : t("swipeHint")) : t("tapHint");
+    $("kanjiExamples").textContent = currentKind === "kanji" ? kanjiExamplesText(current) : "";
+    $("kanjiExamples").style.display = currentKind === "kanji" && examplesShown && current.examples?.length ? "block" : "none";
+    const canShowExamples = currentKind === "kanji" && current.examples?.length && !examplesShown;
+    $("hint").textContent = !shown ? t("tapHint") : canShowExamples ? t("tapExamples") : (settings.showButtons ? t("chooseHint") : t("swipeHint"));
   }
   $("knowBtn").disabled = false;
   $("dontBtn").disabled = false;
@@ -762,6 +787,7 @@ function kanaTableHtml() {
 }
 
 function buildKanjiCards() {
+  const kanjiCharacters = new Set(KANJI_DATA.singles.map(item => item.kanji));
   const singleCards = KANJI_DATA.singles.map(item => ({
     id: item.id,
     type: "kanji-single",
@@ -770,10 +796,16 @@ function buildKanjiCards() {
     reverseFront: item.meaning,
     reverseAnswer: [item.kanji, kanjiShortReadings(item)].filter(Boolean).join("\n"),
     romaji: kanjiReadingRomaji(item),
+    examples: item.examples || [],
     tableReading: kanjiShortReadings(item),
     tableMeaning: item.meaning
   }));
-  const wordCards = KANJI_DATA.words.map(item => ({
+  const wordCards = KANJI_DATA.words.map(item => {
+    const characters = [...item.term].filter(character => kanjiCharacters.has(character));
+    const relatedExamples = KANJI_DATA.words
+      .filter(other => other.id !== item.id && characters.some(character => other.term.includes(character)))
+      .slice(0, 4);
+    return {
     id: item.id,
     type: "kanji-word",
     front: item.term,
@@ -782,9 +814,11 @@ function buildKanjiCards() {
     reverseFrontEn: item.en || item.ru,
     reverseAnswer: [item.term, item.reading].filter(Boolean).join("\n"),
     romaji: kanaToRomaji(item.reading || ""),
+    examples: relatedExamples,
     tableReading: item.reading,
     tableMeaning: nativeKanjiText(item)
-  }));
+    };
+  });
   if (settings.kanji.mode === "single") return singleCards;
   if (settings.kanji.mode === "words") return wordCards;
   return [...singleCards, ...wordCards];
@@ -799,9 +833,6 @@ function kanjiSingleAnswer(item) {
   lines.push(`он: ${item.on?.length ? item.on.join(" / ") : "—"}`);
   lines.push(`кун: ${item.kun?.length ? item.kun.join(" / ") : "—"}`);
   if (item.meaning) lines.push(item.meaning);
-  if (item.examples?.length) {
-    lines.push(item.examples.slice(0, 4).map(ex => `${ex.term}${ex.reading ? " · " + ex.reading : ""}${ex.ru ? " · " + ex.ru : ""}`).join("\n"));
-  }
   return lines.join("\n");
 }
 
