@@ -1573,6 +1573,82 @@ window.IDJLT_KANJI = {
         "アン"
       ],
       "meaningEn": "go; movement; carry out"
+    },
+    {
+      "id": "kanji-single-39",
+      "kanji": "来",
+      "meaning": "приходить; будущий, следующий (в составе слов)",
+      "readings": [
+        "きます",
+        "らいねん",
+        "らいげつ",
+        "らいしゅう"
+      ],
+      "examples": [
+        {
+          "term": "来ます",
+          "reading": "きます",
+          "ru": "приходить, приезжать",
+          "en": "to come"
+        },
+        {
+          "term": "来年",
+          "reading": "らいねん",
+          "ru": "следующий год",
+          "en": "next year"
+        },
+        {
+          "term": "来月",
+          "reading": "らいげつ",
+          "ru": "следующий месяц",
+          "en": "next month"
+        },
+        {
+          "term": "来週",
+          "reading": "らいしゅう",
+          "ru": "следующая неделя",
+          "en": "next week"
+        }
+      ],
+      "kun": [
+        "くる",
+        "きたる"
+      ],
+      "on": [
+        "ライ"
+      ],
+      "meaningEn": "come; next; future (in compounds)"
+    },
+    {
+      "id": "kanji-single-40",
+      "kanji": "去",
+      "meaning": "уходить; прошлый (в составе слов)",
+      "readings": [
+        "さる",
+        "きょねん"
+      ],
+      "examples": [
+        {
+          "term": "去る",
+          "reading": "さる",
+          "ru": "уходить, покидать",
+          "en": "to leave; depart"
+        },
+        {
+          "term": "去年",
+          "reading": "きょねん",
+          "ru": "прошлый год",
+          "en": "last year"
+        }
+      ],
+      "kun": [
+        "さる"
+      ],
+      "on": [
+        "キョ",
+        "コ"
+      ],
+      "meaningEn": "leave; past (in compounds)"
     }
   ],
   "words": [
