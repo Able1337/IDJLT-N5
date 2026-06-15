@@ -1245,9 +1245,10 @@ window.IDJLT_KANJI = {
     {
       "id": "kanji-single-28",
       "kanji": "士",
-      "meaning": "воин; специалист; человек определённого статуса",
+      "meaning": "самурай, воин (в составе 武士); специалист; человек определённого статуса",
       "readings": [
-        "ふじさん"
+        "ふじさん",
+        "ぶし"
       ],
       "examples": [
         {
@@ -1255,13 +1256,19 @@ window.IDJLT_KANJI = {
           "reading": "ふじさん",
           "ru": "Гора Фудзи",
           "en": "Mount Fuji"
+        },
+        {
+          "term": "武士",
+          "reading": "ぶし",
+          "ru": "самурай; воин",
+          "en": "samurai; warrior"
         }
       ],
       "kun": [],
       "on": [
         "シ"
       ],
-      "meaningEn": "warrior; professional; person of status"
+      "meaningEn": "samurai or warrior (as in 武士); professional; person of status"
     },
     {
       "id": "kanji-single-29",
