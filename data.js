@@ -1652,6 +1652,93 @@ window.IDJLT_DICTIONARIES = [
     ]
   },
   {
+    "id": "numbers",
+    "title": {
+      "ru": "Числа",
+      "en": "Numbers"
+    },
+    "order": 100,
+    "cards": [
+      {
+        "id": "numbers-0",
+        "ru": "ноль (0)",
+        "en": "zero (0)",
+        "jp": "零 / 〇（れい / ゼロ）",
+        "romaji": "rei / zero"
+      },
+      {
+        "id": "numbers-1",
+        "ru": "один (1)",
+        "en": "one (1)",
+        "jp": "一（いち / ひとつ）",
+        "romaji": "ichi / hitotsu"
+      },
+      {
+        "id": "numbers-2",
+        "ru": "два (2)",
+        "en": "two (2)",
+        "jp": "二（に / ふたつ）",
+        "romaji": "ni / futatsu"
+      },
+      {
+        "id": "numbers-3",
+        "ru": "три (3)",
+        "en": "three (3)",
+        "jp": "三（さん / みっつ）",
+        "romaji": "san / mittsu"
+      },
+      {
+        "id": "numbers-4",
+        "ru": "четыре (4)",
+        "en": "four (4)",
+        "jp": "四（よん・し / よっつ）",
+        "romaji": "yon / shi / yottsu"
+      },
+      {
+        "id": "numbers-5",
+        "ru": "пять (5)",
+        "en": "five (5)",
+        "jp": "五（ご / いつつ）",
+        "romaji": "go / itsutsu"
+      },
+      {
+        "id": "numbers-6",
+        "ru": "шесть (6)",
+        "en": "six (6)",
+        "jp": "六（ろく / むっつ）",
+        "romaji": "roku / muttsu"
+      },
+      {
+        "id": "numbers-7",
+        "ru": "семь (7)",
+        "en": "seven (7)",
+        "jp": "七（なな・しち / ななつ）",
+        "romaji": "nana / shichi / nanatsu"
+      },
+      {
+        "id": "numbers-8",
+        "ru": "восемь (8)",
+        "en": "eight (8)",
+        "jp": "八（はち / やっつ）",
+        "romaji": "hachi / yattsu"
+      },
+      {
+        "id": "numbers-9",
+        "ru": "девять (9)",
+        "en": "nine (9)",
+        "jp": "九（きゅう・く / ここのつ）",
+        "romaji": "kyuu / ku / kokonotsu"
+      },
+      {
+        "id": "numbers-10",
+        "ru": "десять (10)",
+        "en": "ten (10)",
+        "jp": "十（じゅう / とお）",
+        "romaji": "juu / too"
+      }
+    ]
+  },
+  {
     "id": "family_own",
     "title": {
       "ru": "Семья (своя)",
