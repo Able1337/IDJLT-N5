@@ -1,5 +1,5 @@
 window.IDJLT_KANJI = {
-  "source": "kanji-practice-print.pdf; MNN_Beginner_I_Kanji.pdf",
+  "source": "kanji-practice-print.pdf; MNN_Beginner_I_Kanji.pdf; Voronina_N._Yaponskie_ieroglifi.pdf",
   "singles": [
     {
       "id": "kanji-single-0",
@@ -1656,7 +1656,1235 @@ window.IDJLT_KANJI = {
         "コ"
       ],
       "meaningEn": "leave; past (in compounds)"
+    },
+
+    {
+        "id": "kanji-single-41",
+        "readings": [
+            "とき",
+            "ジ"
+        ],
+        "kanji": "時",
+        "meaning": "время; час",
+        "meaningEn": "time; hour",
+        "on": [
+            "ジ"
+        ],
+        "kun": [
+            "とき"
+        ],
+        "examples": [
+            {
+                "term": "時間",
+                "reading": "じかん",
+                "ru": "время",
+                "en": "time"
+            },
+            {
+                "term": "時計",
+                "reading": "とけい",
+                "ru": "часы",
+                "en": "clock; watch"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-42",
+        "readings": [
+            "みる",
+            "ケン"
+        ],
+        "kanji": "見",
+        "meaning": "смотреть; видеть",
+        "meaningEn": "see; look",
+        "on": [
+            "ケン"
+        ],
+        "kun": [
+            "みる"
+        ],
+        "examples": [
+            {
+                "term": "見物",
+                "reading": "けんぶつ",
+                "ru": "осмотр достопримечательностей",
+                "en": "sightseeing"
+            },
+            {
+                "term": "見ます",
+                "reading": "みます",
+                "ru": "смотреть",
+                "en": "to see"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-43",
+        "readings": [
+            "たかい",
+            "コウ"
+        ],
+        "kanji": "高",
+        "meaning": "высокий; дорогой",
+        "meaningEn": "high; expensive",
+        "on": [
+            "コウ"
+        ],
+        "kun": [
+            "たかい"
+        ],
+        "examples": [
+            {
+                "term": "高校",
+                "reading": "こうこう",
+                "ru": "старшая школа",
+                "en": "high school"
+            },
+            {
+                "term": "高い",
+                "reading": "たかい",
+                "ru": "высокий; дорогой",
+                "en": "high; expensive"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-44",
+        "readings": [
+            "ひがし",
+            "トウ"
+        ],
+        "kanji": "東",
+        "meaning": "восток",
+        "meaningEn": "east",
+        "on": [
+            "トウ"
+        ],
+        "kun": [
+            "ひがし"
+        ],
+        "examples": [
+            {
+                "term": "東京",
+                "reading": "とうきょう",
+                "ru": "Токио",
+                "en": "Tokyo"
+            },
+            {
+                "term": "東口",
+                "reading": "ひがしぐち",
+                "ru": "восточный выход",
+                "en": "east exit"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-45",
+        "readings": [
+            "いち",
+            "シ"
+        ],
+        "kanji": "市",
+        "meaning": "город; рынок",
+        "meaningEn": "city; market",
+        "on": [
+            "シ"
+        ],
+        "kun": [
+            "いち"
+        ],
+        "examples": [
+            {
+                "term": "市長",
+                "reading": "しちょう",
+                "ru": "мэр",
+                "en": "mayor"
+            },
+            {
+                "term": "市民",
+                "reading": "しみん",
+                "ru": "горожане",
+                "en": "citizens"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-46",
+        "readings": [
+            "まえ",
+            "ゼン"
+        ],
+        "kanji": "前",
+        "meaning": "перед; раньше",
+        "meaningEn": "before; front",
+        "on": [
+            "ゼン"
+        ],
+        "kun": [
+            "まえ"
+        ],
+        "examples": [
+            {
+                "term": "名前",
+                "reading": "なまえ",
+                "ru": "имя",
+                "en": "name"
+            },
+            {
+                "term": "午前",
+                "reading": "ごぜん",
+                "ru": "до полудня",
+                "en": "morning; a.m."
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-47",
+        "readings": [
+            "て",
+            "シュ"
+        ],
+        "kanji": "手",
+        "meaning": "рука; умение",
+        "meaningEn": "hand; skill",
+        "on": [
+            "シュ"
+        ],
+        "kun": [
+            "て"
+        ],
+        "examples": [
+            {
+                "term": "上手",
+                "reading": "じょうず",
+                "ru": "умелый",
+                "en": "skilled"
+            },
+            {
+                "term": "手紙",
+                "reading": "てがみ",
+                "ru": "письмо",
+                "en": "letter"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-48",
+        "readings": [
+            "おなじ",
+            "ドウ"
+        ],
+        "kanji": "同",
+        "meaning": "одинаковый; тот же",
+        "meaningEn": "same",
+        "on": [
+            "ドウ"
+        ],
+        "kun": [
+            "おなじ"
+        ],
+        "examples": [
+            {
+                "term": "同一",
+                "reading": "どういつ",
+                "ru": "тождественность",
+                "en": "identity"
+            },
+            {
+                "term": "同じ",
+                "reading": "おなじ",
+                "ru": "такой же",
+                "en": "same"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-49",
+        "readings": [
+            "ちから",
+            "リョク",
+            "リキ"
+        ],
+        "kanji": "力",
+        "meaning": "сила",
+        "meaningEn": "power; strength",
+        "on": [
+            "リョク",
+            "リキ"
+        ],
+        "kun": [
+            "ちから"
+        ],
+        "examples": [
+            {
+                "term": "力持ち",
+                "reading": "ちからもち",
+                "ru": "силач",
+                "en": "strong person"
+            },
+            {
+                "term": "能力",
+                "reading": "のうりょく",
+                "ru": "способность",
+                "en": "ability"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-50",
+        "readings": [
+            "うち",
+            "ナイ",
+            "ダイ"
+        ],
+        "kanji": "内",
+        "meaning": "внутри; свой",
+        "meaningEn": "inside; within",
+        "on": [
+            "ナイ",
+            "ダイ"
+        ],
+        "kun": [
+            "うち"
+        ],
+        "examples": [
+            {
+                "term": "国内",
+                "reading": "こくない",
+                "ru": "внутри страны",
+                "en": "domestic"
+            },
+            {
+                "term": "内側",
+                "reading": "うちがわ",
+                "ru": "внутренняя сторона",
+                "en": "inside"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-51",
+        "readings": [
+            "もの",
+            "シャ"
+        ],
+        "kanji": "者",
+        "meaning": "человек; персона",
+        "meaningEn": "person",
+        "on": [
+            "シャ"
+        ],
+        "kun": [
+            "もの"
+        ],
+        "examples": [
+            {
+                "term": "作者",
+                "reading": "さくしゃ",
+                "ru": "автор",
+                "en": "author"
+            },
+            {
+                "term": "医者",
+                "reading": "いしゃ",
+                "ru": "врач",
+                "en": "doctor"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-52",
+        "readings": [
+            "こと",
+            "ジ"
+        ],
+        "kanji": "事",
+        "meaning": "дело; событие",
+        "meaningEn": "matter; thing",
+        "on": [
+            "ジ"
+        ],
+        "kun": [
+            "こと"
+        ],
+        "examples": [
+            {
+                "term": "仕事",
+                "reading": "しごと",
+                "ru": "работа",
+                "en": "work"
+            },
+            {
+                "term": "食事",
+                "reading": "しょくじ",
+                "ru": "еда; прием пищи",
+                "en": "meal"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-53",
+        "readings": [
+            "チ",
+            "ジ"
+        ],
+        "kanji": "地",
+        "meaning": "земля; место",
+        "meaningEn": "ground; place",
+        "on": [
+            "チ",
+            "ジ"
+        ],
+        "kun": [],
+        "examples": [
+            {
+                "term": "地下",
+                "reading": "ちか",
+                "ru": "подземный",
+                "en": "underground"
+            },
+            {
+                "term": "地図",
+                "reading": "ちず",
+                "ru": "карта",
+                "en": "map"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-54",
+        "readings": [
+            "あいだ",
+            "ま",
+            "カン"
+        ],
+        "kanji": "間",
+        "meaning": "между; промежуток; комната",
+        "meaningEn": "interval; between; room",
+        "on": [
+            "カン"
+        ],
+        "kun": [
+            "あいだ",
+            "ま"
+        ],
+        "examples": [
+            {
+                "term": "時間",
+                "reading": "じかん",
+                "ru": "время",
+                "en": "time"
+            },
+            {
+                "term": "和室",
+                "reading": "わしつ",
+                "ru": "комната в японском стиле",
+                "en": "Japanese-style room"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-55",
+        "readings": [
+            "め",
+            "モク"
+        ],
+        "kanji": "目",
+        "meaning": "глаз; пункт",
+        "meaningEn": "eye; item",
+        "on": [
+            "モク"
+        ],
+        "kun": [
+            "め"
+        ],
+        "examples": [
+            {
+                "term": "三日目",
+                "reading": "みっかめ",
+                "ru": "третий день",
+                "en": "third day"
+            },
+            {
+                "term": "目",
+                "reading": "め",
+                "ru": "глаз",
+                "en": "eye"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-56",
+        "readings": [
+            "した",
+            "くだる",
+            "カ",
+            "ゲ"
+        ],
+        "kanji": "下",
+        "meaning": "низ; под; спускаться",
+        "meaningEn": "down; below",
+        "on": [
+            "カ",
+            "ゲ"
+        ],
+        "kun": [
+            "した",
+            "くだる"
+        ],
+        "examples": [
+            {
+                "term": "下手",
+                "reading": "へた",
+                "ru": "неумелый",
+                "en": "unskilled"
+            },
+            {
+                "term": "地下",
+                "reading": "ちか",
+                "ru": "подземный",
+                "en": "underground"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-57",
+        "readings": [
+            "あと",
+            "うしろ",
+            "ゴ"
+        ],
+        "kanji": "後",
+        "meaning": "после; сзади",
+        "meaningEn": "after; behind",
+        "on": [
+            "ゴ"
+        ],
+        "kun": [
+            "あと",
+            "うしろ"
+        ],
+        "examples": [
+            {
+                "term": "前後",
+                "reading": "ぜんご",
+                "ru": "перед и после; примерно",
+                "en": "before and after; about"
+            },
+            {
+                "term": "午後",
+                "reading": "ごご",
+                "ru": "после полудня",
+                "en": "afternoon; p.m."
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-58",
+        "readings": [
+            "かた",
+            "ホウ"
+        ],
+        "kanji": "方",
+        "meaning": "направление; сторона; способ",
+        "meaningEn": "direction; person; way",
+        "on": [
+            "ホウ"
+        ],
+        "kun": [
+            "かた"
+        ],
+        "examples": [
+            {
+                "term": "行方",
+                "reading": "ゆくえ",
+                "ru": "местонахождение",
+                "en": "whereabouts"
+            },
+            {
+                "term": "話し方",
+                "reading": "はなしかた",
+                "ru": "манера речи",
+                "en": "way of speaking"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-59",
+        "readings": [
+            "やしろ",
+            "シャ"
+        ],
+        "kanji": "社",
+        "meaning": "храм; компания",
+        "meaningEn": "company; shrine",
+        "on": [
+            "シャ"
+        ],
+        "kun": [
+            "やしろ"
+        ],
+        "examples": [
+            {
+                "term": "会社",
+                "reading": "かいしゃ",
+                "ru": "компания",
+                "en": "company"
+            },
+            {
+                "term": "神社",
+                "reading": "じんじゃ",
+                "ru": "синтоистский храм",
+                "en": "shrine"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-60",
+        "readings": [
+            "あたらしい",
+            "シン"
+        ],
+        "kanji": "新",
+        "meaning": "новый",
+        "meaningEn": "new",
+        "on": [
+            "シン"
+        ],
+        "kun": [
+            "あたらしい"
+        ],
+        "examples": [
+            {
+                "term": "新年会",
+                "reading": "しんねんかい",
+                "ru": "празднование Нового года",
+                "en": "New Year party"
+            },
+            {
+                "term": "新しい",
+                "reading": "あたらしい",
+                "ru": "новый",
+                "en": "new"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-61",
+        "readings": [
+            "こめ",
+            "ベイ",
+            "マイ"
+        ],
+        "kanji": "米",
+        "meaning": "рис; Америка",
+        "meaningEn": "rice; America",
+        "on": [
+            "ベイ",
+            "マイ"
+        ],
+        "kun": [
+            "こめ"
+        ],
+        "examples": [
+            {
+                "term": "北米",
+                "reading": "ほくべい",
+                "ru": "Северная Америка",
+                "en": "North America"
+            },
+            {
+                "term": "米",
+                "reading": "こめ",
+                "ru": "рис",
+                "en": "rice"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-62",
+        "readings": [
+            "からだ",
+            "タイ"
+        ],
+        "kanji": "体",
+        "meaning": "тело",
+        "meaningEn": "body",
+        "on": [
+            "タイ"
+        ],
+        "kun": [
+            "からだ"
+        ],
+        "examples": [
+            {
+                "term": "生体",
+                "reading": "せいたい",
+                "ru": "живой организм",
+                "en": "living body"
+            },
+            {
+                "term": "体",
+                "reading": "からだ",
+                "ru": "тело",
+                "en": "body"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-63",
+        "readings": [
+            "あう",
+            "ゴウ",
+            "ガッ"
+        ],
+        "kanji": "合",
+        "meaning": "совпадать; соединяться",
+        "meaningEn": "fit; join",
+        "on": [
+            "ゴウ",
+            "ガッ"
+        ],
+        "kun": [
+            "あう"
+        ],
+        "examples": [
+            {
+                "term": "場合",
+                "reading": "ばあい",
+                "ru": "случай; обстоятельства",
+                "en": "case; situation"
+            },
+            {
+                "term": "合います",
+                "reading": "あいます",
+                "ru": "подходить; совпадать",
+                "en": "to fit"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-64",
+        "readings": [
+            "ブ"
+        ],
+        "kanji": "部",
+        "meaning": "часть; отдел",
+        "meaningEn": "part; section",
+        "on": [
+            "ブ"
+        ],
+        "kun": [],
+        "examples": [
+            {
+                "term": "学部",
+                "reading": "がくぶ",
+                "ru": "факультет",
+                "en": "faculty"
+            },
+            {
+                "term": "全部",
+                "reading": "ぜんぶ",
+                "ru": "все",
+                "en": "all"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-65",
+        "readings": [
+            "みずから",
+            "ジ"
+        ],
+        "kanji": "自",
+        "meaning": "сам; свой",
+        "meaningEn": "self",
+        "on": [
+            "ジ"
+        ],
+        "kun": [
+            "みずから"
+        ],
+        "examples": [
+            {
+                "term": "自分",
+                "reading": "じぶん",
+                "ru": "сам; свой",
+                "en": "oneself"
+            },
+            {
+                "term": "自動車",
+                "reading": "じどうしゃ",
+                "ru": "автомобиль",
+                "en": "car"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-66",
+        "readings": [
+            "こころ",
+            "シン"
+        ],
+        "kanji": "心",
+        "meaning": "сердце; душа",
+        "meaningEn": "heart; mind",
+        "on": [
+            "シン"
+        ],
+        "kun": [
+            "こころ"
+        ],
+        "examples": [
+            {
+                "term": "心理",
+                "reading": "しんり",
+                "ru": "психология; душевное состояние",
+                "en": "psychology"
+            },
+            {
+                "term": "安心",
+                "reading": "あんしん",
+                "ru": "спокойствие",
+                "en": "relief"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-67",
+        "readings": [
+            "ぬし",
+            "シュ"
+        ],
+        "kanji": "主",
+        "meaning": "главный; хозяин; муж",
+        "meaningEn": "main; master",
+        "on": [
+            "シュ"
+        ],
+        "kun": [
+            "ぬし"
+        ],
+        "examples": [
+            {
+                "term": "主語",
+                "reading": "しゅご",
+                "ru": "подлежащее",
+                "en": "subject"
+            },
+            {
+                "term": "主人",
+                "reading": "しゅじん",
+                "ru": "муж; хозяин",
+                "en": "husband; master"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-68",
+        "readings": [
+            "ちいさい",
+            "こ",
+            "ショウ"
+        ],
+        "kanji": "小",
+        "meaning": "маленький",
+        "meaningEn": "small",
+        "on": [
+            "ショウ"
+        ],
+        "kun": [
+            "ちいさい",
+            "こ"
+        ],
+        "examples": [
+            {
+                "term": "小言",
+                "reading": "こごと",
+                "ru": "упрек",
+                "en": "scolding"
+            },
+            {
+                "term": "小さい",
+                "reading": "ちいさい",
+                "ru": "маленький",
+                "en": "small"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-69",
+        "readings": [
+            "おんな",
+            "ジョ",
+            "ニョ"
+        ],
+        "kanji": "女",
+        "meaning": "женщина",
+        "meaningEn": "woman",
+        "on": [
+            "ジョ",
+            "ニョ"
+        ],
+        "kun": [
+            "おんな"
+        ],
+        "examples": [
+            {
+                "term": "長女",
+                "reading": "ちょうじょ",
+                "ru": "старшая дочь",
+                "en": "eldest daughter"
+            },
+            {
+                "term": "女の人",
+                "reading": "おんなのひと",
+                "ru": "женщина",
+                "en": "woman"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-70",
+        "readings": [
+            "まわる",
+            "カイ"
+        ],
+        "kanji": "回",
+        "meaning": "раз; кружиться",
+        "meaningEn": "times; turn",
+        "on": [
+            "カイ"
+        ],
+        "kun": [
+            "まわる"
+        ],
+        "examples": [
+            {
+                "term": "三回",
+                "reading": "さんかい",
+                "ru": "три раза",
+                "en": "three times"
+            },
+            {
+                "term": "回ります",
+                "reading": "まわります",
+                "ru": "вращаться; обходить",
+                "en": "to turn"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-71",
+        "readings": [
+            "かわる",
+            "ダイ",
+            "タイ"
+        ],
+        "kanji": "代",
+        "meaning": "поколение; замена; эпоха",
+        "meaningEn": "generation; substitute; era",
+        "on": [
+            "ダイ",
+            "タイ"
+        ],
+        "kun": [
+            "かわる"
+        ],
+        "examples": [
+            {
+                "term": "代理",
+                "reading": "だいり",
+                "ru": "заместитель",
+                "en": "representative"
+            },
+            {
+                "term": "時代",
+                "reading": "じだい",
+                "ru": "эпоха",
+                "en": "era"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-72",
+        "readings": [
+            "いう",
+            "こと",
+            "ゲン",
+            "ゴン"
+        ],
+        "kanji": "言",
+        "meaning": "слово; говорить",
+        "meaningEn": "word; say",
+        "on": [
+            "ゲン",
+            "ゴン"
+        ],
+        "kun": [
+            "いう",
+            "こと"
+        ],
+        "examples": [
+            {
+                "term": "方言",
+                "reading": "ほうげん",
+                "ru": "диалект",
+                "en": "dialect"
+            },
+            {
+                "term": "言います",
+                "reading": "いいます",
+                "ru": "говорить",
+                "en": "to say"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-73",
+        "readings": [
+            "あかるい",
+            "メイ",
+            "ミョウ"
+        ],
+        "kanji": "明",
+        "meaning": "яркий; светлый",
+        "meaningEn": "bright",
+        "on": [
+            "メイ",
+            "ミョウ"
+        ],
+        "kun": [
+            "あかるい"
+        ],
+        "examples": [
+            {
+                "term": "明日",
+                "reading": "あした",
+                "ru": "завтра",
+                "en": "tomorrow"
+            },
+            {
+                "term": "明るい",
+                "reading": "あかるい",
+                "ru": "светлый",
+                "en": "bright"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-74",
+        "readings": [
+            "た",
+            "デン"
+        ],
+        "kanji": "田",
+        "meaning": "рисовое поле",
+        "meaningEn": "rice field",
+        "on": [
+            "デン"
+        ],
+        "kun": [
+            "た"
+        ],
+        "examples": [
+            {
+                "term": "田地",
+                "reading": "でんち",
+                "ru": "поля; обрабатываемая земля",
+                "en": "farmland"
+            },
+            {
+                "term": "田中",
+                "reading": "たなか",
+                "ru": "Танака",
+                "en": "Tanaka"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-75",
+        "readings": [
+            "キョウ",
+            "ケイ"
+        ],
+        "kanji": "京",
+        "meaning": "столица",
+        "meaningEn": "capital",
+        "on": [
+            "キョウ",
+            "ケイ"
+        ],
+        "kun": [],
+        "examples": [
+            {
+                "term": "京都",
+                "reading": "きょうと",
+                "ru": "Киото",
+                "en": "Kyoto"
+            },
+            {
+                "term": "東京",
+                "reading": "とうきょう",
+                "ru": "Токио",
+                "en": "Tokyo"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-76",
+        "readings": [
+            "ただしい",
+            "セイ",
+            "ショウ"
+        ],
+        "kanji": "正",
+        "meaning": "правильный; верный",
+        "meaningEn": "correct; true",
+        "on": [
+            "セイ",
+            "ショウ"
+        ],
+        "kun": [
+            "ただしい"
+        ],
+        "examples": [
+            {
+                "term": "真正",
+                "reading": "しんせい",
+                "ru": "истинный; подлинный",
+                "en": "genuine"
+            },
+            {
+                "term": "正しい",
+                "reading": "ただしい",
+                "ru": "правильный",
+                "en": "correct"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-77",
+        "readings": [
+            "ば",
+            "ジョウ"
+        ],
+        "kanji": "場",
+        "meaning": "место; случай",
+        "meaningEn": "place; situation",
+        "on": [
+            "ジョウ"
+        ],
+        "kun": [
+            "ば"
+        ],
+        "examples": [
+            {
+                "term": "場合",
+                "reading": "ばあい",
+                "ru": "случай; обстоятельства",
+                "en": "case"
+            },
+            {
+                "term": "場所",
+                "reading": "ばしょ",
+                "ru": "место",
+                "en": "place"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-78",
+        "readings": [
+            "いえ",
+            "や",
+            "カ",
+            "ケ"
+        ],
+        "kanji": "家",
+        "meaning": "дом; семья",
+        "meaningEn": "house; family",
+        "on": [
+            "カ",
+            "ケ"
+        ],
+        "kun": [
+            "いえ",
+            "や"
+        ],
+        "examples": [
+            {
+                "term": "家主",
+                "reading": "やぬし",
+                "ru": "домовладелец",
+                "en": "landlord"
+            },
+            {
+                "term": "家族",
+                "reading": "かぞく",
+                "ru": "семья",
+                "en": "family"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-79",
+        "readings": [
+            "ケン"
+        ],
+        "kanji": "県",
+        "meaning": "префектура",
+        "meaningEn": "prefecture",
+        "on": [
+            "ケン"
+        ],
+        "kun": [],
+        "examples": [
+            {
+                "term": "青森県",
+                "reading": "あおもりけん",
+                "ru": "префектура Аомори",
+                "en": "Aomori Prefecture"
+            },
+            {
+                "term": "県庁",
+                "reading": "けんちょう",
+                "ru": "администрация префектуры",
+                "en": "prefectural office"
+            }
+        ]
+    },
+    {
+        "id": "kanji-single-80",
+        "readings": [
+            "はなす",
+            "ワ"
+        ],
+        "kanji": "話",
+        "meaning": "разговаривать; рассказ",
+        "meaningEn": "talk; story",
+        "on": [
+            "ワ"
+        ],
+        "kun": [
+            "はなす"
+        ],
+        "examples": [
+            {
+                "term": "話し方",
+                "reading": "はなしかた",
+                "ru": "манера речи",
+                "en": "way of speaking"
+            },
+            {
+                "term": "電話",
+                "reading": "でんわ",
+                "ru": "телефон",
+                "en": "telephone"
+            }
+        ]
     }
+
   ],
   "words": [
     {
@@ -2674,6 +3902,56 @@ window.IDJLT_KANJI = {
         "kanji-word-89",
         "kanji-word-90"
       ]
+    },
+    {
+          "id": "voronina-kanji-workbook",
+          "title": {
+                "ru": "Японские иероглифы — Воронина",
+                "en": "Japanese Kanji Workbook — Voronina"
+          },
+          "singleIds": [
+                "kanji-single-41",
+                "kanji-single-42",
+                "kanji-single-43",
+                "kanji-single-44",
+                "kanji-single-45",
+                "kanji-single-46",
+                "kanji-single-47",
+                "kanji-single-48",
+                "kanji-single-49",
+                "kanji-single-50",
+                "kanji-single-51",
+                "kanji-single-52",
+                "kanji-single-53",
+                "kanji-single-54",
+                "kanji-single-55",
+                "kanji-single-56",
+                "kanji-single-57",
+                "kanji-single-58",
+                "kanji-single-59",
+                "kanji-single-60",
+                "kanji-single-61",
+                "kanji-single-62",
+                "kanji-single-63",
+                "kanji-single-64",
+                "kanji-single-65",
+                "kanji-single-66",
+                "kanji-single-67",
+                "kanji-single-68",
+                "kanji-single-69",
+                "kanji-single-70",
+                "kanji-single-71",
+                "kanji-single-72",
+                "kanji-single-73",
+                "kanji-single-74",
+                "kanji-single-75",
+                "kanji-single-76",
+                "kanji-single-77",
+                "kanji-single-78",
+                "kanji-single-79",
+                "kanji-single-80"
+          ],
+          "wordIds": []
     }
   ]
 };

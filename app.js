@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.4";
+const APP_VERSION = "0.16.5";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -12,7 +12,8 @@ const KANJI_DATA = window.IDJLT_KANJI || { singles: [], words: [] };
 const PHRASES_DATA = window.IDJLT_PHRASES || [];
 const TEXTBOOKS = [
   { id: "mnn1", title: "MNN I - Учебник", pdf: "assets/textbooks/MNN_I_-_Uchebnik.pdf", audioPrefix: "assets/audio/mnn1/", audioCount: 87 },
-  { id: "mnn-kanji", title: "MNN Beginner I Kanji", pdf: "assets/textbooks/MNN_Beginner_I_Kanji.pdf" }
+  { id: "mnn-kanji", title: "MNN Beginner I Kanji", pdf: "assets/textbooks/MNN_Beginner_I_Kanji.pdf" },
+  { id: "voronina-kanji", title: "Японские иероглифы — Воронина", pdf: "assets/textbooks/Voronina_N._Yaponskie_ieroglifi.pdf" }
 ];
 
 const I18N = {
@@ -130,7 +131,7 @@ const YOON = [
 
 let settings = loadSettings();
 settings.phrases ||= { direction: "native-jp" };
-settings.kanji = { mode: "mixed", reverse: false, ...(settings.kanji || {}) };
+settings.kanji = { mode: "single", reverse: false, ...(settings.kanji || {}) };
 let session = null;
 let cards = [];
 let current = null;
