@@ -543,6 +543,21 @@ th { color: var(--muted); font-size: 13px; }
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 12px;
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.kanji-row:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.kanji-row:not(:disabled):hover,
+.kanji-row.open {
+  border-color: var(--accent);
 }
 
 .kanji-row b {
@@ -561,6 +576,19 @@ th { color: var(--muted); font-size: 13px; }
   color: var(--muted);
   font-size: 13px;
   line-height: 1.35;
+}
+
+.kanji-table-examples {
+  display: block;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .settings-dialog {

@@ -1245,7 +1245,7 @@ window.IDJLT_KANJI = {
     {
       "id": "kanji-single-28",
       "kanji": "士",
-      "meaning": "самурай, воин (в составе 武士); специалист; человек определённого статуса",
+      "meaning": "самурай; воин; специалист; человек определённого статуса",
       "readings": [
         "ふじさん",
         "ぶし"
@@ -1268,7 +1268,7 @@ window.IDJLT_KANJI = {
       "on": [
         "シ"
       ],
-      "meaningEn": "samurai or warrior (as in 武士); professional; person of status"
+      "meaningEn": "samurai; warrior; professional; person of status"
     },
     {
       "id": "kanji-single-29",

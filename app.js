@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.13.1";
-const APP_RELEASE_DATE = "2026-06-15";
+const APP_VERSION = "0.14.0";
+const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -45,7 +45,7 @@ const I18N = {
     kanjiSub: "Карточки для знаков и слов из кандзи.",
     kanjiSet: "Набор", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи", cardKanji: "Кандзи", cardWord: "Слово"
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
-    phrasesSub: "Предложения и диалоги из урока 7.", direction: "Направление",
+    phrasesSub: "Предложения и диалоги из уроков.", direction: "Направление",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
   en: {
@@ -81,7 +81,7 @@ const I18N = {
     kanjiSub: "Cards for kanji characters and kanji words.",
     kanjiSet: "Set", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji", cardKanji: "Kanji", cardWord: "Word"
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
-    phrasesSub: "Sentences and dialogues from lesson 7.", direction: "Direction",
+    phrasesSub: "Sentences and dialogues from lessons.", direction: "Direction",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
   }
 };
@@ -128,6 +128,7 @@ let cards = [];
 let current = null;
 let shown = false;
 let examplesShown = false;
+let expandedKanjiTableId = null;
 let drag = null;
 let suppressClick = false;
 let swipeTimer = null;
@@ -755,9 +756,20 @@ function renderTable(kind) {
     wrap.innerHTML = kanaTableHtml();
   } else if (kind === "kanji") {
     wrap.innerHTML = kanjiTableHtml();
+    bindKanjiTableExamples(wrap);
   } else {
     wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
   }
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  }[char]));
 }
 
 function kanaRowsForStudy() {
@@ -891,12 +903,16 @@ function kanjiReadingRomaji(item) {
 function kanjiTableHtml() {
   const rowHtml = card => {
     const meaning = card.type === "kanji-single" ? nativeKanjiMeaning(card.sourceItem) : nativeKanjiText(card.sourceItem);
+    const examples = kanjiExamplesText(card);
+    const hasExamples = Boolean(examples);
+    const isOpen = expandedKanjiTableId === card.id;
     return `
-    <div class="kanji-row">
-      <b>${card.front}</b>
-      <span>${card.tableReading || ""}</span>
-      <small>${meaning || ""}</small>
-    </div>`;
+    <button class="kanji-row ${isOpen ? "open" : ""}" type="button" ${hasExamples ? `data-kanji-examples="${card.id}" aria-expanded="${isOpen}"` : "disabled"}>
+      <b>${escapeHtml(card.front)}</b>
+      <span>${escapeHtml(card.tableReading || "")}</span>
+      <small>${escapeHtml(meaning || "")}</small>
+      ${isOpen && hasExamples ? `<em class="kanji-table-examples">${escapeHtml(examples)}</em>` : ""}
+    </button>`;
   };
   const sections = [
     { type: "kanji-single", title: t("cardKanji") },
@@ -906,6 +922,15 @@ function kanjiTableHtml() {
     return sectionCards.length ? `<section class="kanji-table-section"><h3>${section.title}</h3><div class="kanji-table">${sectionCards.map(rowHtml).join("")}</div></section>` : "";
   }).join("");
   return `<div class="kanji-table-sections">${sections}</div>`;
+}
+
+function bindKanjiTableExamples(wrap) {
+  wrap.onclick = event => {
+    const row = event.target.closest("[data-kanji-examples]");
+    if (!row) return;
+    expandedKanjiTableId = expandedKanjiTableId === row.dataset.kanjiExamples ? null : row.dataset.kanjiExamples;
+    renderTable("kanji");
+  };
 }
 
 function buildKanaCards() {
