@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.3";
+const APP_VERSION = "0.16.4";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -873,7 +873,14 @@ function kanjiSets() {
     singleIds: KANJI_DATA.singles.map(item => item.id),
     wordIds: KANJI_DATA.words.map(item => item.id)
   };
-  return KANJI_DATA.sets?.length ? KANJI_DATA.sets : [fallback];
+  const sets = KANJI_DATA.sets?.length ? KANJI_DATA.sets : [fallback];
+  const seen = new Set();
+  return sets.filter(set => {
+    const key = [...new Set([...(set.singleIds || []), ...(set.wordIds || [])])].sort().join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function kanjiSetTitle(set) {
