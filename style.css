@@ -719,25 +719,33 @@ th { color: var(--muted); font-size: 13px; }
   gap: 8px;
 }
 .audio-panel {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 8px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 10px;
 }
 .audio-panel label {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 .track-select select {
   width: 100%;
 }
+.track-switch-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
 .audio-progress {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
   color: var(--muted);
   font-weight: 800;
@@ -748,15 +756,13 @@ th { color: var(--muted); font-size: 13px; }
 }
 .audio-controls {
   display: grid;
-  gap: 8px;
-}
-.audio-control-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
 }
 .audio-controls button {
-  min-height: 44px;
+  min-height: 42px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .pdf-viewer {
   width: 100%;
@@ -824,6 +830,8 @@ th { color: var(--muted); font-size: 13px; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
+  .audio-panel { top: 0; border-radius: 12px; padding: 8px; }
+  .audio-controls button { min-height: 38px; font-size: 14px; }
   .pdf-viewer { min-height: 72vh; border-radius: 14px; }
   .pdf-toolbar { grid-template-columns: auto 1fr auto auto auto; gap: 6px; padding: 8px; }
   .pdf-toolbar .small { padding: 9px 10px; }
