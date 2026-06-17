@@ -1657,1234 +1657,6919 @@ window.IDJLT_KANJI = {
       ],
       "meaningEn": "leave; past (in compounds)"
     },
-
     {
-        "id": "kanji-single-41",
-        "readings": [
-            "とき",
-            "ジ"
-        ],
-        "kanji": "時",
-        "meaning": "время; час",
-        "meaningEn": "time; hour",
-        "on": [
-            "ジ"
-        ],
-        "kun": [
-            "とき"
-        ],
-        "examples": [
-            {
-                "term": "時間",
-                "reading": "じかん",
-                "ru": "время",
-                "en": "time"
-            },
-            {
-                "term": "時計",
-                "reading": "とけい",
-                "ru": "часы",
-                "en": "clock; watch"
-            }
-        ]
+      "id": "voronina-kanji-1",
+      "kanji": "日",
+      "meaning": "день, солнце, сутки",
+      "readings": [
+        "ひ",
+        "か",
+        "ニチ",
+        "ジツ"
+      ],
+      "examples": [
+        {
+          "term": "日々",
+          "reading": "ひび",
+          "ru": "дни",
+          "en": "дни"
+        }
+      ],
+      "kun": [
+        "ひ",
+        "か"
+      ],
+      "on": [
+        "ニチ",
+        "ジツ"
+      ],
+      "meaningEn": "день, солнце, сутки"
     },
     {
-        "id": "kanji-single-42",
-        "readings": [
-            "みる",
-            "ケン"
-        ],
-        "kanji": "見",
-        "meaning": "смотреть; видеть",
-        "meaningEn": "see; look",
-        "on": [
-            "ケン"
-        ],
-        "kun": [
-            "みる"
-        ],
-        "examples": [
-            {
-                "term": "見物",
-                "reading": "けんぶつ",
-                "ru": "осмотр достопримечательностей",
-                "en": "sightseeing"
-            },
-            {
-                "term": "見ます",
-                "reading": "みます",
-                "ru": "смотреть",
-                "en": "to see"
-            }
-        ]
+      "id": "voronina-kanji-2",
+      "kanji": "一",
+      "meaning": "один",
+      "readings": [
+        "ひとつ",
+        "イチ",
+        "イツ"
+      ],
+      "examples": [
+        {
+          "term": "一日中",
+          "reading": "いちにちじゅう",
+          "ru": "целый день",
+          "en": "целый день"
+        }
+      ],
+      "kun": [
+        "ひとつ"
+      ],
+      "on": [
+        "イチ",
+        "イツ"
+      ],
+      "meaningEn": "один"
     },
     {
-        "id": "kanji-single-43",
-        "readings": [
-            "たかい",
-            "コウ"
-        ],
-        "kanji": "高",
-        "meaning": "высокий; дорогой",
-        "meaningEn": "high; expensive",
-        "on": [
-            "コウ"
-        ],
-        "kun": [
-            "たかい"
-        ],
-        "examples": [
-            {
-                "term": "高校",
-                "reading": "こうこう",
-                "ru": "старшая школа",
-                "en": "high school"
-            },
-            {
-                "term": "高い",
-                "reading": "たかい",
-                "ru": "высокий; дорогой",
-                "en": "high; expensive"
-            }
-        ]
+      "id": "voronina-kanji-3",
+      "kanji": "大",
+      "meaning": "большой",
+      "readings": [
+        "おおきい",
+        "ダイ",
+        "タイ"
+      ],
+      "examples": [
+        {
+          "term": "大サイズ",
+          "reading": "だいさいず",
+          "ru": "размер L",
+          "en": "размер L"
+        }
+      ],
+      "kun": [
+        "おおきい"
+      ],
+      "on": [
+        "ダイ",
+        "タイ"
+      ],
+      "meaningEn": "большой"
     },
     {
-        "id": "kanji-single-44",
-        "readings": [
-            "ひがし",
-            "トウ"
-        ],
-        "kanji": "東",
-        "meaning": "восток",
-        "meaningEn": "east",
-        "on": [
-            "トウ"
-        ],
-        "kun": [
-            "ひがし"
-        ],
-        "examples": [
-            {
-                "term": "東京",
-                "reading": "とうきょう",
-                "ru": "Токио",
-                "en": "Tokyo"
-            },
-            {
-                "term": "東口",
-                "reading": "ひがしぐち",
-                "ru": "восточный выход",
-                "en": "east exit"
-            }
-        ]
+      "id": "voronina-kanji-4",
+      "kanji": "年",
+      "meaning": "год",
+      "readings": [
+        "とし",
+        "ネン"
+      ],
+      "examples": [
+        {
+          "term": "今年",
+          "reading": "ことし",
+          "ru": "в этом году",
+          "en": "в этом году"
+        }
+      ],
+      "kun": [
+        "とし"
+      ],
+      "on": [
+        "ネン"
+      ],
+      "meaningEn": "год"
     },
     {
-        "id": "kanji-single-45",
-        "readings": [
-            "いち",
-            "シ"
-        ],
-        "kanji": "市",
-        "meaning": "город; рынок",
-        "meaningEn": "city; market",
-        "on": [
-            "シ"
-        ],
-        "kun": [
-            "いち"
-        ],
-        "examples": [
-            {
-                "term": "市長",
-                "reading": "しちょう",
-                "ru": "мэр",
-                "en": "mayor"
-            },
-            {
-                "term": "市民",
-                "reading": "しみん",
-                "ru": "горожане",
-                "en": "citizens"
-            }
-        ]
+      "id": "voronina-kanji-5",
+      "kanji": "中",
+      "meaning": "центр, сердцевина, середина",
+      "readings": [
+        "ジュウ・なか",
+        "チュウ"
+      ],
+      "examples": [
+        {
+          "term": "中央",
+          "reading": "ちゅうおう",
+          "ru": "центр",
+          "en": "центр"
+        }
+      ],
+      "kun": [
+        "ジュウ・なか"
+      ],
+      "on": [
+        "チュウ"
+      ],
+      "meaningEn": "центр, сердцевина, середина"
     },
     {
-        "id": "kanji-single-46",
-        "readings": [
-            "まえ",
-            "ゼン"
-        ],
-        "kanji": "前",
-        "meaning": "перед; раньше",
-        "meaningEn": "before; front",
-        "on": [
-            "ゼン"
-        ],
-        "kun": [
-            "まえ"
-        ],
-        "examples": [
-            {
-                "term": "名前",
-                "reading": "なまえ",
-                "ru": "имя",
-                "en": "name"
-            },
-            {
-                "term": "午前",
-                "reading": "ごぜん",
-                "ru": "до полудня",
-                "en": "morning; a.m."
-            }
-        ]
+      "id": "voronina-kanji-6",
+      "kanji": "人",
+      "meaning": "человек",
+      "readings": [
+        "ひと",
+        "ニン",
+        "ジン"
+      ],
+      "examples": [
+        {
+          "term": "一人",
+          "reading": "ひとり",
+          "ru": "один человек, в одиночку",
+          "en": "один человек, в одиночку"
+        }
+      ],
+      "kun": [
+        "ひと"
+      ],
+      "on": [
+        "ニン",
+        "ジン"
+      ],
+      "meaningEn": "человек"
     },
     {
-        "id": "kanji-single-47",
-        "readings": [
-            "て",
-            "シュ"
-        ],
-        "kanji": "手",
-        "meaning": "рука; умение",
-        "meaningEn": "hand; skill",
-        "on": [
-            "シュ"
-        ],
-        "kun": [
-            "て"
-        ],
-        "examples": [
-            {
-                "term": "上手",
-                "reading": "じょうず",
-                "ru": "умелый",
-                "en": "skilled"
-            },
-            {
-                "term": "手紙",
-                "reading": "てがみ",
-                "ru": "письмо",
-                "en": "letter"
-            }
-        ]
+      "id": "voronina-kanji-7",
+      "kanji": "会",
+      "meaning": "встреча, встречаться",
+      "readings": [
+        "あう",
+        "カイ"
+      ],
+      "examples": [
+        {
+          "term": "会議",
+          "reading": "かいぎ",
+          "ru": "собрание",
+          "en": "собрание"
+        }
+      ],
+      "kun": [
+        "あう"
+      ],
+      "on": [
+        "カイ"
+      ],
+      "meaningEn": "встреча, встречаться"
     },
     {
-        "id": "kanji-single-48",
-        "readings": [
-            "おなじ",
-            "ドウ"
-        ],
-        "kanji": "同",
-        "meaning": "одинаковый; тот же",
-        "meaningEn": "same",
-        "on": [
-            "ドウ"
-        ],
-        "kun": [
-            "おなじ"
-        ],
-        "examples": [
-            {
-                "term": "同一",
-                "reading": "どういつ",
-                "ru": "тождественность",
-                "en": "identity"
-            },
-            {
-                "term": "同じ",
-                "reading": "おなじ",
-                "ru": "такой же",
-                "en": "same"
-            }
-        ]
+      "id": "voronina-kanji-8",
+      "kanji": "月",
+      "meaning": "месяц",
+      "readings": [
+        "つき",
+        "ゲツ",
+        "ガツ"
+      ],
+      "examples": [
+        {
+          "term": "月見",
+          "reading": "つきみ",
+          "ru": "любование луной",
+          "en": "moon viewing"
+        }
+      ],
+      "kun": [
+        "つき"
+      ],
+      "on": [
+        "ゲツ",
+        "ガツ"
+      ],
+      "meaningEn": "месяц"
     },
     {
-        "id": "kanji-single-49",
-        "readings": [
-            "ちから",
-            "リョク",
-            "リキ"
-        ],
-        "kanji": "力",
-        "meaning": "сила",
-        "meaningEn": "power; strength",
-        "on": [
-            "リョク",
-            "リキ"
-        ],
-        "kun": [
-            "ちから"
-        ],
-        "examples": [
-            {
-                "term": "力持ち",
-                "reading": "ちからもち",
-                "ru": "силач",
-                "en": "strong person"
-            },
-            {
-                "term": "能力",
-                "reading": "のうりょく",
-                "ru": "способность",
-                "en": "ability"
-            }
-        ]
+      "id": "voronina-kanji-9",
+      "kanji": "本",
+      "meaning": "1) книга 2) источник 3) истина",
+      "readings": [
+        "もと",
+        "ホン"
+      ],
+      "examples": [
+        {
+          "term": "本屋",
+          "reading": "ほんや",
+          "ru": "книжный магазин",
+          "en": "книжный магазин"
+        }
+      ],
+      "kun": [
+        "もと"
+      ],
+      "on": [
+        "ホン"
+      ],
+      "meaningEn": "1) книга 2) источник 3) истина"
     },
     {
-        "id": "kanji-single-50",
-        "readings": [
-            "うち",
-            "ナイ",
-            "ダイ"
-        ],
-        "kanji": "内",
-        "meaning": "внутри; свой",
-        "meaningEn": "inside; within",
-        "on": [
-            "ナイ",
-            "ダイ"
-        ],
-        "kun": [
-            "うち"
-        ],
-        "examples": [
-            {
-                "term": "国内",
-                "reading": "こくない",
-                "ru": "внутри страны",
-                "en": "domestic"
-            },
-            {
-                "term": "内側",
-                "reading": "うちがわ",
-                "ru": "внутренняя сторона",
-                "en": "inside"
-            }
-        ]
+      "id": "voronina-kanji-10",
+      "kanji": "上",
+      "meaning": "верх; подниматься, взбираться",
+      "readings": [
+        "うえ",
+        "あげる",
+        "のぼる",
+        "ジョウ"
+      ],
+      "examples": [
+        {
+          "term": "年 上",
+          "reading": "としうえ",
+          "ru": "старший [человек]",
+          "en": "старший [человек]"
+        }
+      ],
+      "kun": [
+        "うえ",
+        "あげる",
+        "のぼる"
+      ],
+      "on": [
+        "ジョウ"
+      ],
+      "meaningEn": "верх; подниматься, взбираться"
     },
     {
-        "id": "kanji-single-51",
-        "readings": [
-            "もの",
-            "シャ"
-        ],
-        "kanji": "者",
-        "meaning": "человек; персона",
-        "meaningEn": "person",
-        "on": [
-            "シャ"
-        ],
-        "kun": [
-            "もの"
-        ],
-        "examples": [
-            {
-                "term": "作者",
-                "reading": "さくしゃ",
-                "ru": "автор",
-                "en": "author"
-            },
-            {
-                "term": "医者",
-                "reading": "いしゃ",
-                "ru": "врач",
-                "en": "doctor"
-            }
-        ]
+      "id": "voronina-kanji-11",
+      "kanji": "出",
+      "meaning": "выходить, выступать; выдавать",
+      "readings": [
+        "でる",
+        "だす",
+        "シュツ"
+      ],
+      "examples": [
+        {
+          "term": "出口",
+          "reading": "でぐち",
+          "ru": "выход",
+          "en": "выход"
+        }
+      ],
+      "kun": [
+        "でる",
+        "だす"
+      ],
+      "on": [
+        "シュツ"
+      ],
+      "meaningEn": "выходить, выступать; выдавать"
     },
     {
-        "id": "kanji-single-52",
-        "readings": [
-            "こと",
-            "ジ"
-        ],
-        "kanji": "事",
-        "meaning": "дело; событие",
-        "meaningEn": "matter; thing",
-        "on": [
-            "ジ"
-        ],
-        "kun": [
-            "こと"
-        ],
-        "examples": [
-            {
-                "term": "仕事",
-                "reading": "しごと",
-                "ru": "работа",
-                "en": "work"
-            },
-            {
-                "term": "食事",
-                "reading": "しょくじ",
-                "ru": "еда; прием пищи",
-                "en": "meal"
-            }
-        ]
+      "id": "voronina-kanji-12",
+      "kanji": "分",
+      "meaning": "1) минута 2) разделять 3) часть",
+      "readings": [
+        "わける",
+        "ブン",
+        "フン"
+      ],
+      "examples": [
+        {
+          "term": "半分",
+          "reading": "はんぶん",
+          "ru": "половина",
+          "en": "половина"
+        }
+      ],
+      "kun": [
+        "わける"
+      ],
+      "on": [
+        "ブン",
+        "フン"
+      ],
+      "meaningEn": "1) минута 2) разделять 3) часть"
     },
     {
-        "id": "kanji-single-53",
-        "readings": [
-            "チ",
-            "ジ"
-        ],
-        "kanji": "地",
-        "meaning": "земля; место",
-        "meaningEn": "ground; place",
-        "on": [
-            "チ",
-            "ジ"
-        ],
-        "kun": [],
-        "examples": [
-            {
-                "term": "地下",
-                "reading": "ちか",
-                "ru": "подземный",
-                "en": "underground"
-            },
-            {
-                "term": "地図",
-                "reading": "ちず",
-                "ru": "карта",
-                "en": "map"
-            }
-        ]
+      "id": "voronina-kanji-13",
+      "kanji": "長",
+      "meaning": "1) начальник 2) длинный",
+      "readings": [
+        "ながい",
+        "チョウ"
+      ],
+      "examples": [
+        {
+          "term": "長さ",
+          "reading": "ながさ",
+          "ru": "длина",
+          "en": "длина"
+        }
+      ],
+      "kun": [
+        "ながい"
+      ],
+      "on": [
+        "チョウ"
+      ],
+      "meaningEn": "1) начальник 2) длинный"
     },
     {
-        "id": "kanji-single-54",
-        "readings": [
-            "あいだ",
-            "ま",
-            "カン"
-        ],
-        "kanji": "間",
-        "meaning": "между; промежуток; комната",
-        "meaningEn": "interval; between; room",
-        "on": [
-            "カン"
-        ],
-        "kun": [
-            "あいだ",
-            "ま"
-        ],
-        "examples": [
-            {
-                "term": "時間",
-                "reading": "じかん",
-                "ru": "время",
-                "en": "time"
-            },
-            {
-                "term": "和室",
-                "reading": "わしつ",
-                "ru": "комната в японском стиле",
-                "en": "Japanese-style room"
-            }
-        ]
+      "id": "voronina-kanji-14",
+      "kanji": "今",
+      "meaning": "сейчас, нынешний",
+      "readings": [
+        "いま",
+        "コン"
+      ],
+      "examples": [
+        {
+          "term": "今日",
+          "reading": "きょう",
+          "ru": "сегодня",
+          "en": "сегодня"
+        }
+      ],
+      "kun": [
+        "いま"
+      ],
+      "on": [
+        "コン"
+      ],
+      "meaningEn": "сейчас, нынешний"
     },
     {
-        "id": "kanji-single-55",
-        "readings": [
-            "め",
-            "モク"
-        ],
-        "kanji": "目",
-        "meaning": "глаз; пункт",
-        "meaningEn": "eye; item",
-        "on": [
-            "モク"
-        ],
-        "kun": [
-            "め"
-        ],
-        "examples": [
-            {
-                "term": "三日目",
-                "reading": "みっかめ",
-                "ru": "третий день",
-                "en": "third day"
-            },
-            {
-                "term": "目",
-                "reading": "め",
-                "ru": "глаз",
-                "en": "eye"
-            }
-        ]
+      "id": "voronina-kanji-15",
+      "kanji": "国",
+      "meaning": "страна",
+      "readings": [
+        "くに",
+        "コク"
+      ],
+      "examples": [
+        {
+          "term": "山国",
+          "reading": "やまぐに",
+          "ru": "горная страна",
+          "en": "горная страна"
+        }
+      ],
+      "kun": [
+        "くに"
+      ],
+      "on": [
+        "コク"
+      ],
+      "meaningEn": "страна"
     },
     {
-        "id": "kanji-single-56",
-        "readings": [
-            "した",
-            "くだる",
-            "カ",
-            "ゲ"
-        ],
-        "kanji": "下",
-        "meaning": "низ; под; спускаться",
-        "meaningEn": "down; below",
-        "on": [
-            "カ",
-            "ゲ"
-        ],
-        "kun": [
-            "した",
-            "くだる"
-        ],
-        "examples": [
-            {
-                "term": "下手",
-                "reading": "へた",
-                "ru": "неумелый",
-                "en": "unskilled"
-            },
-            {
-                "term": "地下",
-                "reading": "ちか",
-                "ru": "подземный",
-                "en": "underground"
-            }
-        ]
+      "id": "voronina-kanji-16",
+      "kanji": "十",
+      "meaning": "десять",
+      "readings": [
+        "とお",
+        "ジュ",
+        "ジュウ"
+      ],
+      "examples": [
+        {
+          "term": "十分",
+          "reading": "じゅうぶん",
+          "ru": "в полной мере",
+          "en": "в полной мере"
+        }
+      ],
+      "kun": [
+        "とお"
+      ],
+      "on": [
+        "ジュ",
+        "ジュウ"
+      ],
+      "meaningEn": "десять"
     },
     {
-        "id": "kanji-single-57",
-        "readings": [
-            "あと",
-            "うしろ",
-            "ゴ"
-        ],
-        "kanji": "後",
-        "meaning": "после; сзади",
-        "meaningEn": "after; behind",
-        "on": [
-            "ゴ"
-        ],
-        "kun": [
-            "あと",
-            "うしろ"
-        ],
-        "examples": [
-            {
-                "term": "前後",
-                "reading": "ぜんご",
-                "ru": "перед и после; примерно",
-                "en": "before and after; about"
-            },
-            {
-                "term": "午後",
-                "reading": "ごご",
-                "ru": "после полудня",
-                "en": "afternoon; p.m."
-            }
-        ]
+      "id": "voronina-kanji-17",
+      "kanji": "行",
+      "meaning": "1) идти 2) действовать",
+      "readings": [
+        "いく",
+        "おこなう",
+        "コウ",
+        "ギョウ"
+      ],
+      "examples": [
+        {
+          "term": "行き先",
+          "reading": "いきさき、ゆきさき",
+          "ru": "пункт назначения",
+          "en": "пункт назначения"
+        }
+      ],
+      "kun": [
+        "いく",
+        "おこなう"
+      ],
+      "on": [
+        "コウ",
+        "ギョウ"
+      ],
+      "meaningEn": "1) идти 2) действовать"
     },
     {
-        "id": "kanji-single-58",
-        "readings": [
-            "かた",
-            "ホウ"
-        ],
-        "kanji": "方",
-        "meaning": "направление; сторона; способ",
-        "meaningEn": "direction; person; way",
-        "on": [
-            "ホウ"
-        ],
-        "kun": [
-            "かた"
-        ],
-        "examples": [
-            {
-                "term": "行方",
-                "reading": "ゆくえ",
-                "ru": "местонахождение",
-                "en": "whereabouts"
-            },
-            {
-                "term": "話し方",
-                "reading": "はなしかた",
-                "ru": "манера речи",
-                "en": "way of speaking"
-            }
-        ]
+      "id": "voronina-kanji-18",
+      "kanji": "子",
+      "meaning": "ребёнок",
+      "readings": [
+        "こ",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "女の子",
+          "reading": "おんなのこ",
+          "ru": "девочка",
+          "en": "девочка"
+        }
+      ],
+      "kun": [
+        "こ"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "ребёнок"
     },
     {
-        "id": "kanji-single-59",
-        "readings": [
-            "やしろ",
-            "シャ"
-        ],
-        "kanji": "社",
-        "meaning": "храм; компания",
-        "meaningEn": "company; shrine",
-        "on": [
-            "シャ"
-        ],
-        "kun": [
-            "やしろ"
-        ],
-        "examples": [
-            {
-                "term": "会社",
-                "reading": "かいしゃ",
-                "ru": "компания",
-                "en": "company"
-            },
-            {
-                "term": "神社",
-                "reading": "じんじゃ",
-                "ru": "синтоистский храм",
-                "en": "shrine"
-            }
-        ]
+      "id": "voronina-kanji-19",
+      "kanji": "時",
+      "meaning": "1) время 2) час",
+      "readings": [
+        "とき",
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "時間",
+          "reading": "じかん",
+          "ru": "время",
+          "en": "время"
+        }
+      ],
+      "kun": [
+        "とき"
+      ],
+      "on": [
+        "ジ"
+      ],
+      "meaningEn": "1) время 2) час"
     },
     {
-        "id": "kanji-single-60",
-        "readings": [
-            "あたらしい",
-            "シン"
-        ],
-        "kanji": "新",
-        "meaning": "новый",
-        "meaningEn": "new",
-        "on": [
-            "シン"
-        ],
-        "kun": [
-            "あたらしい"
-        ],
-        "examples": [
-            {
-                "term": "新年会",
-                "reading": "しんねんかい",
-                "ru": "празднование Нового года",
-                "en": "New Year party"
-            },
-            {
-                "term": "新しい",
-                "reading": "あたらしい",
-                "ru": "новый",
-                "en": "new"
-            }
-        ]
+      "id": "voronina-kanji-20",
+      "kanji": "三",
+      "meaning": "три",
+      "readings": [
+        "みっつ",
+        "サン"
+      ],
+      "examples": [
+        {
+          "term": "三月",
+          "reading": "さんがつ",
+          "ru": "март",
+          "en": "март"
+        }
+      ],
+      "kun": [
+        "みっつ"
+      ],
+      "on": [
+        "サン"
+      ],
+      "meaningEn": "три"
     },
     {
-        "id": "kanji-single-61",
-        "readings": [
-            "こめ",
-            "ベイ",
-            "マイ"
-        ],
-        "kanji": "米",
-        "meaning": "рис; Америка",
-        "meaningEn": "rice; America",
-        "on": [
-            "ベイ",
-            "マイ"
-        ],
-        "kun": [
-            "こめ"
-        ],
-        "examples": [
-            {
-                "term": "北米",
-                "reading": "ほくべい",
-                "ru": "Северная Америка",
-                "en": "North America"
-            },
-            {
-                "term": "米",
-                "reading": "こめ",
-                "ru": "рис",
-                "en": "rice"
-            }
-        ]
+      "id": "voronina-kanji-21",
+      "kanji": "金",
+      "meaning": "1) золото, деньги 2) металл",
+      "readings": [
+        "かね",
+        "キン"
+      ],
+      "examples": [
+        {
+          "term": "大金",
+          "reading": "たいきん",
+          "ru": "большой куш",
+          "en": "большой куш"
+        }
+      ],
+      "kun": [
+        "かね"
+      ],
+      "on": [
+        "キン"
+      ],
+      "meaningEn": "1) золото, деньги 2) металл"
     },
     {
-        "id": "kanji-single-62",
-        "readings": [
-            "からだ",
-            "タイ"
-        ],
-        "kanji": "体",
-        "meaning": "тело",
-        "meaningEn": "body",
-        "on": [
-            "タイ"
-        ],
-        "kun": [
-            "からだ"
-        ],
-        "examples": [
-            {
-                "term": "生体",
-                "reading": "せいたい",
-                "ru": "живой организм",
-                "en": "living body"
-            },
-            {
-                "term": "体",
-                "reading": "からだ",
-                "ru": "тело",
-                "en": "body"
-            }
-        ]
+      "id": "voronina-kanji-22",
+      "kanji": "見",
+      "meaning": "смотреть",
+      "readings": [
+        "みる",
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "見物",
+          "reading": "けんぶつ",
+          "ru": "достопримечательность",
+          "en": "достопримечательность"
+        }
+      ],
+      "kun": [
+        "みる"
+      ],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "смотреть"
     },
     {
-        "id": "kanji-single-63",
-        "readings": [
-            "あう",
-            "ゴウ",
-            "ガッ"
-        ],
-        "kanji": "合",
-        "meaning": "совпадать; соединяться",
-        "meaningEn": "fit; join",
-        "on": [
-            "ゴウ",
-            "ガッ"
-        ],
-        "kun": [
-            "あう"
-        ],
-        "examples": [
-            {
-                "term": "場合",
-                "reading": "ばあい",
-                "ru": "случай; обстоятельства",
-                "en": "case; situation"
-            },
-            {
-                "term": "合います",
-                "reading": "あいます",
-                "ru": "подходить; совпадать",
-                "en": "to fit"
-            }
-        ]
+      "id": "voronina-kanji-23",
+      "kanji": "高",
+      "meaning": "высокий",
+      "readings": [
+        "たかい",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "高ビル",
+          "reading": "たかびる",
+          "ru": "небоскреб",
+          "en": "небоскреб"
+        }
+      ],
+      "kun": [
+        "たかい"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "высокий"
     },
     {
-        "id": "kanji-single-64",
-        "readings": [
-            "ブ"
-        ],
-        "kanji": "部",
-        "meaning": "часть; отдел",
-        "meaningEn": "part; section",
-        "on": [
-            "ブ"
-        ],
-        "kun": [],
-        "examples": [
-            {
-                "term": "学部",
-                "reading": "がくぶ",
-                "ru": "факультет",
-                "en": "faculty"
-            },
-            {
-                "term": "全部",
-                "reading": "ぜんぶ",
-                "ru": "все",
-                "en": "all"
-            }
-        ]
+      "id": "voronina-kanji-24",
+      "kanji": "生",
+      "meaning": "1) жизнь, жить 2) сырой",
+      "readings": [
+        "なま",
+        "いきる",
+        "セイ",
+        "ショウ"
+      ],
+      "examples": [
+        {
+          "term": "生け花",
+          "reading": "いけばな",
+          "ru": "икэбана",
+          "en": "икэбана"
+        }
+      ],
+      "kun": [
+        "なま",
+        "いきる"
+      ],
+      "on": [
+        "セイ",
+        "ショウ"
+      ],
+      "meaningEn": "1) жизнь, жить 2) сырой"
     },
     {
-        "id": "kanji-single-65",
-        "readings": [
-            "みずから",
-            "ジ"
-        ],
-        "kanji": "自",
-        "meaning": "сам; свой",
-        "meaningEn": "self",
-        "on": [
-            "ジ"
-        ],
-        "kun": [
-            "みずから"
-        ],
-        "examples": [
-            {
-                "term": "自分",
-                "reading": "じぶん",
-                "ru": "сам; свой",
-                "en": "oneself"
-            },
-            {
-                "term": "自動車",
-                "reading": "じどうしゃ",
-                "ru": "автомобиль",
-                "en": "car"
-            }
-        ]
+      "id": "voronina-kanji-25",
+      "kanji": "東",
+      "meaning": "восток",
+      "readings": [
+        "ひがし",
+        "トウ"
+      ],
+      "examples": [
+        {
+          "term": "東京",
+          "reading": "とうきょう",
+          "ru": "Токио",
+          "en": "Токио"
+        }
+      ],
+      "kun": [
+        "ひがし"
+      ],
+      "on": [
+        "トウ"
+      ],
+      "meaningEn": "восток"
     },
     {
-        "id": "kanji-single-66",
-        "readings": [
-            "こころ",
-            "シン"
-        ],
-        "kanji": "心",
-        "meaning": "сердце; душа",
-        "meaningEn": "heart; mind",
-        "on": [
-            "シン"
-        ],
-        "kun": [
-            "こころ"
-        ],
-        "examples": [
-            {
-                "term": "心理",
-                "reading": "しんり",
-                "ru": "психология; душевное состояние",
-                "en": "psychology"
-            },
-            {
-                "term": "安心",
-                "reading": "あんしん",
-                "ru": "спокойствие",
-                "en": "relief"
-            }
-        ]
+      "id": "voronina-kanji-26",
+      "kanji": "市",
+      "meaning": "город",
+      "readings": [
+        "いち",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "市長",
+          "reading": "しちょう",
+          "ru": "мэр",
+          "en": "мэр"
+        }
+      ],
+      "kun": [
+        "いち"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "город"
     },
     {
-        "id": "kanji-single-67",
-        "readings": [
-            "ぬし",
-            "シュ"
-        ],
-        "kanji": "主",
-        "meaning": "главный; хозяин; муж",
-        "meaningEn": "main; master",
-        "on": [
-            "シュ"
-        ],
-        "kun": [
-            "ぬし"
-        ],
-        "examples": [
-            {
-                "term": "主語",
-                "reading": "しゅご",
-                "ru": "подлежащее",
-                "en": "subject"
-            },
-            {
-                "term": "主人",
-                "reading": "しゅじん",
-                "ru": "муж; хозяин",
-                "en": "husband; master"
-            }
-        ]
+      "id": "voronina-kanji-27",
+      "kanji": "前",
+      "meaning": "1) перед 2) ранее",
+      "readings": [
+        "まえ",
+        "ゼン"
+      ],
+      "examples": [
+        {
+          "term": "前金",
+          "reading": "まえきん、ぜんきん",
+          "ru": "предоплата, аванс",
+          "en": "предоплата, аванс"
+        }
+      ],
+      "kun": [
+        "まえ"
+      ],
+      "on": [
+        "ゼン"
+      ],
+      "meaningEn": "1) перед 2) ранее"
     },
     {
-        "id": "kanji-single-68",
-        "readings": [
-            "ちいさい",
-            "こ",
-            "ショウ"
-        ],
-        "kanji": "小",
-        "meaning": "маленький",
-        "meaningEn": "small",
-        "on": [
-            "ショウ"
-        ],
-        "kun": [
-            "ちいさい",
-            "こ"
-        ],
-        "examples": [
-            {
-                "term": "小言",
-                "reading": "こごと",
-                "ru": "упрек",
-                "en": "scolding"
-            },
-            {
-                "term": "小さい",
-                "reading": "ちいさい",
-                "ru": "маленький",
-                "en": "small"
-            }
-        ]
+      "id": "voronina-kanji-28",
+      "kanji": "円",
+      "meaning": "йена",
+      "readings": [
+        "まるい",
+        "エン"
+      ],
+      "examples": [
+        {
+          "term": "円高",
+          "reading": "えんだか",
+          "ru": "высокий курс йены",
+          "en": "высокий курс йены"
+        }
+      ],
+      "kun": [
+        "まるい"
+      ],
+      "on": [
+        "エン"
+      ],
+      "meaningEn": "йена"
     },
     {
-        "id": "kanji-single-69",
-        "readings": [
-            "おんな",
-            "ジョ",
-            "ニョ"
-        ],
-        "kanji": "女",
-        "meaning": "женщина",
-        "meaningEn": "woman",
-        "on": [
-            "ジョ",
-            "ニョ"
-        ],
-        "kun": [
-            "おんな"
-        ],
-        "examples": [
-            {
-                "term": "長女",
-                "reading": "ちょうじょ",
-                "ru": "старшая дочь",
-                "en": "eldest daughter"
-            },
-            {
-                "term": "女の人",
-                "reading": "おんなのひと",
-                "ru": "женщина",
-                "en": "woman"
-            }
-        ]
+      "id": "voronina-kanji-29",
+      "kanji": "手",
+      "meaning": "рука",
+      "readings": [
+        "て",
+        "シュ"
+      ],
+      "examples": [
+        {
+          "term": "上手",
+          "reading": "じょうず",
+          "ru": "умелый",
+          "en": "умелый"
+        }
+      ],
+      "kun": [
+        "て"
+      ],
+      "on": [
+        "シュ"
+      ],
+      "meaningEn": "рука"
     },
     {
-        "id": "kanji-single-70",
-        "readings": [
-            "まわる",
-            "カイ"
-        ],
-        "kanji": "回",
-        "meaning": "раз; кружиться",
-        "meaningEn": "times; turn",
-        "on": [
-            "カイ"
-        ],
-        "kun": [
-            "まわる"
-        ],
-        "examples": [
-            {
-                "term": "三回",
-                "reading": "さんかい",
-                "ru": "три раза",
-                "en": "three times"
-            },
-            {
-                "term": "回ります",
-                "reading": "まわります",
-                "ru": "вращаться; обходить",
-                "en": "to turn"
-            }
-        ]
+      "id": "voronina-kanji-30",
+      "kanji": "同",
+      "meaning": "одинаковый",
+      "readings": [
+        "おなじ",
+        "ドウ"
+      ],
+      "examples": [
+        {
+          "term": "同一",
+          "reading": "どういつ",
+          "ru": "тождественность",
+          "en": "тождественность"
+        }
+      ],
+      "kun": [
+        "おなじ"
+      ],
+      "on": [
+        "ドウ"
+      ],
+      "meaningEn": "одинаковый"
     },
     {
-        "id": "kanji-single-71",
-        "readings": [
-            "かわる",
-            "ダイ",
-            "タイ"
-        ],
-        "kanji": "代",
-        "meaning": "поколение; замена; эпоха",
-        "meaningEn": "generation; substitute; era",
-        "on": [
-            "ダイ",
-            "タイ"
-        ],
-        "kun": [
-            "かわる"
-        ],
-        "examples": [
-            {
-                "term": "代理",
-                "reading": "だいり",
-                "ru": "заместитель",
-                "en": "representative"
-            },
-            {
-                "term": "時代",
-                "reading": "じだい",
-                "ru": "эпоха",
-                "en": "era"
-            }
-        ]
+      "id": "voronina-kanji-31",
+      "kanji": "力",
+      "meaning": "сила",
+      "readings": [
+        "ちから",
+        "リョク",
+        "リキ"
+      ],
+      "examples": [
+        {
+          "term": "力持ち",
+          "reading": "ちからもち",
+          "ru": "силач",
+          "en": "силач"
+        }
+      ],
+      "kun": [
+        "ちから"
+      ],
+      "on": [
+        "リョク",
+        "リキ"
+      ],
+      "meaningEn": "сила"
     },
     {
-        "id": "kanji-single-72",
-        "readings": [
-            "いう",
-            "こと",
-            "ゲン",
-            "ゴン"
-        ],
-        "kanji": "言",
-        "meaning": "слово; говорить",
-        "meaningEn": "word; say",
-        "on": [
-            "ゲン",
-            "ゴン"
-        ],
-        "kun": [
-            "いう",
-            "こと"
-        ],
-        "examples": [
-            {
-                "term": "方言",
-                "reading": "ほうげん",
-                "ru": "диалект",
-                "en": "dialect"
-            },
-            {
-                "term": "言います",
-                "reading": "いいます",
-                "ru": "говорить",
-                "en": "to say"
-            }
-        ]
+      "id": "voronina-kanji-32",
+      "kanji": "内",
+      "meaning": "внутренний, свой",
+      "readings": [
+        "うち",
+        "ダイ",
+        "ナイ"
+      ],
+      "examples": [
+        {
+          "term": "国内",
+          "reading": "こくない",
+          "ru": "внутригосударственный",
+          "en": "внутригосударственный"
+        }
+      ],
+      "kun": [
+        "うち"
+      ],
+      "on": [
+        "ダイ",
+        "ナイ"
+      ],
+      "meaningEn": "внутренний, свой"
     },
     {
-        "id": "kanji-single-73",
-        "readings": [
-            "あかるい",
-            "メイ",
-            "ミョウ"
-        ],
-        "kanji": "明",
-        "meaning": "яркий; светлый",
-        "meaningEn": "bright",
-        "on": [
-            "メイ",
-            "ミョウ"
-        ],
-        "kun": [
-            "あかるい"
-        ],
-        "examples": [
-            {
-                "term": "明日",
-                "reading": "あした",
-                "ru": "завтра",
-                "en": "tomorrow"
-            },
-            {
-                "term": "明るい",
-                "reading": "あかるい",
-                "ru": "светлый",
-                "en": "bright"
-            }
-        ]
+      "id": "voronina-kanji-33",
+      "kanji": "者",
+      "meaning": "персона",
+      "readings": [
+        "もの",
+        "シャ"
+      ],
+      "examples": [
+        {
+          "term": "作者",
+          "reading": "さくしゃ",
+          "ru": "автор, писатель",
+          "en": "автор, писатель"
+        }
+      ],
+      "kun": [
+        "もの"
+      ],
+      "on": [
+        "シャ"
+      ],
+      "meaningEn": "персона"
     },
     {
-        "id": "kanji-single-74",
-        "readings": [
-            "た",
-            "デン"
-        ],
-        "kanji": "田",
-        "meaning": "рисовое поле",
-        "meaningEn": "rice field",
-        "on": [
-            "デン"
-        ],
-        "kun": [
-            "た"
-        ],
-        "examples": [
-            {
-                "term": "田地",
-                "reading": "でんち",
-                "ru": "поля; обрабатываемая земля",
-                "en": "farmland"
-            },
-            {
-                "term": "田中",
-                "reading": "たなか",
-                "ru": "Танака",
-                "en": "Tanaka"
-            }
-        ]
+      "id": "voronina-kanji-34",
+      "kanji": "事",
+      "meaning": "дело, кейс, инцидент",
+      "readings": [
+        "こと",
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "仕事",
+          "reading": "しごと",
+          "ru": "работа",
+          "en": "работа"
+        }
+      ],
+      "kun": [
+        "こと"
+      ],
+      "on": [
+        "ジ"
+      ],
+      "meaningEn": "дело, кейс, инцидент"
     },
     {
-        "id": "kanji-single-75",
-        "readings": [
-            "キョウ",
-            "ケイ"
-        ],
-        "kanji": "京",
-        "meaning": "столица",
-        "meaningEn": "capital",
-        "on": [
-            "キョウ",
-            "ケイ"
-        ],
-        "kun": [],
-        "examples": [
-            {
-                "term": "京都",
-                "reading": "きょうと",
-                "ru": "Киото",
-                "en": "Kyoto"
-            },
-            {
-                "term": "東京",
-                "reading": "とうきょう",
-                "ru": "Токио",
-                "en": "Tokyo"
-            }
-        ]
+      "id": "voronina-kanji-35",
+      "kanji": "二",
+      "meaning": "два",
+      "readings": [
+        "ふたつ",
+        "ニ"
+      ],
+      "examples": [
+        {
+          "term": "二人",
+          "reading": "ふたり",
+          "ru": "два человека, вдвоем",
+          "en": "два человека, вдвоем"
+        }
+      ],
+      "kun": [
+        "ふたつ"
+      ],
+      "on": [
+        "ニ"
+      ],
+      "meaningEn": "два"
     },
     {
-        "id": "kanji-single-76",
-        "readings": [
-            "ただしい",
-            "セイ",
-            "ショウ"
-        ],
-        "kanji": "正",
-        "meaning": "правильный; верный",
-        "meaningEn": "correct; true",
-        "on": [
-            "セイ",
-            "ショウ"
-        ],
-        "kun": [
-            "ただしい"
-        ],
-        "examples": [
-            {
-                "term": "真正",
-                "reading": "しんせい",
-                "ru": "истинный; подлинный",
-                "en": "genuine"
-            },
-            {
-                "term": "正しい",
-                "reading": "ただしい",
-                "ru": "правильный",
-                "en": "correct"
-            }
-        ]
+      "id": "voronina-kanji-36",
+      "kanji": "地",
+      "meaning": "земля",
+      "readings": [
+        "チ",
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "地下",
+          "reading": "ちか",
+          "ru": "подземный",
+          "en": "подземный"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "チ",
+        "ジ"
+      ],
+      "meaningEn": "земля"
     },
     {
-        "id": "kanji-single-77",
-        "readings": [
-            "ば",
-            "ジョウ"
-        ],
-        "kanji": "場",
-        "meaning": "место; случай",
-        "meaningEn": "place; situation",
-        "on": [
-            "ジョウ"
-        ],
-        "kun": [
-            "ば"
-        ],
-        "examples": [
-            {
-                "term": "場合",
-                "reading": "ばあい",
-                "ru": "случай; обстоятельства",
-                "en": "case"
-            },
-            {
-                "term": "場所",
-                "reading": "ばしょ",
-                "ru": "место",
-                "en": "place"
-            }
-        ]
+      "id": "voronina-kanji-37",
+      "kanji": "間",
+      "meaning": "1) пространство, промежуток, интервал 2) между 3) комната",
+      "readings": [
+        "あいだ",
+        "ま",
+        "カン"
+      ],
+      "examples": [
+        {
+          "term": "日本間",
+          "reading": "にほんま",
+          "ru": "комната в японском стиле",
+          "en": "комната в японском стиле"
+        }
+      ],
+      "kun": [
+        "あいだ",
+        "ま"
+      ],
+      "on": [
+        "カン"
+      ],
+      "meaningEn": "1) пространство, промежуток, интервал 2) между 3) комната"
     },
     {
-        "id": "kanji-single-78",
-        "readings": [
-            "いえ",
-            "や",
-            "カ",
-            "ケ"
-        ],
-        "kanji": "家",
-        "meaning": "дом; семья",
-        "meaningEn": "house; family",
-        "on": [
-            "カ",
-            "ケ"
-        ],
-        "kun": [
-            "いえ",
-            "や"
-        ],
-        "examples": [
-            {
-                "term": "家主",
-                "reading": "やぬし",
-                "ru": "домовладелец",
-                "en": "landlord"
-            },
-            {
-                "term": "家族",
-                "reading": "かぞく",
-                "ru": "семья",
-                "en": "family"
-            }
-        ]
+      "id": "voronina-kanji-38",
+      "kanji": "目",
+      "meaning": "1) глаз 2) суффикс порядковых числительных",
+      "readings": [
+        "め",
+        "モク"
+      ],
+      "examples": [
+        {
+          "term": "三日目",
+          "reading": "みっかめ",
+          "ru": "третий день",
+          "en": "третий день"
+        }
+      ],
+      "kun": [
+        "め"
+      ],
+      "on": [
+        "モク"
+      ],
+      "meaningEn": "1) глаз 2) суффикс порядковых числительных"
     },
     {
-        "id": "kanji-single-79",
-        "readings": [
-            "ケン"
-        ],
-        "kanji": "県",
-        "meaning": "префектура",
-        "meaningEn": "prefecture",
-        "on": [
-            "ケン"
-        ],
-        "kun": [],
-        "examples": [
-            {
-                "term": "青森県",
-                "reading": "あおもりけん",
-                "ru": "префектура Аомори",
-                "en": "Aomori Prefecture"
-            },
-            {
-                "term": "県庁",
-                "reading": "けんちょう",
-                "ru": "администрация префектуры",
-                "en": "prefectural office"
-            }
-        ]
+      "id": "voronina-kanji-39",
+      "kanji": "下",
+      "meaning": "низ, спускаться",
+      "readings": [
+        "した",
+        "くだる",
+        "カ",
+        "ゲ"
+      ],
+      "examples": [
+        {
+          "term": "下手",
+          "reading": "へた",
+          "ru": "неумелый",
+          "en": "неумелый"
+        }
+      ],
+      "kun": [
+        "した",
+        "くだる"
+      ],
+      "on": [
+        "カ",
+        "ゲ"
+      ],
+      "meaningEn": "низ, спускаться"
     },
     {
-        "id": "kanji-single-80",
-        "readings": [
-            "はなす",
-            "ワ"
-        ],
-        "kanji": "話",
-        "meaning": "разговаривать; рассказ",
-        "meaningEn": "talk; story",
-        "on": [
-            "ワ"
-        ],
-        "kun": [
-            "はなす"
-        ],
-        "examples": [
-            {
-                "term": "話し方",
-                "reading": "はなしかた",
-                "ru": "манера речи",
-                "en": "way of speaking"
-            },
-            {
-                "term": "電話",
-                "reading": "でんわ",
-                "ru": "телефон",
-                "en": "telephone"
-            }
-        ]
+      "id": "voronina-kanji-40",
+      "kanji": "後",
+      "meaning": "после, позади, сзади",
+      "readings": [
+        "あと",
+        "のち",
+        "うしろ",
+        "ゴ"
+      ],
+      "examples": [
+        {
+          "term": "前後",
+          "reading": "ぜんご",
+          "ru": "1",
+          "en": "1"
+        }
+      ],
+      "kun": [
+        "あと",
+        "のち",
+        "うしろ"
+      ],
+      "on": [
+        "ゴ"
+      ],
+      "meaningEn": "после, позади, сзади"
+    },
+    {
+      "id": "voronina-kanji-41",
+      "kanji": "方",
+      "meaning": "направление, сторона",
+      "readings": [
+        "かた",
+        "ほう"
+      ],
+      "examples": [
+        {
+          "term": "行方",
+          "reading": "ゆくえ",
+          "ru": "местонахождение",
+          "en": "местонахождение"
+        }
+      ],
+      "kun": [
+        "かた"
+      ],
+      "on": [
+        "ほう"
+      ],
+      "meaningEn": "направление, сторона"
+    },
+    {
+      "id": "voronina-kanji-42",
+      "kanji": "社",
+      "meaning": "храм",
+      "readings": [
+        "シャ"
+      ],
+      "examples": [
+        {
+          "term": "会社",
+          "reading": "かいしゃ",
+          "ru": "компания",
+          "en": "компания"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "シャ"
+      ],
+      "meaningEn": "храм"
+    },
+    {
+      "id": "voronina-kanji-43",
+      "kanji": "新",
+      "meaning": "новый",
+      "readings": [
+        "あたらしい",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "新年会",
+          "reading": "しんねんかい",
+          "ru": "празднование Нового Года",
+          "en": "празднование Нового Года"
+        }
+      ],
+      "kun": [
+        "あたらしい"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "новый"
+    },
+    {
+      "id": "voronina-kanji-44",
+      "kanji": "米",
+      "meaning": "1) рис 2) Америка",
+      "readings": [
+        "こめ",
+        "ベイ",
+        "マイ"
+      ],
+      "examples": [
+        {
+          "term": "北米",
+          "reading": "ほくべい",
+          "ru": "Северная Америка",
+          "en": "Северная Америка"
+        }
+      ],
+      "kun": [
+        "こめ"
+      ],
+      "on": [
+        "ベイ",
+        "マイ"
+      ],
+      "meaningEn": "1) рис 2) Америка"
+    },
+    {
+      "id": "voronina-kanji-45",
+      "kanji": "体",
+      "meaning": "тело",
+      "readings": [
+        "からだ",
+        "タイ"
+      ],
+      "examples": [
+        {
+          "term": "生体",
+          "reading": "せいたい",
+          "ru": "живой организм",
+          "en": "живой организм"
+        }
+      ],
+      "kun": [
+        "からだ"
+      ],
+      "on": [
+        "タイ"
+      ],
+      "meaningEn": "тело"
+    },
+    {
+      "id": "voronina-kanji-46",
+      "kanji": "合",
+      "meaning": "совпадать, соединяться",
+      "readings": [
+        "あう",
+        "ゴウ",
+        "ガッ"
+      ],
+      "examples": [
+        {
+          "term": "合コン",
+          "reading": "ごうこん",
+          "ru": "вечеринки с быстрыми свиданиями",
+          "en": "вечеринки с быстрыми свиданиями"
+        }
+      ],
+      "kun": [
+        "あう"
+      ],
+      "on": [
+        "ゴウ",
+        "ガッ"
+      ],
+      "meaningEn": "совпадать, соединяться"
+    },
+    {
+      "id": "voronina-kanji-47",
+      "kanji": "部",
+      "meaning": "часть",
+      "readings": [
+        "ブ"
+      ],
+      "examples": [
+        {
+          "term": "学部",
+          "reading": "がくぶ",
+          "ru": "факультет",
+          "en": "факультет"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ブ"
+      ],
+      "meaningEn": "часть"
+    },
+    {
+      "id": "voronina-kanji-48",
+      "kanji": "自",
+      "meaning": "сам, лично",
+      "readings": [
+        "みずから",
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "自分",
+          "reading": "じぶん",
+          "ru": "сам, свой",
+          "en": "сам, свой"
+        }
+      ],
+      "kun": [
+        "みずから"
+      ],
+      "on": [
+        "ジ"
+      ],
+      "meaningEn": "сам, лично"
+    },
+    {
+      "id": "voronina-kanji-49",
+      "kanji": "学",
+      "meaning": "учение, изучать",
+      "readings": [
+        "まなぶ",
+        "ガク"
+      ],
+      "examples": [
+        {
+          "term": "文学",
+          "reading": "ぶんがく",
+          "ru": "литература",
+          "en": "литература"
+        }
+      ],
+      "kun": [
+        "まなぶ"
+      ],
+      "on": [
+        "ガク"
+      ],
+      "meaningEn": "учение, изучать"
+    },
+    {
+      "id": "voronina-kanji-50",
+      "kanji": "心",
+      "meaning": "сердце",
+      "readings": [
+        "こころ",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "心理",
+          "reading": "しんり",
+          "ru": "душевное состояние",
+          "en": "душевное состояние"
+        }
+      ],
+      "kun": [
+        "こころ"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "сердце"
+    },
+    {
+      "id": "voronina-kanji-51",
+      "kanji": "五",
+      "meaning": "пять",
+      "readings": [
+        "いつつ",
+        "ゴ"
+      ],
+      "examples": [
+        {
+          "term": "五目",
+          "reading": "ごもく",
+          "ru": "«пять вкусов»",
+          "en": "«пять вкусов»"
+        }
+      ],
+      "kun": [
+        "いつつ"
+      ],
+      "on": [
+        "ゴ"
+      ],
+      "meaningEn": "пять"
+    },
+    {
+      "id": "voronina-kanji-52",
+      "kanji": "主",
+      "meaning": "1) главный 2) муж 3) хозяин",
+      "readings": [
+        "ぬし",
+        "シュ"
+      ],
+      "examples": [
+        {
+          "term": "主語",
+          "reading": "しゅご",
+          "ru": "подлежащее",
+          "en": "подлежащее"
+        }
+      ],
+      "kun": [
+        "ぬし"
+      ],
+      "on": [
+        "シュ"
+      ],
+      "meaningEn": "1) главный 2) муж 3) хозяин"
+    },
+    {
+      "id": "voronina-kanji-53",
+      "kanji": "小",
+      "meaning": "маленький",
+      "readings": [
+        "ちいさい",
+        "ショウ"
+      ],
+      "examples": [
+        {
+          "term": "小言",
+          "reading": "こごと",
+          "ru": "упрек",
+          "en": "упрек"
+        }
+      ],
+      "kun": [
+        "ちいさい"
+      ],
+      "on": [
+        "ショウ"
+      ],
+      "meaningEn": "маленький"
+    },
+    {
+      "id": "voronina-kanji-54",
+      "kanji": "女",
+      "meaning": "женщина",
+      "readings": [
+        "おんな",
+        "ジョ"
+      ],
+      "examples": [
+        {
+          "term": "長女",
+          "reading": "ちょうじょ",
+          "ru": "старшая дочь",
+          "en": "старшая дочь"
+        }
+      ],
+      "kun": [
+        "おんな"
+      ],
+      "on": [
+        "ジョ"
+      ],
+      "meaningEn": "женщина"
+    },
+    {
+      "id": "voronina-kanji-55",
+      "kanji": "回",
+      "meaning": "1) … раз 2) кружиться 3) обходить кругом",
+      "readings": [
+        "まわる",
+        "めぐる",
+        "カイ"
+      ],
+      "examples": [
+        {
+          "term": "三 回",
+          "reading": "さんかい",
+          "ru": "три раза",
+          "en": "три раза"
+        }
+      ],
+      "kun": [
+        "まわる",
+        "めぐる"
+      ],
+      "on": [
+        "カイ"
+      ],
+      "meaningEn": "1) … раз 2) кружиться 3) обходить кругом"
+    },
+    {
+      "id": "voronina-kanji-56",
+      "kanji": "代",
+      "meaning": "поколение, эпоха 2) заменять",
+      "readings": [
+        "かわる",
+        "かえる",
+        "よ1)",
+        "ダイ"
+      ],
+      "examples": [
+        {
+          "term": "代理",
+          "reading": "だいり",
+          "ru": "заместитель",
+          "en": "заместитель"
+        }
+      ],
+      "kun": [
+        "かわる",
+        "かえる",
+        "よ1)"
+      ],
+      "on": [
+        "ダイ"
+      ],
+      "meaningEn": "поколение, эпоха 2) заменять"
+    },
+    {
+      "id": "voronina-kanji-57",
+      "kanji": "言",
+      "meaning": "1) слово, речь 2) говорить",
+      "readings": [
+        "こと",
+        "いう",
+        "ゲン",
+        "ゴン"
+      ],
+      "examples": [
+        {
+          "term": "方言",
+          "reading": "ほうげん",
+          "ru": "диалект",
+          "en": "диалект"
+        }
+      ],
+      "kun": [
+        "こと",
+        "いう"
+      ],
+      "on": [
+        "ゲン",
+        "ゴン"
+      ],
+      "meaningEn": "1) слово, речь 2) говорить"
+    },
+    {
+      "id": "voronina-kanji-58",
+      "kanji": "四",
+      "meaning": "четыре",
+      "readings": [
+        "よっつ",
+        "シ",
+        "ヨ",
+        "ヨン"
+      ],
+      "examples": [
+        {
+          "term": "四国",
+          "reading": "しこく",
+          "ru": "остров Сикоку",
+          "en": "остров Сикоку"
+        }
+      ],
+      "kun": [
+        "よっつ"
+      ],
+      "on": [
+        "シ",
+        "ヨ",
+        "ヨン"
+      ],
+      "meaningEn": "четыре"
+    },
+    {
+      "id": "voronina-kanji-59",
+      "kanji": "八",
+      "meaning": "восемь",
+      "readings": [
+        "やっつ",
+        "ハチ"
+      ],
+      "examples": [
+        {
+          "term": "八方",
+          "reading": "はっぽう",
+          "ru": "(на",
+          "en": "(на"
+        }
+      ],
+      "kun": [
+        "やっつ"
+      ],
+      "on": [
+        "ハチ"
+      ],
+      "meaningEn": "восемь"
+    },
+    {
+      "id": "voronina-kanji-60",
+      "kanji": "明",
+      "meaning": "яркий, светлый",
+      "readings": [
+        "あかるい",
+        "メイ",
+        "ミョウ"
+      ],
+      "examples": [
+        {
+          "term": "明日",
+          "reading": "あした",
+          "ru": "завтра",
+          "en": "завтра"
+        }
+      ],
+      "kun": [
+        "あかるい"
+      ],
+      "on": [
+        "メイ",
+        "ミョウ"
+      ],
+      "meaningEn": "яркий, светлый"
+    },
+    {
+      "id": "voronina-kanji-61",
+      "kanji": "田",
+      "meaning": "поле",
+      "readings": [
+        "た",
+        "デン"
+      ],
+      "examples": [
+        {
+          "term": "田地",
+          "reading": "でんじ",
+          "ru": "поля, обрабатываемая земля",
+          "en": "поля, обрабатываемая земля"
+        }
+      ],
+      "kun": [
+        "た"
+      ],
+      "on": [
+        "デン"
+      ],
+      "meaningEn": "поле"
+    },
+    {
+      "id": "voronina-kanji-62",
+      "kanji": "全",
+      "meaning": "совершенно, всецело, полностью",
+      "readings": [
+        "まったく",
+        "ゼン"
+      ],
+      "examples": [
+        {
+          "term": "全部",
+          "reading": "ぜんぶ",
+          "ru": "всё",
+          "en": "всё"
+        }
+      ],
+      "kun": [
+        "まったく"
+      ],
+      "on": [
+        "ゼン"
+      ],
+      "meaningEn": "совершенно, всецело, полностью"
+    },
+    {
+      "id": "voronina-kanji-63",
+      "kanji": "京",
+      "meaning": "столица",
+      "readings": [
+        "キョウ",
+        "ケイ"
+      ],
+      "examples": [
+        {
+          "term": "京都",
+          "reading": "きょうと",
+          "ru": "Киото",
+          "en": "Киото"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "キョウ",
+        "ケイ"
+      ],
+      "meaningEn": "столица"
+    },
+    {
+      "id": "voronina-kanji-64",
+      "kanji": "万",
+      "meaning": "десять тысяч",
+      "readings": [
+        "マン",
+        "バン"
+      ],
+      "examples": [
+        {
+          "term": "万引き",
+          "reading": "まんびき",
+          "ru": "магазинная кража",
+          "en": "магазинная кража"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "マン",
+        "バン"
+      ],
+      "meaningEn": "десять тысяч"
+    },
+    {
+      "id": "voronina-kanji-65",
+      "kanji": "正",
+      "meaning": "правильный, верный",
+      "readings": [
+        "ただしい",
+        "セイ",
+        "ショウ"
+      ],
+      "examples": [
+        {
+          "term": "真正",
+          "reading": "しんせい",
+          "ru": "истинный, подлинный",
+          "en": "истинный, подлинный"
+        }
+      ],
+      "kun": [
+        "ただしい"
+      ],
+      "on": [
+        "セイ",
+        "ショウ"
+      ],
+      "meaningEn": "правильный, верный"
+    },
+    {
+      "id": "voronina-kanji-66",
+      "kanji": "場",
+      "meaning": "место",
+      "readings": [
+        "ば",
+        "ジョウ"
+      ],
+      "examples": [
+        {
+          "term": "場合",
+          "reading": "ばあい",
+          "ru": "обстоятельства, случай",
+          "en": "обстоятельства, случай"
+        }
+      ],
+      "kun": [
+        "ば"
+      ],
+      "on": [
+        "ジョウ"
+      ],
+      "meaningEn": "место"
+    },
+    {
+      "id": "voronina-kanji-67",
+      "kanji": "家",
+      "meaning": "дом, семья",
+      "readings": [
+        "いえ",
+        "や",
+        "カ",
+        "ケ"
+      ],
+      "examples": [
+        {
+          "term": "家主",
+          "reading": "やぬし",
+          "ru": "домовладелец",
+          "en": "домовладелец"
+        }
+      ],
+      "kun": [
+        "いえ",
+        "や"
+      ],
+      "on": [
+        "カ",
+        "ケ"
+      ],
+      "meaningEn": "дом, семья"
+    },
+    {
+      "id": "voronina-kanji-68",
+      "kanji": "山",
+      "meaning": "гора",
+      "readings": [
+        "やま",
+        "サン"
+      ],
+      "examples": [
+        {
+          "term": "山小屋",
+          "reading": "やまごや",
+          "ru": "горная хижина",
+          "en": "горная хижина"
+        }
+      ],
+      "kun": [
+        "やま"
+      ],
+      "on": [
+        "サン"
+      ],
+      "meaningEn": "гора"
+    },
+    {
+      "id": "voronina-kanji-69",
+      "kanji": "入",
+      "meaning": "входить",
+      "readings": [
+        "はいる",
+        "いる",
+        "ニュウ"
+      ],
+      "examples": [
+        {
+          "term": "入り口",
+          "reading": "いりぐち",
+          "ru": "вход",
+          "en": "вход"
+        }
+      ],
+      "kun": [
+        "はいる",
+        "いる"
+      ],
+      "on": [
+        "ニュウ"
+      ],
+      "meaningEn": "входить"
+    },
+    {
+      "id": "voronina-kanji-70",
+      "kanji": "県",
+      "meaning": "префектура",
+      "readings": [
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "青森県",
+          "reading": "あおもりけん",
+          "ru": "префектура Аомори",
+          "en": "Aomori Prefecture"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "префектура"
+    },
+    {
+      "id": "voronina-kanji-71",
+      "kanji": "水",
+      "meaning": "вода",
+      "readings": [
+        "みず",
+        "スイ"
+      ],
+      "examples": [
+        {
+          "term": "水道",
+          "reading": "すいどう",
+          "ru": "водопровод",
+          "en": "водопровод"
+        }
+      ],
+      "kun": [
+        "みず"
+      ],
+      "on": [
+        "スイ"
+      ],
+      "meaningEn": "вода"
+    },
+    {
+      "id": "voronina-kanji-72",
+      "kanji": "話",
+      "meaning": "разговаривать",
+      "readings": [
+        "はなす",
+        "ワ"
+      ],
+      "examples": [
+        {
+          "term": "話し方",
+          "reading": "はなしかた",
+          "ru": "манера речи",
+          "en": "манера речи"
+        }
+      ],
+      "kun": [
+        "はなす"
+      ],
+      "on": [
+        "ワ"
+      ],
+      "meaningEn": "разговаривать"
+    },
+    {
+      "id": "voronina-kanji-73",
+      "kanji": "立",
+      "meaning": "стоять",
+      "readings": [
+        "たつ",
+        "リツ"
+      ],
+      "examples": [
+        {
+          "term": "私立大学",
+          "reading": "しりつだいがく",
+          "ru": "частный университет",
+          "en": "частный университет"
+        }
+      ],
+      "kun": [
+        "たつ"
+      ],
+      "on": [
+        "リツ"
+      ],
+      "meaningEn": "стоять"
+    },
+    {
+      "id": "voronina-kanji-74",
+      "kanji": "度",
+      "meaning": "…раз, градус",
+      "readings": [
+        "たび",
+        "ド"
+      ],
+      "examples": [
+        {
+          "term": "年度",
+          "reading": "ねんど",
+          "ru": "финансовый год",
+          "en": "финансовый год"
+        }
+      ],
+      "kun": [
+        "たび"
+      ],
+      "on": [
+        "ド"
+      ],
+      "meaningEn": "…раз, градус"
+    },
+    {
+      "id": "voronina-kanji-75",
+      "kanji": "七",
+      "meaning": "семь",
+      "readings": [
+        "ななつ",
+        "シチ",
+        "ナナ"
+      ],
+      "examples": [
+        {
+          "term": "七夕",
+          "reading": "たなばた",
+          "ru": "праздник Танабата",
+          "en": "праздник Танабата"
+        }
+      ],
+      "kun": [
+        "ななつ"
+      ],
+      "on": [
+        "シチ",
+        "ナナ"
+      ],
+      "meaningEn": "семь"
+    },
+    {
+      "id": "voronina-kanji-76",
+      "kanji": "九",
+      "meaning": "девять",
+      "readings": [
+        "ここのつ",
+        "キュウ",
+        "ク"
+      ],
+      "examples": [
+        {
+          "term": "九州",
+          "reading": "きゅうしゅう",
+          "ru": "остров Кюсю",
+          "en": "остров Кюсю"
+        }
+      ],
+      "kun": [
+        "ここのつ"
+      ],
+      "on": [
+        "キュウ",
+        "ク"
+      ],
+      "meaningEn": "девять"
+    },
+    {
+      "id": "voronina-kanji-77",
+      "kanji": "北",
+      "meaning": "север",
+      "readings": [
+        "きた",
+        "ホク"
+      ],
+      "examples": [
+        {
+          "term": "北光",
+          "reading": "ほっこう",
+          "ru": "северное сияние",
+          "en": "северное сияние"
+        }
+      ],
+      "kun": [
+        "きた"
+      ],
+      "on": [
+        "ホク"
+      ],
+      "meaningEn": "север"
+    },
+    {
+      "id": "voronina-kanji-78",
+      "kanji": "実",
+      "meaning": "сам, лично",
+      "readings": [
+        "み",
+        "みのる",
+        "ジツ"
+      ],
+      "examples": [
+        {
+          "term": "自分",
+          "reading": "じぶん",
+          "ru": "сам, свой",
+          "en": "сам, свой"
+        }
+      ],
+      "kun": [
+        "み",
+        "みのる"
+      ],
+      "on": [
+        "ジツ"
+      ],
+      "meaningEn": "сам, лично"
+    },
+    {
+      "id": "voronina-kanji-79",
+      "kanji": "道",
+      "meaning": "дорога, путь",
+      "readings": [
+        "みち",
+        "ドウ",
+        "ド"
+      ],
+      "examples": [
+        {
+          "term": "書道",
+          "reading": "しょどう",
+          "ru": "каллиграфия",
+          "en": "каллиграфия"
+        }
+      ],
+      "kun": [
+        "みち"
+      ],
+      "on": [
+        "ドウ",
+        "ド"
+      ],
+      "meaningEn": "дорога, путь"
+    },
+    {
+      "id": "voronina-kanji-80",
+      "kanji": "不",
+      "meaning": "отрицательный префикс",
+      "readings": [
+        "フ"
+      ],
+      "examples": [
+        {
+          "term": "不安",
+          "reading": "ふあん",
+          "ru": "тревога",
+          "en": "тревога"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "フ"
+      ],
+      "meaningEn": "отрицательный префикс"
+    },
+    {
+      "id": "voronina-kanji-81",
+      "kanji": "開",
+      "meaning": "открыть",
+      "readings": [
+        "あく",
+        "あける",
+        "ひらく",
+        "カイ"
+      ],
+      "examples": [
+        {
+          "term": "開会",
+          "reading": "かいかい",
+          "ru": "начало собрания",
+          "en": "начало собрания"
+        }
+      ],
+      "kun": [
+        "あく",
+        "あける",
+        "ひらく"
+      ],
+      "on": [
+        "カイ"
+      ],
+      "meaningEn": "открыть"
+    },
+    {
+      "id": "voronina-kanji-82",
+      "kanji": "和",
+      "meaning": "1) спокойствие, гармония 2) Япония",
+      "readings": [
+        "なごやか",
+        "ワ"
+      ],
+      "examples": [
+        {
+          "term": "和食",
+          "reading": "わしょく",
+          "ru": "японская еда",
+          "en": "японская еда"
+        }
+      ],
+      "kun": [
+        "なごやか"
+      ],
+      "on": [
+        "ワ"
+      ],
+      "meaningEn": "1) спокойствие, гармония 2) Япония"
+    },
+    {
+      "id": "voronina-kanji-83",
+      "kanji": "対",
+      "meaning": "против, по отношению к…",
+      "readings": [
+        "タイ"
+      ],
+      "examples": [
+        {
+          "term": "対立",
+          "reading": "たいりつ",
+          "ru": "противостояние",
+          "en": "противостояние"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "タイ"
+      ],
+      "meaningEn": "против, по отношению к…"
+    },
+    {
+      "id": "voronina-kanji-84",
+      "kanji": "名",
+      "meaning": "известный; имя",
+      "readings": [
+        "な",
+        "メイ",
+        "ミョウ"
+      ],
+      "examples": [
+        {
+          "term": "名前",
+          "reading": "なまえ",
+          "ru": "имя",
+          "en": "имя"
+        }
+      ],
+      "kun": [
+        "な"
+      ],
+      "on": [
+        "メイ",
+        "ミョウ"
+      ],
+      "meaningEn": "известный; имя"
+    },
+    {
+      "id": "voronina-kanji-85",
+      "kanji": "表",
+      "meaning": "1) диаграмма, график 2) наружняя сторона",
+      "readings": [
+        "おもて",
+        "ヒョウ"
+      ],
+      "examples": [
+        {
+          "term": "代表",
+          "reading": "だいひょう",
+          "ru": "делегация",
+          "en": "делегация"
+        }
+      ],
+      "kun": [
+        "おもて"
+      ],
+      "on": [
+        "ヒョウ"
+      ],
+      "meaningEn": "1) диаграмма, график 2) наружняя сторона"
+    },
+    {
+      "id": "voronina-kanji-86",
+      "kanji": "定",
+      "meaning": "определять",
+      "readings": [
+        "さだめるустанавливать,",
+        "テイ",
+        "ジョウ"
+      ],
+      "examples": [
+        {
+          "term": "不定",
+          "reading": "ふてい",
+          "ru": "неопределенный, неустановленный",
+          "en": "неопределенный, неустановленный"
+        }
+      ],
+      "kun": [
+        "さだめるустанавливать,"
+      ],
+      "on": [
+        "テイ",
+        "ジョウ"
+      ],
+      "meaningEn": "определять"
+    },
+    {
+      "id": "voronina-kanji-87",
+      "kanji": "法",
+      "meaning": "закон, правила",
+      "readings": [
+        "ホウ"
+      ],
+      "examples": [
+        {
+          "term": "文法",
+          "reading": "ぶんぽう",
+          "ru": "грамматика",
+          "en": "грамматика"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ホウ"
+      ],
+      "meaningEn": "закон, правила"
+    },
+    {
+      "id": "voronina-kanji-88",
+      "kanji": "安",
+      "meaning": "1) дешевый 2) спокойный",
+      "readings": [
+        "やすい",
+        "アン"
+      ],
+      "examples": [
+        {
+          "term": "安心",
+          "reading": "あんしん",
+          "ru": "душевное спокойствие",
+          "en": "душевное спокойствие"
+        }
+      ],
+      "kun": [
+        "やすい"
+      ],
+      "on": [
+        "アン"
+      ],
+      "meaningEn": "1) дешевый 2) спокойный"
+    },
+    {
+      "id": "voronina-kanji-89",
+      "kanji": "六",
+      "meaning": "шесть",
+      "readings": [
+        "むっつ",
+        "ロク"
+      ],
+      "examples": [
+        {
+          "term": "六月",
+          "reading": "ろくがつ",
+          "ru": "июнь",
+          "en": "июнь"
+        }
+      ],
+      "kun": [
+        "むっつ"
+      ],
+      "on": [
+        "ロク"
+      ],
+      "meaningEn": "шесть"
+    },
+    {
+      "id": "voronina-kanji-90",
+      "kanji": "気",
+      "meaning": "дух, воздух, чувство",
+      "readings": [
+        "キ",
+        "ケ"
+      ],
+      "examples": [
+        {
+          "term": "元気",
+          "reading": "げんき",
+          "ru": "бодрость, энергия, здоровье",
+          "en": "бодрость, энергия, здоровье"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "キ",
+        "ケ"
+      ],
+      "meaningEn": "дух, воздух, чувство"
+    },
+    {
+      "id": "voronina-kanji-91",
+      "kanji": "私",
+      "meaning": "я, мой, частный",
+      "readings": [
+        "わたし",
+        "わたくし",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "私心",
+          "reading": "ししん",
+          "ru": "эгоизм",
+          "en": "эгоизм"
+        }
+      ],
+      "kun": [
+        "わたし",
+        "わたくし"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "я, мой, частный"
+    },
+    {
+      "id": "voronina-kanji-92",
+      "kanji": "氏",
+      "meaning": "господин, сударь",
+      "readings": [
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "氏名",
+          "reading": "しめい",
+          "ru": "имя и фамилия",
+          "en": "имя и фамилия"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "господин, сударь"
+    },
+    {
+      "id": "voronina-kanji-93",
+      "kanji": "文",
+      "meaning": "литература, текст",
+      "readings": [
+        "ふみ",
+        "ブン",
+        "モン"
+      ],
+      "examples": [
+        {
+          "term": "文明",
+          "reading": "ぶんめい",
+          "ru": "цивилизация",
+          "en": "цивилизация"
+        }
+      ],
+      "kun": [
+        "ふみ"
+      ],
+      "on": [
+        "ブン",
+        "モン"
+      ],
+      "meaningEn": "литература, текст"
+    },
+    {
+      "id": "voronina-kanji-94",
+      "kanji": "問",
+      "meaning": "задать вопрос",
+      "readings": [
+        "とう",
+        "モン"
+      ],
+      "examples": [
+        {
+          "term": "問い正す",
+          "reading": "といただす",
+          "ru": "уточнять",
+          "en": "уточнять"
+        }
+      ],
+      "kun": [
+        "とう"
+      ],
+      "on": [
+        "モン"
+      ],
+      "meaningEn": "задать вопрос"
+    },
+    {
+      "id": "voronina-kanji-95",
+      "kanji": "野",
+      "meaning": "поле, равнина",
+      "readings": [
+        "の",
+        "ヤ"
+      ],
+      "examples": [
+        {
+          "term": "分野",
+          "reading": "ぶんや",
+          "ru": "сфера, область",
+          "en": "сфера, область"
+        }
+      ],
+      "kun": [
+        "の"
+      ],
+      "on": [
+        "ヤ"
+      ],
+      "meaningEn": "поле, равнина"
+    },
+    {
+      "id": "voronina-kanji-96",
+      "kanji": "用",
+      "meaning": "употреблять, пользоваться",
+      "readings": [
+        "もちいる",
+        "ヨウ"
+      ],
+      "examples": [
+        {
+          "term": "用事",
+          "reading": "ようじ",
+          "ru": "дело",
+          "en": "дело"
+        }
+      ],
+      "kun": [
+        "もちいる"
+      ],
+      "on": [
+        "ヨウ"
+      ],
+      "meaningEn": "употреблять, пользоваться"
+    },
+    {
+      "id": "voronina-kanji-97",
+      "kanji": "木",
+      "meaning": "дерево",
+      "readings": [
+        "き",
+        "ボク",
+        "モク"
+      ],
+      "examples": [
+        {
+          "term": "木野子",
+          "reading": "きのこ",
+          "ru": "грибы",
+          "en": "грибы"
+        }
+      ],
+      "kun": [
+        "き"
+      ],
+      "on": [
+        "ボク",
+        "モク"
+      ],
+      "meaningEn": "дерево"
+    },
+    {
+      "id": "voronina-kanji-98",
+      "kanji": "百",
+      "meaning": "сто",
+      "readings": [
+        "ヒャク"
+      ],
+      "examples": [
+        {
+          "term": "八百屋",
+          "reading": "やおや",
+          "ru": "овощная лавка",
+          "en": "овощная лавка"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ヒャク"
+      ],
+      "meaningEn": "сто"
+    },
+    {
+      "id": "voronina-kanji-99",
+      "kanji": "作",
+      "meaning": "изготавливать",
+      "readings": [
+        "つくる",
+        "サ",
+        "サク"
+      ],
+      "examples": [
+        {
+          "term": "作文",
+          "reading": "さくぶん",
+          "ru": "сочинение",
+          "en": "сочинение"
+        }
+      ],
+      "kun": [
+        "つくる"
+      ],
+      "on": [
+        "サ",
+        "サク"
+      ],
+      "meaningEn": "изготавливать"
+    },
+    {
+      "id": "voronina-kanji-100",
+      "kanji": "発",
+      "meaning": "выпускать, испускать, давать импульс",
+      "readings": [
+        "ハツ",
+        "ホツ",
+        "ハッ"
+      ],
+      "examples": [
+        {
+          "term": "発表",
+          "reading": "はっぴょう",
+          "ru": "доклад",
+          "en": "доклад"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ハツ",
+        "ホツ",
+        "ハッ"
+      ],
+      "meaningEn": "выпускать, испускать, давать импульс"
+    },
+    {
+      "id": "voronina-kanji-101",
+      "kanji": "区",
+      "meaning": "район Токио",
+      "readings": [
+        "ク"
+      ],
+      "examples": [
+        {
+          "term": "台東区",
+          "reading": "たいとうく",
+          "ru": "район Тайто",
+          "en": "район Тайто"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ク"
+      ],
+      "meaningEn": "район Токио"
+    },
+    {
+      "id": "voronina-kanji-102",
+      "kanji": "思",
+      "meaning": "думать",
+      "readings": [
+        "おもう",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "思い出す",
+          "reading": "おもいだす",
+          "ru": "вспоминать",
+          "en": "вспоминать"
+        }
+      ],
+      "kun": [
+        "おもう"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "думать"
+    },
+    {
+      "id": "voronina-kanji-103",
+      "kanji": "民",
+      "meaning": "народ",
+      "readings": [
+        "たみ",
+        "ミン"
+      ],
+      "examples": [
+        {
+          "term": "国民",
+          "reading": "こくみん",
+          "ru": "граждане",
+          "en": "граждане"
+        }
+      ],
+      "kun": [
+        "たみ"
+      ],
+      "on": [
+        "ミン"
+      ],
+      "meaningEn": "народ"
+    },
+    {
+      "id": "voronina-kanji-104",
+      "kanji": "所",
+      "meaning": "место",
+      "readings": [
+        "ところ",
+        "ショ"
+      ],
+      "examples": [
+        {
+          "term": "場所",
+          "reading": "ばしょ",
+          "ru": "место",
+          "en": "место"
+        }
+      ],
+      "kun": [
+        "ところ"
+      ],
+      "on": [
+        "ショ"
+      ],
+      "meaningEn": "место"
+    },
+    {
+      "id": "voronina-kanji-105",
+      "kanji": "来",
+      "meaning": "1) приходить, прибывать 2) следующий",
+      "readings": [
+        "くる",
+        "ライ"
+      ],
+      "examples": [
+        {
+          "term": "来月",
+          "reading": "らいげつ",
+          "ru": "в следующем месяце",
+          "en": "в следующем месяце"
+        }
+      ],
+      "kun": [
+        "くる"
+      ],
+      "on": [
+        "ライ"
+      ],
+      "meaningEn": "1) приходить, прибывать 2) следующий"
+    },
+    {
+      "id": "voronina-kanji-106",
+      "kanji": "外",
+      "meaning": "снаружи",
+      "readings": [
+        "そと",
+        "ガイ"
+      ],
+      "examples": [
+        {
+          "term": "外国人",
+          "reading": "がいこくじん",
+          "ru": "иностранец",
+          "en": "иностранец"
+        }
+      ],
+      "kun": [
+        "そと"
+      ],
+      "on": [
+        "ガイ"
+      ],
+      "meaningEn": "снаружи"
+    },
+    {
+      "id": "voronina-kanji-107",
+      "kanji": "海",
+      "meaning": "море",
+      "readings": [
+        "うみ",
+        "カイ"
+      ],
+      "examples": [
+        {
+          "term": "地中海",
+          "reading": "ちちゅうかい",
+          "ru": "Средиземное море",
+          "en": "Средиземное море"
+        }
+      ],
+      "kun": [
+        "うみ"
+      ],
+      "on": [
+        "カイ"
+      ],
+      "meaningEn": "море"
+    },
+    {
+      "id": "voronina-kanji-108",
+      "kanji": "川",
+      "meaning": "река",
+      "readings": [
+        "かわ",
+        "セン"
+      ],
+      "examples": [
+        {
+          "term": "レナ川",
+          "reading": "れながわ",
+          "ru": "река Лена",
+          "en": "река Лена"
+        }
+      ],
+      "kun": [
+        "かわ"
+      ],
+      "on": [
+        "セン"
+      ],
+      "meaningEn": "река"
+    },
+    {
+      "id": "voronina-kanji-109",
+      "kanji": "動",
+      "meaning": "двигаться, двигать",
+      "readings": [
+        "うごく",
+        "うごかす",
+        "ドウ"
+      ],
+      "examples": [
+        {
+          "term": "自動車",
+          "reading": "じどうしゃ",
+          "ru": "автомобиль",
+          "en": "автомобиль"
+        }
+      ],
+      "kun": [
+        "うごく",
+        "うごかす"
+      ],
+      "on": [
+        "ドウ"
+      ],
+      "meaningEn": "двигаться, двигать"
+    },
+    {
+      "id": "voronina-kanji-110",
+      "kanji": "知",
+      "meaning": "знать",
+      "readings": [
+        "しる",
+        "チ"
+      ],
+      "examples": [
+        {
+          "term": "知り合い",
+          "reading": "しりあい",
+          "ru": "знакомый [человек]",
+          "en": "знакомый [человек]"
+        }
+      ],
+      "kun": [
+        "しる"
+      ],
+      "on": [
+        "チ"
+      ],
+      "meaningEn": "знать"
+    },
+    {
+      "id": "voronina-kanji-111",
+      "kanji": "車",
+      "meaning": "машина",
+      "readings": [
+        "くるま",
+        "シャ"
+      ],
+      "examples": [
+        {
+          "term": "風車",
+          "reading": "かぜぐるま",
+          "ru": "мельница",
+          "en": "мельница"
+        }
+      ],
+      "kun": [
+        "くるま"
+      ],
+      "on": [
+        "シャ"
+      ],
+      "meaningEn": "машина"
+    },
+    {
+      "id": "voronina-kanji-112",
+      "kanji": "千",
+      "meaning": "тысяча",
+      "readings": [
+        "ち",
+        "セン"
+      ],
+      "examples": [
+        {
+          "term": "千万",
+          "reading": "せんまん",
+          "ru": "десять миллионов",
+          "en": "десять миллионов"
+        }
+      ],
+      "kun": [
+        "ち"
+      ],
+      "on": [
+        "セン"
+      ],
+      "meaningEn": "тысяча"
+    },
+    {
+      "id": "voronina-kanji-113",
+      "kanji": "土",
+      "meaning": "земля, почва",
+      "readings": [
+        "つち",
+        "ド"
+      ],
+      "examples": [
+        {
+          "term": "土日",
+          "reading": "どにち",
+          "ru": "выходные, суббота и воскресенье",
+          "en": "выходные, суббота и воскресенье"
+        }
+      ],
+      "kun": [
+        "つち"
+      ],
+      "on": [
+        "ド"
+      ],
+      "meaningEn": "земля, почва"
+    },
+    {
+      "id": "voronina-kanji-114",
+      "kanji": "書",
+      "meaning": "писать",
+      "readings": [
+        "かく",
+        "ショ"
+      ],
+      "examples": [
+        {
+          "term": "書き入れる",
+          "reading": "かきいれる",
+          "ru": "заполнять [бланк]",
+          "en": "заполнять [бланк]"
+        }
+      ],
+      "kun": [
+        "かく"
+      ],
+      "on": [
+        "ショ"
+      ],
+      "meaningEn": "писать"
+    },
+    {
+      "id": "voronina-kanji-115",
+      "kanji": "朝",
+      "meaning": "утро",
+      "readings": [
+        "あさ",
+        "チョウ"
+      ],
+      "examples": [
+        {
+          "term": "朝早く",
+          "reading": "あさはやく",
+          "ru": "ранним утром",
+          "en": "ранним утром"
+        }
+      ],
+      "kun": [
+        "あさ"
+      ],
+      "on": [
+        "チョウ"
+      ],
+      "meaningEn": "утро"
+    },
+    {
+      "id": "voronina-kanji-116",
+      "kanji": "物",
+      "meaning": "вещь, предмет",
+      "readings": [
+        "もの",
+        "ブツ",
+        "モツ"
+      ],
+      "examples": [
+        {
+          "term": "物理学",
+          "reading": "ぶつりがく",
+          "ru": "физика",
+          "en": "физика"
+        }
+      ],
+      "kun": [
+        "もの"
+      ],
+      "on": [
+        "ブツ",
+        "モツ"
+      ],
+      "meaningEn": "вещь, предмет"
+    },
+    {
+      "id": "voronina-kanji-117",
+      "kanji": "都",
+      "meaning": "столица",
+      "readings": [
+        "みやこ",
+        "ト"
+      ],
+      "examples": [
+        {
+          "term": "都市",
+          "reading": "とし",
+          "ru": "город",
+          "en": "город"
+        }
+      ],
+      "kun": [
+        "みやこ"
+      ],
+      "on": [
+        "ト"
+      ],
+      "meaningEn": "столица"
+    },
+    {
+      "id": "voronina-kanji-118",
+      "kanji": "首",
+      "meaning": "1) главный 2) шея",
+      "readings": [
+        "くび",
+        "シュ"
+      ],
+      "examples": [
+        {
+          "term": "首都",
+          "reading": "しゅと",
+          "ru": "столица",
+          "en": "столица"
+        }
+      ],
+      "kun": [
+        "くび"
+      ],
+      "on": [
+        "シュ"
+      ],
+      "meaningEn": "1) главный 2) шея"
+    },
+    {
+      "id": "voronina-kanji-119",
+      "kanji": "意",
+      "meaning": "смысл, значение",
+      "readings": [
+        "イ"
+      ],
+      "examples": [
+        {
+          "term": "意外",
+          "reading": "いがい",
+          "ru": "неожиданный, непредвиденный",
+          "en": "неожиданный, непредвиденный"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "イ"
+      ],
+      "meaningEn": "смысл, значение"
+    },
+    {
+      "id": "voronina-kanji-120",
+      "kanji": "男",
+      "meaning": "мужчина",
+      "readings": [
+        "おとこ",
+        "ダン",
+        "ナン"
+      ],
+      "examples": [
+        {
+          "term": "長男",
+          "reading": "ちょうなん",
+          "ru": "старший сын",
+          "en": "старший сын"
+        }
+      ],
+      "kun": [
+        "おとこ"
+      ],
+      "on": [
+        "ダン",
+        "ナン"
+      ],
+      "meaningEn": "мужчина"
+    },
+    {
+      "id": "voronina-kanji-121",
+      "kanji": "品",
+      "meaning": "товар",
+      "readings": [
+        "しな",
+        "ヒン"
+      ],
+      "examples": [
+        {
+          "term": "食品",
+          "reading": "しょくひん",
+          "ru": "продукты",
+          "en": "продукты"
+        }
+      ],
+      "kun": [
+        "しな"
+      ],
+      "on": [
+        "ヒン"
+      ],
+      "meaningEn": "товар"
+    },
+    {
+      "id": "voronina-kanji-122",
+      "kanji": "口",
+      "meaning": "1) рот 2) речь 3) отверстие",
+      "readings": [
+        "くち",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "口語",
+          "reading": "こうご",
+          "ru": "разговорный язык",
+          "en": "разговорный язык"
+        }
+      ],
+      "kun": [
+        "くち"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "1) рот 2) речь 3) отверстие"
+    },
+    {
+      "id": "voronina-kanji-123",
+      "kanji": "業",
+      "meaning": "предприятие, дело",
+      "readings": [
+        "わざ",
+        "ギョウ"
+      ],
+      "examples": [
+        {
+          "term": "産業",
+          "reading": "さんぎょう",
+          "ru": "промышленность",
+          "en": "промышленность"
+        }
+      ],
+      "kun": [
+        "わざ"
+      ],
+      "on": [
+        "ギョウ"
+      ],
+      "meaningEn": "предприятие, дело"
+    },
+    {
+      "id": "voronina-kanji-124",
+      "kanji": "公",
+      "meaning": "открытый, публичный",
+      "readings": [
+        "おおやけ",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "公開",
+          "reading": "こうかい",
+          "ru": "публичное собрание",
+          "en": "публичное собрание"
+        }
+      ],
+      "kun": [
+        "おおやけ"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "открытый, публичный"
+    },
+    {
+      "id": "voronina-kanji-125",
+      "kanji": "真",
+      "meaning": "истина",
+      "readings": [
+        "ま",
+        "まこと",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "真実",
+          "reading": "しんじつ",
+          "ru": "правда, реальность",
+          "en": "правда, реальность"
+        }
+      ],
+      "kun": [
+        "ま",
+        "まこと"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "истина"
+    },
+    {
+      "id": "voronina-kanji-126",
+      "kanji": "広",
+      "meaning": "широкий",
+      "readings": [
+        "ひろい",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "広大",
+          "reading": "こうだい",
+          "ru": "громадный",
+          "en": "громадный"
+        }
+      ],
+      "kun": [
+        "ひろい"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "широкий"
+    },
+    {
+      "id": "voronina-kanji-127",
+      "kanji": "町",
+      "meaning": "город, квартал",
+      "readings": [
+        "まち",
+        "チョウ"
+      ],
+      "examples": [
+        {
+          "term": "下町",
+          "reading": "したまち",
+          "ru": "старая часть города, торговые и развлекательные кварталы",
+          "en": "старая часть города, торговые и развлекательные кварталы"
+        }
+      ],
+      "kun": [
+        "まち"
+      ],
+      "on": [
+        "チョウ"
+      ],
+      "meaningEn": "город, квартал"
+    },
+    {
+      "id": "voronina-kanji-128",
+      "kanji": "強",
+      "meaning": "сильный",
+      "readings": [
+        "つよい",
+        "キョウ",
+        "ゴウ"
+      ],
+      "examples": [
+        {
+          "term": "力強い",
+          "reading": "ちからづよい",
+          "ru": "мощный",
+          "en": "мощный"
+        }
+      ],
+      "kun": [
+        "つよい"
+      ],
+      "on": [
+        "キョウ",
+        "ゴウ"
+      ],
+      "meaningEn": "сильный"
+    },
+    {
+      "id": "voronina-kanji-129",
+      "kanji": "世",
+      "meaning": "мир, общество, эпоха",
+      "readings": [
+        "世",
+        "セ",
+        "セイ"
+      ],
+      "examples": [
+        {
+          "term": "世の中",
+          "reading": "よのなか",
+          "ru": "мир, свет, жизнь",
+          "en": "мир, свет, жизнь"
+        }
+      ],
+      "kun": [
+        "世"
+      ],
+      "on": [
+        "セ",
+        "セイ"
+      ],
+      "meaningEn": "мир, общество, эпоха"
+    },
+    {
+      "id": "voronina-kanji-130",
+      "kanji": "有",
+      "meaning": "быть, существовать",
+      "readings": [
+        "ある",
+        "ユウ",
+        "ウ"
+      ],
+      "examples": [
+        {
+          "term": "有名",
+          "reading": "ゆうめい",
+          "ru": "знаменитый",
+          "en": "знаменитый"
+        }
+      ],
+      "kun": [
+        "ある"
+      ],
+      "on": [
+        "ユウ",
+        "ウ"
+      ],
+      "meaningEn": "быть, существовать"
+    },
+    {
+      "id": "voronina-kanji-131",
+      "kanji": "空",
+      "meaning": "1) небо 2) пустота 3) быть пустым",
+      "readings": [
+        "そら",
+        "から",
+        "すく",
+        "あく",
+        "クウ"
+      ],
+      "examples": [
+        {
+          "term": "空気",
+          "reading": "くうき",
+          "ru": "воздух",
+          "en": "воздух"
+        }
+      ],
+      "kun": [
+        "そら",
+        "から",
+        "すく",
+        "あく"
+      ],
+      "on": [
+        "クウ"
+      ],
+      "meaningEn": "1) небо 2) пустота 3) быть пустым"
+    },
+    {
+      "id": "voronina-kanji-132",
+      "kanji": "使",
+      "meaning": "1) использовать 2) посланник",
+      "readings": [
+        "つかう",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "天使",
+          "reading": "てんし",
+          "ru": "ангел",
+          "en": "ангел"
+        }
+      ],
+      "kun": [
+        "つかう"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "1) использовать 2) посланник"
+    },
+    {
+      "id": "voronina-kanji-133",
+      "kanji": "教",
+      "meaning": "1) обучать, учиться 2) религия 3) сутра",
+      "readings": [
+        "おしえる",
+        "おそわる",
+        "キョウ"
+      ],
+      "examples": [
+        {
+          "term": "キリスト教",
+          "reading": "きりすときょう",
+          "ru": "христианство",
+          "en": "христианство"
+        }
+      ],
+      "kun": [
+        "おしえる",
+        "おそわる"
+      ],
+      "on": [
+        "キョウ"
+      ],
+      "meaningEn": "1) обучать, учиться 2) религия 3) сутра"
+    },
+    {
+      "id": "voronina-kanji-134",
+      "kanji": "光",
+      "meaning": "светить, сиять",
+      "readings": [
+        "ひかる",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "光子",
+          "reading": "こうし",
+          "ru": "фотон",
+          "en": "фотон"
+        }
+      ],
+      "kun": [
+        "ひかる"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "светить, сиять"
+    },
+    {
+      "id": "voronina-kanji-135",
+      "kanji": "近",
+      "meaning": "близкий",
+      "readings": [
+        "ちかい",
+        "キン"
+      ],
+      "examples": [
+        {
+          "term": "近所",
+          "reading": "きんじょ",
+          "ru": "окрестности",
+          "en": "окрестности"
+        }
+      ],
+      "kun": [
+        "ちかい"
+      ],
+      "on": [
+        "キン"
+      ],
+      "meaningEn": "близкий"
+    },
+    {
+      "id": "voronina-kanji-136",
+      "kanji": "員",
+      "meaning": "персонал",
+      "readings": [
+        "イン"
+      ],
+      "examples": [
+        {
+          "term": "会社員",
+          "reading": "かいしゃいん",
+          "ru": "служащий компании",
+          "en": "служащий компании"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "イン"
+      ],
+      "meaningEn": "персонал"
+    },
+    {
+      "id": "voronina-kanji-137",
+      "kanji": "重",
+      "meaning": "тяжелый",
+      "readings": [
+        "おもい",
+        "ジュウ",
+        "チョウ"
+      ],
+      "examples": [
+        {
+          "term": "体重",
+          "reading": "たいじゅう",
+          "ru": "вес тела",
+          "en": "вес тела"
+        }
+      ],
+      "kun": [
+        "おもい"
+      ],
+      "on": [
+        "ジュウ",
+        "チョウ"
+      ],
+      "meaningEn": "тяжелый"
+    },
+    {
+      "id": "voronina-kanji-138",
+      "kanji": "多",
+      "meaning": "многочисленный",
+      "readings": [
+        "おおい",
+        "タ"
+      ],
+      "examples": [
+        {
+          "term": "多分",
+          "reading": "たぶん",
+          "ru": "вероятно",
+          "en": "вероятно"
+        }
+      ],
+      "kun": [
+        "おおい"
+      ],
+      "on": [
+        "タ"
+      ],
+      "meaningEn": "многочисленный"
+    },
+    {
+      "id": "voronina-kanji-139",
+      "kanji": "進",
+      "meaning": "прогресс; прогрессировать, развиваться, продвигаться",
+      "readings": [
+        "すすむ",
+        "すすめる",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "進度",
+          "reading": "しんど",
+          "ru": "успеваемость",
+          "en": "успеваемость"
+        }
+      ],
+      "kun": [
+        "すすむ",
+        "すすめる"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "прогресс; прогрессировать, развиваться, продвигаться"
+    },
+    {
+      "id": "voronina-kanji-140",
+      "kanji": "通",
+      "meaning": "1) сквозь 2) курсировать 2) проходить, пронизывать",
+      "readings": [
+        "かよう",
+        "とおる",
+        "とおす",
+        "ツウ"
+      ],
+      "examples": [
+        {
+          "term": "大通り",
+          "reading": "おおどおり",
+          "ru": "проспект",
+          "en": "проспект"
+        }
+      ],
+      "kun": [
+        "かよう",
+        "とおる",
+        "とおす"
+      ],
+      "on": [
+        "ツウ"
+      ],
+      "meaningEn": "1) сквозь 2) курсировать 2) проходить, пронизывать"
+    },
+    {
+      "id": "voronina-kanji-141",
+      "kanji": "弟",
+      "meaning": "младший брат",
+      "readings": [
+        "おとうと",
+        "テイ"
+      ],
+      "examples": [
+        {
+          "term": "兄弟",
+          "reading": "きょうだい",
+          "ru": "братья",
+          "en": "братья"
+        }
+      ],
+      "kun": [
+        "おとうと"
+      ],
+      "on": [
+        "テイ"
+      ],
+      "meaningEn": "младший брат"
+    },
+    {
+      "id": "voronina-kanji-142",
+      "kanji": "工",
+      "meaning": "техника, инженерия",
+      "readings": [
+        "コウ",
+        "ク"
+      ],
+      "examples": [
+        {
+          "term": "工場",
+          "reading": "こうじょう",
+          "ru": "завод",
+          "en": "завод"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "コウ",
+        "ク"
+      ],
+      "meaningEn": "техника, инженерия"
+    },
+    {
+      "id": "voronina-kanji-143",
+      "kanji": "南",
+      "meaning": "Юг",
+      "readings": [
+        "みなみ",
+        "ナン"
+      ],
+      "examples": [
+        {
+          "term": "南米",
+          "reading": "なんべい",
+          "ru": "Южная Америка",
+          "en": "Южная Америка"
+        }
+      ],
+      "kun": [
+        "みなみ"
+      ],
+      "on": [
+        "ナン"
+      ],
+      "meaningEn": "Юг"
+    },
+    {
+      "id": "voronina-kanji-144",
+      "kanji": "理",
+      "meaning": "принцип",
+      "readings": [
+        "リ"
+      ],
+      "examples": [
+        {
+          "term": "定理",
+          "reading": "ていり",
+          "ru": "теорема",
+          "en": "теорема"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "リ"
+      ],
+      "meaningEn": "принцип"
+    },
+    {
+      "id": "voronina-kanji-145",
+      "kanji": "無",
+      "meaning": "отрицание",
+      "readings": [
+        "ない",
+        "ブ",
+        "ム"
+      ],
+      "examples": [
+        {
+          "term": "無名b",
+          "reading": "むめい",
+          "ru": "безымянный",
+          "en": "безымянный"
+        }
+      ],
+      "kun": [
+        "ない"
+      ],
+      "on": [
+        "ブ",
+        "ム"
+      ],
+      "meaningEn": "отрицание"
+    },
+    {
+      "id": "voronina-kanji-146",
+      "kanji": "電",
+      "meaning": "электричество",
+      "readings": [
+        "デン"
+      ],
+      "examples": [
+        {
+          "term": "電池",
+          "reading": "でんち",
+          "ru": "батарейка",
+          "en": "батарейка"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "デン"
+      ],
+      "meaningEn": "электричество"
+    },
+    {
+      "id": "voronina-kanji-147",
+      "kanji": "天",
+      "meaning": "небеса",
+      "readings": [
+        "あま",
+        "テン"
+      ],
+      "examples": [
+        {
+          "term": "天気",
+          "reading": "てんき",
+          "ru": "погода",
+          "en": "погода"
+        }
+      ],
+      "kun": [
+        "あま"
+      ],
+      "on": [
+        "テン"
+      ],
+      "meaningEn": "небеса"
+    },
+    {
+      "id": "voronina-kanji-148",
+      "kanji": "計",
+      "meaning": "измерять",
+      "readings": [
+        "かかる",
+        "ケイ"
+      ],
+      "examples": [
+        {
+          "term": "計画",
+          "reading": "けいかく",
+          "ru": "план, расчет",
+          "en": "план, расчет"
+        }
+      ],
+      "kun": [
+        "かかる"
+      ],
+      "on": [
+        "ケイ"
+      ],
+      "meaningEn": "измерять"
+    },
+    {
+      "id": "voronina-kanji-149",
+      "kanji": "足",
+      "meaning": "1) нога 2) быть достаточным, хватать",
+      "readings": [
+        "あし",
+        "たりる",
+        "ソク"
+      ],
+      "examples": [
+        {
+          "term": "不足",
+          "reading": "ぶそく",
+          "ru": "нехватка",
+          "en": "нехватка"
+        }
+      ],
+      "kun": [
+        "あし",
+        "たりる"
+      ],
+      "on": [
+        "ソク"
+      ],
+      "meaningEn": "1) нога 2) быть достаточным, хватать"
+    },
+    {
+      "id": "voronina-kanji-150",
+      "kanji": "語",
+      "meaning": "рассказывать, вещать",
+      "readings": [
+        "かたる",
+        "ゴ"
+      ],
+      "examples": [
+        {
+          "term": "語学",
+          "reading": "ごがく",
+          "ru": "лингвистика",
+          "en": "лингвистика"
+        }
+      ],
+      "kun": [
+        "かたる"
+      ],
+      "on": [
+        "ゴ"
+      ],
+      "meaningEn": "рассказывать, вещать"
+    },
+    {
+      "id": "voronina-kanji-151",
+      "kanji": "産",
+      "meaning": "рождать",
+      "readings": [
+        "うむ",
+        "サン"
+      ],
+      "examples": [
+        {
+          "term": "生産",
+          "reading": "せいさん",
+          "ru": "производство",
+          "en": "производство"
+        }
+      ],
+      "kun": [
+        "うむ"
+      ],
+      "on": [
+        "サン"
+      ],
+      "meaningEn": "рождать"
+    },
+    {
+      "id": "voronina-kanji-152",
+      "kanji": "集",
+      "meaning": "собирать",
+      "readings": [
+        "あつめる",
+        "シユウ"
+      ],
+      "examples": [
+        {
+          "term": "集中",
+          "reading": "しょうちゅう",
+          "ru": "концентрация, сосредоточение",
+          "en": "концентрация, сосредоточение"
+        }
+      ],
+      "kun": [
+        "あつめる"
+      ],
+      "on": [
+        "シユウ"
+      ],
+      "meaningEn": "собирать"
+    },
+    {
+      "id": "voronina-kanji-153",
+      "kanji": "夜",
+      "meaning": "ночь",
+      "readings": [
+        "よる",
+        "よ",
+        "ヤ"
+      ],
+      "examples": [
+        {
+          "term": "夜中",
+          "reading": "よなか",
+          "ru": "полночь",
+          "en": "полночь"
+        }
+      ],
+      "kun": [
+        "よる",
+        "よ"
+      ],
+      "on": [
+        "ヤ"
+      ],
+      "meaningEn": "ночь"
+    },
+    {
+      "id": "voronina-kanji-154",
+      "kanji": "持",
+      "meaning": "нести [в руках]",
+      "readings": [
+        "もつ",
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "お金持ち",
+          "reading": "おかねもち",
+          "ru": "богач",
+          "en": "богач"
+        }
+      ],
+      "kun": [
+        "もつ"
+      ],
+      "on": [
+        "ジ"
+      ],
+      "meaningEn": "нести [в руках]"
+    },
+    {
+      "id": "voronina-kanji-155",
+      "kanji": "元",
+      "meaning": "основа",
+      "readings": [
+        "もとначало,",
+        "ゲン"
+      ],
+      "examples": [
+        {
+          "term": "元首",
+          "reading": "げんしゅ",
+          "ru": "сюзерен (тип крупного феодального правителя",
+          "en": "сюзерен (тип крупного феодального правителя"
+        }
+      ],
+      "kun": [
+        "もとначало,"
+      ],
+      "on": [
+        "ゲン"
+      ],
+      "meaningEn": "основа"
+    },
+    {
+      "id": "voronina-kanji-156",
+      "kanji": "死",
+      "meaning": "умирать",
+      "readings": [
+        "しぬ",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "死体",
+          "reading": "したい",
+          "ru": "труп",
+          "en": "труп"
+        }
+      ],
+      "kun": [
+        "しぬ"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "умирать"
+    },
+    {
+      "id": "voronina-kanji-157",
+      "kanji": "楽",
+      "meaning": "радостный, приятный",
+      "readings": [
+        "たのしい",
+        "ガク",
+        "ラク"
+      ],
+      "examples": [
+        {
+          "term": "音楽",
+          "reading": "おんがく",
+          "ru": "музыка",
+          "en": "музыка"
+        }
+      ],
+      "kun": [
+        "たのしい"
+      ],
+      "on": [
+        "ガク",
+        "ラク"
+      ],
+      "meaningEn": "радостный, приятный"
+    },
+    {
+      "id": "voronina-kanji-158",
+      "kanji": "食",
+      "meaning": "еда; есть",
+      "readings": [
+        "たべる",
+        "くう",
+        "めし",
+        "ショク"
+      ],
+      "examples": [
+        {
+          "term": "食事",
+          "reading": "しょくじ",
+          "ru": "остров Сикоку",
+          "en": "остров Сикоку"
+        }
+      ],
+      "kun": [
+        "たべる",
+        "くう",
+        "めし"
+      ],
+      "on": [
+        "ショク"
+      ],
+      "meaningEn": "еда; есть"
+    },
+    {
+      "id": "voronina-kanji-159",
+      "kanji": "特",
+      "meaning": "особенный",
+      "readings": [
+        "トク"
+      ],
+      "examples": [
+        {
+          "term": "特売",
+          "reading": "とくばい",
+          "ru": "особое предложение, специальная цена [на распродаже]",
+          "en": "особое предложение, специальная цена [на распродаже]"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "トク"
+      ],
+      "meaningEn": "особенный"
+    },
+    {
+      "id": "voronina-kanji-160",
+      "kanji": "右",
+      "meaning": "правый",
+      "readings": [
+        "みぎ",
+        "ウ"
+      ],
+      "examples": [
+        {
+          "term": "右足",
+          "reading": "みぎあし",
+          "ru": "правая нога",
+          "en": "правая нога"
+        }
+      ],
+      "kun": [
+        "みぎ"
+      ],
+      "on": [
+        "ウ"
+      ],
+      "meaningEn": "правый"
+    },
+    {
+      "id": "voronina-kanji-161",
+      "kanji": "別",
+      "meaning": "расставаться",
+      "readings": [
+        "わかれる",
+        "ベツ"
+      ],
+      "examples": [
+        {
+          "term": "別れ目",
+          "reading": "わかれめ",
+          "ru": "поворотный пункт, распутье",
+          "en": "поворотный пункт, распутье"
+        }
+      ],
+      "kun": [
+        "わかれる"
+      ],
+      "on": [
+        "ベツ"
+      ],
+      "meaningEn": "расставаться"
+    },
+    {
+      "id": "voronina-kanji-162",
+      "kanji": "少",
+      "meaning": "недостающий; немного",
+      "readings": [
+        "すこない",
+        "ショウ"
+      ],
+      "examples": [
+        {
+          "term": "少しずつ",
+          "reading": "すこしずつ",
+          "ru": "понемногу",
+          "en": "понемногу"
+        }
+      ],
+      "kun": [
+        "すこない"
+      ],
+      "on": [
+        "ショウ"
+      ],
+      "meaningEn": "недостающий; немного"
+    },
+    {
+      "id": "voronina-kanji-163",
+      "kanji": "歩",
+      "meaning": "идти пешком",
+      "readings": [
+        "あるく",
+        "ホ"
+      ],
+      "examples": [
+        {
+          "term": "進歩",
+          "reading": "しんぽ",
+          "ru": "прогресс",
+          "en": "прогресс"
+        }
+      ],
+      "kun": [
+        "あるく"
+      ],
+      "on": [
+        "ホ"
+      ],
+      "meaningEn": "идти пешком"
+    },
+    {
+      "id": "voronina-kanji-164",
+      "kanji": "何",
+      "meaning": "вопросительная частица",
+      "readings": [
+        "なん",
+        "なに",
+        "カ"
+      ],
+      "examples": [
+        {
+          "term": "何時",
+          "reading": "なんじ",
+          "ru": "который час",
+          "en": "который час"
+        }
+      ],
+      "kun": [
+        "なん",
+        "なに"
+      ],
+      "on": [
+        "カ"
+      ],
+      "meaningEn": "вопросительная частица"
+    },
+    {
+      "id": "voronina-kanji-165",
+      "kanji": "売",
+      "meaning": "продавать",
+      "readings": [
+        "うる",
+        "バイ"
+      ],
+      "examples": [
+        {
+          "term": "売り出し",
+          "reading": "うりだし",
+          "ru": "открытие торгов, начало продаж",
+          "en": "открытие торгов, начало продаж"
+        }
+      ],
+      "kun": [
+        "うる"
+      ],
+      "on": [
+        "バイ"
+      ],
+      "meaningEn": "продавать"
+    },
+    {
+      "id": "voronina-kanji-166",
+      "kanji": "半",
+      "meaning": "половина",
+      "readings": [
+        "なかば",
+        "ハン"
+      ],
+      "examples": [
+        {
+          "term": "前半",
+          "reading": "ぜんはん",
+          "ru": "первая половина чего-л.",
+          "en": "первая половина чего-л."
+        }
+      ],
+      "kun": [
+        "なかば"
+      ],
+      "on": [
+        "ハン"
+      ],
+      "meaningEn": "половина"
+    },
+    {
+      "id": "voronina-kanji-167",
+      "kanji": "以",
+      "meaning": "направления",
+      "readings": [
+        "イпрефикс"
+      ],
+      "examples": [
+        {
+          "term": "以内",
+          "reading": "いない",
+          "ru": "в пределах, в границах чего-либо",
+          "en": "в пределах, в границах чего-либо"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "イпрефикс"
+      ],
+      "meaningEn": "направления"
+    },
+    {
+      "id": "voronina-kanji-168",
+      "kanji": "左",
+      "meaning": "левый",
+      "readings": [
+        "ひだり",
+        "サ"
+      ],
+      "examples": [
+        {
+          "term": "左右",
+          "reading": "さう",
+          "ru": "лево и право",
+          "en": "лево и право"
+        }
+      ],
+      "kun": [
+        "ひだり"
+      ],
+      "on": [
+        "サ"
+      ],
+      "meaningEn": "левый"
+    },
+    {
+      "id": "voronina-kanji-169",
+      "kanji": "店",
+      "meaning": "заведение, лавка",
+      "readings": [
+        "みせ",
+        "テン"
+      ],
+      "examples": [
+        {
+          "term": "店員",
+          "reading": "てんいん",
+          "ru": "продавец",
+          "en": "продавец"
+        }
+      ],
+      "kun": [
+        "みせ"
+      ],
+      "on": [
+        "テン"
+      ],
+      "meaningEn": "заведение, лавка"
+    },
+    {
+      "id": "voronina-kanji-170",
+      "kanji": "早",
+      "meaning": "1) ранний 2) быстрый",
+      "readings": [
+        "はやい",
+        "ソウ"
+      ],
+      "examples": [
+        {
+          "term": "早朝",
+          "reading": "そうちょう",
+          "ru": "раннее утро",
+          "en": "раннее утро"
+        }
+      ],
+      "kun": [
+        "はやい"
+      ],
+      "on": [
+        "ソウ"
+      ],
+      "meaningEn": "1) ранний 2) быстрый"
+    },
+    {
+      "id": "voronina-kanji-171",
+      "kanji": "白",
+      "meaning": "белый",
+      "readings": [
+        "しろい",
+        "ハク"
+      ],
+      "examples": [
+        {
+          "term": "白鳥",
+          "reading": "はくちょう",
+          "ru": "лебедь",
+          "en": "лебедь"
+        }
+      ],
+      "kun": [
+        "しろい"
+      ],
+      "on": [
+        "ハク"
+      ],
+      "meaningEn": "белый"
+    },
+    {
+      "id": "voronina-kanji-172",
+      "kanji": "住",
+      "meaning": "жить",
+      "readings": [
+        "すむ",
+        "ジュウ"
+      ],
+      "examples": [
+        {
+          "term": "住所",
+          "reading": "じゅうしょ",
+          "ru": "адрес",
+          "en": "адрес"
+        }
+      ],
+      "kun": [
+        "すむ"
+      ],
+      "on": [
+        "ジュウ"
+      ],
+      "meaningEn": "жить"
+    },
+    {
+      "id": "voronina-kanji-173",
+      "kanji": "音",
+      "meaning": "звук",
+      "readings": [
+        "おと",
+        "ね",
+        "オン",
+        "イン"
+      ],
+      "examples": [
+        {
+          "term": "音読み",
+          "reading": "おんよみ",
+          "ru": "верхнее чтение иероглифа",
+          "en": "верхнее чтение иероглифа"
+        }
+      ],
+      "kun": [
+        "おと",
+        "ね"
+      ],
+      "on": [
+        "オン",
+        "イン"
+      ],
+      "meaningEn": "звук"
+    },
+    {
+      "id": "voronina-kanji-174",
+      "kanji": "声",
+      "meaning": "голос",
+      "readings": [
+        "こえ",
+        "セン"
+      ],
+      "examples": [
+        {
+          "term": "大声",
+          "reading": "おおごえ",
+          "ru": "громкий голос",
+          "en": "громкий голос"
+        }
+      ],
+      "kun": [
+        "こえ"
+      ],
+      "on": [
+        "セン"
+      ],
+      "meaningEn": "голос"
+    },
+    {
+      "id": "voronina-kanji-175",
+      "kanji": "台",
+      "meaning": "подставка",
+      "readings": [
+        "ダイ"
+      ],
+      "examples": [
+        {
+          "term": "台所",
+          "reading": "だいどころ",
+          "ru": "кухня",
+          "en": "кухня"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ダイ"
+      ],
+      "meaningEn": "подставка"
+    },
+    {
+      "id": "voronina-kanji-176",
+      "kanji": "引",
+      "meaning": "тянуть, тащить",
+      "readings": [
+        "ひく",
+        "イン"
+      ],
+      "examples": [
+        {
+          "term": "引き出し",
+          "reading": "ひきだし",
+          "ru": "выдвижной ящик",
+          "en": "выдвижной ящик"
+        }
+      ],
+      "kun": [
+        "ひく"
+      ],
+      "on": [
+        "イン"
+      ],
+      "meaningEn": "тянуть, тащить"
+    },
+    {
+      "id": "voronina-kanji-177",
+      "kanji": "止",
+      "meaning": "останавливать, останавливаться",
+      "readings": [
+        "とまる",
+        "とめる",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "食い止める",
+          "reading": "くいとめる",
+          "ru": "задерживать",
+          "en": "задерживать"
+        }
+      ],
+      "kun": [
+        "とまる",
+        "とめる"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "останавливать, останавливаться"
+    },
+    {
+      "id": "voronina-kanji-178",
+      "kanji": "考",
+      "meaning": "думать, размышлять",
+      "readings": [
+        "かんがえる",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "考え方",
+          "reading": "かんがえかた",
+          "ru": "образ мыслей",
+          "en": "образ мыслей"
+        }
+      ],
+      "kun": [
+        "かんがえる"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "думать, размышлять"
+    },
+    {
+      "id": "voronina-kanji-179",
+      "kanji": "友",
+      "meaning": "друг, товарищ",
+      "readings": [
+        "とも",
+        "ユウ"
+      ],
+      "examples": [
+        {
+          "term": "友人",
+          "reading": "ゆうじん",
+          "ru": "друг",
+          "en": "друг"
+        }
+      ],
+      "kun": [
+        "とも"
+      ],
+      "on": [
+        "ユウ"
+      ],
+      "meaningEn": "друг, товарищ"
+    },
+    {
+      "id": "voronina-kanji-180",
+      "kanji": "運",
+      "meaning": "1) судьба 2) перевозить",
+      "readings": [
+        "はこぶ",
+        "ウン"
+      ],
+      "examples": [
+        {
+          "term": "運転",
+          "reading": "うんてん",
+          "ru": "вождение автомобиля",
+          "en": "вождение автомобиля"
+        }
+      ],
+      "kun": [
+        "はこぶ"
+      ],
+      "on": [
+        "ウン"
+      ],
+      "meaningEn": "1) судьба 2) перевозить"
+    },
+    {
+      "id": "voronina-kanji-181",
+      "kanji": "春",
+      "meaning": "весна",
+      "readings": [
+        "はる",
+        "シュン"
+      ],
+      "examples": [
+        {
+          "term": "売春",
+          "reading": "ばいしゅん",
+          "ru": "проституция",
+          "en": "проституция"
+        }
+      ],
+      "kun": [
+        "はる"
+      ],
+      "on": [
+        "シュン"
+      ],
+      "meaningEn": "весна"
+    },
+    {
+      "id": "voronina-kanji-182",
+      "kanji": "題",
+      "meaning": "вопрос, задача, тема",
+      "readings": [
+        "ダイ"
+      ],
+      "examples": [
+        {
+          "term": "問題",
+          "reading": "もんだい",
+          "ru": "проблема",
+          "en": "проблема"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ダイ"
+      ],
+      "meaningEn": "вопрос, задача, тема"
+    },
+    {
+      "id": "voronina-kanji-183",
+      "kanji": "親",
+      "meaning": "родственник, родственный",
+      "readings": [
+        "したしい",
+        "おや",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "母親",
+          "reading": "ははおや",
+          "ru": "мать",
+          "en": "мать"
+        }
+      ],
+      "kun": [
+        "したしい",
+        "おや"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "родственник, родственный"
+    },
+    {
+      "id": "voronina-kanji-184",
+      "kanji": "起",
+      "meaning": "возникать; вызывать",
+      "readings": [
+        "おきる",
+        "おこす",
+        "キ"
+      ],
+      "examples": [
+        {
+          "term": "起用",
+          "reading": "きよう",
+          "ru": "назначение, выдвижение",
+          "en": "назначение, выдвижение"
+        }
+      ],
+      "kun": [
+        "おきる",
+        "おこす"
+      ],
+      "on": [
+        "キ"
+      ],
+      "meaningEn": "возникать; вызывать"
+    },
+    {
+      "id": "voronina-kanji-185",
+      "kanji": "赤",
+      "meaning": "красный",
+      "readings": [
+        "あかい",
+        "セキ"
+      ],
+      "examples": [
+        {
+          "term": "赤道",
+          "reading": "せきどう",
+          "ru": "экватор",
+          "en": "экватор"
+        }
+      ],
+      "kun": [
+        "あかい"
+      ],
+      "on": [
+        "セキ"
+      ],
+      "meaningEn": "красный"
+    },
+    {
+      "id": "voronina-kanji-186",
+      "kanji": "建",
+      "meaning": "строить",
+      "readings": [
+        "たてる",
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "建物",
+          "reading": "たてもの",
+          "ru": "здание",
+          "en": "здание"
+        }
+      ],
+      "kun": [
+        "たてる"
+      ],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "строить"
+    },
+    {
+      "id": "voronina-kanji-187",
+      "kanji": "犬",
+      "meaning": "собака",
+      "readings": [
+        "いぬ",
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "子犬",
+          "reading": "こいぬ",
+          "ru": "щенок",
+          "en": "щенок"
+        }
+      ],
+      "kun": [
+        "いぬ"
+      ],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "собака"
+    },
+    {
+      "id": "voronina-kanji-188",
+      "kanji": "聞",
+      "meaning": "слышать",
+      "readings": [
+        "きく",
+        "ブン"
+      ],
+      "examples": [
+        {
+          "term": "新聞",
+          "reading": "しんぶん",
+          "ru": "газета",
+          "en": "газета"
+        }
+      ],
+      "kun": [
+        "きく"
+      ],
+      "on": [
+        "ブン"
+      ],
+      "meaningEn": "слышать"
+    },
+    {
+      "id": "voronina-kanji-189",
+      "kanji": "森",
+      "meaning": "чаща, лес",
+      "readings": [
+        "もり",
+        "シン"
+      ],
+      "examples": [
+        {
+          "term": "森林",
+          "reading": "しんりん",
+          "ru": "лес",
+          "en": "лес"
+        }
+      ],
+      "kun": [
+        "もり"
+      ],
+      "on": [
+        "シン"
+      ],
+      "meaningEn": "чаща, лес"
+    },
+    {
+      "id": "voronina-kanji-190",
+      "kanji": "英",
+      "meaning": "Великобритания",
+      "readings": [
+        "エイ"
+      ],
+      "examples": [
+        {
+          "term": "英語",
+          "reading": "えいご",
+          "ru": "английский язык",
+          "en": "английский язык"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "エイ"
+      ],
+      "meaningEn": "Великобритания"
+    },
+    {
+      "id": "voronina-kanji-191",
+      "kanji": "急",
+      "meaning": "спешить, торопиться",
+      "readings": [
+        "いそぐ",
+        "キュウ"
+      ],
+      "examples": [
+        {
+          "term": "急行",
+          "reading": "きゅうこう",
+          "ru": "экспресс, скорый поезд",
+          "en": "экспресс, скорый поезд"
+        }
+      ],
+      "kun": [
+        "いそぐ"
+      ],
+      "on": [
+        "キュウ"
+      ],
+      "meaningEn": "спешить, торопиться"
+    },
+    {
+      "id": "voronina-kanji-192",
+      "kanji": "林",
+      "meaning": "роща",
+      "readings": [
+        "はやし",
+        "リン"
+      ],
+      "examples": [
+        {
+          "term": "林業",
+          "reading": "りんぎょう",
+          "ru": "лесоводство",
+          "en": "лесоводство"
+        }
+      ],
+      "kun": [
+        "はやし"
+      ],
+      "on": [
+        "リン"
+      ],
+      "meaningEn": "роща"
+    },
+    {
+      "id": "voronina-kanji-193",
+      "kanji": "父",
+      "meaning": "папа",
+      "readings": [
+        "ちち",
+        "フ"
+      ],
+      "examples": [
+        {
+          "term": "父親",
+          "reading": "ちちおや",
+          "ru": "отец",
+          "en": "отец"
+        }
+      ],
+      "kun": [
+        "ちち"
+      ],
+      "on": [
+        "フ"
+      ],
+      "meaningEn": "папа"
+    },
+    {
+      "id": "voronina-kanji-194",
+      "kanji": "料",
+      "meaning": "1) плата 2) материал",
+      "readings": [
+        "リョウ"
+      ],
+      "examples": [
+        {
+          "term": "入場料",
+          "reading": "にゅうじょうりょう",
+          "ru": "входная плата",
+          "en": "входная плата"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "リョウ"
+      ],
+      "meaningEn": "1) плата 2) материал"
+    },
+    {
+      "id": "voronina-kanji-195",
+      "kanji": "服",
+      "meaning": "одежда",
+      "readings": [
+        "フク"
+      ],
+      "examples": [
+        {
+          "term": "和服",
+          "reading": "わふく",
+          "ru": "одежда в японском стиле",
+          "en": "одежда в японском стиле"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "フク"
+      ],
+      "meaningEn": "одежда"
+    },
+    {
+      "id": "voronina-kanji-196",
+      "kanji": "風",
+      "meaning": "ветер",
+      "readings": [
+        "かぜ",
+        "フウ"
+      ],
+      "examples": [
+        {
+          "term": "風土",
+          "reading": "ふうど",
+          "ru": "природные особенности местности, ландшафт, климат",
+          "en": "природные особенности местности, ландшафт, климат"
+        }
+      ],
+      "kun": [
+        "かぜ"
+      ],
+      "on": [
+        "フウ"
+      ],
+      "meaningEn": "ветер"
+    },
+    {
+      "id": "voronina-kanji-197",
+      "kanji": "着",
+      "meaning": "1) прибывать 2) надевать, носить",
+      "readings": [
+        "きる",
+        "チャク"
+      ],
+      "examples": [
+        {
+          "term": "着物",
+          "reading": "きもの",
+          "ru": "кимоно",
+          "en": "кимоно"
+        }
+      ],
+      "kun": [
+        "きる"
+      ],
+      "on": [
+        "チャク"
+      ],
+      "meaningEn": "1) прибывать 2) надевать, носить"
+    },
+    {
+      "id": "voronina-kanji-198",
+      "kanji": "説",
+      "meaning": "объяснять",
+      "readings": [
+        "とく",
+        "セツ"
+      ],
+      "examples": [
+        {
+          "term": "小説",
+          "reading": "しょうせつ",
+          "ru": "повесть",
+          "en": "повесть"
+        }
+      ],
+      "kun": [
+        "とく"
+      ],
+      "on": [
+        "セツ"
+      ],
+      "meaningEn": "объяснять"
+    },
+    {
+      "id": "voronina-kanji-199",
+      "kanji": "青",
+      "meaning": "голубой, синий, зеленый",
+      "readings": [
+        "あおい",
+        "セイ"
+      ],
+      "examples": [
+        {
+          "term": "青空",
+          "reading": "あおぞら",
+          "ru": "синее небо",
+          "en": "синее небо"
+        }
+      ],
+      "kun": [
+        "あおい"
+      ],
+      "on": [
+        "セイ"
+      ],
+      "meaningEn": "голубой, синий, зеленый"
+    },
+    {
+      "id": "voronina-kanji-200",
+      "kanji": "字",
+      "meaning": "знак",
+      "readings": [
+        "ジ"
+      ],
+      "examples": [
+        {
+          "term": "赤字",
+          "reading": "あかじ",
+          "ru": "дефицит [бюджета]",
+          "en": "дефицит [бюджета]"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ジ"
+      ],
+      "meaningEn": "знак"
+    },
+    {
+      "id": "voronina-kanji-201",
+      "kanji": "母",
+      "meaning": "мама",
+      "readings": [
+        "はは",
+        "ボウ"
+      ],
+      "examples": [
+        {
+          "term": "お母さん",
+          "reading": "おかあさん",
+          "ru": "матушка (уважительное обращение",
+          "en": "матушка (уважительное обращение"
+        }
+      ],
+      "kun": [
+        "はは"
+      ],
+      "on": [
+        "ボウ"
+      ],
+      "meaningEn": "мама"
+    },
+    {
+      "id": "voronina-kanji-202",
+      "kanji": "院",
+      "meaning": "учреждение",
+      "readings": [
+        "イン"
+      ],
+      "examples": [
+        {
+          "term": "大学院",
+          "reading": "だいがくいん",
+          "ru": "аспирантура",
+          "en": "аспирантура"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "イン"
+      ],
+      "meaningEn": "учреждение"
+    },
+    {
+      "id": "voronina-kanji-203",
+      "kanji": "古",
+      "meaning": "старый",
+      "readings": [
+        "ふるい",
+        "コ"
+      ],
+      "examples": [
+        {
+          "term": "中古品",
+          "reading": "ちゅうこひん",
+          "ru": "подержанный товар",
+          "en": "подержанный товар"
+        }
+      ],
+      "kun": [
+        "ふるい"
+      ],
+      "on": [
+        "コ"
+      ],
+      "meaningEn": "старый"
+    },
+    {
+      "id": "voronina-kanji-204",
+      "kanji": "好",
+      "meaning": "нравиться, любить",
+      "readings": [
+        "すき",
+        "このむ",
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "友好",
+          "reading": "ゆうこう",
+          "ru": "дружба",
+          "en": "дружба"
+        }
+      ],
+      "kun": [
+        "すき",
+        "このむ"
+      ],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "нравиться, любить"
+    },
+    {
+      "id": "voronina-kanji-205",
+      "kanji": "画",
+      "meaning": "картина",
+      "readings": [
+        "が",
+        "カク"
+      ],
+      "examples": [
+        {
+          "term": "計画",
+          "reading": "けいかく",
+          "ru": "проект, план",
+          "en": "проект, план"
+        }
+      ],
+      "kun": [
+        "が"
+      ],
+      "on": [
+        "カク"
+      ],
+      "meaningEn": "картина"
+    },
+    {
+      "id": "voronina-kanji-206",
+      "kanji": "黒",
+      "meaning": "черный",
+      "readings": [
+        "くろい",
+        "コク"
+      ],
+      "examples": [
+        {
+          "term": "白黒テレビ",
+          "reading": "しろくろてれび",
+          "ru": "черно- белый телевизор",
+          "en": "черно- белый телевизор"
+        }
+      ],
+      "kun": [
+        "くろい"
+      ],
+      "on": [
+        "コク"
+      ],
+      "meaningEn": "черный"
+    },
+    {
+      "id": "voronina-kanji-207",
+      "kanji": "夏",
+      "meaning": "лето",
+      "readings": [
+        "なつ",
+        "カ"
+      ],
+      "examples": [
+        {
+          "term": "夏休み",
+          "reading": "なつやすみ",
+          "ru": "летние каникулы",
+          "en": "летние каникулы"
+        }
+      ],
+      "kun": [
+        "なつ"
+      ],
+      "on": [
+        "カ"
+      ],
+      "meaningEn": "лето"
+    },
+    {
+      "id": "voronina-kanji-208",
+      "kanji": "秋",
+      "meaning": "осень",
+      "readings": [
+        "あき",
+        "シユウ"
+      ],
+      "examples": [
+        {
+          "term": "秋分",
+          "reading": "しゅうぶん",
+          "ru": "осеннее равноденствие",
+          "en": "осеннее равноденствие"
+        }
+      ],
+      "kun": [
+        "あき"
+      ],
+      "on": [
+        "シユウ"
+      ],
+      "meaningEn": "осень"
+    },
+    {
+      "id": "voronina-kanji-209",
+      "kanji": "終",
+      "meaning": "оканчиваться",
+      "readings": [
+        "おわる",
+        "シユウ"
+      ],
+      "examples": [
+        {
+          "term": "終電",
+          "reading": "しゅうでん",
+          "ru": "последний поезд",
+          "en": "последний поезд"
+        }
+      ],
+      "kun": [
+        "おわる"
+      ],
+      "on": [
+        "シユウ"
+      ],
+      "meaningEn": "оканчиваться"
+    },
+    {
+      "id": "voronina-kanji-210",
+      "kanji": "紙",
+      "meaning": "бумага",
+      "readings": [
+        "かみ",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "和紙",
+          "reading": "わし",
+          "ru": "японская бумага васи",
+          "en": "японская бумага васи"
+        }
+      ],
+      "kun": [
+        "かみ"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "бумага"
+    },
+    {
+      "id": "voronina-kanji-211",
+      "kanji": "歌",
+      "meaning": "песня, петь",
+      "readings": [
+        "うた",
+        "うたう",
+        "カ"
+      ],
+      "examples": [
+        {
+          "term": "短歌",
+          "reading": "たんか",
+          "ru": "танка",
+          "en": "танка"
+        }
+      ],
+      "kun": [
+        "うた",
+        "うたう"
+      ],
+      "on": [
+        "カ"
+      ],
+      "meaningEn": "песня, петь"
+    },
+    {
+      "id": "voronina-kanji-212",
+      "kanji": "室",
+      "meaning": "комната",
+      "readings": [
+        "むろ",
+        "シツ"
+      ],
+      "examples": [
+        {
+          "term": "和室",
+          "reading": "わしつ",
+          "ru": "комната в японском стиле",
+          "en": "комната в японском стиле"
+        }
+      ],
+      "kun": [
+        "むろ"
+      ],
+      "on": [
+        "シツ"
+      ],
+      "meaningEn": "комната"
+    },
+    {
+      "id": "voronina-kanji-213",
+      "kanji": "火",
+      "meaning": "огонь",
+      "readings": [
+        "ひ",
+        "カ"
+      ],
+      "examples": [
+        {
+          "term": "火薬",
+          "reading": "かやく",
+          "ru": "порох",
+          "en": "порох"
+        }
+      ],
+      "kun": [
+        "ひ"
+      ],
+      "on": [
+        "カ"
+      ],
+      "meaningEn": "огонь"
+    },
+    {
+      "id": "voronina-kanji-214",
+      "kanji": "写",
+      "meaning": "снимать, копировать, фотографировать",
+      "readings": [
+        "うつす",
+        "シャ"
+      ],
+      "examples": [
+        {
+          "term": "写真",
+          "reading": "しゃしん",
+          "ru": "фотография",
+          "en": "фотография"
+        }
+      ],
+      "kun": [
+        "うつす"
+      ],
+      "on": [
+        "シャ"
+      ],
+      "meaningEn": "снимать, копировать, фотографировать"
+    },
+    {
+      "id": "voronina-kanji-215",
+      "kanji": "銀",
+      "meaning": "серебро",
+      "readings": [
+        "ギン"
+      ],
+      "examples": [
+        {
+          "term": "銀行",
+          "reading": "ぎんこう",
+          "ru": "банк",
+          "en": "банк"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ギン"
+      ],
+      "meaningEn": "серебро"
+    },
+    {
+      "id": "voronina-kanji-216",
+      "kanji": "界",
+      "meaning": "сфера, зона, круги",
+      "readings": [
+        "カイ"
+      ],
+      "examples": [
+        {
+          "term": "世界",
+          "reading": "せかい",
+          "ru": "мир",
+          "en": "мир"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "カイ"
+      ],
+      "meaningEn": "сфера, зона, круги"
+    },
+    {
+      "id": "voronina-kanji-217",
+      "kanji": "牛",
+      "meaning": "корова",
+      "readings": [
+        "うし",
+        "ギュウ"
+      ],
+      "examples": [
+        {
+          "term": "牛肉",
+          "reading": "ぎゅうにく",
+          "ru": "говядина",
+          "en": "говядина"
+        }
+      ],
+      "kun": [
+        "うし"
+      ],
+      "on": [
+        "ギュウ"
+      ],
+      "meaningEn": "корова"
+    },
+    {
+      "id": "voronina-kanji-218",
+      "kanji": "買",
+      "meaning": "покупать",
+      "readings": [
+        "かう",
+        "バイ"
+      ],
+      "examples": [
+        {
+          "term": "売買",
+          "reading": "ばいばい",
+          "ru": "торговля",
+          "en": "торговля"
+        }
+      ],
+      "kun": [
+        "かう"
+      ],
+      "on": [
+        "バイ"
+      ],
+      "meaningEn": "покупать"
+    },
+    {
+      "id": "voronina-kanji-219",
+      "kanji": "西",
+      "meaning": "запад",
+      "readings": [
+        "にし",
+        "セイ"
+      ],
+      "examples": [
+        {
+          "term": "西南",
+          "reading": "せいなん",
+          "ru": "юго-запад",
+          "en": "юго-запад"
+        }
+      ],
+      "kun": [
+        "にし"
+      ],
+      "on": [
+        "セイ"
+      ],
+      "meaningEn": "запад"
+    },
+    {
+      "id": "voronina-kanji-220",
+      "kanji": "花",
+      "meaning": "цветок",
+      "readings": [
+        "はな",
+        "カ"
+      ],
+      "examples": [
+        {
+          "term": "花見",
+          "reading": "はなみ",
+          "ru": "любование цветами",
+          "en": "любование цветами"
+        }
+      ],
+      "kun": [
+        "はな"
+      ],
+      "on": [
+        "カ"
+      ],
+      "meaningEn": "цветок"
+    },
+    {
+      "id": "voronina-kanji-221",
+      "kanji": "屋",
+      "meaning": "дом, крыша",
+      "readings": [
+        "や",
+        "オク"
+      ],
+      "examples": [
+        {
+          "term": "部屋",
+          "reading": "へや",
+          "ru": "комната",
+          "en": "комната"
+        }
+      ],
+      "kun": [
+        "や"
+      ],
+      "on": [
+        "オク"
+      ],
+      "meaningEn": "дом, крыша"
+    },
+    {
+      "id": "voronina-kanji-222",
+      "kanji": "色",
+      "meaning": "1) цвет 2) страсть",
+      "readings": [
+        "いろ",
+        "ショク",
+        "シキ"
+      ],
+      "examples": [
+        {
+          "term": "金色",
+          "reading": "きんいろ",
+          "ru": "золотистый",
+          "en": "золотистый"
+        }
+      ],
+      "kun": [
+        "いろ"
+      ],
+      "on": [
+        "ショク",
+        "シキ"
+      ],
+      "meaningEn": "1) цвет 2) страсть"
+    },
+    {
+      "id": "voronina-kanji-223",
+      "kanji": "門",
+      "meaning": "ворота",
+      "readings": [
+        "かど",
+        "モン"
+      ],
+      "examples": [
+        {
+          "term": "門口",
+          "reading": "かどぐち",
+          "ru": "подъезд",
+          "en": "подъезд"
+        }
+      ],
+      "kun": [
+        "かど"
+      ],
+      "on": [
+        "モン"
+      ],
+      "meaningEn": "ворота"
+    },
+    {
+      "id": "voronina-kanji-224",
+      "kanji": "切",
+      "meaning": "резать 2) заканчивать",
+      "readings": [
+        "きる1)",
+        "セツ"
+      ],
+      "examples": [
+        {
+          "term": "切手",
+          "reading": "きって",
+          "ru": "почтовая марка",
+          "en": "почтовая марка"
+        }
+      ],
+      "kun": [
+        "きる1)"
+      ],
+      "on": [
+        "セツ"
+      ],
+      "meaningEn": "резать 2) заканчивать"
+    },
+    {
+      "id": "voronina-kanji-225",
+      "kanji": "乗",
+      "meaning": "ехать [на транспорте]",
+      "readings": [
+        "のる",
+        "ジョウ"
+      ],
+      "examples": [
+        {
+          "term": "乗り場",
+          "reading": "のりば",
+          "ru": "остановка, платформа",
+          "en": "остановка, платформа"
+        }
+      ],
+      "kun": [
+        "のる"
+      ],
+      "on": [
+        "ジョウ"
+      ],
+      "meaningEn": "ехать [на транспорте]"
+    },
+    {
+      "id": "voronina-kanji-226",
+      "kanji": "送",
+      "meaning": "отправлять",
+      "readings": [
+        "おくる",
+        "ソウ"
+      ],
+      "examples": [
+        {
+          "term": "運送",
+          "reading": "うんそう",
+          "ru": "перевозки",
+          "en": "перевозки"
+        }
+      ],
+      "kun": [
+        "おくる"
+      ],
+      "on": [
+        "ソウ"
+      ],
+      "meaningEn": "отправлять"
+    },
+    {
+      "id": "voronina-kanji-227",
+      "kanji": "味",
+      "meaning": "вкус",
+      "readings": [
+        "あじ",
+        "ミ"
+      ],
+      "examples": [
+        {
+          "term": "地味",
+          "reading": "じみ",
+          "ru": "скромный, неброский",
+          "en": "скромный, неброский"
+        }
+      ],
+      "kun": [
+        "あじ"
+      ],
+      "on": [
+        "ミ"
+      ],
+      "meaningEn": "вкус"
+    },
+    {
+      "id": "voronina-kanji-228",
+      "kanji": "始",
+      "meaning": "начинать",
+      "readings": [
+        "はじまる",
+        "はじめる",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "始発",
+          "reading": "しはつ",
+          "ru": "первый поезд; начало отправления",
+          "en": "first train"
+        }
+      ],
+      "kun": [
+        "はじまる",
+        "はじめる"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "начинать"
+    },
+    {
+      "id": "voronina-kanji-229",
+      "kanji": "走",
+      "meaning": "бегать",
+      "readings": [
+        "はしる",
+        "ソウ"
+      ],
+      "examples": [
+        {
+          "term": "走り使い",
+          "reading": "はしりづかい",
+          "ru": "мальчик на побегушках",
+          "en": "мальчик на побегушках"
+        }
+      ],
+      "kun": [
+        "はしる"
+      ],
+      "on": [
+        "ソウ"
+      ],
+      "meaningEn": "бегать"
+    },
+    {
+      "id": "voronina-kanji-230",
+      "kanji": "仕",
+      "meaning": "служить",
+      "readings": [
+        "つかえる",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "仕事",
+          "reading": "しごと",
+          "ru": "работа",
+          "en": "работа"
+        }
+      ],
+      "kun": [
+        "つかえる"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "служить"
+    },
+    {
+      "id": "voronina-kanji-231",
+      "kanji": "休",
+      "meaning": "отдыхать",
+      "readings": [
+        "やすむ",
+        "キュウ"
+      ],
+      "examples": [
+        {
+          "term": "お休みなさい",
+          "reading": "おやすみなさい",
+          "ru": "спокойной ночи",
+          "en": "спокойной ночи"
+        }
+      ],
+      "kun": [
+        "やすむ"
+      ],
+      "on": [
+        "キュウ"
+      ],
+      "meaningEn": "отдыхать"
+    },
+    {
+      "id": "voronina-kanji-232",
+      "kanji": "校",
+      "meaning": "школа",
+      "readings": [
+        "コウ"
+      ],
+      "examples": [
+        {
+          "term": "小学校",
+          "reading": "しょうがっこう",
+          "ru": "младшая школа",
+          "en": "младшая школа"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "コウ"
+      ],
+      "meaningEn": "школа"
+    },
+    {
+      "id": "voronina-kanji-233",
+      "kanji": "医",
+      "meaning": "медицина",
+      "readings": [
+        "イ"
+      ],
+      "examples": [
+        {
+          "term": "医者",
+          "reading": "いしゃ",
+          "ru": "врач",
+          "en": "врач"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "イ"
+      ],
+      "meaningEn": "медицина"
+    },
+    {
+      "id": "voronina-kanji-234",
+      "kanji": "図",
+      "meaning": "карта",
+      "readings": [
+        "と",
+        "ズ"
+      ],
+      "examples": [
+        {
+          "term": "心電図",
+          "reading": "しんでんず",
+          "ru": "электрокардиограмма",
+          "en": "электрокардиограмма"
+        }
+      ],
+      "kun": [
+        "と"
+      ],
+      "on": [
+        "ズ"
+      ],
+      "meaningEn": "карта"
+    },
+    {
+      "id": "voronina-kanji-235",
+      "kanji": "旅",
+      "meaning": "путешествие",
+      "readings": [
+        "たび",
+        "リョ"
+      ],
+      "examples": [
+        {
+          "term": "旅館",
+          "reading": "りょかん",
+          "ru": "гостиница-рёкан",
+          "en": "гостиница-рёкан"
+        }
+      ],
+      "kun": [
+        "たび"
+      ],
+      "on": [
+        "リョ"
+      ],
+      "meaningEn": "путешествие"
+    },
+    {
+      "id": "voronina-kanji-236",
+      "kanji": "答",
+      "meaning": "отвечать",
+      "readings": [
+        "こたえる",
+        "ト",
+        "トウ"
+      ],
+      "examples": [
+        {
+          "term": "答え",
+          "reading": "こたえ",
+          "ru": "ответ",
+          "en": "ответ"
+        }
+      ],
+      "kun": [
+        "こたえる"
+      ],
+      "on": [
+        "ト",
+        "トウ"
+      ],
+      "meaningEn": "отвечать"
+    },
+    {
+      "id": "voronina-kanji-237",
+      "kanji": "去",
+      "meaning": "уходить, покидать",
+      "readings": [
+        "さる",
+        "キョ"
+      ],
+      "examples": [
+        {
+          "term": "去年",
+          "reading": "きょねん",
+          "ru": "прошедший год",
+          "en": "прошедший год"
+        }
+      ],
+      "kun": [
+        "さる"
+      ],
+      "on": [
+        "キョ"
+      ],
+      "meaningEn": "уходить, покидать"
+    },
+    {
+      "id": "voronina-kanji-238",
+      "kanji": "雨",
+      "meaning": "дождь",
+      "readings": [
+        "あめ",
+        "ウ"
+      ],
+      "examples": [
+        {
+          "term": "大雨",
+          "reading": "おおあめ、たいう",
+          "ru": "ливень",
+          "en": "ливень"
+        }
+      ],
+      "kun": [
+        "あめ"
+      ],
+      "on": [
+        "ウ"
+      ],
+      "meaningEn": "дождь"
+    },
+    {
+      "id": "voronina-kanji-239",
+      "kanji": "顔",
+      "meaning": "лицо",
+      "readings": [
+        "かお",
+        "ガン"
+      ],
+      "examples": [
+        {
+          "term": "顔色",
+          "reading": "かおいろ",
+          "ru": "настроение",
+          "en": "настроение"
+        }
+      ],
+      "kun": [
+        "かお"
+      ],
+      "on": [
+        "ガン"
+      ],
+      "meaningEn": "лицо"
+    },
+    {
+      "id": "voronina-kanji-240",
+      "kanji": "悪",
+      "meaning": "плохой, злой",
+      "readings": [
+        "わるい",
+        "アク"
+      ],
+      "examples": [
+        {
+          "term": "悪口",
+          "reading": "わるくち",
+          "ru": "брань",
+          "en": "брань"
+        }
+      ],
+      "kun": [
+        "わるい"
+      ],
+      "on": [
+        "アク"
+      ],
+      "meaningEn": "плохой, злой"
+    },
+    {
+      "id": "voronina-kanji-241",
+      "kanji": "注",
+      "meaning": "наливать",
+      "readings": [
+        "そそぐ",
+        "つぐ",
+        "チュウ"
+      ],
+      "examples": [
+        {
+          "term": "注目",
+          "reading": "ちゅうもく",
+          "ru": "внимание",
+          "en": "внимание"
+        }
+      ],
+      "kun": [
+        "そそぐ",
+        "つぐ"
+      ],
+      "on": [
+        "チュウ"
+      ],
+      "meaningEn": "наливать"
+    },
+    {
+      "id": "voronina-kanji-242",
+      "kanji": "洋",
+      "meaning": "1) океан 2) западный, европейский",
+      "readings": [
+        "ヨウ"
+      ],
+      "examples": [
+        {
+          "term": "大西洋",
+          "reading": "たいせいよう",
+          "ru": "Атлантический Океан",
+          "en": "Атлантический Океан"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ヨウ"
+      ],
+      "meaningEn": "1) океан 2) западный, европейский"
+    },
+    {
+      "id": "voronina-kanji-243",
+      "kanji": "病",
+      "meaning": "болезнь",
+      "readings": [
+        "やまい",
+        "ビョウ"
+      ],
+      "examples": [
+        {
+          "term": "病院",
+          "reading": "びょういん",
+          "ru": "больница",
+          "en": "больница"
+        }
+      ],
+      "kun": [
+        "やまい"
+      ],
+      "on": [
+        "ビョウ"
+      ],
+      "meaningEn": "болезнь"
+    },
+    {
+      "id": "voronina-kanji-244",
+      "kanji": "駅",
+      "meaning": "станция",
+      "readings": [
+        "エキ"
+      ],
+      "examples": [
+        {
+          "term": "駅前",
+          "reading": "えきまえ",
+          "ru": "привокзальная площадь",
+          "en": "привокзальная площадь"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "エキ"
+      ],
+      "meaningEn": "станция"
+    },
+    {
+      "id": "voronina-kanji-245",
+      "kanji": "短",
+      "meaning": "короткий",
+      "readings": [
+        "みじかい",
+        "タン"
+      ],
+      "examples": [
+        {
+          "term": "短所",
+          "reading": "たんしょ",
+          "ru": "недостаток, слабое место",
+          "en": "недостаток, слабое место"
+        }
+      ],
+      "kun": [
+        "みじかい"
+      ],
+      "on": [
+        "タン"
+      ],
+      "meaningEn": "короткий"
+    },
+    {
+      "id": "voronina-kanji-246",
+      "kanji": "帰",
+      "meaning": "возвращаться домой",
+      "readings": [
+        "かえる",
+        "キ"
+      ],
+      "examples": [
+        {
+          "term": "帰り道",
+          "reading": "かえりみち",
+          "ru": "обратный путь",
+          "en": "обратный путь"
+        }
+      ],
+      "kun": [
+        "かえる"
+      ],
+      "on": [
+        "キ"
+      ],
+      "meaningEn": "возвращаться домой"
+    },
+    {
+      "id": "voronina-kanji-247",
+      "kanji": "読",
+      "meaning": "читать",
+      "readings": [
+        "よむ",
+        "ドク"
+      ],
+      "examples": [
+        {
+          "term": "読者",
+          "reading": "どくしゃ",
+          "ru": "читатель",
+          "en": "читатель"
+        }
+      ],
+      "kun": [
+        "よむ"
+      ],
+      "on": [
+        "ドク"
+      ],
+      "meaningEn": "читать"
+    },
+    {
+      "id": "voronina-kanji-248",
+      "kanji": "待",
+      "meaning": "ждать",
+      "readings": [
+        "まつ",
+        "タイ"
+      ],
+      "examples": [
+        {
+          "term": "待合室",
+          "reading": "まちあいしつ",
+          "ru": "зал ожидания",
+          "en": "зал ожидания"
+        }
+      ],
+      "kun": [
+        "まつ"
+      ],
+      "on": [
+        "タイ"
+      ],
+      "meaningEn": "ждать"
+    },
+    {
+      "id": "voronina-kanji-249",
+      "kanji": "週",
+      "meaning": "неделя",
+      "readings": [
+        "シユウ"
+      ],
+      "examples": [
+        {
+          "term": "先週",
+          "reading": "せんしゅう",
+          "ru": "прошлая неделя",
+          "en": "прошлая неделя"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "シユウ"
+      ],
+      "meaningEn": "неделя"
+    },
+    {
+      "id": "voronina-kanji-250",
+      "kanji": "薬",
+      "meaning": "лекарство",
+      "readings": [
+        "くすり",
+        "ヤク"
+      ],
+      "examples": [
+        {
+          "term": "目薬",
+          "reading": "めぐすり",
+          "ru": "глазные капли",
+          "en": "глазные капли"
+        }
+      ],
+      "kun": [
+        "くすり"
+      ],
+      "on": [
+        "ヤク"
+      ],
+      "meaningEn": "лекарство"
+    },
+    {
+      "id": "voronina-kanji-251",
+      "kanji": "転",
+      "meaning": "валить, опрокидывать; катиться",
+      "readings": [
+        "ころぶ",
+        "ころばす",
+        "テン"
+      ],
+      "examples": [
+        {
+          "term": "自転車",
+          "reading": "じてんしゃ",
+          "ru": "велосипед",
+          "en": "велосипед"
+        }
+      ],
+      "kun": [
+        "ころぶ",
+        "ころばす"
+      ],
+      "on": [
+        "テン"
+      ],
+      "meaningEn": "валить, опрокидывать; катиться"
+    },
+    {
+      "id": "voronina-kanji-252",
+      "kanji": "族",
+      "meaning": "племя, семья",
+      "readings": [
+        "ゾク"
+      ],
+      "examples": [
+        {
+          "term": "民族",
+          "reading": "みんぞく",
+          "ru": "нация, этнос",
+          "en": "нация, этнос"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ゾク"
+      ],
+      "meaningEn": "племя, семья"
+    },
+    {
+      "id": "voronina-kanji-253",
+      "kanji": "夕",
+      "meaning": "вечер",
+      "readings": [
+        "ゆう",
+        "セキ"
+      ],
+      "examples": [
+        {
+          "term": "夕食",
+          "reading": "ゆうしょく",
+          "ru": "ужин",
+          "en": "ужин"
+        }
+      ],
+      "kun": [
+        "ゆう"
+      ],
+      "on": [
+        "セキ"
+      ],
+      "meaningEn": "вечер"
+    },
+    {
+      "id": "voronina-kanji-254",
+      "kanji": "質",
+      "meaning": "1) заклад 2) качество",
+      "readings": [
+        "シツ"
+      ],
+      "examples": [
+        {
+          "term": "品質",
+          "reading": "ひんしつ",
+          "ru": "качество товара",
+          "en": "качество товара"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "シツ"
+      ],
+      "meaningEn": "1) заклад 2) качество"
+    },
+    {
+      "id": "voronina-kanji-255",
+      "kanji": "冬",
+      "meaning": "зима",
+      "readings": [
+        "ふゆ",
+        "トウ"
+      ],
+      "examples": [
+        {
+          "term": "春夏秋冬",
+          "reading": "しゅんかしゅうとう",
+          "ru": "четыре времени года",
+          "en": "четыре времени года"
+        }
+      ],
+      "kun": [
+        "ふゆ"
+      ],
+      "on": [
+        "トウ"
+      ],
+      "meaningEn": "зима"
+    },
+    {
+      "id": "voronina-kanji-256",
+      "kanji": "試",
+      "meaning": "пробовать, пытаться",
+      "readings": [
+        "こころみる",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "試験",
+          "reading": "しけん",
+          "ru": "экзамен",
+          "en": "экзамен"
+        }
+      ],
+      "kun": [
+        "こころみる"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "пробовать, пытаться"
+    },
+    {
+      "id": "voronina-kanji-257",
+      "kanji": "館",
+      "meaning": "здание, учреждение",
+      "readings": [
+        "カン"
+      ],
+      "examples": [
+        {
+          "term": "図書館",
+          "reading": "としょかん",
+          "ru": "библиотека",
+          "en": "библиотека"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "カン"
+      ],
+      "meaningEn": "здание, учреждение"
+    },
+    {
+      "id": "voronina-kanji-258",
+      "kanji": "毎",
+      "meaning": "каждый",
+      "readings": [
+        "ごと",
+        "マイ"
+      ],
+      "examples": [
+        {
+          "term": "毎週",
+          "reading": "まいしゅう",
+          "ru": "каждую неделю",
+          "en": "каждую неделю"
+        }
+      ],
+      "kun": [
+        "ごと"
+      ],
+      "on": [
+        "マイ"
+      ],
+      "meaningEn": "каждый"
+    },
+    {
+      "id": "voronina-kanji-259",
+      "kanji": "習",
+      "meaning": "обучаться, привыкать",
+      "readings": [
+        "ならう",
+        "シユウ"
+      ],
+      "examples": [
+        {
+          "term": "悪習",
+          "reading": "あくしゅう",
+          "ru": "вредная привычка",
+          "en": "вредная привычка"
+        }
+      ],
+      "kun": [
+        "ならう"
+      ],
+      "on": [
+        "シユウ"
+      ],
+      "meaningEn": "обучаться, привыкать"
+    },
+    {
+      "id": "voronina-kanji-260",
+      "kanji": "映",
+      "meaning": "отражаться, падать [о тени]",
+      "readings": [
+        "うつる",
+        "エイ"
+      ],
+      "examples": [
+        {
+          "term": "映画館",
+          "reading": "えいがかん",
+          "ru": "кинотеатр",
+          "en": "кинотеатр"
+        }
+      ],
+      "kun": [
+        "うつる"
+      ],
+      "on": [
+        "エイ"
+      ],
+      "meaningEn": "отражаться, падать [о тени]"
+    },
+    {
+      "id": "voronina-kanji-261",
+      "kanji": "池",
+      "meaning": "пруд",
+      "readings": [
+        "いけ",
+        "チ"
+      ],
+      "examples": [
+        {
+          "term": "電池",
+          "reading": "でんち",
+          "ru": "батарейка",
+          "en": "батарейка"
+        }
+      ],
+      "kun": [
+        "いけ"
+      ],
+      "on": [
+        "チ"
+      ],
+      "meaningEn": "пруд"
+    },
+    {
+      "id": "voronina-kanji-262",
+      "kanji": "遠",
+      "meaning": "далекий",
+      "readings": [
+        "とおい",
+        "エン"
+      ],
+      "examples": [
+        {
+          "term": "遠洋",
+          "reading": "えんよう",
+          "ru": "открытое море, океан",
+          "en": "открытое море, океан"
+        }
+      ],
+      "kun": [
+        "とおい"
+      ],
+      "on": [
+        "エン"
+      ],
+      "meaningEn": "далекий"
+    },
+    {
+      "id": "voronina-kanji-263",
+      "kanji": "鳥",
+      "meaning": "птица",
+      "readings": [
+        "とり",
+        "チョウ"
+      ],
+      "examples": [
+        {
+          "term": "鳥屋",
+          "reading": "とや",
+          "ru": "птичник, курятник",
+          "en": "птичник, курятник"
+        }
+      ],
+      "kun": [
+        "とり"
+      ],
+      "on": [
+        "チョウ"
+      ],
+      "meaningEn": "птица"
+    },
+    {
+      "id": "voronina-kanji-264",
+      "kanji": "昼",
+      "meaning": "дневное время",
+      "readings": [
+        "ひる",
+        "チュウ"
+      ],
+      "examples": [
+        {
+          "term": "昼ご飯",
+          "reading": "ひるごはん",
+          "ru": "обед",
+          "en": "обед"
+        }
+      ],
+      "kun": [
+        "ひる"
+      ],
+      "on": [
+        "チュウ"
+      ],
+      "meaningEn": "дневное время"
+    },
+    {
+      "id": "voronina-kanji-265",
+      "kanji": "午",
+      "meaning": "полдень",
+      "readings": [
+        "ゴ"
+      ],
+      "examples": [
+        {
+          "term": "午前",
+          "reading": "ごぜん",
+          "ru": "утро, время до полудня",
+          "en": "утро, время до полудня"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ゴ"
+      ],
+      "meaningEn": "полдень"
+    },
+    {
+      "id": "voronina-kanji-266",
+      "kanji": "勉",
+      "meaning": "стараться, прилагать усилия",
+      "readings": [
+        "つとめる",
+        "ベン"
+      ],
+      "examples": [
+        {
+          "term": "勉強家",
+          "reading": "べんきょうか",
+          "ru": "прилежный ученик",
+          "en": "прилежный ученик"
+        }
+      ],
+      "kun": [
+        "つとめる"
+      ],
+      "on": [
+        "ベン"
+      ],
+      "meaningEn": "стараться, прилагать усилия"
+    },
+    {
+      "id": "voronina-kanji-267",
+      "kanji": "便",
+      "meaning": "1) удобство 2) почта, известия, корреспонденция",
+      "readings": [
+        "たより",
+        "ビン",
+        "ベン"
+      ],
+      "examples": [
+        {
+          "term": "不便",
+          "reading": "ふべん",
+          "ru": "неудобный",
+          "en": "неудобный"
+        }
+      ],
+      "kun": [
+        "たより"
+      ],
+      "on": [
+        "ビン",
+        "ベン"
+      ],
+      "meaningEn": "1) удобство 2) почта, известия, корреспонденция"
+    },
+    {
+      "id": "voronina-kanji-268",
+      "kanji": "兄",
+      "meaning": "старший брат",
+      "readings": [
+        "あに",
+        "キョウ"
+      ],
+      "examples": [
+        {
+          "term": "お兄さん",
+          "reading": "おにいさん",
+          "ru": "старший брат, уважительное обращение",
+          "en": "старший брат, уважительное обращение"
+        }
+      ],
+      "kun": [
+        "あに"
+      ],
+      "on": [
+        "キョウ"
+      ],
+      "meaningEn": "старший брат"
+    },
+    {
+      "id": "voronina-kanji-269",
+      "kanji": "働",
+      "meaning": "работать",
+      "readings": [
+        "はたらく",
+        "ドウ"
+      ],
+      "examples": [
+        {
+          "term": "働き者",
+          "reading": "はたらきもの",
+          "ru": "трудяга",
+          "en": "трудяга"
+        }
+      ],
+      "kun": [
+        "はたらく"
+      ],
+      "on": [
+        "ドウ"
+      ],
+      "meaningEn": "работать"
+    },
+    {
+      "id": "voronina-kanji-270",
+      "kanji": "魚",
+      "meaning": "рыба",
+      "readings": [
+        "さかな",
+        "うお",
+        "ギョ"
+      ],
+      "examples": [
+        {
+          "term": "人魚",
+          "reading": "にんぎょ",
+          "ru": "русалка",
+          "en": "русалка"
+        }
+      ],
+      "kun": [
+        "さかな",
+        "うお"
+      ],
+      "on": [
+        "ギョ"
+      ],
+      "meaningEn": "рыба"
+    },
+    {
+      "id": "voronina-kanji-271",
+      "kanji": "験",
+      "meaning": "испытывать",
+      "readings": [
+        "ためす",
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "体験",
+          "reading": "たいけん",
+          "ru": "личный опыт",
+          "en": "личный опыт"
+        }
+      ],
+      "kun": [
+        "ためす"
+      ],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "испытывать"
+    },
+    {
+      "id": "voronina-kanji-272",
+      "kanji": "肉",
+      "meaning": "мясо",
+      "readings": [
+        "ニク"
+      ],
+      "examples": [
+        {
+          "term": "肉親",
+          "reading": "にくしん",
+          "ru": "кровное родство",
+          "en": "кровное родство"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ニク"
+      ],
+      "meaningEn": "мясо"
+    },
+    {
+      "id": "voronina-kanji-273",
+      "kanji": "究",
+      "meaning": "тщательно изучать, осваивать",
+      "readings": [
+        "きわめる",
+        "キュウ"
+      ],
+      "examples": [
+        {
+          "term": "究明",
+          "reading": "きゅうめい",
+          "ru": "научное открытие",
+          "en": "научное открытие"
+        }
+      ],
+      "kun": [
+        "きわめる"
+      ],
+      "on": [
+        "キュウ"
+      ],
+      "meaningEn": "тщательно изучать, осваивать"
+    },
+    {
+      "id": "voronina-kanji-274",
+      "kanji": "飲",
+      "meaning": "…раз, градус",
+      "readings": [
+        "のむ",
+        "イン"
+      ],
+      "examples": [
+        {
+          "term": "ぐい飲み",
+          "reading": "ぐいのみ",
+          "ru": "пиала",
+          "en": "пиала"
+        }
+      ],
+      "kun": [
+        "のむ"
+      ],
+      "on": [
+        "イン"
+      ],
+      "meaningEn": "…раз, градус"
+    },
+    {
+      "id": "voronina-kanji-275",
+      "kanji": "茶",
+      "meaning": "чай",
+      "readings": [
+        "サ",
+        "チャ"
+      ],
+      "examples": [
+        {
+          "term": "茶道",
+          "reading": "さどう",
+          "ru": "искусство чайной церемонии",
+          "en": "искусство чайной церемонии"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "サ",
+        "チャ"
+      ],
+      "meaningEn": "чай"
+    },
+    {
+      "id": "voronina-kanji-276",
+      "kanji": "曜",
+      "meaning": "день недели",
+      "readings": [
+        "ヨウ"
+      ],
+      "examples": [
+        {
+          "term": "日曜〔日〕",
+          "reading": "にちよう〔び〕",
+          "ru": "воскресенье",
+          "en": "воскресенье"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ヨウ"
+      ],
+      "meaningEn": "день недели"
+    },
+    {
+      "id": "voronina-kanji-277",
+      "kanji": "姉",
+      "meaning": "старшая сестра",
+      "readings": [
+        "あね",
+        "シ"
+      ],
+      "examples": [
+        {
+          "term": "お姉さん",
+          "reading": "おねえさん",
+          "ru": "старшая сестра, уважительное обращение",
+          "en": "старшая сестра, уважительное обращение"
+        }
+      ],
+      "kun": [
+        "あね"
+      ],
+      "on": [
+        "シ"
+      ],
+      "meaningEn": "старшая сестра"
+    },
+    {
+      "id": "voronina-kanji-278",
+      "kanji": "研",
+      "meaning": "точить",
+      "readings": [
+        "とぐ",
+        "ケン"
+      ],
+      "examples": [
+        {
+          "term": "研究",
+          "reading": "けんきゅう",
+          "ru": "исследование",
+          "en": "исследование"
+        }
+      ],
+      "kun": [
+        "とぐ"
+      ],
+      "on": [
+        "ケン"
+      ],
+      "meaningEn": "точить"
+    },
+    {
+      "id": "voronina-kanji-279",
+      "kanji": "暗",
+      "meaning": "темный",
+      "readings": [
+        "くらい",
+        "アン"
+      ],
+      "examples": [
+        {
+          "term": "暗黒",
+          "reading": "あんこく",
+          "ru": "мрак",
+          "en": "мрак"
+        }
+      ],
+      "kun": [
+        "くらい"
+      ],
+      "on": [
+        "アン"
+      ],
+      "meaningEn": "темный"
+    },
+    {
+      "id": "voronina-kanji-280",
+      "kanji": "妹",
+      "meaning": "младшая сестра",
+      "readings": [
+        "いもうと",
+        "マイ"
+      ],
+      "examples": [
+        {
+          "term": "姉妹",
+          "reading": "しまい",
+          "ru": "сестры",
+          "en": "сестры"
+        }
+      ],
+      "kun": [
+        "いもうと"
+      ],
+      "on": [
+        "マイ"
+      ],
+      "meaningEn": "младшая сестра"
+    },
+    {
+      "id": "voronina-kanji-281",
+      "kanji": "村",
+      "meaning": "деревня",
+      "readings": [
+        "むら",
+        "ソン"
+      ],
+      "examples": [
+        {
+          "term": "村長",
+          "reading": "そんちょう",
+          "ru": "деревенский староста",
+          "en": "деревенский староста"
+        }
+      ],
+      "kun": [
+        "むら"
+      ],
+      "on": [
+        "ソン"
+      ],
+      "meaningEn": "деревня"
+    },
+    {
+      "id": "voronina-kanji-282",
+      "kanji": "飯",
+      "meaning": "вареный рис",
+      "readings": [
+        "ハン"
+      ],
+      "examples": [
+        {
+          "term": "飯台",
+          "reading": "はんだい",
+          "ru": "обеденный стол",
+          "en": "обеденный стол"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ハン"
+      ],
+      "meaningEn": "вареный рис"
+    },
+    {
+      "id": "voronina-kanji-283",
+      "kanji": "借",
+      "meaning": "брать в долг",
+      "readings": [
+        "かりる",
+        "シャク"
+      ],
+      "examples": [
+        {
+          "term": "借金",
+          "reading": "しゃっきん",
+          "ru": "долг, заем",
+          "en": "долг, заем"
+        }
+      ],
+      "kun": [
+        "かりる"
+      ],
+      "on": [
+        "シャク"
+      ],
+      "meaningEn": "брать в долг"
+    },
+    {
+      "id": "voronina-kanji-284",
+      "kanji": "寒",
+      "meaning": "холодный",
+      "readings": [
+        "さむい",
+        "カン"
+      ],
+      "examples": [
+        {
+          "term": "寒気",
+          "reading": "さむけ",
+          "ru": "озноб",
+          "en": "озноб"
+        }
+      ],
+      "kun": [
+        "さむい"
+      ],
+      "on": [
+        "カン"
+      ],
+      "meaningEn": "холодный"
+    },
+    {
+      "id": "voronina-kanji-285",
+      "kanji": "堂",
+      "meaning": "1) храм 2) зал",
+      "readings": [
+        "ドウ"
+      ],
+      "examples": [
+        {
+          "term": "音楽堂",
+          "reading": "おんがくどう",
+          "ru": "концертный зал",
+          "en": "концертный зал"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "ドウ"
+      ],
+      "meaningEn": "1) храм 2) зал"
+    },
+    {
+      "id": "voronina-kanji-286",
+      "kanji": "漢",
+      "meaning": "китайский",
+      "readings": [
+        "カン"
+      ],
+      "examples": [
+        {
+          "term": "漢方",
+          "reading": "かんぽう",
+          "ru": "китайская медицина",
+          "en": "китайская медицина"
+        }
+      ],
+      "kun": [],
+      "on": [
+        "カン"
+      ],
+      "meaningEn": "китайский"
     }
-
   ],
   "words": [
     {
@@ -3904,54 +9589,300 @@ window.IDJLT_KANJI = {
       ]
     },
     {
-          "id": "voronina-kanji-workbook",
-          "title": {
-                "ru": "Японские иероглифы — Воронина",
-                "en": "Japanese Kanji Workbook — Voronina"
-          },
-          "singleIds": [
-                "kanji-single-41",
-                "kanji-single-42",
-                "kanji-single-43",
-                "kanji-single-44",
-                "kanji-single-45",
-                "kanji-single-46",
-                "kanji-single-47",
-                "kanji-single-48",
-                "kanji-single-49",
-                "kanji-single-50",
-                "kanji-single-51",
-                "kanji-single-52",
-                "kanji-single-53",
-                "kanji-single-54",
-                "kanji-single-55",
-                "kanji-single-56",
-                "kanji-single-57",
-                "kanji-single-58",
-                "kanji-single-59",
-                "kanji-single-60",
-                "kanji-single-61",
-                "kanji-single-62",
-                "kanji-single-63",
-                "kanji-single-64",
-                "kanji-single-65",
-                "kanji-single-66",
-                "kanji-single-67",
-                "kanji-single-68",
-                "kanji-single-69",
-                "kanji-single-70",
-                "kanji-single-71",
-                "kanji-single-72",
-                "kanji-single-73",
-                "kanji-single-74",
-                "kanji-single-75",
-                "kanji-single-76",
-                "kanji-single-77",
-                "kanji-single-78",
-                "kanji-single-79",
-                "kanji-single-80"
-          ],
-          "wordIds": []
+      "id": "voronina-kanji-workbook",
+      "title": {
+        "ru": "Воронина N5-4",
+        "en": "Voronina N5-4"
+      },
+      "singleIds": [
+        "voronina-kanji-1",
+        "voronina-kanji-2",
+        "voronina-kanji-3",
+        "voronina-kanji-4",
+        "voronina-kanji-5",
+        "voronina-kanji-6",
+        "voronina-kanji-7",
+        "voronina-kanji-8",
+        "voronina-kanji-9",
+        "voronina-kanji-10",
+        "voronina-kanji-11",
+        "voronina-kanji-12",
+        "voronina-kanji-13",
+        "voronina-kanji-14",
+        "voronina-kanji-15",
+        "voronina-kanji-16",
+        "voronina-kanji-17",
+        "voronina-kanji-18",
+        "voronina-kanji-19",
+        "voronina-kanji-20",
+        "voronina-kanji-21",
+        "voronina-kanji-22",
+        "voronina-kanji-23",
+        "voronina-kanji-24",
+        "voronina-kanji-25",
+        "voronina-kanji-26",
+        "voronina-kanji-27",
+        "voronina-kanji-28",
+        "voronina-kanji-29",
+        "voronina-kanji-30",
+        "voronina-kanji-31",
+        "voronina-kanji-32",
+        "voronina-kanji-33",
+        "voronina-kanji-34",
+        "voronina-kanji-35",
+        "voronina-kanji-36",
+        "voronina-kanji-37",
+        "voronina-kanji-38",
+        "voronina-kanji-39",
+        "voronina-kanji-40",
+        "voronina-kanji-41",
+        "voronina-kanji-42",
+        "voronina-kanji-43",
+        "voronina-kanji-44",
+        "voronina-kanji-45",
+        "voronina-kanji-46",
+        "voronina-kanji-47",
+        "voronina-kanji-48",
+        "voronina-kanji-49",
+        "voronina-kanji-50",
+        "voronina-kanji-51",
+        "voronina-kanji-52",
+        "voronina-kanji-53",
+        "voronina-kanji-54",
+        "voronina-kanji-55",
+        "voronina-kanji-56",
+        "voronina-kanji-57",
+        "voronina-kanji-58",
+        "voronina-kanji-59",
+        "voronina-kanji-60",
+        "voronina-kanji-61",
+        "voronina-kanji-62",
+        "voronina-kanji-63",
+        "voronina-kanji-64",
+        "voronina-kanji-65",
+        "voronina-kanji-66",
+        "voronina-kanji-67",
+        "voronina-kanji-68",
+        "voronina-kanji-69",
+        "voronina-kanji-70",
+        "voronina-kanji-71",
+        "voronina-kanji-72",
+        "voronina-kanji-73",
+        "voronina-kanji-74",
+        "voronina-kanji-75",
+        "voronina-kanji-76",
+        "voronina-kanji-77",
+        "voronina-kanji-78",
+        "voronina-kanji-79",
+        "voronina-kanji-80",
+        "voronina-kanji-81",
+        "voronina-kanji-82",
+        "voronina-kanji-83",
+        "voronina-kanji-84",
+        "voronina-kanji-85",
+        "voronina-kanji-86",
+        "voronina-kanji-87",
+        "voronina-kanji-88",
+        "voronina-kanji-89",
+        "voronina-kanji-90",
+        "voronina-kanji-91",
+        "voronina-kanji-92",
+        "voronina-kanji-93",
+        "voronina-kanji-94",
+        "voronina-kanji-95",
+        "voronina-kanji-96",
+        "voronina-kanji-97",
+        "voronina-kanji-98",
+        "voronina-kanji-99",
+        "voronina-kanji-100",
+        "voronina-kanji-101",
+        "voronina-kanji-102",
+        "voronina-kanji-103",
+        "voronina-kanji-104",
+        "voronina-kanji-105",
+        "voronina-kanji-106",
+        "voronina-kanji-107",
+        "voronina-kanji-108",
+        "voronina-kanji-109",
+        "voronina-kanji-110",
+        "voronina-kanji-111",
+        "voronina-kanji-112",
+        "voronina-kanji-113",
+        "voronina-kanji-114",
+        "voronina-kanji-115",
+        "voronina-kanji-116",
+        "voronina-kanji-117",
+        "voronina-kanji-118",
+        "voronina-kanji-119",
+        "voronina-kanji-120",
+        "voronina-kanji-121",
+        "voronina-kanji-122",
+        "voronina-kanji-123",
+        "voronina-kanji-124",
+        "voronina-kanji-125",
+        "voronina-kanji-126",
+        "voronina-kanji-127",
+        "voronina-kanji-128",
+        "voronina-kanji-129",
+        "voronina-kanji-130",
+        "voronina-kanji-131",
+        "voronina-kanji-132",
+        "voronina-kanji-133",
+        "voronina-kanji-134",
+        "voronina-kanji-135",
+        "voronina-kanji-136",
+        "voronina-kanji-137",
+        "voronina-kanji-138",
+        "voronina-kanji-139",
+        "voronina-kanji-140",
+        "voronina-kanji-141",
+        "voronina-kanji-142",
+        "voronina-kanji-143",
+        "voronina-kanji-144",
+        "voronina-kanji-145",
+        "voronina-kanji-146",
+        "voronina-kanji-147",
+        "voronina-kanji-148",
+        "voronina-kanji-149",
+        "voronina-kanji-150",
+        "voronina-kanji-151",
+        "voronina-kanji-152",
+        "voronina-kanji-153",
+        "voronina-kanji-154",
+        "voronina-kanji-155",
+        "voronina-kanji-156",
+        "voronina-kanji-157",
+        "voronina-kanji-158",
+        "voronina-kanji-159",
+        "voronina-kanji-160",
+        "voronina-kanji-161",
+        "voronina-kanji-162",
+        "voronina-kanji-163",
+        "voronina-kanji-164",
+        "voronina-kanji-165",
+        "voronina-kanji-166",
+        "voronina-kanji-167",
+        "voronina-kanji-168",
+        "voronina-kanji-169",
+        "voronina-kanji-170",
+        "voronina-kanji-171",
+        "voronina-kanji-172",
+        "voronina-kanji-173",
+        "voronina-kanji-174",
+        "voronina-kanji-175",
+        "voronina-kanji-176",
+        "voronina-kanji-177",
+        "voronina-kanji-178",
+        "voronina-kanji-179",
+        "voronina-kanji-180",
+        "voronina-kanji-181",
+        "voronina-kanji-182",
+        "voronina-kanji-183",
+        "voronina-kanji-184",
+        "voronina-kanji-185",
+        "voronina-kanji-186",
+        "voronina-kanji-187",
+        "voronina-kanji-188",
+        "voronina-kanji-189",
+        "voronina-kanji-190",
+        "voronina-kanji-191",
+        "voronina-kanji-192",
+        "voronina-kanji-193",
+        "voronina-kanji-194",
+        "voronina-kanji-195",
+        "voronina-kanji-196",
+        "voronina-kanji-197",
+        "voronina-kanji-198",
+        "voronina-kanji-199",
+        "voronina-kanji-200",
+        "voronina-kanji-201",
+        "voronina-kanji-202",
+        "voronina-kanji-203",
+        "voronina-kanji-204",
+        "voronina-kanji-205",
+        "voronina-kanji-206",
+        "voronina-kanji-207",
+        "voronina-kanji-208",
+        "voronina-kanji-209",
+        "voronina-kanji-210",
+        "voronina-kanji-211",
+        "voronina-kanji-212",
+        "voronina-kanji-213",
+        "voronina-kanji-214",
+        "voronina-kanji-215",
+        "voronina-kanji-216",
+        "voronina-kanji-217",
+        "voronina-kanji-218",
+        "voronina-kanji-219",
+        "voronina-kanji-220",
+        "voronina-kanji-221",
+        "voronina-kanji-222",
+        "voronina-kanji-223",
+        "voronina-kanji-224",
+        "voronina-kanji-225",
+        "voronina-kanji-226",
+        "voronina-kanji-227",
+        "voronina-kanji-228",
+        "voronina-kanji-229",
+        "voronina-kanji-230",
+        "voronina-kanji-231",
+        "voronina-kanji-232",
+        "voronina-kanji-233",
+        "voronina-kanji-234",
+        "voronina-kanji-235",
+        "voronina-kanji-236",
+        "voronina-kanji-237",
+        "voronina-kanji-238",
+        "voronina-kanji-239",
+        "voronina-kanji-240",
+        "voronina-kanji-241",
+        "voronina-kanji-242",
+        "voronina-kanji-243",
+        "voronina-kanji-244",
+        "voronina-kanji-245",
+        "voronina-kanji-246",
+        "voronina-kanji-247",
+        "voronina-kanji-248",
+        "voronina-kanji-249",
+        "voronina-kanji-250",
+        "voronina-kanji-251",
+        "voronina-kanji-252",
+        "voronina-kanji-253",
+        "voronina-kanji-254",
+        "voronina-kanji-255",
+        "voronina-kanji-256",
+        "voronina-kanji-257",
+        "voronina-kanji-258",
+        "voronina-kanji-259",
+        "voronina-kanji-260",
+        "voronina-kanji-261",
+        "voronina-kanji-262",
+        "voronina-kanji-263",
+        "voronina-kanji-264",
+        "voronina-kanji-265",
+        "voronina-kanji-266",
+        "voronina-kanji-267",
+        "voronina-kanji-268",
+        "voronina-kanji-269",
+        "voronina-kanji-270",
+        "voronina-kanji-271",
+        "voronina-kanji-272",
+        "voronina-kanji-273",
+        "voronina-kanji-274",
+        "voronina-kanji-275",
+        "voronina-kanji-276",
+        "voronina-kanji-277",
+        "voronina-kanji-278",
+        "voronina-kanji-279",
+        "voronina-kanji-280",
+        "voronina-kanji-281",
+        "voronina-kanji-282",
+        "voronina-kanji-283",
+        "voronina-kanji-284",
+        "voronina-kanji-285",
+        "voronina-kanji-286"
+      ],
+      "wordIds": []
     }
   ]
 };

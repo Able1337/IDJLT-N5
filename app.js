@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.5";
+const APP_VERSION = "0.16.6";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -935,8 +935,9 @@ function buildKanjiCards(setIds = selectedKanjiSetIds()) {
     tableMeaning: nativeKanjiText(item)
     };
   });
-  const selectedSingles = singleCards.filter(card => !singleIds.size || singleIds.has(card.id));
-  const selectedWords = wordCards.filter(card => !wordIds.size || wordIds.has(card.id));
+  const uniqueCards = (list, keyFn) => [...list.reduce((map, card) => map.has(keyFn(card)) ? map : map.set(keyFn(card), card), new Map()).values()];
+  const selectedSingles = uniqueCards(singleCards.filter(card => !singleIds.size || singleIds.has(card.id)), card => card.front);
+  const selectedWords = uniqueCards(wordCards.filter(card => !wordIds.size || wordIds.has(card.id)), card => card.front);
   if (settings.kanji.mode === "single") return selectedSingles;
   if (settings.kanji.mode === "words") return selectedWords;
   return [...selectedSingles, ...selectedWords];
