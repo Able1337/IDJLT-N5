@@ -10,7 +10,7 @@
   <link rel="icon" href="app-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="app-icon-192.png">
   <title>Кандзи | IDJLT N5</title>
-  <link rel="stylesheet" href="style.css?v=41">
+  <link rel="stylesheet" href="style.css?v=43">
 </head>
 <body data-page="kanji">
   <header class="topbar">
@@ -21,11 +21,13 @@
     </div>
   </header>
   <main class="wrap">
-    <div class="lesson-head"><a class="btn small secondary" href="index.html" data-i18n="backHome">← Главная</a><h1 id="lessonTitle" data-i18n="kanjiTitle">Кандзи</h1></div>
+    <div class="lesson-head"><a class="btn small secondary" href="index.html" data-i18n="backHome">← Главная</a><h1 id="lessonTitle">Кандзи</h1></div>
     <p class="sub" id="lessonSub">Карточки для знаков и слов из кандзи.</p>
-    <div data-trainer></div>
+    <div id="kanjiSetMenu"></div>
+    <section id="kanjiCustomPicker" hidden></section>
+    <div data-trainer hidden></div>
   </main>
-  <script src="kanji-data.js?v=41"></script>
-  <script src="app.js?v=41"></script>
+  <script src="kanji-data.js?v=43"></script>
+  <script src="app.js?v=43"></script>
 </body>
 </html>

@@ -358,7 +358,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   color: var(--text);
 }
 
-.modes, .lessons, .mode-grid, #dictionaryList {
+.modes, .lessons, .mode-grid, #dictionaryList, #kanjiSetMenu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
@@ -783,7 +783,7 @@ th { color: var(--muted); font-size: 13px; }
 }
 .pdf-toolbar {
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: auto 1fr auto;
   gap: 8px;
   align-items: center;
   padding: 10px;
@@ -835,14 +835,14 @@ th { color: var(--muted); font-size: 13px; }
   .kana-tile b { font-size: 24px; }
   .kana-tile span { font-size: 10px; }
   .kanji-examples { max-height: 30vh; padding: 10px; font-size: 16px; }
-  .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, .textbook-grid { grid-template-columns: 1fr; }
+  .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, #kanjiSetMenu, .textbook-grid { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
   .track-select { border-radius: 12px; padding: 8px; }
   .audio-controls button { min-height: 38px; font-size: 14px; }
   .pdf-viewer { min-height: 72vh; border-radius: 14px; }
-  .pdf-toolbar { grid-template-columns: auto 1fr auto auto auto; gap: 6px; padding: 8px; }
+  .pdf-toolbar { grid-template-columns: auto 1fr auto; gap: 6px; padding: 8px; }
   .pdf-toolbar .small { padding: 9px 10px; }
   .pdf-canvas-wrap { min-height: calc(72vh - 58px); max-height: 72vh; padding: 8px; }
 }

@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.2";
+const APP_VERSION = "0.16.3";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -188,7 +188,7 @@ function applyGlobal() {
 
 function bindGlobal() {
   $("themeSelect")?.addEventListener("change", e => { settings.theme = e.target.value; saveSettings(); applyGlobal(); });
-  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); if (currentKind === "kanji") { renderKanjiTitle(); renderKanjiSettings(); } if (currentKind === "phrase") renderPhraseTitle(); if (mode === "textbooks") renderTextbookPicker(); renderTable(currentKind); renderMode(); });
+  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); renderKanjiSetMenu(); renderKanjiCustomPicker(); if (currentKind === "kanji") { renderKanjiTitle(); renderKanjiSettings(); } if (currentKind === "phrase") renderPhraseTitle(); if (mode === "textbooks") renderTextbookPicker(); renderTable(currentKind); renderMode(); });
 }
 function isStandaloneApp() {
   return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
@@ -347,6 +347,46 @@ function renderDictionaryList() {
   `;
 }
 
+function kanjiSetCardCount(set) {
+  return new Set([...(set.singleIds || []), ...(set.wordIds || [])]).size;
+}
+
+function renderKanjiSetMenu() {
+  const list = $("kanjiSetMenu");
+  if (!list) return;
+  if (currentKind !== "kanji" && $("lessonTitle")) $("lessonTitle").textContent = t("kanjiTitle");
+  const multiSub = settings.lang === "en" ? "Choose several kanji sets and launch one shared pool." : "Выбери несколько наборов кандзи и запускай общий пул.";
+  list.innerHTML = `
+    <a class="lesson custom-lesson" href="kanji.html?custom=1">
+      <h2>${t("customTitle")}</h2><p>${multiSub}</p><p>${t("open")}</p>
+    </a>
+    ${kanjiSets().map(set => `<a class="lesson" href="kanji.html?set=${encodeURIComponent(set.id)}"><h2>${escapeHtml(kanjiSetTitle(set))}</h2><p>${kanjiSetCardCount(set)} ${t("cards")}</p><p>${t("open")}</p></a>`).join("")}
+  `;
+}
+
+function renderKanjiCustomPicker() {
+  const picker = $("kanjiCustomPicker");
+  if (!picker) return;
+  if (!$("kanjiCustomList")) {
+    picker.innerHTML = `
+      <div class="actions">
+        <button class="small secondary" id="kanjiCustomSelectAllBtn" type="button" data-i18n="selectAll">${t("selectAll")}</button>
+        <button class="small secondary" id="kanjiCustomClearAllBtn" type="button" data-i18n="clearAll">${t("clearAll")}</button>
+      </div>
+      <div class="pick-list" id="kanjiCustomList"></div>
+      <button class="primary wide" id="startKanjiCustomBtn" type="button" data-i18n="start">${t("start")}</button>
+    `;
+  }
+  const list = $("kanjiCustomList");
+  list.innerHTML = kanjiSets().map(set => `
+    <label class="pick-row"><input type="checkbox" value="${escapeHtml(set.id)}" checked> <span>${escapeHtml(kanjiSetTitle(set))}</span><small>${kanjiSetCardCount(set)}</small></label>
+  `).join("");
+}
+
+function selectedKanjiCustomIds() {
+  return [...document.querySelectorAll("#kanjiCustomList input:checked")].map(input => input.value);
+}
+
 function renderCustomPicker() {
   const picker = $("customPicker");
   if (picker && !$("customList")) {
@@ -419,18 +459,20 @@ function startKana() {
   renderMode();
 }
 
-function startKanji() {
+function startKanji(setIdsOverride = null) {
   currentKind = "kanji";
   shown = false;
   examplesShown = false;
   ensureTrainerMarkup("kanji");
-  const setIds = selectedKanjiSetIds();
+  const setIds = setIdsOverride?.length ? setIdsOverride : selectedKanjiSetIds();
+  settings.kanji.setIds = setIds;
+  saveSettings();
   cards = buildKanjiCards(setIds);
   const key = `${KANJI_SESSION_PREFIX}${settings.kanji.mode}.${setIds.join("+")}.${settings.kanji.reverse ? "reverse" : "normal"}`;
   session = loadSession(key, cards);
   if (session.current === null && !session.done) nextCard();
   bindTrainer("kanji");
-  renderKanjiTitle();
+  renderKanjiTitle(setIds);
   renderKanjiSettings();
   renderTable("kanji");
   renderMode();
@@ -507,14 +549,6 @@ function kanjiSettingsHtml() {
   return `
     <label><span data-i18n="kanjiSet">${t("kanjiSet")}</span><select id="kanjiMode"><option value="mixed" data-i18n="kanjiMixed">${t("kanjiMixed")}</option><option value="single" data-i18n="kanjiSingles">${t("kanjiSingles")}</option><option value="words" data-i18n="kanjiWords">${t("kanjiWords")}</option></select></label>
     <label class="check"><input type="checkbox" id="kanjiReverse"> <span data-i18n="reverseKanji">${t("reverseKanji")}</span></label>
-    <div class="set-pick">
-      <span class="settings-label" data-i18n="kanjiSets">${t("kanjiSets")}</span>
-      <div class="actions">
-        <button class="small secondary" id="kanjiSelectAllSets" type="button" data-i18n="selectAll">${t("selectAll")}</button>
-        <button class="small secondary" id="kanjiClearAllSets" type="button" data-i18n="clearAll">${t("clearAll")}</button>
-      </div>
-      <div class="pick-list compact" id="kanjiSetList"></div>
-    </div>
     <label class="check"><input type="checkbox" id="showRomajiSetting"> <span data-i18n="showRomaji">${t("showRomaji")}</span></label>
     <label class="check"><input type="checkbox" id="showButtonsSetting"> <span data-i18n="showButtons">${t("showButtons")}</span></label>
   `;
@@ -701,9 +735,11 @@ function renderWordTitle(ids) {
   else title.textContent = t("customTitle");
   $("lessonSub").textContent = ids.length === 1 ? `${cards.length} ${t("cards")}` : `${ids.length} · ${cards.length} ${t("cards")}`;
 }
-function renderKanjiTitle() {
-  if ($("lessonTitle")) $("lessonTitle").textContent = t("kanjiTitle");
-  if ($("lessonSub")) $("lessonSub").textContent = `${t("kanjiSub")} ${cards.length} ${t("cards")}`;
+function renderKanjiTitle(setIds = selectedKanjiSetIds()) {
+  const title = $("lessonTitle");
+  const sub = $("lessonSub");
+  if (title) title.textContent = setIds.length === 1 ? kanjiSetTitle(kanjiSetById(setIds[0])) : t("customTitle");
+  if (sub) sub.textContent = setIds.length === 1 ? `${t("kanjiSub")} ${cards.length} ${t("cards")}` : `${setIds.length} · ${cards.length} ${t("cards")}`;
 }
 function renderPhraseTitle() {
   if ($("lessonTitle")) $("lessonTitle").textContent = t("phrasesTitle");
@@ -1002,13 +1038,6 @@ function buildKanaCards() {
 function renderKanjiSettings() {
   if ($("kanjiMode")) $("kanjiMode").value = settings.kanji.mode;
   if ($("kanjiReverse")) $("kanjiReverse").checked = settings.kanji.reverse;
-  const list = $("kanjiSetList");
-  if (!list) return;
-  const selected = new Set(selectedKanjiSetIds());
-  list.innerHTML = kanjiSets().map(set => {
-    const count = (set.singleIds?.length || 0) + (set.wordIds?.length || 0);
-    return `<label class="pick-row"><input type="checkbox" value="${escapeHtml(set.id)}" ${selected.has(set.id) ? "checked" : ""}> <span>${escapeHtml(kanjiSetTitle(set))}</span><small>${count}</small></label>`;
-  }).join("");
 }
 
 let kanjiSettingsBound = false;
@@ -1023,24 +1052,6 @@ function bindKanjiSettings() {
     }
     if (e.target.id === "kanjiReverse") {
       settings.kanji.reverse = e.target.checked;
-      saveSettings();
-      startKanji();
-    }
-    if (e.target.closest("#kanjiSetList")) {
-      const ids = [...document.querySelectorAll("#kanjiSetList input:checked")].map(input => input.value);
-      settings.kanji.setIds = ids.length ? ids : [kanjiSets()[0]?.id].filter(Boolean);
-      saveSettings();
-      startKanji();
-    }
-  });
-  $("kanjiSettings")?.addEventListener("click", e => {
-    if (e.target.id === "kanjiSelectAllSets") {
-      settings.kanji.setIds = kanjiSets().map(set => set.id);
-      saveSettings();
-      startKanji();
-    }
-    if (e.target.id === "kanjiClearAllSets") {
-      settings.kanji.setIds = [kanjiSets()[0]?.id].filter(Boolean);
       saveSettings();
       startKanji();
     }
@@ -1150,8 +1161,6 @@ function setupTextbooks() {
           <button class="small secondary" id="pdfPrev" type="button" data-i18n="pdfPrev">${t("pdfPrev")}</button>
           <span id="pdfPageInfo">PDF</span>
           <button class="small secondary" id="pdfNext" type="button" data-i18n="pdfNext">${t("pdfNext")}</button>
-          <button class="small secondary" id="pdfZoomOut" type="button" data-i18n="pdfZoomOut">${t("pdfZoomOut")}</button>
-          <button class="small secondary" id="pdfZoomIn" type="button" data-i18n="pdfZoomIn">${t("pdfZoomIn")}</button>
         </div>
         <div class="pdf-canvas-wrap"><canvas id="pdfCanvas"></canvas><div class="pdf-status" id="pdfStatus" data-i18n="pdfLoading">${t("pdfLoading")}</div></div>
       </section>
@@ -1199,8 +1208,6 @@ function bindTextbooks() {
   $("cacheTextbookBtn")?.addEventListener("click", cacheActiveTextbook);
   $("pdfPrev")?.addEventListener("click", () => changePdfPage(-1));
   $("pdfNext")?.addEventListener("click", () => changePdfPage(1));
-  $("pdfZoomOut")?.addEventListener("click", () => changePdfScale(-0.15));
-  $("pdfZoomIn")?.addEventListener("click", () => changePdfScale(0.15));
   window.addEventListener("resize", () => renderPdfPage());
 }
 
@@ -1363,6 +1370,8 @@ applyGlobal();
 setupPwaInstall();
 renderDictionaryList();
 renderCustomPicker();
+renderKanjiSetMenu();
+renderKanjiCustomPicker();
 
 if (mode === "lesson") {
   const id = new URLSearchParams(location.search).get("dict") || document.body.dataset.dictionary || "lesson7";
@@ -1383,7 +1392,33 @@ if (mode === "kana") {
   startKana();
 }
 if (mode === "kanji") {
-  startKanji();
+  const params = new URLSearchParams(location.search);
+  const setId = params.get("set");
+  const custom = params.get("custom") === "1";
+  if (setId) {
+    const ids = kanjiSetById(setId) ? [setId] : [kanjiSets()[0]?.id].filter(Boolean);
+    $("kanjiSetMenu")?.remove();
+    $("kanjiCustomPicker")?.remove();
+    document.querySelector("[data-trainer]").hidden = false;
+    startKanji(ids);
+  } else if (custom) {
+    $("kanjiSetMenu")?.remove();
+    const picker = $("kanjiCustomPicker");
+    if ($("lessonTitle")) $("lessonTitle").textContent = t("customTitle");
+    if ($("lessonSub")) $("lessonSub").textContent = settings.lang === "en" ? "Choose several kanji sets and launch one shared pool." : "Выбери несколько наборов кандзи и запускай общий пул.";
+    if (picker) picker.hidden = false;
+    $("kanjiCustomSelectAllBtn")?.addEventListener("click", () => document.querySelectorAll("#kanjiCustomList input").forEach(i => i.checked = true));
+    $("kanjiCustomClearAllBtn")?.addEventListener("click", () => document.querySelectorAll("#kanjiCustomList input").forEach(i => i.checked = false));
+    $("startKanjiCustomBtn")?.addEventListener("click", () => {
+      const ids = selectedKanjiCustomIds();
+      if (!ids.length) return;
+      picker.hidden = true;
+      document.querySelector("[data-trainer]").hidden = false;
+      startKanji(ids);
+    });
+  } else {
+    renderKanjiSetMenu();
+  }
 }
 if (mode === "phrases") {
   startPhrases();
