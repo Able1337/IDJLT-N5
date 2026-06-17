@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.15.1";
+const APP_VERSION = "0.15.2";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -50,7 +50,7 @@ const I18N = {
     kanjiSet: "Набор", kanjiSets: "Наборы кандзи", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи", cardKanji: "Кандзи", cardWord: "Слово"
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
     phrasesSub: "Предложения и диалоги из уроков.", textbooksSub: "Открой учебник и слушай аудио рядом с PDF.", direction: "Направление",
-    openPdf: "Открыть PDF", cacheTextbook: "Сохранить в кеш", cacheReady: "Сохранено", caching: "Сохраняю...", audioTrack: "Дорожка", playAudio: "Пуск", pauseAudio: "Пауза", previousTrack: "Назад", nextTrack: "Дальше", rewind10: "-10 сек", rewind5: "-5 сек",
+    openPdf: "Открыть PDF", cacheTextbook: "Сохранить в кеш", cacheReady: "Сохранено", caching: "Сохраняю...", audioTrack: "Дорожка", playAudio: "Пуск", pauseAudio: "Пауза", previousTrack: "Назад", nextTrack: "Дальше", rewind10: "-10 сек", rewind5: "-5 сек", rewind2: "-2 сек",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
   en: {
@@ -87,7 +87,7 @@ const I18N = {
     kanjiSet: "Set", kanjiSets: "Kanji sets", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji", cardKanji: "Kanji", cardWord: "Word"
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
     phrasesSub: "Sentences and dialogues from lessons.", textbooksSub: "Open a textbook and listen to audio next to the PDF.", direction: "Direction",
-    openPdf: "Open PDF", cacheTextbook: "Save to cache", cacheReady: "Saved", caching: "Saving...", audioTrack: "Track", playAudio: "Play", pauseAudio: "Pause", previousTrack: "Previous", nextTrack: "Next", rewind10: "-10 sec", rewind5: "-5 sec",
+    openPdf: "Open PDF", cacheTextbook: "Save to cache", cacheReady: "Saved", caching: "Saving...", audioTrack: "Track", playAudio: "Play", pauseAudio: "Pause", previousTrack: "Previous", nextTrack: "Next", rewind10: "-10 sec", rewind5: "-5 sec", rewind2: "-2 sec",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
   }
 };
@@ -1114,15 +1114,21 @@ function setupTextbooks() {
           <span id="audioDuration">0:00</span>
         </div>
         <div class="audio-controls">
-          <button class="small primary" id="audioPlayPause" type="button" data-i18n="playAudio">${t("playAudio")}</button>
-          <button class="small secondary" id="audioBack10" type="button" data-i18n="rewind10">${t("rewind10")}</button>
-          <button class="small secondary" id="audioBack5" type="button" data-i18n="rewind5">${t("rewind5")}</button>
-          <button class="small secondary" id="audioPrev" type="button" data-i18n="previousTrack">${t("previousTrack")}</button>
-          <button class="small secondary" id="audioNext" type="button" data-i18n="nextTrack">${t("nextTrack")}</button>
+          <div class="audio-control-row">
+            <button class="small primary" id="audioPlayPause" type="button" data-i18n="playAudio">${t("playAudio")}</button>
+            <button class="small secondary" id="audioBack2" type="button" data-i18n="rewind2">${t("rewind2")}</button>
+          </div>
+          <div class="audio-control-row">
+            <button class="small secondary" id="audioBack5" type="button" data-i18n="rewind5">${t("rewind5")}</button>
+            <button class="small secondary" id="audioBack10" type="button" data-i18n="rewind10">${t("rewind10")}</button>
+          </div>
+          <div class="audio-control-row">
+            <button class="small secondary" id="audioPrev" type="button" data-i18n="previousTrack">${t("previousTrack")}</button>
+            <button class="small secondary" id="audioNext" type="button" data-i18n="nextTrack">${t("nextTrack")}</button>
+          </div>
         </div>
         <audio id="textbookAudio" preload="metadata"></audio>
       </div>
-      <a class="btn primary mobile-pdf-open" id="mobilePdfOpenLink" target="_blank" rel="noopener" data-i18n="openPdf">${t("openPdf")}</a>
       <iframe class="pdf-viewer" id="textbookFrame" title="PDF"></iframe>
     </section>
   `;
@@ -1151,6 +1157,7 @@ function bindTextbooks() {
   $("audioPrev")?.addEventListener("click", () => setAudioTrack(Number($("audioTrackSelect").value) - 1, true));
   $("audioNext")?.addEventListener("click", () => setAudioTrack(Number($("audioTrackSelect").value) + 1, true));
   $("audioPlayPause")?.addEventListener("click", toggleAudioPlayback);
+  $("audioBack2")?.addEventListener("click", () => rewindAudio(2));
   $("audioBack10")?.addEventListener("click", () => rewindAudio(10));
   $("audioBack5")?.addEventListener("click", () => rewindAudio(5));
   $("audioSeek")?.addEventListener("input", event => {
@@ -1175,7 +1182,6 @@ function showTextbook(id) {
   $("textbookTitle").textContent = book.title;
   $("textbookFrame").src = book.pdf;
   $("textbookOpenLink").href = book.pdf;
-  $("mobilePdfOpenLink").href = book.pdf;
   const cacheBtn = $("cacheTextbookBtn");
   if (cacheBtn) {
     cacheBtn.disabled = false;

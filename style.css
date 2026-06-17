@@ -748,7 +748,11 @@ th { color: var(--muted); font-size: 13px; }
 }
 .audio-controls {
   display: grid;
-  grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.audio-control-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
 .audio-controls button {
@@ -761,10 +765,6 @@ th { color: var(--muted); font-size: 13px; }
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--panel);
-}
-.mobile-pdf-open {
-  display: none;
-  width: 100%;
 }
 
 @media (max-width: 560px) {
@@ -788,7 +788,5 @@ th { color: var(--muted); font-size: 13px; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
-  .audio-controls { grid-template-columns: 1fr 1fr; }
-  .pdf-viewer { display: none; }
-  .mobile-pdf-open { display: inline-flex; }
+  .pdf-viewer { min-height: 72vh; height: 72vh; border-radius: 14px; }
 }
