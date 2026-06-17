@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.15.2";
+const APP_VERSION = "0.16.0";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -51,6 +51,7 @@ const I18N = {
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
     phrasesSub: "Предложения и диалоги из уроков.", textbooksSub: "Открой учебник и слушай аудио рядом с PDF.", direction: "Направление",
     openPdf: "Открыть PDF", cacheTextbook: "Сохранить в кеш", cacheReady: "Сохранено", caching: "Сохраняю...", audioTrack: "Дорожка", playAudio: "Пуск", pauseAudio: "Пауза", previousTrack: "Назад", nextTrack: "Дальше", rewind10: "-10 сек", rewind5: "-5 сек", rewind2: "-2 сек",
+    pdfPrev: "←", pdfNext: "→", pdfZoomOut: "−", pdfZoomIn: "+", pdfLoading: "Загружаю PDF...",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
   en: {
@@ -88,6 +89,7 @@ const I18N = {
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
     phrasesSub: "Sentences and dialogues from lessons.", textbooksSub: "Open a textbook and listen to audio next to the PDF.", direction: "Direction",
     openPdf: "Open PDF", cacheTextbook: "Save to cache", cacheReady: "Saved", caching: "Saving...", audioTrack: "Track", playAudio: "Play", pauseAudio: "Pause", previousTrack: "Previous", nextTrack: "Next", rewind10: "-10 sec", rewind5: "-5 sec", rewind2: "-2 sec",
+    pdfPrev: "←", pdfNext: "→", pdfZoomOut: "−", pdfZoomIn: "+", pdfLoading: "Loading PDF...",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
   }
 };
@@ -1093,6 +1095,22 @@ function bindKanaSettings() {
 }
 
 let activeTextbookId = TEXTBOOKS[0]?.id;
+let pdfLibPromise = null;
+let pdfDoc = null;
+let pdfPage = 1;
+let pdfScale = 1;
+let pdfRenderToken = 0;
+
+async function pdfLib() {
+  if (!pdfLibPromise) {
+    pdfLibPromise = import("./assets/pdfjs/pdf.mjs").then(lib => {
+      lib.GlobalWorkerOptions.workerSrc = "./assets/pdfjs/pdf.worker.mjs";
+      return lib;
+    });
+  }
+  return pdfLibPromise;
+}
+
 function setupTextbooks() {
   const mount = $("textbookMode");
   if (!mount) return;
@@ -1129,7 +1147,16 @@ function setupTextbooks() {
         </div>
         <audio id="textbookAudio" preload="metadata"></audio>
       </div>
-      <iframe class="pdf-viewer" id="textbookFrame" title="PDF"></iframe>
+      <section class="pdf-viewer" id="pdfViewer" aria-label="PDF">
+        <div class="pdf-toolbar">
+          <button class="small secondary" id="pdfPrev" type="button" data-i18n="pdfPrev">${t("pdfPrev")}</button>
+          <span id="pdfPageInfo">PDF</span>
+          <button class="small secondary" id="pdfNext" type="button" data-i18n="pdfNext">${t("pdfNext")}</button>
+          <button class="small secondary" id="pdfZoomOut" type="button" data-i18n="pdfZoomOut">${t("pdfZoomOut")}</button>
+          <button class="small secondary" id="pdfZoomIn" type="button" data-i18n="pdfZoomIn">${t("pdfZoomIn")}</button>
+        </div>
+        <div class="pdf-canvas-wrap"><canvas id="pdfCanvas"></canvas><div class="pdf-status" id="pdfStatus" data-i18n="pdfLoading">${t("pdfLoading")}</div></div>
+      </section>
     </section>
   `;
   renderTextbookPicker();
@@ -1172,6 +1199,11 @@ function bindTextbooks() {
   $("textbookAudio")?.addEventListener("pause", renderAudioProgress);
   $("textbookAudio")?.addEventListener("ended", renderAudioProgress);
   $("cacheTextbookBtn")?.addEventListener("click", cacheActiveTextbook);
+  $("pdfPrev")?.addEventListener("click", () => changePdfPage(-1));
+  $("pdfNext")?.addEventListener("click", () => changePdfPage(1));
+  $("pdfZoomOut")?.addEventListener("click", () => changePdfScale(-0.15));
+  $("pdfZoomIn")?.addEventListener("click", () => changePdfScale(0.15));
+  window.addEventListener("resize", () => renderPdfPage());
 }
 
 function showTextbook(id) {
@@ -1180,8 +1212,8 @@ function showTextbook(id) {
   activeTextbookId = book.id;
   renderTextbookPicker();
   $("textbookTitle").textContent = book.title;
-  $("textbookFrame").src = book.pdf;
   $("textbookOpenLink").href = book.pdf;
+  loadPdf(book.pdf);
   const cacheBtn = $("cacheTextbookBtn");
   if (cacheBtn) {
     cacheBtn.disabled = false;
@@ -1217,6 +1249,59 @@ function setAudioTrack(track, play = false) {
   audio.src = `${book.audioPrefix}${file}`;
   renderAudioProgress();
   if (play) audio.play().catch(() => {});
+}
+
+async function loadPdf(url) {
+  pdfDoc = null;
+  pdfPage = 1;
+  if ($("pdfStatus")) {
+    $("pdfStatus").hidden = false;
+    $("pdfStatus").textContent = t("pdfLoading");
+  }
+  updatePdfToolbar();
+  try {
+    const lib = await pdfLib();
+    pdfDoc = await lib.getDocument(url).promise;
+    await renderPdfPage();
+  } catch {
+    if ($("pdfStatus")) $("pdfStatus").textContent = t("openPdf");
+  }
+}
+
+async function renderPdfPage() {
+  if (!pdfDoc || !$("pdfCanvas")) return;
+  const token = ++pdfRenderToken;
+  const page = await pdfDoc.getPage(pdfPage);
+  if (token !== pdfRenderToken) return;
+  const wrap = document.querySelector(".pdf-canvas-wrap");
+  const baseViewport = page.getViewport({ scale: 1 });
+  const fitScale = wrap ? Math.max(0.5, (wrap.clientWidth - 24) / baseViewport.width) : 1;
+  const viewport = page.getViewport({ scale: fitScale * pdfScale });
+  const canvas = $("pdfCanvas");
+  const context = canvas.getContext("2d");
+  canvas.width = Math.floor(viewport.width);
+  canvas.height = Math.floor(viewport.height);
+  await page.render({ canvasContext: context, viewport }).promise;
+  if (token !== pdfRenderToken) return;
+  if ($("pdfStatus")) $("pdfStatus").hidden = true;
+  updatePdfToolbar();
+}
+
+function updatePdfToolbar() {
+  if ($("pdfPageInfo")) $("pdfPageInfo").textContent = pdfDoc ? `${pdfPage} / ${pdfDoc.numPages}` : "PDF";
+  if ($("pdfPrev")) $("pdfPrev").disabled = !pdfDoc || pdfPage <= 1;
+  if ($("pdfNext")) $("pdfNext").disabled = !pdfDoc || pdfPage >= pdfDoc.numPages;
+}
+
+function changePdfPage(delta) {
+  if (!pdfDoc) return;
+  pdfPage = Math.max(1, Math.min(pdfDoc.numPages, pdfPage + delta));
+  renderPdfPage();
+}
+
+function changePdfScale(delta) {
+  pdfScale = Math.max(0.7, Math.min(2, pdfScale + delta));
+  renderPdfPage();
 }
 
 function rewindAudio(seconds) {
