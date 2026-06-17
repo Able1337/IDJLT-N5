@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.1";
+const APP_VERSION = "0.16.2";
 const APP_RELEASE_DATE = "2026-06-17";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -1130,16 +1130,18 @@ function setupTextbooks() {
           <button class="small secondary" id="audioPrev" type="button" data-i18n="previousTrack">${t("previousTrack")}</button>
           <button class="small secondary" id="audioNext" type="button" data-i18n="nextTrack">${t("nextTrack")}</button>
         </div>
-        <div class="audio-progress">
-          <span id="audioCurrentTime">0:00</span>
-          <input id="audioSeek" type="range" min="0" max="0" step="0.1" value="0" aria-label="Audio progress">
-          <span id="audioDuration">0:00</span>
-        </div>
-        <div class="audio-controls">
-          <button class="small primary" id="audioPlayPause" type="button" data-i18n="playAudio">${t("playAudio")}</button>
-          <button class="small secondary" id="audioBack2" type="button" data-i18n="rewind2">${t("rewind2")}</button>
-          <button class="small secondary" id="audioBack5" type="button" data-i18n="rewind5">${t("rewind5")}</button>
-          <button class="small secondary" id="audioBack10" type="button" data-i18n="rewind10">${t("rewind10")}</button>
+        <div class="audio-sticky-controls">
+          <div class="audio-progress">
+            <span id="audioCurrentTime">0:00</span>
+            <input id="audioSeek" type="range" min="0" max="0" step="0.1" value="0" aria-label="Audio progress">
+            <span id="audioDuration">0:00</span>
+          </div>
+          <div class="audio-controls">
+            <button class="small primary" id="audioPlayPause" type="button" data-i18n="playAudio">${t("playAudio")}</button>
+            <button class="small secondary" id="audioBack2" type="button" data-i18n="rewind2">${t("rewind2")}</button>
+            <button class="small secondary" id="audioBack5" type="button" data-i18n="rewind5">${t("rewind5")}</button>
+            <button class="small secondary" id="audioBack10" type="button" data-i18n="rewind10">${t("rewind10")}</button>
+          </div>
         </div>
         <audio id="textbookAudio" preload="metadata"></audio>
       </div>

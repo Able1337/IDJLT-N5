@@ -719,20 +719,18 @@ th { color: var(--muted); font-size: 13px; }
   gap: 8px;
 }
 .audio-panel {
-  position: sticky;
-  top: 0;
-  z-index: 20;
+  display: contents;
+}
+.audio-panel[hidden] {
+  display: none;
+}
+.track-select {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 4px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 10px;
-}
-.audio-panel label {
-  display: grid;
-  gap: 4px;
 }
 .track-select select {
   width: 100%;
@@ -741,6 +739,17 @@ th { color: var(--muted); font-size: 13px; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+}
+.audio-sticky-controls {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
 }
 .audio-progress {
   display: grid;
@@ -830,7 +839,7 @@ th { color: var(--muted); font-size: 13px; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
-  .audio-panel { top: 0; border-radius: 12px; padding: 8px; }
+  .track-select { border-radius: 12px; padding: 8px; }
   .audio-controls button { min-height: 38px; font-size: 14px; }
   .pdf-viewer { min-height: 72vh; border-radius: 14px; }
   .pdf-toolbar { grid-template-columns: auto 1fr auto auto auto; gap: 6px; padding: 8px; }
