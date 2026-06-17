@@ -712,11 +712,16 @@ th { color: var(--muted); font-size: 13px; }
   margin: 0;
   font-size: 22px;
 }
+.textbook-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
 .audio-panel {
   display: grid;
-  grid-template-columns: minmax(180px, 260px) auto 1fr;
-  gap: 10px;
-  align-items: end;
+  grid-template-columns: 1fr;
+  gap: 12px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -726,13 +731,28 @@ th { color: var(--muted); font-size: 13px; }
   display: grid;
   gap: 6px;
 }
+.track-select select {
+  width: 100%;
+}
+.audio-progress {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 800;
+}
+.audio-progress input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
 .audio-controls {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr));
   gap: 8px;
 }
-.audio-panel audio {
-  width: 100%;
-  min-width: 220px;
+.audio-controls button {
+  min-height: 44px;
 }
 .pdf-viewer {
   width: 100%;
@@ -741,6 +761,10 @@ th { color: var(--muted); font-size: 13px; }
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--panel);
+}
+.mobile-pdf-open {
+  display: none;
+  width: 100%;
 }
 
 @media (max-width: 560px) {
@@ -762,8 +786,9 @@ th { color: var(--muted); font-size: 13px; }
   .kanji-examples { max-height: 30vh; padding: 10px; font-size: 16px; }
   .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, .textbook-grid { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
-  .audio-panel { grid-template-columns: 1fr; align-items: stretch; }
-  .audio-controls { display: grid; grid-template-columns: 1fr 1fr; }
-  .audio-panel audio { min-width: 0; }
-  .pdf-viewer { min-height: 72vh; height: 72vh; border-radius: 14px; }
+  .textbook-actions { width: 100%; justify-content: stretch; }
+  .textbook-actions > * { flex: 1; }
+  .audio-controls { grid-template-columns: 1fr 1fr; }
+  .pdf-viewer { display: none; }
+  .mobile-pdf-open { display: inline-flex; }
 }
