@@ -358,7 +358,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   color: var(--text);
 }
 
-.modes, .lessons, .mode-grid, #dictionaryList, #kanjiSetMenu {
+.modes, .lessons, .mode-grid, #dictionaryList, #kanjiSetMenu, #phraseSetMenu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
@@ -852,7 +852,7 @@ th { color: var(--muted); font-size: 13px; }
   .kana-tile b { font-size: 24px; }
   .kana-tile span { font-size: 10px; }
   .kanji-examples { max-height: 30vh; padding: 10px; font-size: 16px; }
-  .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, #kanjiSetMenu, .textbook-grid { grid-template-columns: 1fr; }
+  .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, #kanjiSetMenu, #phraseSetMenu, .textbook-grid { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
