@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.7";
+const APP_VERSION = "0.16.8";
 const APP_RELEASE_DATE = "2026-06-18";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -1169,7 +1169,7 @@ function setupTextbooks() {
       <section class="pdf-viewer" id="pdfViewer" aria-label="PDF">
         <div class="pdf-toolbar">
           <button class="small secondary" id="pdfPrev" type="button" data-i18n="pdfPrev">${t("pdfPrev")}</button>
-          <span id="pdfPageInfo">PDF</span>
+          <label class="pdf-page-jump"><input id="pdfPageInput" type="number" min="1" inputmode="numeric" aria-label="PDF page"><span id="pdfPageTotal">/ PDF</span></label>
           <button class="small secondary" id="pdfNext" type="button" data-i18n="pdfNext">${t("pdfNext")}</button>
         </div>
         <div class="pdf-canvas-wrap"><canvas id="pdfCanvas"></canvas><div class="pdf-status" id="pdfStatus" data-i18n="pdfLoading">${t("pdfLoading")}</div></div>
@@ -1218,6 +1218,14 @@ function bindTextbooks() {
   $("cacheTextbookBtn")?.addEventListener("click", cacheActiveTextbook);
   $("pdfPrev")?.addEventListener("click", () => changePdfPage(-1));
   $("pdfNext")?.addEventListener("click", () => changePdfPage(1));
+  $("pdfPageInput")?.addEventListener("change", event => goToPdfPage(Number(event.target.value)));
+  $("pdfPageInput")?.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      goToPdfPage(Number(event.target.value));
+      event.target.blur();
+    }
+  });
   window.addEventListener("resize", () => renderPdfPage());
 }
 
@@ -1282,6 +1290,7 @@ async function loadPdf(url) {
   try {
     const lib = await pdfLib();
     pdfDoc = await lib.getDocument(url).promise;
+    updatePdfToolbar();
     await renderPdfPage();
   } catch {
     if ($("pdfStatus")) $("pdfStatus").textContent = t("openPdf");
@@ -1330,14 +1339,25 @@ async function renderPdfPage() {
 }
 
 function updatePdfToolbar() {
-  if ($("pdfPageInfo")) $("pdfPageInfo").textContent = pdfDoc ? `${pdfPage} / ${pdfDoc.numPages}` : "PDF";
+  if ($("pdfPageInput")) {
+    $("pdfPageInput").disabled = !pdfDoc;
+    $("pdfPageInput").max = pdfDoc ? String(pdfDoc.numPages) : "";
+    $("pdfPageInput").value = pdfDoc ? String(pdfPage) : "";
+  }
+  if ($("pdfPageTotal")) $("pdfPageTotal").textContent = pdfDoc ? `/ ${pdfDoc.numPages}` : "/ PDF";
   if ($("pdfPrev")) $("pdfPrev").disabled = !pdfDoc || pdfPage <= 1;
   if ($("pdfNext")) $("pdfNext").disabled = !pdfDoc || pdfPage >= pdfDoc.numPages;
 }
 
 function changePdfPage(delta) {
   if (!pdfDoc) return;
-  pdfPage = Math.max(1, Math.min(pdfDoc.numPages, pdfPage + delta));
+  goToPdfPage(pdfPage + delta);
+}
+
+function goToPdfPage(page) {
+  if (!pdfDoc) return;
+  pdfPage = Math.max(1, Math.min(pdfDoc.numPages, page || 1));
+  updatePdfToolbar();
   renderPdfPage();
 }
 

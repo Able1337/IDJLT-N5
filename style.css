@@ -794,6 +794,23 @@ th { color: var(--muted); font-size: 13px; }
   color: var(--muted);
   font-weight: 900;
 }
+.pdf-page-jump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 900;
+}
+.pdf-page-jump input {
+  width: 78px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-align: center;
+  font: inherit;
+  font-weight: 900;
+}
 .pdf-canvas-wrap {
   position: relative;
   display: grid;
