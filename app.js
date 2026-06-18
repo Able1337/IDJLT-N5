@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.8";
+const APP_VERSION = "0.16.9";
 const APP_RELEASE_DATE = "2026-06-18";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -189,7 +189,7 @@ function applyGlobal() {
 
 function bindGlobal() {
   $("themeSelect")?.addEventListener("change", e => { settings.theme = e.target.value; saveSettings(); applyGlobal(); });
-  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); renderKanjiSetMenu(); renderKanjiCustomPicker(); if (currentKind === "kanji") { renderKanjiTitle(); renderKanjiSettings(); } if (currentKind === "phrase") renderPhraseTitle(); if (mode === "textbooks") renderTextbookPicker(); renderTable(currentKind); renderMode(); });
+  $("langSelect")?.addEventListener("change", e => { settings.lang = e.target.value; saveSettings(); applyGlobal(); renderDictionaryList(); renderCustomPicker(); renderKanjiSetMenu(); renderKanjiCustomPicker(); renderPhraseSetMenu(); renderPhraseCustomPicker(); if (currentKind === "kanji") { renderKanjiTitle(); renderKanjiSettings(); } if (currentKind === "phrase") renderPhraseTitle(); if (mode === "textbooks") renderTextbookPicker(); renderTable(currentKind); renderMode(); });
 }
 function isStandaloneApp() {
   return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
@@ -388,6 +388,75 @@ function selectedKanjiCustomIds() {
   return [...document.querySelectorAll("#kanjiCustomList input:checked")].map(input => input.value);
 }
 
+function phraseSets() {
+  const grouped = new Map();
+  PHRASES_DATA.forEach(item => {
+    const match = item.id.match(/^lesson(\d+)-/);
+    const id = match ? `lesson${match[1]}` : "other";
+    if (!grouped.has(id)) grouped.set(id, []);
+    grouped.get(id).push(item);
+  });
+  return [...grouped.entries()].map(([id, items]) => ({
+    id,
+    title: id === "other" ? { ru: "Другое", en: "Other" } : { ru: `Урок ${id.replace("lesson", "")}`, en: `Lesson ${id.replace("lesson", "")}` },
+    items
+  })).sort((a, b) => {
+    const an = Number(a.id.replace("lesson", "")) || 999;
+    const bn = Number(b.id.replace("lesson", "")) || 999;
+    return an - bn || a.id.localeCompare(b.id);
+  });
+}
+
+function phraseSetTitle(set) {
+  return set.title?.[settings.lang] || set.title?.ru || set.id;
+}
+
+function phraseSetById(id) {
+  return phraseSets().find(set => set.id === id);
+}
+
+function selectedPhraseSetIds() {
+  const valid = new Set(phraseSets().map(set => set.id));
+  const saved = Array.isArray(settings.phrases.setIds) ? settings.phrases.setIds.filter(id => valid.has(id)) : [];
+  return saved.length ? saved : [...valid];
+}
+
+function renderPhraseSetMenu() {
+  const list = $("phraseSetMenu");
+  if (!list) return;
+  if (currentKind !== "phrase" && $("lessonTitle")) $("lessonTitle").textContent = t("phrasesTitle");
+  const multiSub = settings.lang === "en" ? "Choose several phrase sets and launch one shared pool." : "Выбери несколько наборов фраз и запускай общий пул.";
+  list.innerHTML = `
+    <a class="lesson custom-lesson" href="phrases.html?custom=1">
+      <h2>${t("customTitle")}</h2><p>${multiSub}</p><p>${t("open")}</p>
+    </a>
+    ${phraseSets().map(set => `<a class="lesson" href="phrases.html?set=${encodeURIComponent(set.id)}"><h2>${escapeHtml(phraseSetTitle(set))}</h2><p>${set.items.length} ${t("cards")}</p><p>${t("open")}</p></a>`).join("")}
+  `;
+}
+
+function renderPhraseCustomPicker() {
+  const picker = $("phraseCustomPicker");
+  if (!picker) return;
+  if (!$("phraseCustomList")) {
+    picker.innerHTML = `
+      <div class="actions">
+        <button class="small secondary" id="phraseCustomSelectAllBtn" type="button" data-i18n="selectAll">${t("selectAll")}</button>
+        <button class="small secondary" id="phraseCustomClearAllBtn" type="button" data-i18n="clearAll">${t("clearAll")}</button>
+      </div>
+      <div class="pick-list" id="phraseCustomList"></div>
+      <button class="primary wide" id="startPhraseCustomBtn" type="button" data-i18n="start">${t("start")}</button>
+    `;
+  }
+  const list = $("phraseCustomList");
+  list.innerHTML = phraseSets().map(set => `
+    <label class="pick-row"><input type="checkbox" value="${escapeHtml(set.id)}" checked> <span>${escapeHtml(phraseSetTitle(set))}</span><small>${set.items.length}</small></label>
+  `).join("");
+}
+
+function selectedPhraseCustomIds() {
+  return [...document.querySelectorAll("#phraseCustomList input:checked")].map(input => input.value);
+}
+
 function renderCustomPicker() {
   const picker = $("customPicker");
   if (picker && !$("customList")) {
@@ -479,17 +548,33 @@ function startKanji(setIdsOverride = null) {
   renderMode();
 }
 
-function startPhrases() {
+function phraseCardsFor(setIds) {
+  const unique = new Map();
+  setIds.forEach(id => {
+    const set = phraseSetById(id);
+    if (!set) return;
+    set.items.forEach(item => {
+      const key = normalizeStudyKey(item.jp) || normalizeStudyKey(item.ru);
+      if (!unique.has(key)) unique.set(key, { ...item, type: "phrase", source: phraseSetTitle(set) });
+    });
+  });
+  return [...unique.values()];
+}
+
+function startPhrases(setIdsOverride = null) {
   currentKind = "phrase";
   shown = false;
   examplesShown = false;
   ensureTrainerMarkup("phrase");
-  cards = PHRASES_DATA.map(item => ({ ...item, type: "phrase" }));
-  const key = PHRASE_SESSION_PREFIX + settings.phrases.direction;
+  const setIds = setIdsOverride?.length ? setIdsOverride : selectedPhraseSetIds();
+  settings.phrases.setIds = setIds;
+  saveSettings();
+  cards = phraseCardsFor(setIds);
+  const key = `${PHRASE_SESSION_PREFIX}${settings.phrases.direction}.${setIds.join("+")}`;
   session = loadSession(key, cards);
   if (session.current === null && !session.done) nextCard();
   bindTrainer("phrase");
-  renderPhraseTitle();
+  renderPhraseTitle(setIds);
   renderPhraseSettings();
   renderTable("phrase");
   renderMode();
@@ -742,9 +827,11 @@ function renderKanjiTitle(setIds = selectedKanjiSetIds()) {
   if (title) title.textContent = setIds.length === 1 ? kanjiSetTitle(kanjiSetById(setIds[0])) : t("customTitle");
   if (sub) sub.textContent = setIds.length === 1 ? `${t("kanjiSub")} ${cards.length} ${t("cards")}` : `${setIds.length} · ${cards.length} ${t("cards")}`;
 }
-function renderPhraseTitle() {
-  if ($("lessonTitle")) $("lessonTitle").textContent = t("phrasesTitle");
-  if ($("lessonSub")) $("lessonSub").textContent = `${t("phrasesSub")} ${cards.length} ${t("cards")}`;
+function renderPhraseTitle(setIds = selectedPhraseSetIds()) {
+  const title = $("lessonTitle");
+  const sub = $("lessonSub");
+  if (title) title.textContent = setIds.length === 1 ? phraseSetTitle(phraseSetById(setIds[0])) : t("customTitle");
+  if (sub) sub.textContent = setIds.length === 1 ? `${t("phrasesSub")} ${cards.length} ${t("cards")}` : `${setIds.length} · ${cards.length} ${t("cards")}`;
 }
 function frontText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.r : card.front;
@@ -1429,6 +1516,8 @@ renderDictionaryList();
 renderCustomPicker();
 renderKanjiSetMenu();
 renderKanjiCustomPicker();
+renderPhraseSetMenu();
+renderPhraseCustomPicker();
 
 if (mode === "lesson") {
   const id = new URLSearchParams(location.search).get("dict") || document.body.dataset.dictionary || "lesson7";
@@ -1478,7 +1567,33 @@ if (mode === "kanji") {
   }
 }
 if (mode === "phrases") {
-  startPhrases();
+  const params = new URLSearchParams(location.search);
+  const setId = params.get("set");
+  const custom = params.get("custom") === "1";
+  if (setId) {
+    const ids = phraseSetById(setId) ? [setId] : [phraseSets()[0]?.id].filter(Boolean);
+    $("phraseSetMenu")?.remove();
+    $("phraseCustomPicker")?.remove();
+    document.querySelector("[data-trainer]").hidden = false;
+    startPhrases(ids);
+  } else if (custom) {
+    $("phraseSetMenu")?.remove();
+    const picker = $("phraseCustomPicker");
+    if ($("lessonTitle")) $("lessonTitle").textContent = t("customTitle");
+    if ($("lessonSub")) $("lessonSub").textContent = settings.lang === "en" ? "Choose several phrase sets and launch one shared pool." : "Выбери несколько наборов фраз и запускай общий пул.";
+    if (picker) picker.hidden = false;
+    $("phraseCustomSelectAllBtn")?.addEventListener("click", () => document.querySelectorAll("#phraseCustomList input").forEach(i => i.checked = true));
+    $("phraseCustomClearAllBtn")?.addEventListener("click", () => document.querySelectorAll("#phraseCustomList input").forEach(i => i.checked = false));
+    $("startPhraseCustomBtn")?.addEventListener("click", () => {
+      const ids = selectedPhraseCustomIds();
+      if (!ids.length) return;
+      picker.hidden = true;
+      document.querySelector("[data-trainer]").hidden = false;
+      startPhrases(ids);
+    });
+  } else {
+    renderPhraseSetMenu();
+  }
 }
 if (mode === "textbooks") {
   setupTextbooks();
