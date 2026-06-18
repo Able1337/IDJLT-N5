@@ -1,13 +1,14 @@
-const CACHE_NAME = "idjlt-n5-v29";
+const CACHE_NAME = "idjlt-n5-v30";
+const TEXTBOOK_CACHE = "idjlt-textbooks-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css?v=47",
-  "./app.js?v=47",
-  "./data.js?v=47",
-  "./kanji-data.js?v=47",
+  "./style.css?v=48",
+  "./app.js?v=48",
+  "./data.js?v=48",
+  "./kanji-data.js?v=48",
   "./phrases.html",
-  "./phrases-data.js?v=47",
+  "./phrases-data.js?v=48",
   "./textbooks.html",
   "./assets/pdfjs/pdf.mjs",
   "./assets/pdfjs/pdf.worker.mjs",
@@ -24,7 +25,7 @@ self.addEventListener("install", event => {
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== TEXTBOOK_CACHE).map(key => caches.delete(key))))
   );
   self.clients.claim();
 });

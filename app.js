@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.6";
-const APP_RELEASE_DATE = "2026-06-17";
+const APP_VERSION = "0.16.7";
+const APP_RELEASE_DATE = "2026-06-18";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -936,8 +936,8 @@ function buildKanjiCards(setIds = selectedKanjiSetIds()) {
     };
   });
   const uniqueCards = (list, keyFn) => [...list.reduce((map, card) => map.has(keyFn(card)) ? map : map.set(keyFn(card), card), new Map()).values()];
-  const selectedSingles = uniqueCards(singleCards.filter(card => !singleIds.size || singleIds.has(card.id)), card => card.front);
-  const selectedWords = uniqueCards(wordCards.filter(card => !wordIds.size || wordIds.has(card.id)), card => card.front);
+  const selectedSingles = uniqueCards(singleCards.filter(card => singleIds.has(card.id)), card => card.front);
+  const selectedWords = uniqueCards(wordCards.filter(card => wordIds.has(card.id)), card => card.front);
   if (settings.kanji.mode === "single") return selectedSingles;
   if (settings.kanji.mode === "words") return selectedWords;
   return [...selectedSingles, ...selectedWords];
@@ -1120,6 +1120,7 @@ let pdfDoc = null;
 let pdfPage = 1;
 let pdfScale = 1;
 let pdfRenderToken = 0;
+let pdfRenderTask = null;
 
 async function pdfLib() {
   if (!pdfLibPromise) {
@@ -1268,6 +1269,11 @@ function setAudioTrack(track, play = false) {
 async function loadPdf(url) {
   pdfDoc = null;
   pdfPage = 1;
+  pdfRenderToken++;
+  if (pdfRenderTask) {
+    pdfRenderTask.cancel();
+    pdfRenderTask = null;
+  }
   if ($("pdfStatus")) {
     $("pdfStatus").hidden = false;
     $("pdfStatus").textContent = t("pdfLoading");
@@ -1285,20 +1291,42 @@ async function loadPdf(url) {
 async function renderPdfPage() {
   if (!pdfDoc || !$("pdfCanvas")) return;
   const token = ++pdfRenderToken;
-  const page = await pdfDoc.getPage(pdfPage);
-  if (token !== pdfRenderToken) return;
-  const wrap = document.querySelector(".pdf-canvas-wrap");
-  const baseViewport = page.getViewport({ scale: 1 });
-  const fitScale = wrap ? Math.max(0.5, (wrap.clientWidth - 24) / baseViewport.width) : 1;
-  const viewport = page.getViewport({ scale: fitScale * pdfScale });
-  const canvas = $("pdfCanvas");
-  const context = canvas.getContext("2d");
-  canvas.width = Math.floor(viewport.width);
-  canvas.height = Math.floor(viewport.height);
-  await page.render({ canvasContext: context, viewport }).promise;
-  if (token !== pdfRenderToken) return;
-  if ($("pdfStatus")) $("pdfStatus").hidden = true;
-  updatePdfToolbar();
+  if (pdfRenderTask) {
+    pdfRenderTask.cancel();
+    pdfRenderTask = null;
+  }
+  if ($("pdfStatus")) {
+    $("pdfStatus").hidden = false;
+    $("pdfStatus").textContent = t("pdfLoading");
+  }
+  try {
+    const page = await pdfDoc.getPage(pdfPage);
+    if (token !== pdfRenderToken) return;
+    const wrap = document.querySelector(".pdf-canvas-wrap");
+    const baseViewport = page.getViewport({ scale: 1 });
+    const fitScale = wrap ? Math.max(0.5, (wrap.clientWidth - 24) / baseViewport.width) : 1;
+    const viewport = page.getViewport({ scale: fitScale * pdfScale });
+    const outputScale = Math.min(window.devicePixelRatio || 1, 2);
+    const canvas = $("pdfCanvas");
+    const context = canvas.getContext("2d");
+    canvas.width = Math.floor(viewport.width * outputScale);
+    canvas.height = Math.floor(viewport.height * outputScale);
+    canvas.style.width = `${Math.floor(viewport.width)}px`;
+    canvas.style.height = `${Math.floor(viewport.height)}px`;
+    pdfRenderTask = page.render({
+      canvasContext: context,
+      viewport,
+      transform: outputScale === 1 ? null : [outputScale, 0, 0, outputScale, 0, 0]
+    });
+    await pdfRenderTask.promise;
+    if (token !== pdfRenderToken) return;
+    if ($("pdfStatus")) $("pdfStatus").hidden = true;
+    updatePdfToolbar();
+  } catch (error) {
+    if (error?.name !== "RenderingCancelledException" && $("pdfStatus")) $("pdfStatus").textContent = t("openPdf");
+  } finally {
+    if (token === pdfRenderToken) pdfRenderTask = null;
+  }
 }
 
 function updatePdfToolbar() {

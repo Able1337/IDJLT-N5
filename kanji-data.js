@@ -9299,6 +9299,2262 @@ window.IDJLT_KANJI = {
       "ru": "идти",
       "en": "to go",
       "page": 13
+    },
+    {
+      "id": "voronina-word-1",
+      "term": "日々",
+      "reading": "ひび",
+      "ru": "дни",
+      "en": "дни",
+      "sourceKanji": "日"
+    },
+    {
+      "id": "voronina-word-2",
+      "term": "一日中",
+      "reading": "いちにちじゅう",
+      "ru": "целый день",
+      "en": "целый день",
+      "sourceKanji": "一"
+    },
+    {
+      "id": "voronina-word-3",
+      "term": "大サイズ",
+      "reading": "だいさいず",
+      "ru": "размер L",
+      "en": "размер L",
+      "sourceKanji": "大"
+    },
+    {
+      "id": "voronina-word-4",
+      "term": "今年",
+      "reading": "ことし",
+      "ru": "в этом году",
+      "en": "в этом году",
+      "sourceKanji": "年"
+    },
+    {
+      "id": "voronina-word-5",
+      "term": "中央",
+      "reading": "ちゅうおう",
+      "ru": "центр",
+      "en": "центр",
+      "sourceKanji": "中"
+    },
+    {
+      "id": "voronina-word-6",
+      "term": "一人",
+      "reading": "ひとり",
+      "ru": "один человек, в одиночку",
+      "en": "один человек, в одиночку",
+      "sourceKanji": "人"
+    },
+    {
+      "id": "voronina-word-7",
+      "term": "会議",
+      "reading": "かいぎ",
+      "ru": "собрание",
+      "en": "собрание",
+      "sourceKanji": "会"
+    },
+    {
+      "id": "voronina-word-8",
+      "term": "月見",
+      "reading": "つきみ",
+      "ru": "любование луной",
+      "en": "moon viewing",
+      "sourceKanji": "月"
+    },
+    {
+      "id": "voronina-word-9",
+      "term": "本屋",
+      "reading": "ほんや",
+      "ru": "книжный магазин",
+      "en": "книжный магазин",
+      "sourceKanji": "本"
+    },
+    {
+      "id": "voronina-word-10",
+      "term": "年 上",
+      "reading": "としうえ",
+      "ru": "старший [человек]",
+      "en": "старший [человек]",
+      "sourceKanji": "上"
+    },
+    {
+      "id": "voronina-word-11",
+      "term": "出口",
+      "reading": "でぐち",
+      "ru": "выход",
+      "en": "выход",
+      "sourceKanji": "出"
+    },
+    {
+      "id": "voronina-word-12",
+      "term": "半分",
+      "reading": "はんぶん",
+      "ru": "половина",
+      "en": "половина",
+      "sourceKanji": "分"
+    },
+    {
+      "id": "voronina-word-13",
+      "term": "長さ",
+      "reading": "ながさ",
+      "ru": "длина",
+      "en": "длина",
+      "sourceKanji": "長"
+    },
+    {
+      "id": "voronina-word-14",
+      "term": "今日",
+      "reading": "きょう",
+      "ru": "сегодня",
+      "en": "сегодня",
+      "sourceKanji": "今"
+    },
+    {
+      "id": "voronina-word-15",
+      "term": "山国",
+      "reading": "やまぐに",
+      "ru": "горная страна",
+      "en": "горная страна",
+      "sourceKanji": "国"
+    },
+    {
+      "id": "voronina-word-16",
+      "term": "十分",
+      "reading": "じゅうぶん",
+      "ru": "в полной мере",
+      "en": "в полной мере",
+      "sourceKanji": "十"
+    },
+    {
+      "id": "voronina-word-17",
+      "term": "行き先",
+      "reading": "いきさき、ゆきさき",
+      "ru": "пункт назначения",
+      "en": "пункт назначения",
+      "sourceKanji": "行"
+    },
+    {
+      "id": "voronina-word-18",
+      "term": "女の子",
+      "reading": "おんなのこ",
+      "ru": "девочка",
+      "en": "девочка",
+      "sourceKanji": "子"
+    },
+    {
+      "id": "voronina-word-19",
+      "term": "時間",
+      "reading": "じかん",
+      "ru": "время",
+      "en": "время",
+      "sourceKanji": "時"
+    },
+    {
+      "id": "voronina-word-20",
+      "term": "三月",
+      "reading": "さんがつ",
+      "ru": "март",
+      "en": "март",
+      "sourceKanji": "三"
+    },
+    {
+      "id": "voronina-word-21",
+      "term": "大金",
+      "reading": "たいきん",
+      "ru": "большой куш",
+      "en": "большой куш",
+      "sourceKanji": "金"
+    },
+    {
+      "id": "voronina-word-22",
+      "term": "見物",
+      "reading": "けんぶつ",
+      "ru": "достопримечательность",
+      "en": "достопримечательность",
+      "sourceKanji": "見"
+    },
+    {
+      "id": "voronina-word-23",
+      "term": "高ビル",
+      "reading": "たかびる",
+      "ru": "небоскреб",
+      "en": "небоскреб",
+      "sourceKanji": "高"
+    },
+    {
+      "id": "voronina-word-24",
+      "term": "生け花",
+      "reading": "いけばな",
+      "ru": "икэбана",
+      "en": "икэбана",
+      "sourceKanji": "生"
+    },
+    {
+      "id": "voronina-word-25",
+      "term": "東京",
+      "reading": "とうきょう",
+      "ru": "Токио",
+      "en": "Токио",
+      "sourceKanji": "東"
+    },
+    {
+      "id": "voronina-word-26",
+      "term": "市長",
+      "reading": "しちょう",
+      "ru": "мэр",
+      "en": "мэр",
+      "sourceKanji": "市"
+    },
+    {
+      "id": "voronina-word-27",
+      "term": "前金",
+      "reading": "まえきん、ぜんきん",
+      "ru": "предоплата, аванс",
+      "en": "предоплата, аванс",
+      "sourceKanji": "前"
+    },
+    {
+      "id": "voronina-word-28",
+      "term": "円高",
+      "reading": "えんだか",
+      "ru": "высокий курс йены",
+      "en": "высокий курс йены",
+      "sourceKanji": "円"
+    },
+    {
+      "id": "voronina-word-29",
+      "term": "上手",
+      "reading": "じょうず",
+      "ru": "умелый",
+      "en": "умелый",
+      "sourceKanji": "手"
+    },
+    {
+      "id": "voronina-word-30",
+      "term": "同一",
+      "reading": "どういつ",
+      "ru": "тождественность",
+      "en": "тождественность",
+      "sourceKanji": "同"
+    },
+    {
+      "id": "voronina-word-31",
+      "term": "力持ち",
+      "reading": "ちからもち",
+      "ru": "силач",
+      "en": "силач",
+      "sourceKanji": "力"
+    },
+    {
+      "id": "voronina-word-32",
+      "term": "国内",
+      "reading": "こくない",
+      "ru": "внутригосударственный",
+      "en": "внутригосударственный",
+      "sourceKanji": "内"
+    },
+    {
+      "id": "voronina-word-33",
+      "term": "作者",
+      "reading": "さくしゃ",
+      "ru": "автор, писатель",
+      "en": "автор, писатель",
+      "sourceKanji": "者"
+    },
+    {
+      "id": "voronina-word-34",
+      "term": "仕事",
+      "reading": "しごと",
+      "ru": "работа",
+      "en": "работа",
+      "sourceKanji": "事"
+    },
+    {
+      "id": "voronina-word-35",
+      "term": "二人",
+      "reading": "ふたり",
+      "ru": "два человека, вдвоем",
+      "en": "два человека, вдвоем",
+      "sourceKanji": "二"
+    },
+    {
+      "id": "voronina-word-36",
+      "term": "地下",
+      "reading": "ちか",
+      "ru": "подземный",
+      "en": "подземный",
+      "sourceKanji": "地"
+    },
+    {
+      "id": "voronina-word-37",
+      "term": "日本間",
+      "reading": "にほんま",
+      "ru": "комната в японском стиле",
+      "en": "комната в японском стиле",
+      "sourceKanji": "間"
+    },
+    {
+      "id": "voronina-word-38",
+      "term": "三日目",
+      "reading": "みっかめ",
+      "ru": "третий день",
+      "en": "третий день",
+      "sourceKanji": "目"
+    },
+    {
+      "id": "voronina-word-39",
+      "term": "下手",
+      "reading": "へた",
+      "ru": "неумелый",
+      "en": "неумелый",
+      "sourceKanji": "下"
+    },
+    {
+      "id": "voronina-word-40",
+      "term": "前後",
+      "reading": "ぜんご",
+      "ru": "1",
+      "en": "1",
+      "sourceKanji": "後"
+    },
+    {
+      "id": "voronina-word-41",
+      "term": "行方",
+      "reading": "ゆくえ",
+      "ru": "местонахождение",
+      "en": "местонахождение",
+      "sourceKanji": "方"
+    },
+    {
+      "id": "voronina-word-42",
+      "term": "会社",
+      "reading": "かいしゃ",
+      "ru": "компания",
+      "en": "компания",
+      "sourceKanji": "社"
+    },
+    {
+      "id": "voronina-word-43",
+      "term": "新年会",
+      "reading": "しんねんかい",
+      "ru": "празднование Нового Года",
+      "en": "празднование Нового Года",
+      "sourceKanji": "新"
+    },
+    {
+      "id": "voronina-word-44",
+      "term": "北米",
+      "reading": "ほくべい",
+      "ru": "Северная Америка",
+      "en": "Северная Америка",
+      "sourceKanji": "米"
+    },
+    {
+      "id": "voronina-word-45",
+      "term": "生体",
+      "reading": "せいたい",
+      "ru": "живой организм",
+      "en": "живой организм",
+      "sourceKanji": "体"
+    },
+    {
+      "id": "voronina-word-46",
+      "term": "合コン",
+      "reading": "ごうこん",
+      "ru": "вечеринки с быстрыми свиданиями",
+      "en": "вечеринки с быстрыми свиданиями",
+      "sourceKanji": "合"
+    },
+    {
+      "id": "voronina-word-47",
+      "term": "学部",
+      "reading": "がくぶ",
+      "ru": "факультет",
+      "en": "факультет",
+      "sourceKanji": "部"
+    },
+    {
+      "id": "voronina-word-48",
+      "term": "自分",
+      "reading": "じぶん",
+      "ru": "сам, свой",
+      "en": "сам, свой",
+      "sourceKanji": "自"
+    },
+    {
+      "id": "voronina-word-49",
+      "term": "文学",
+      "reading": "ぶんがく",
+      "ru": "литература",
+      "en": "литература",
+      "sourceKanji": "学"
+    },
+    {
+      "id": "voronina-word-50",
+      "term": "心理",
+      "reading": "しんり",
+      "ru": "душевное состояние",
+      "en": "душевное состояние",
+      "sourceKanji": "心"
+    },
+    {
+      "id": "voronina-word-51",
+      "term": "五目",
+      "reading": "ごもく",
+      "ru": "«пять вкусов»",
+      "en": "«пять вкусов»",
+      "sourceKanji": "五"
+    },
+    {
+      "id": "voronina-word-52",
+      "term": "主語",
+      "reading": "しゅご",
+      "ru": "подлежащее",
+      "en": "подлежащее",
+      "sourceKanji": "主"
+    },
+    {
+      "id": "voronina-word-53",
+      "term": "小言",
+      "reading": "こごと",
+      "ru": "упрек",
+      "en": "упрек",
+      "sourceKanji": "小"
+    },
+    {
+      "id": "voronina-word-54",
+      "term": "長女",
+      "reading": "ちょうじょ",
+      "ru": "старшая дочь",
+      "en": "старшая дочь",
+      "sourceKanji": "女"
+    },
+    {
+      "id": "voronina-word-55",
+      "term": "三 回",
+      "reading": "さんかい",
+      "ru": "три раза",
+      "en": "три раза",
+      "sourceKanji": "回"
+    },
+    {
+      "id": "voronina-word-56",
+      "term": "代理",
+      "reading": "だいり",
+      "ru": "заместитель",
+      "en": "заместитель",
+      "sourceKanji": "代"
+    },
+    {
+      "id": "voronina-word-57",
+      "term": "方言",
+      "reading": "ほうげん",
+      "ru": "диалект",
+      "en": "диалект",
+      "sourceKanji": "言"
+    },
+    {
+      "id": "voronina-word-58",
+      "term": "四国",
+      "reading": "しこく",
+      "ru": "остров Сикоку",
+      "en": "остров Сикоку",
+      "sourceKanji": "四"
+    },
+    {
+      "id": "voronina-word-59",
+      "term": "八方",
+      "reading": "はっぽう",
+      "ru": "(на",
+      "en": "(на",
+      "sourceKanji": "八"
+    },
+    {
+      "id": "voronina-word-60",
+      "term": "明日",
+      "reading": "あした",
+      "ru": "завтра",
+      "en": "завтра",
+      "sourceKanji": "明"
+    },
+    {
+      "id": "voronina-word-61",
+      "term": "田地",
+      "reading": "でんじ",
+      "ru": "поля, обрабатываемая земля",
+      "en": "поля, обрабатываемая земля",
+      "sourceKanji": "田"
+    },
+    {
+      "id": "voronina-word-62",
+      "term": "全部",
+      "reading": "ぜんぶ",
+      "ru": "всё",
+      "en": "всё",
+      "sourceKanji": "全"
+    },
+    {
+      "id": "voronina-word-63",
+      "term": "京都",
+      "reading": "きょうと",
+      "ru": "Киото",
+      "en": "Киото",
+      "sourceKanji": "京"
+    },
+    {
+      "id": "voronina-word-64",
+      "term": "万引き",
+      "reading": "まんびき",
+      "ru": "магазинная кража",
+      "en": "магазинная кража",
+      "sourceKanji": "万"
+    },
+    {
+      "id": "voronina-word-65",
+      "term": "真正",
+      "reading": "しんせい",
+      "ru": "истинный, подлинный",
+      "en": "истинный, подлинный",
+      "sourceKanji": "正"
+    },
+    {
+      "id": "voronina-word-66",
+      "term": "場合",
+      "reading": "ばあい",
+      "ru": "обстоятельства, случай",
+      "en": "обстоятельства, случай",
+      "sourceKanji": "場"
+    },
+    {
+      "id": "voronina-word-67",
+      "term": "家主",
+      "reading": "やぬし",
+      "ru": "домовладелец",
+      "en": "домовладелец",
+      "sourceKanji": "家"
+    },
+    {
+      "id": "voronina-word-68",
+      "term": "山小屋",
+      "reading": "やまごや",
+      "ru": "горная хижина",
+      "en": "горная хижина",
+      "sourceKanji": "山"
+    },
+    {
+      "id": "voronina-word-69",
+      "term": "入り口",
+      "reading": "いりぐち",
+      "ru": "вход",
+      "en": "вход",
+      "sourceKanji": "入"
+    },
+    {
+      "id": "voronina-word-70",
+      "term": "青森県",
+      "reading": "あおもりけん",
+      "ru": "префектура Аомори",
+      "en": "Aomori Prefecture",
+      "sourceKanji": "県"
+    },
+    {
+      "id": "voronina-word-71",
+      "term": "水道",
+      "reading": "すいどう",
+      "ru": "водопровод",
+      "en": "водопровод",
+      "sourceKanji": "水"
+    },
+    {
+      "id": "voronina-word-72",
+      "term": "話し方",
+      "reading": "はなしかた",
+      "ru": "манера речи",
+      "en": "манера речи",
+      "sourceKanji": "話"
+    },
+    {
+      "id": "voronina-word-73",
+      "term": "私立大学",
+      "reading": "しりつだいがく",
+      "ru": "частный университет",
+      "en": "частный университет",
+      "sourceKanji": "立"
+    },
+    {
+      "id": "voronina-word-74",
+      "term": "年度",
+      "reading": "ねんど",
+      "ru": "финансовый год",
+      "en": "финансовый год",
+      "sourceKanji": "度"
+    },
+    {
+      "id": "voronina-word-75",
+      "term": "七夕",
+      "reading": "たなばた",
+      "ru": "праздник Танабата",
+      "en": "праздник Танабата",
+      "sourceKanji": "七"
+    },
+    {
+      "id": "voronina-word-76",
+      "term": "九州",
+      "reading": "きゅうしゅう",
+      "ru": "остров Кюсю",
+      "en": "остров Кюсю",
+      "sourceKanji": "九"
+    },
+    {
+      "id": "voronina-word-77",
+      "term": "北光",
+      "reading": "ほっこう",
+      "ru": "северное сияние",
+      "en": "северное сияние",
+      "sourceKanji": "北"
+    },
+    {
+      "id": "voronina-word-78",
+      "term": "書道",
+      "reading": "しょどう",
+      "ru": "каллиграфия",
+      "en": "каллиграфия",
+      "sourceKanji": "道"
+    },
+    {
+      "id": "voronina-word-79",
+      "term": "不安",
+      "reading": "ふあん",
+      "ru": "тревога",
+      "en": "тревога",
+      "sourceKanji": "不"
+    },
+    {
+      "id": "voronina-word-80",
+      "term": "開会",
+      "reading": "かいかい",
+      "ru": "начало собрания",
+      "en": "начало собрания",
+      "sourceKanji": "開"
+    },
+    {
+      "id": "voronina-word-81",
+      "term": "和食",
+      "reading": "わしょく",
+      "ru": "японская еда",
+      "en": "японская еда",
+      "sourceKanji": "和"
+    },
+    {
+      "id": "voronina-word-82",
+      "term": "対立",
+      "reading": "たいりつ",
+      "ru": "противостояние",
+      "en": "противостояние",
+      "sourceKanji": "対"
+    },
+    {
+      "id": "voronina-word-83",
+      "term": "名前",
+      "reading": "なまえ",
+      "ru": "имя",
+      "en": "имя",
+      "sourceKanji": "名"
+    },
+    {
+      "id": "voronina-word-84",
+      "term": "代表",
+      "reading": "だいひょう",
+      "ru": "делегация",
+      "en": "делегация",
+      "sourceKanji": "表"
+    },
+    {
+      "id": "voronina-word-85",
+      "term": "不定",
+      "reading": "ふてい",
+      "ru": "неопределенный, неустановленный",
+      "en": "неопределенный, неустановленный",
+      "sourceKanji": "定"
+    },
+    {
+      "id": "voronina-word-86",
+      "term": "文法",
+      "reading": "ぶんぽう",
+      "ru": "грамматика",
+      "en": "грамматика",
+      "sourceKanji": "法"
+    },
+    {
+      "id": "voronina-word-87",
+      "term": "安心",
+      "reading": "あんしん",
+      "ru": "душевное спокойствие",
+      "en": "душевное спокойствие",
+      "sourceKanji": "安"
+    },
+    {
+      "id": "voronina-word-88",
+      "term": "六月",
+      "reading": "ろくがつ",
+      "ru": "июнь",
+      "en": "июнь",
+      "sourceKanji": "六"
+    },
+    {
+      "id": "voronina-word-89",
+      "term": "元気",
+      "reading": "げんき",
+      "ru": "бодрость, энергия, здоровье",
+      "en": "бодрость, энергия, здоровье",
+      "sourceKanji": "気"
+    },
+    {
+      "id": "voronina-word-90",
+      "term": "私心",
+      "reading": "ししん",
+      "ru": "эгоизм",
+      "en": "эгоизм",
+      "sourceKanji": "私"
+    },
+    {
+      "id": "voronina-word-91",
+      "term": "氏名",
+      "reading": "しめい",
+      "ru": "имя и фамилия",
+      "en": "имя и фамилия",
+      "sourceKanji": "氏"
+    },
+    {
+      "id": "voronina-word-92",
+      "term": "文明",
+      "reading": "ぶんめい",
+      "ru": "цивилизация",
+      "en": "цивилизация",
+      "sourceKanji": "文"
+    },
+    {
+      "id": "voronina-word-93",
+      "term": "問い正す",
+      "reading": "といただす",
+      "ru": "уточнять",
+      "en": "уточнять",
+      "sourceKanji": "問"
+    },
+    {
+      "id": "voronina-word-94",
+      "term": "分野",
+      "reading": "ぶんや",
+      "ru": "сфера, область",
+      "en": "сфера, область",
+      "sourceKanji": "野"
+    },
+    {
+      "id": "voronina-word-95",
+      "term": "用事",
+      "reading": "ようじ",
+      "ru": "дело",
+      "en": "дело",
+      "sourceKanji": "用"
+    },
+    {
+      "id": "voronina-word-96",
+      "term": "木野子",
+      "reading": "きのこ",
+      "ru": "грибы",
+      "en": "грибы",
+      "sourceKanji": "木"
+    },
+    {
+      "id": "voronina-word-97",
+      "term": "八百屋",
+      "reading": "やおや",
+      "ru": "овощная лавка",
+      "en": "овощная лавка",
+      "sourceKanji": "百"
+    },
+    {
+      "id": "voronina-word-98",
+      "term": "作文",
+      "reading": "さくぶん",
+      "ru": "сочинение",
+      "en": "сочинение",
+      "sourceKanji": "作"
+    },
+    {
+      "id": "voronina-word-99",
+      "term": "発表",
+      "reading": "はっぴょう",
+      "ru": "доклад",
+      "en": "доклад",
+      "sourceKanji": "発"
+    },
+    {
+      "id": "voronina-word-100",
+      "term": "台東区",
+      "reading": "たいとうく",
+      "ru": "район Тайто",
+      "en": "район Тайто",
+      "sourceKanji": "区"
+    },
+    {
+      "id": "voronina-word-101",
+      "term": "思い出す",
+      "reading": "おもいだす",
+      "ru": "вспоминать",
+      "en": "вспоминать",
+      "sourceKanji": "思"
+    },
+    {
+      "id": "voronina-word-102",
+      "term": "国民",
+      "reading": "こくみん",
+      "ru": "граждане",
+      "en": "граждане",
+      "sourceKanji": "民"
+    },
+    {
+      "id": "voronina-word-103",
+      "term": "場所",
+      "reading": "ばしょ",
+      "ru": "место",
+      "en": "место",
+      "sourceKanji": "所"
+    },
+    {
+      "id": "voronina-word-104",
+      "term": "来月",
+      "reading": "らいげつ",
+      "ru": "в следующем месяце",
+      "en": "в следующем месяце",
+      "sourceKanji": "来"
+    },
+    {
+      "id": "voronina-word-105",
+      "term": "外国人",
+      "reading": "がいこくじん",
+      "ru": "иностранец",
+      "en": "иностранец",
+      "sourceKanji": "外"
+    },
+    {
+      "id": "voronina-word-106",
+      "term": "地中海",
+      "reading": "ちちゅうかい",
+      "ru": "Средиземное море",
+      "en": "Средиземное море",
+      "sourceKanji": "海"
+    },
+    {
+      "id": "voronina-word-107",
+      "term": "レナ川",
+      "reading": "れながわ",
+      "ru": "река Лена",
+      "en": "река Лена",
+      "sourceKanji": "川"
+    },
+    {
+      "id": "voronina-word-108",
+      "term": "自動車",
+      "reading": "じどうしゃ",
+      "ru": "автомобиль",
+      "en": "автомобиль",
+      "sourceKanji": "動"
+    },
+    {
+      "id": "voronina-word-109",
+      "term": "知り合い",
+      "reading": "しりあい",
+      "ru": "знакомый [человек]",
+      "en": "знакомый [человек]",
+      "sourceKanji": "知"
+    },
+    {
+      "id": "voronina-word-110",
+      "term": "風車",
+      "reading": "かぜぐるま",
+      "ru": "мельница",
+      "en": "мельница",
+      "sourceKanji": "車"
+    },
+    {
+      "id": "voronina-word-111",
+      "term": "千万",
+      "reading": "せんまん",
+      "ru": "десять миллионов",
+      "en": "десять миллионов",
+      "sourceKanji": "千"
+    },
+    {
+      "id": "voronina-word-112",
+      "term": "土日",
+      "reading": "どにち",
+      "ru": "выходные, суббота и воскресенье",
+      "en": "выходные, суббота и воскресенье",
+      "sourceKanji": "土"
+    },
+    {
+      "id": "voronina-word-113",
+      "term": "書き入れる",
+      "reading": "かきいれる",
+      "ru": "заполнять [бланк]",
+      "en": "заполнять [бланк]",
+      "sourceKanji": "書"
+    },
+    {
+      "id": "voronina-word-114",
+      "term": "朝早く",
+      "reading": "あさはやく",
+      "ru": "ранним утром",
+      "en": "ранним утром",
+      "sourceKanji": "朝"
+    },
+    {
+      "id": "voronina-word-115",
+      "term": "物理学",
+      "reading": "ぶつりがく",
+      "ru": "физика",
+      "en": "физика",
+      "sourceKanji": "物"
+    },
+    {
+      "id": "voronina-word-116",
+      "term": "都市",
+      "reading": "とし",
+      "ru": "город",
+      "en": "город",
+      "sourceKanji": "都"
+    },
+    {
+      "id": "voronina-word-117",
+      "term": "首都",
+      "reading": "しゅと",
+      "ru": "столица",
+      "en": "столица",
+      "sourceKanji": "首"
+    },
+    {
+      "id": "voronina-word-118",
+      "term": "意外",
+      "reading": "いがい",
+      "ru": "неожиданный, непредвиденный",
+      "en": "неожиданный, непредвиденный",
+      "sourceKanji": "意"
+    },
+    {
+      "id": "voronina-word-119",
+      "term": "長男",
+      "reading": "ちょうなん",
+      "ru": "старший сын",
+      "en": "старший сын",
+      "sourceKanji": "男"
+    },
+    {
+      "id": "voronina-word-120",
+      "term": "食品",
+      "reading": "しょくひん",
+      "ru": "продукты",
+      "en": "продукты",
+      "sourceKanji": "品"
+    },
+    {
+      "id": "voronina-word-121",
+      "term": "口語",
+      "reading": "こうご",
+      "ru": "разговорный язык",
+      "en": "разговорный язык",
+      "sourceKanji": "口"
+    },
+    {
+      "id": "voronina-word-122",
+      "term": "産業",
+      "reading": "さんぎょう",
+      "ru": "промышленность",
+      "en": "промышленность",
+      "sourceKanji": "業"
+    },
+    {
+      "id": "voronina-word-123",
+      "term": "公開",
+      "reading": "こうかい",
+      "ru": "публичное собрание",
+      "en": "публичное собрание",
+      "sourceKanji": "公"
+    },
+    {
+      "id": "voronina-word-124",
+      "term": "真実",
+      "reading": "しんじつ",
+      "ru": "правда, реальность",
+      "en": "правда, реальность",
+      "sourceKanji": "真"
+    },
+    {
+      "id": "voronina-word-125",
+      "term": "広大",
+      "reading": "こうだい",
+      "ru": "громадный",
+      "en": "громадный",
+      "sourceKanji": "広"
+    },
+    {
+      "id": "voronina-word-126",
+      "term": "下町",
+      "reading": "したまち",
+      "ru": "старая часть города, торговые и развлекательные кварталы",
+      "en": "старая часть города, торговые и развлекательные кварталы",
+      "sourceKanji": "町"
+    },
+    {
+      "id": "voronina-word-127",
+      "term": "力強い",
+      "reading": "ちからづよい",
+      "ru": "мощный",
+      "en": "мощный",
+      "sourceKanji": "強"
+    },
+    {
+      "id": "voronina-word-128",
+      "term": "世の中",
+      "reading": "よのなか",
+      "ru": "мир, свет, жизнь",
+      "en": "мир, свет, жизнь",
+      "sourceKanji": "世"
+    },
+    {
+      "id": "voronina-word-129",
+      "term": "有名",
+      "reading": "ゆうめい",
+      "ru": "знаменитый",
+      "en": "знаменитый",
+      "sourceKanji": "有"
+    },
+    {
+      "id": "voronina-word-130",
+      "term": "空気",
+      "reading": "くうき",
+      "ru": "воздух",
+      "en": "воздух",
+      "sourceKanji": "空"
+    },
+    {
+      "id": "voronina-word-131",
+      "term": "天使",
+      "reading": "てんし",
+      "ru": "ангел",
+      "en": "ангел",
+      "sourceKanji": "使"
+    },
+    {
+      "id": "voronina-word-132",
+      "term": "キリスト教",
+      "reading": "きりすときょう",
+      "ru": "христианство",
+      "en": "христианство",
+      "sourceKanji": "教"
+    },
+    {
+      "id": "voronina-word-133",
+      "term": "光子",
+      "reading": "こうし",
+      "ru": "фотон",
+      "en": "фотон",
+      "sourceKanji": "光"
+    },
+    {
+      "id": "voronina-word-134",
+      "term": "近所",
+      "reading": "きんじょ",
+      "ru": "окрестности",
+      "en": "окрестности",
+      "sourceKanji": "近"
+    },
+    {
+      "id": "voronina-word-135",
+      "term": "会社員",
+      "reading": "かいしゃいん",
+      "ru": "служащий компании",
+      "en": "служащий компании",
+      "sourceKanji": "員"
+    },
+    {
+      "id": "voronina-word-136",
+      "term": "体重",
+      "reading": "たいじゅう",
+      "ru": "вес тела",
+      "en": "вес тела",
+      "sourceKanji": "重"
+    },
+    {
+      "id": "voronina-word-137",
+      "term": "多分",
+      "reading": "たぶん",
+      "ru": "вероятно",
+      "en": "вероятно",
+      "sourceKanji": "多"
+    },
+    {
+      "id": "voronina-word-138",
+      "term": "進度",
+      "reading": "しんど",
+      "ru": "успеваемость",
+      "en": "успеваемость",
+      "sourceKanji": "進"
+    },
+    {
+      "id": "voronina-word-139",
+      "term": "大通り",
+      "reading": "おおどおり",
+      "ru": "проспект",
+      "en": "проспект",
+      "sourceKanji": "通"
+    },
+    {
+      "id": "voronina-word-140",
+      "term": "兄弟",
+      "reading": "きょうだい",
+      "ru": "братья",
+      "en": "братья",
+      "sourceKanji": "弟"
+    },
+    {
+      "id": "voronina-word-141",
+      "term": "工場",
+      "reading": "こうじょう",
+      "ru": "завод",
+      "en": "завод",
+      "sourceKanji": "工"
+    },
+    {
+      "id": "voronina-word-142",
+      "term": "南米",
+      "reading": "なんべい",
+      "ru": "Южная Америка",
+      "en": "Южная Америка",
+      "sourceKanji": "南"
+    },
+    {
+      "id": "voronina-word-143",
+      "term": "定理",
+      "reading": "ていり",
+      "ru": "теорема",
+      "en": "теорема",
+      "sourceKanji": "理"
+    },
+    {
+      "id": "voronina-word-144",
+      "term": "無名b",
+      "reading": "むめい",
+      "ru": "безымянный",
+      "en": "безымянный",
+      "sourceKanji": "無"
+    },
+    {
+      "id": "voronina-word-145",
+      "term": "電池",
+      "reading": "でんち",
+      "ru": "батарейка",
+      "en": "батарейка",
+      "sourceKanji": "電"
+    },
+    {
+      "id": "voronina-word-146",
+      "term": "天気",
+      "reading": "てんき",
+      "ru": "погода",
+      "en": "погода",
+      "sourceKanji": "天"
+    },
+    {
+      "id": "voronina-word-147",
+      "term": "計画",
+      "reading": "けいかく",
+      "ru": "план, расчет",
+      "en": "план, расчет",
+      "sourceKanji": "計"
+    },
+    {
+      "id": "voronina-word-148",
+      "term": "不足",
+      "reading": "ぶそく",
+      "ru": "нехватка",
+      "en": "нехватка",
+      "sourceKanji": "足"
+    },
+    {
+      "id": "voronina-word-149",
+      "term": "語学",
+      "reading": "ごがく",
+      "ru": "лингвистика",
+      "en": "лингвистика",
+      "sourceKanji": "語"
+    },
+    {
+      "id": "voronina-word-150",
+      "term": "生産",
+      "reading": "せいさん",
+      "ru": "производство",
+      "en": "производство",
+      "sourceKanji": "産"
+    },
+    {
+      "id": "voronina-word-151",
+      "term": "集中",
+      "reading": "しょうちゅう",
+      "ru": "концентрация, сосредоточение",
+      "en": "концентрация, сосредоточение",
+      "sourceKanji": "集"
+    },
+    {
+      "id": "voronina-word-152",
+      "term": "夜中",
+      "reading": "よなか",
+      "ru": "полночь",
+      "en": "полночь",
+      "sourceKanji": "夜"
+    },
+    {
+      "id": "voronina-word-153",
+      "term": "お金持ち",
+      "reading": "おかねもち",
+      "ru": "богач",
+      "en": "богач",
+      "sourceKanji": "持"
+    },
+    {
+      "id": "voronina-word-154",
+      "term": "元首",
+      "reading": "げんしゅ",
+      "ru": "сюзерен (тип крупного феодального правителя",
+      "en": "сюзерен (тип крупного феодального правителя",
+      "sourceKanji": "元"
+    },
+    {
+      "id": "voronina-word-155",
+      "term": "死体",
+      "reading": "したい",
+      "ru": "труп",
+      "en": "труп",
+      "sourceKanji": "死"
+    },
+    {
+      "id": "voronina-word-156",
+      "term": "音楽",
+      "reading": "おんがく",
+      "ru": "музыка",
+      "en": "музыка",
+      "sourceKanji": "楽"
+    },
+    {
+      "id": "voronina-word-157",
+      "term": "食事",
+      "reading": "しょくじ",
+      "ru": "остров Сикоку",
+      "en": "остров Сикоку",
+      "sourceKanji": "食"
+    },
+    {
+      "id": "voronina-word-158",
+      "term": "特売",
+      "reading": "とくばい",
+      "ru": "особое предложение, специальная цена [на распродаже]",
+      "en": "особое предложение, специальная цена [на распродаже]",
+      "sourceKanji": "特"
+    },
+    {
+      "id": "voronina-word-159",
+      "term": "右足",
+      "reading": "みぎあし",
+      "ru": "правая нога",
+      "en": "правая нога",
+      "sourceKanji": "右"
+    },
+    {
+      "id": "voronina-word-160",
+      "term": "別れ目",
+      "reading": "わかれめ",
+      "ru": "поворотный пункт, распутье",
+      "en": "поворотный пункт, распутье",
+      "sourceKanji": "別"
+    },
+    {
+      "id": "voronina-word-161",
+      "term": "少しずつ",
+      "reading": "すこしずつ",
+      "ru": "понемногу",
+      "en": "понемногу",
+      "sourceKanji": "少"
+    },
+    {
+      "id": "voronina-word-162",
+      "term": "進歩",
+      "reading": "しんぽ",
+      "ru": "прогресс",
+      "en": "прогресс",
+      "sourceKanji": "歩"
+    },
+    {
+      "id": "voronina-word-163",
+      "term": "何時",
+      "reading": "なんじ",
+      "ru": "который час",
+      "en": "который час",
+      "sourceKanji": "何"
+    },
+    {
+      "id": "voronina-word-164",
+      "term": "売り出し",
+      "reading": "うりだし",
+      "ru": "открытие торгов, начало продаж",
+      "en": "открытие торгов, начало продаж",
+      "sourceKanji": "売"
+    },
+    {
+      "id": "voronina-word-165",
+      "term": "前半",
+      "reading": "ぜんはん",
+      "ru": "первая половина чего-л.",
+      "en": "первая половина чего-л.",
+      "sourceKanji": "半"
+    },
+    {
+      "id": "voronina-word-166",
+      "term": "以内",
+      "reading": "いない",
+      "ru": "в пределах, в границах чего-либо",
+      "en": "в пределах, в границах чего-либо",
+      "sourceKanji": "以"
+    },
+    {
+      "id": "voronina-word-167",
+      "term": "左右",
+      "reading": "さう",
+      "ru": "лево и право",
+      "en": "лево и право",
+      "sourceKanji": "左"
+    },
+    {
+      "id": "voronina-word-168",
+      "term": "店員",
+      "reading": "てんいん",
+      "ru": "продавец",
+      "en": "продавец",
+      "sourceKanji": "店"
+    },
+    {
+      "id": "voronina-word-169",
+      "term": "早朝",
+      "reading": "そうちょう",
+      "ru": "раннее утро",
+      "en": "раннее утро",
+      "sourceKanji": "早"
+    },
+    {
+      "id": "voronina-word-170",
+      "term": "白鳥",
+      "reading": "はくちょう",
+      "ru": "лебедь",
+      "en": "лебедь",
+      "sourceKanji": "白"
+    },
+    {
+      "id": "voronina-word-171",
+      "term": "住所",
+      "reading": "じゅうしょ",
+      "ru": "адрес",
+      "en": "адрес",
+      "sourceKanji": "住"
+    },
+    {
+      "id": "voronina-word-172",
+      "term": "音読み",
+      "reading": "おんよみ",
+      "ru": "верхнее чтение иероглифа",
+      "en": "верхнее чтение иероглифа",
+      "sourceKanji": "音"
+    },
+    {
+      "id": "voronina-word-173",
+      "term": "大声",
+      "reading": "おおごえ",
+      "ru": "громкий голос",
+      "en": "громкий голос",
+      "sourceKanji": "声"
+    },
+    {
+      "id": "voronina-word-174",
+      "term": "台所",
+      "reading": "だいどころ",
+      "ru": "кухня",
+      "en": "кухня",
+      "sourceKanji": "台"
+    },
+    {
+      "id": "voronina-word-175",
+      "term": "引き出し",
+      "reading": "ひきだし",
+      "ru": "выдвижной ящик",
+      "en": "выдвижной ящик",
+      "sourceKanji": "引"
+    },
+    {
+      "id": "voronina-word-176",
+      "term": "食い止める",
+      "reading": "くいとめる",
+      "ru": "задерживать",
+      "en": "задерживать",
+      "sourceKanji": "止"
+    },
+    {
+      "id": "voronina-word-177",
+      "term": "考え方",
+      "reading": "かんがえかた",
+      "ru": "образ мыслей",
+      "en": "образ мыслей",
+      "sourceKanji": "考"
+    },
+    {
+      "id": "voronina-word-178",
+      "term": "友人",
+      "reading": "ゆうじん",
+      "ru": "друг",
+      "en": "друг",
+      "sourceKanji": "友"
+    },
+    {
+      "id": "voronina-word-179",
+      "term": "運転",
+      "reading": "うんてん",
+      "ru": "вождение автомобиля",
+      "en": "вождение автомобиля",
+      "sourceKanji": "運"
+    },
+    {
+      "id": "voronina-word-180",
+      "term": "売春",
+      "reading": "ばいしゅん",
+      "ru": "проституция",
+      "en": "проституция",
+      "sourceKanji": "春"
+    },
+    {
+      "id": "voronina-word-181",
+      "term": "問題",
+      "reading": "もんだい",
+      "ru": "проблема",
+      "en": "проблема",
+      "sourceKanji": "題"
+    },
+    {
+      "id": "voronina-word-182",
+      "term": "母親",
+      "reading": "ははおや",
+      "ru": "мать",
+      "en": "мать",
+      "sourceKanji": "親"
+    },
+    {
+      "id": "voronina-word-183",
+      "term": "起用",
+      "reading": "きよう",
+      "ru": "назначение, выдвижение",
+      "en": "назначение, выдвижение",
+      "sourceKanji": "起"
+    },
+    {
+      "id": "voronina-word-184",
+      "term": "赤道",
+      "reading": "せきどう",
+      "ru": "экватор",
+      "en": "экватор",
+      "sourceKanji": "赤"
+    },
+    {
+      "id": "voronina-word-185",
+      "term": "建物",
+      "reading": "たてもの",
+      "ru": "здание",
+      "en": "здание",
+      "sourceKanji": "建"
+    },
+    {
+      "id": "voronina-word-186",
+      "term": "子犬",
+      "reading": "こいぬ",
+      "ru": "щенок",
+      "en": "щенок",
+      "sourceKanji": "犬"
+    },
+    {
+      "id": "voronina-word-187",
+      "term": "新聞",
+      "reading": "しんぶん",
+      "ru": "газета",
+      "en": "газета",
+      "sourceKanji": "聞"
+    },
+    {
+      "id": "voronina-word-188",
+      "term": "森林",
+      "reading": "しんりん",
+      "ru": "лес",
+      "en": "лес",
+      "sourceKanji": "森"
+    },
+    {
+      "id": "voronina-word-189",
+      "term": "英語",
+      "reading": "えいご",
+      "ru": "английский язык",
+      "en": "английский язык",
+      "sourceKanji": "英"
+    },
+    {
+      "id": "voronina-word-190",
+      "term": "急行",
+      "reading": "きゅうこう",
+      "ru": "экспресс, скорый поезд",
+      "en": "экспресс, скорый поезд",
+      "sourceKanji": "急"
+    },
+    {
+      "id": "voronina-word-191",
+      "term": "林業",
+      "reading": "りんぎょう",
+      "ru": "лесоводство",
+      "en": "лесоводство",
+      "sourceKanji": "林"
+    },
+    {
+      "id": "voronina-word-192",
+      "term": "父親",
+      "reading": "ちちおや",
+      "ru": "отец",
+      "en": "отец",
+      "sourceKanji": "父"
+    },
+    {
+      "id": "voronina-word-193",
+      "term": "入場料",
+      "reading": "にゅうじょうりょう",
+      "ru": "входная плата",
+      "en": "входная плата",
+      "sourceKanji": "料"
+    },
+    {
+      "id": "voronina-word-194",
+      "term": "和服",
+      "reading": "わふく",
+      "ru": "одежда в японском стиле",
+      "en": "одежда в японском стиле",
+      "sourceKanji": "服"
+    },
+    {
+      "id": "voronina-word-195",
+      "term": "風土",
+      "reading": "ふうど",
+      "ru": "природные особенности местности, ландшафт, климат",
+      "en": "природные особенности местности, ландшафт, климат",
+      "sourceKanji": "風"
+    },
+    {
+      "id": "voronina-word-196",
+      "term": "着物",
+      "reading": "きもの",
+      "ru": "кимоно",
+      "en": "кимоно",
+      "sourceKanji": "着"
+    },
+    {
+      "id": "voronina-word-197",
+      "term": "小説",
+      "reading": "しょうせつ",
+      "ru": "повесть",
+      "en": "повесть",
+      "sourceKanji": "説"
+    },
+    {
+      "id": "voronina-word-198",
+      "term": "青空",
+      "reading": "あおぞら",
+      "ru": "синее небо",
+      "en": "синее небо",
+      "sourceKanji": "青"
+    },
+    {
+      "id": "voronina-word-199",
+      "term": "赤字",
+      "reading": "あかじ",
+      "ru": "дефицит [бюджета]",
+      "en": "дефицит [бюджета]",
+      "sourceKanji": "字"
+    },
+    {
+      "id": "voronina-word-200",
+      "term": "お母さん",
+      "reading": "おかあさん",
+      "ru": "матушка (уважительное обращение",
+      "en": "матушка (уважительное обращение",
+      "sourceKanji": "母"
+    },
+    {
+      "id": "voronina-word-201",
+      "term": "大学院",
+      "reading": "だいがくいん",
+      "ru": "аспирантура",
+      "en": "аспирантура",
+      "sourceKanji": "院"
+    },
+    {
+      "id": "voronina-word-202",
+      "term": "中古品",
+      "reading": "ちゅうこひん",
+      "ru": "подержанный товар",
+      "en": "подержанный товар",
+      "sourceKanji": "古"
+    },
+    {
+      "id": "voronina-word-203",
+      "term": "友好",
+      "reading": "ゆうこう",
+      "ru": "дружба",
+      "en": "дружба",
+      "sourceKanji": "好"
+    },
+    {
+      "id": "voronina-word-204",
+      "term": "白黒テレビ",
+      "reading": "しろくろてれび",
+      "ru": "черно- белый телевизор",
+      "en": "черно- белый телевизор",
+      "sourceKanji": "黒"
+    },
+    {
+      "id": "voronina-word-205",
+      "term": "夏休み",
+      "reading": "なつやすみ",
+      "ru": "летние каникулы",
+      "en": "летние каникулы",
+      "sourceKanji": "夏"
+    },
+    {
+      "id": "voronina-word-206",
+      "term": "秋分",
+      "reading": "しゅうぶん",
+      "ru": "осеннее равноденствие",
+      "en": "осеннее равноденствие",
+      "sourceKanji": "秋"
+    },
+    {
+      "id": "voronina-word-207",
+      "term": "終電",
+      "reading": "しゅうでん",
+      "ru": "последний поезд",
+      "en": "последний поезд",
+      "sourceKanji": "終"
+    },
+    {
+      "id": "voronina-word-208",
+      "term": "和紙",
+      "reading": "わし",
+      "ru": "японская бумага васи",
+      "en": "японская бумага васи",
+      "sourceKanji": "紙"
+    },
+    {
+      "id": "voronina-word-209",
+      "term": "短歌",
+      "reading": "たんか",
+      "ru": "танка",
+      "en": "танка",
+      "sourceKanji": "歌"
+    },
+    {
+      "id": "voronina-word-210",
+      "term": "和室",
+      "reading": "わしつ",
+      "ru": "комната в японском стиле",
+      "en": "комната в японском стиле",
+      "sourceKanji": "室"
+    },
+    {
+      "id": "voronina-word-211",
+      "term": "火薬",
+      "reading": "かやく",
+      "ru": "порох",
+      "en": "порох",
+      "sourceKanji": "火"
+    },
+    {
+      "id": "voronina-word-212",
+      "term": "写真",
+      "reading": "しゃしん",
+      "ru": "фотография",
+      "en": "фотография",
+      "sourceKanji": "写"
+    },
+    {
+      "id": "voronina-word-213",
+      "term": "銀行",
+      "reading": "ぎんこう",
+      "ru": "банк",
+      "en": "банк",
+      "sourceKanji": "銀"
+    },
+    {
+      "id": "voronina-word-214",
+      "term": "世界",
+      "reading": "せかい",
+      "ru": "мир",
+      "en": "мир",
+      "sourceKanji": "界"
+    },
+    {
+      "id": "voronina-word-215",
+      "term": "牛肉",
+      "reading": "ぎゅうにく",
+      "ru": "говядина",
+      "en": "говядина",
+      "sourceKanji": "牛"
+    },
+    {
+      "id": "voronina-word-216",
+      "term": "売買",
+      "reading": "ばいばい",
+      "ru": "торговля",
+      "en": "торговля",
+      "sourceKanji": "買"
+    },
+    {
+      "id": "voronina-word-217",
+      "term": "西南",
+      "reading": "せいなん",
+      "ru": "юго-запад",
+      "en": "юго-запад",
+      "sourceKanji": "西"
+    },
+    {
+      "id": "voronina-word-218",
+      "term": "花見",
+      "reading": "はなみ",
+      "ru": "любование цветами",
+      "en": "любование цветами",
+      "sourceKanji": "花"
+    },
+    {
+      "id": "voronina-word-219",
+      "term": "部屋",
+      "reading": "へや",
+      "ru": "комната",
+      "en": "комната",
+      "sourceKanji": "屋"
+    },
+    {
+      "id": "voronina-word-220",
+      "term": "金色",
+      "reading": "きんいろ",
+      "ru": "золотистый",
+      "en": "золотистый",
+      "sourceKanji": "色"
+    },
+    {
+      "id": "voronina-word-221",
+      "term": "門口",
+      "reading": "かどぐち",
+      "ru": "подъезд",
+      "en": "подъезд",
+      "sourceKanji": "門"
+    },
+    {
+      "id": "voronina-word-222",
+      "term": "切手",
+      "reading": "きって",
+      "ru": "почтовая марка",
+      "en": "почтовая марка",
+      "sourceKanji": "切"
+    },
+    {
+      "id": "voronina-word-223",
+      "term": "乗り場",
+      "reading": "のりば",
+      "ru": "остановка, платформа",
+      "en": "остановка, платформа",
+      "sourceKanji": "乗"
+    },
+    {
+      "id": "voronina-word-224",
+      "term": "運送",
+      "reading": "うんそう",
+      "ru": "перевозки",
+      "en": "перевозки",
+      "sourceKanji": "送"
+    },
+    {
+      "id": "voronina-word-225",
+      "term": "地味",
+      "reading": "じみ",
+      "ru": "скромный, неброский",
+      "en": "скромный, неброский",
+      "sourceKanji": "味"
+    },
+    {
+      "id": "voronina-word-226",
+      "term": "始発",
+      "reading": "しはつ",
+      "ru": "первый поезд; начало отправления",
+      "en": "first train",
+      "sourceKanji": "始"
+    },
+    {
+      "id": "voronina-word-227",
+      "term": "走り使い",
+      "reading": "はしりづかい",
+      "ru": "мальчик на побегушках",
+      "en": "мальчик на побегушках",
+      "sourceKanji": "走"
+    },
+    {
+      "id": "voronina-word-228",
+      "term": "お休みなさい",
+      "reading": "おやすみなさい",
+      "ru": "спокойной ночи",
+      "en": "спокойной ночи",
+      "sourceKanji": "休"
+    },
+    {
+      "id": "voronina-word-229",
+      "term": "小学校",
+      "reading": "しょうがっこう",
+      "ru": "младшая школа",
+      "en": "младшая школа",
+      "sourceKanji": "校"
+    },
+    {
+      "id": "voronina-word-230",
+      "term": "医者",
+      "reading": "いしゃ",
+      "ru": "врач",
+      "en": "врач",
+      "sourceKanji": "医"
+    },
+    {
+      "id": "voronina-word-231",
+      "term": "心電図",
+      "reading": "しんでんず",
+      "ru": "электрокардиограмма",
+      "en": "электрокардиограмма",
+      "sourceKanji": "図"
+    },
+    {
+      "id": "voronina-word-232",
+      "term": "旅館",
+      "reading": "りょかん",
+      "ru": "гостиница-рёкан",
+      "en": "гостиница-рёкан",
+      "sourceKanji": "旅"
+    },
+    {
+      "id": "voronina-word-233",
+      "term": "答え",
+      "reading": "こたえ",
+      "ru": "ответ",
+      "en": "ответ",
+      "sourceKanji": "答"
+    },
+    {
+      "id": "voronina-word-234",
+      "term": "去年",
+      "reading": "きょねん",
+      "ru": "прошедший год",
+      "en": "прошедший год",
+      "sourceKanji": "去"
+    },
+    {
+      "id": "voronina-word-235",
+      "term": "大雨",
+      "reading": "おおあめ、たいう",
+      "ru": "ливень",
+      "en": "ливень",
+      "sourceKanji": "雨"
+    },
+    {
+      "id": "voronina-word-236",
+      "term": "顔色",
+      "reading": "かおいろ",
+      "ru": "настроение",
+      "en": "настроение",
+      "sourceKanji": "顔"
+    },
+    {
+      "id": "voronina-word-237",
+      "term": "悪口",
+      "reading": "わるくち",
+      "ru": "брань",
+      "en": "брань",
+      "sourceKanji": "悪"
+    },
+    {
+      "id": "voronina-word-238",
+      "term": "注目",
+      "reading": "ちゅうもく",
+      "ru": "внимание",
+      "en": "внимание",
+      "sourceKanji": "注"
+    },
+    {
+      "id": "voronina-word-239",
+      "term": "大西洋",
+      "reading": "たいせいよう",
+      "ru": "Атлантический Океан",
+      "en": "Атлантический Океан",
+      "sourceKanji": "洋"
+    },
+    {
+      "id": "voronina-word-240",
+      "term": "病院",
+      "reading": "びょういん",
+      "ru": "больница",
+      "en": "больница",
+      "sourceKanji": "病"
+    },
+    {
+      "id": "voronina-word-241",
+      "term": "駅前",
+      "reading": "えきまえ",
+      "ru": "привокзальная площадь",
+      "en": "привокзальная площадь",
+      "sourceKanji": "駅"
+    },
+    {
+      "id": "voronina-word-242",
+      "term": "短所",
+      "reading": "たんしょ",
+      "ru": "недостаток, слабое место",
+      "en": "недостаток, слабое место",
+      "sourceKanji": "短"
+    },
+    {
+      "id": "voronina-word-243",
+      "term": "帰り道",
+      "reading": "かえりみち",
+      "ru": "обратный путь",
+      "en": "обратный путь",
+      "sourceKanji": "帰"
+    },
+    {
+      "id": "voronina-word-244",
+      "term": "読者",
+      "reading": "どくしゃ",
+      "ru": "читатель",
+      "en": "читатель",
+      "sourceKanji": "読"
+    },
+    {
+      "id": "voronina-word-245",
+      "term": "待合室",
+      "reading": "まちあいしつ",
+      "ru": "зал ожидания",
+      "en": "зал ожидания",
+      "sourceKanji": "待"
+    },
+    {
+      "id": "voronina-word-246",
+      "term": "先週",
+      "reading": "せんしゅう",
+      "ru": "прошлая неделя",
+      "en": "прошлая неделя",
+      "sourceKanji": "週"
+    },
+    {
+      "id": "voronina-word-247",
+      "term": "目薬",
+      "reading": "めぐすり",
+      "ru": "глазные капли",
+      "en": "глазные капли",
+      "sourceKanji": "薬"
+    },
+    {
+      "id": "voronina-word-248",
+      "term": "自転車",
+      "reading": "じてんしゃ",
+      "ru": "велосипед",
+      "en": "велосипед",
+      "sourceKanji": "転"
+    },
+    {
+      "id": "voronina-word-249",
+      "term": "民族",
+      "reading": "みんぞく",
+      "ru": "нация, этнос",
+      "en": "нация, этнос",
+      "sourceKanji": "族"
+    },
+    {
+      "id": "voronina-word-250",
+      "term": "夕食",
+      "reading": "ゆうしょく",
+      "ru": "ужин",
+      "en": "ужин",
+      "sourceKanji": "夕"
+    },
+    {
+      "id": "voronina-word-251",
+      "term": "品質",
+      "reading": "ひんしつ",
+      "ru": "качество товара",
+      "en": "качество товара",
+      "sourceKanji": "質"
+    },
+    {
+      "id": "voronina-word-252",
+      "term": "春夏秋冬",
+      "reading": "しゅんかしゅうとう",
+      "ru": "четыре времени года",
+      "en": "четыре времени года",
+      "sourceKanji": "冬"
+    },
+    {
+      "id": "voronina-word-253",
+      "term": "試験",
+      "reading": "しけん",
+      "ru": "экзамен",
+      "en": "экзамен",
+      "sourceKanji": "試"
+    },
+    {
+      "id": "voronina-word-254",
+      "term": "図書館",
+      "reading": "としょかん",
+      "ru": "библиотека",
+      "en": "библиотека",
+      "sourceKanji": "館"
+    },
+    {
+      "id": "voronina-word-255",
+      "term": "毎週",
+      "reading": "まいしゅう",
+      "ru": "каждую неделю",
+      "en": "каждую неделю",
+      "sourceKanji": "毎"
+    },
+    {
+      "id": "voronina-word-256",
+      "term": "悪習",
+      "reading": "あくしゅう",
+      "ru": "вредная привычка",
+      "en": "вредная привычка",
+      "sourceKanji": "習"
+    },
+    {
+      "id": "voronina-word-257",
+      "term": "映画館",
+      "reading": "えいがかん",
+      "ru": "кинотеатр",
+      "en": "кинотеатр",
+      "sourceKanji": "映"
+    },
+    {
+      "id": "voronina-word-258",
+      "term": "遠洋",
+      "reading": "えんよう",
+      "ru": "открытое море, океан",
+      "en": "открытое море, океан",
+      "sourceKanji": "遠"
+    },
+    {
+      "id": "voronina-word-259",
+      "term": "鳥屋",
+      "reading": "とや",
+      "ru": "птичник, курятник",
+      "en": "птичник, курятник",
+      "sourceKanji": "鳥"
+    },
+    {
+      "id": "voronina-word-260",
+      "term": "昼ご飯",
+      "reading": "ひるごはん",
+      "ru": "обед",
+      "en": "обед",
+      "sourceKanji": "昼"
+    },
+    {
+      "id": "voronina-word-261",
+      "term": "午前",
+      "reading": "ごぜん",
+      "ru": "утро, время до полудня",
+      "en": "утро, время до полудня",
+      "sourceKanji": "午"
+    },
+    {
+      "id": "voronina-word-262",
+      "term": "勉強家",
+      "reading": "べんきょうか",
+      "ru": "прилежный ученик",
+      "en": "прилежный ученик",
+      "sourceKanji": "勉"
+    },
+    {
+      "id": "voronina-word-263",
+      "term": "不便",
+      "reading": "ふべん",
+      "ru": "неудобный",
+      "en": "неудобный",
+      "sourceKanji": "便"
+    },
+    {
+      "id": "voronina-word-264",
+      "term": "お兄さん",
+      "reading": "おにいさん",
+      "ru": "старший брат, уважительное обращение",
+      "en": "старший брат, уважительное обращение",
+      "sourceKanji": "兄"
+    },
+    {
+      "id": "voronina-word-265",
+      "term": "働き者",
+      "reading": "はたらきもの",
+      "ru": "трудяга",
+      "en": "трудяга",
+      "sourceKanji": "働"
+    },
+    {
+      "id": "voronina-word-266",
+      "term": "人魚",
+      "reading": "にんぎょ",
+      "ru": "русалка",
+      "en": "русалка",
+      "sourceKanji": "魚"
+    },
+    {
+      "id": "voronina-word-267",
+      "term": "体験",
+      "reading": "たいけん",
+      "ru": "личный опыт",
+      "en": "личный опыт",
+      "sourceKanji": "験"
+    },
+    {
+      "id": "voronina-word-268",
+      "term": "肉親",
+      "reading": "にくしん",
+      "ru": "кровное родство",
+      "en": "кровное родство",
+      "sourceKanji": "肉"
+    },
+    {
+      "id": "voronina-word-269",
+      "term": "究明",
+      "reading": "きゅうめい",
+      "ru": "научное открытие",
+      "en": "научное открытие",
+      "sourceKanji": "究"
+    },
+    {
+      "id": "voronina-word-270",
+      "term": "ぐい飲み",
+      "reading": "ぐいのみ",
+      "ru": "пиала",
+      "en": "пиала",
+      "sourceKanji": "飲"
+    },
+    {
+      "id": "voronina-word-271",
+      "term": "茶道",
+      "reading": "さどう",
+      "ru": "искусство чайной церемонии",
+      "en": "искусство чайной церемонии",
+      "sourceKanji": "茶"
+    },
+    {
+      "id": "voronina-word-272",
+      "term": "日曜〔日〕",
+      "reading": "にちよう〔び〕",
+      "ru": "воскресенье",
+      "en": "воскресенье",
+      "sourceKanji": "曜"
+    },
+    {
+      "id": "voronina-word-273",
+      "term": "お姉さん",
+      "reading": "おねえさん",
+      "ru": "старшая сестра, уважительное обращение",
+      "en": "старшая сестра, уважительное обращение",
+      "sourceKanji": "姉"
+    },
+    {
+      "id": "voronina-word-274",
+      "term": "研究",
+      "reading": "けんきゅう",
+      "ru": "исследование",
+      "en": "исследование",
+      "sourceKanji": "研"
+    },
+    {
+      "id": "voronina-word-275",
+      "term": "暗黒",
+      "reading": "あんこく",
+      "ru": "мрак",
+      "en": "мрак",
+      "sourceKanji": "暗"
+    },
+    {
+      "id": "voronina-word-276",
+      "term": "姉妹",
+      "reading": "しまい",
+      "ru": "сестры",
+      "en": "сестры",
+      "sourceKanji": "妹"
+    },
+    {
+      "id": "voronina-word-277",
+      "term": "村長",
+      "reading": "そんちょう",
+      "ru": "деревенский староста",
+      "en": "деревенский староста",
+      "sourceKanji": "村"
+    },
+    {
+      "id": "voronina-word-278",
+      "term": "飯台",
+      "reading": "はんだい",
+      "ru": "обеденный стол",
+      "en": "обеденный стол",
+      "sourceKanji": "飯"
+    },
+    {
+      "id": "voronina-word-279",
+      "term": "借金",
+      "reading": "しゃっきん",
+      "ru": "долг, заем",
+      "en": "долг, заем",
+      "sourceKanji": "借"
+    },
+    {
+      "id": "voronina-word-280",
+      "term": "寒気",
+      "reading": "さむけ",
+      "ru": "озноб",
+      "en": "озноб",
+      "sourceKanji": "寒"
+    },
+    {
+      "id": "voronina-word-281",
+      "term": "音楽堂",
+      "reading": "おんがくどう",
+      "ru": "концертный зал",
+      "en": "концертный зал",
+      "sourceKanji": "堂"
+    },
+    {
+      "id": "voronina-word-282",
+      "term": "漢方",
+      "reading": "かんぽう",
+      "ru": "китайская медицина",
+      "en": "китайская медицина",
+      "sourceKanji": "漢"
     }
   ],
   "sets": [
@@ -9882,7 +12138,290 @@ window.IDJLT_KANJI = {
         "voronina-kanji-285",
         "voronina-kanji-286"
       ],
-      "wordIds": []
+      "wordIds": [
+        "voronina-word-1",
+        "voronina-word-2",
+        "voronina-word-3",
+        "voronina-word-4",
+        "voronina-word-5",
+        "voronina-word-6",
+        "voronina-word-7",
+        "voronina-word-8",
+        "voronina-word-9",
+        "voronina-word-10",
+        "voronina-word-11",
+        "voronina-word-12",
+        "voronina-word-13",
+        "voronina-word-14",
+        "voronina-word-15",
+        "voronina-word-16",
+        "voronina-word-17",
+        "voronina-word-18",
+        "voronina-word-19",
+        "voronina-word-20",
+        "voronina-word-21",
+        "voronina-word-22",
+        "voronina-word-23",
+        "voronina-word-24",
+        "voronina-word-25",
+        "voronina-word-26",
+        "voronina-word-27",
+        "voronina-word-28",
+        "voronina-word-29",
+        "voronina-word-30",
+        "voronina-word-31",
+        "voronina-word-32",
+        "voronina-word-33",
+        "voronina-word-34",
+        "voronina-word-35",
+        "voronina-word-36",
+        "voronina-word-37",
+        "voronina-word-38",
+        "voronina-word-39",
+        "voronina-word-40",
+        "voronina-word-41",
+        "voronina-word-42",
+        "voronina-word-43",
+        "voronina-word-44",
+        "voronina-word-45",
+        "voronina-word-46",
+        "voronina-word-47",
+        "voronina-word-48",
+        "voronina-word-49",
+        "voronina-word-50",
+        "voronina-word-51",
+        "voronina-word-52",
+        "voronina-word-53",
+        "voronina-word-54",
+        "voronina-word-55",
+        "voronina-word-56",
+        "voronina-word-57",
+        "voronina-word-58",
+        "voronina-word-59",
+        "voronina-word-60",
+        "voronina-word-61",
+        "voronina-word-62",
+        "voronina-word-63",
+        "voronina-word-64",
+        "voronina-word-65",
+        "voronina-word-66",
+        "voronina-word-67",
+        "voronina-word-68",
+        "voronina-word-69",
+        "voronina-word-70",
+        "voronina-word-71",
+        "voronina-word-72",
+        "voronina-word-73",
+        "voronina-word-74",
+        "voronina-word-75",
+        "voronina-word-76",
+        "voronina-word-77",
+        "voronina-word-78",
+        "voronina-word-79",
+        "voronina-word-80",
+        "voronina-word-81",
+        "voronina-word-82",
+        "voronina-word-83",
+        "voronina-word-84",
+        "voronina-word-85",
+        "voronina-word-86",
+        "voronina-word-87",
+        "voronina-word-88",
+        "voronina-word-89",
+        "voronina-word-90",
+        "voronina-word-91",
+        "voronina-word-92",
+        "voronina-word-93",
+        "voronina-word-94",
+        "voronina-word-95",
+        "voronina-word-96",
+        "voronina-word-97",
+        "voronina-word-98",
+        "voronina-word-99",
+        "voronina-word-100",
+        "voronina-word-101",
+        "voronina-word-102",
+        "voronina-word-103",
+        "voronina-word-104",
+        "voronina-word-105",
+        "voronina-word-106",
+        "voronina-word-107",
+        "voronina-word-108",
+        "voronina-word-109",
+        "voronina-word-110",
+        "voronina-word-111",
+        "voronina-word-112",
+        "voronina-word-113",
+        "voronina-word-114",
+        "voronina-word-115",
+        "voronina-word-116",
+        "voronina-word-117",
+        "voronina-word-118",
+        "voronina-word-119",
+        "voronina-word-120",
+        "voronina-word-121",
+        "voronina-word-122",
+        "voronina-word-123",
+        "voronina-word-124",
+        "voronina-word-125",
+        "voronina-word-126",
+        "voronina-word-127",
+        "voronina-word-128",
+        "voronina-word-129",
+        "voronina-word-130",
+        "voronina-word-131",
+        "voronina-word-132",
+        "voronina-word-133",
+        "voronina-word-134",
+        "voronina-word-135",
+        "voronina-word-136",
+        "voronina-word-137",
+        "voronina-word-138",
+        "voronina-word-139",
+        "voronina-word-140",
+        "voronina-word-141",
+        "voronina-word-142",
+        "voronina-word-143",
+        "voronina-word-144",
+        "voronina-word-145",
+        "voronina-word-146",
+        "voronina-word-147",
+        "voronina-word-148",
+        "voronina-word-149",
+        "voronina-word-150",
+        "voronina-word-151",
+        "voronina-word-152",
+        "voronina-word-153",
+        "voronina-word-154",
+        "voronina-word-155",
+        "voronina-word-156",
+        "voronina-word-157",
+        "voronina-word-158",
+        "voronina-word-159",
+        "voronina-word-160",
+        "voronina-word-161",
+        "voronina-word-162",
+        "voronina-word-163",
+        "voronina-word-164",
+        "voronina-word-165",
+        "voronina-word-166",
+        "voronina-word-167",
+        "voronina-word-168",
+        "voronina-word-169",
+        "voronina-word-170",
+        "voronina-word-171",
+        "voronina-word-172",
+        "voronina-word-173",
+        "voronina-word-174",
+        "voronina-word-175",
+        "voronina-word-176",
+        "voronina-word-177",
+        "voronina-word-178",
+        "voronina-word-179",
+        "voronina-word-180",
+        "voronina-word-181",
+        "voronina-word-182",
+        "voronina-word-183",
+        "voronina-word-184",
+        "voronina-word-185",
+        "voronina-word-186",
+        "voronina-word-187",
+        "voronina-word-188",
+        "voronina-word-189",
+        "voronina-word-190",
+        "voronina-word-191",
+        "voronina-word-192",
+        "voronina-word-193",
+        "voronina-word-194",
+        "voronina-word-195",
+        "voronina-word-196",
+        "voronina-word-197",
+        "voronina-word-198",
+        "voronina-word-199",
+        "voronina-word-200",
+        "voronina-word-201",
+        "voronina-word-202",
+        "voronina-word-203",
+        "voronina-word-204",
+        "voronina-word-205",
+        "voronina-word-206",
+        "voronina-word-207",
+        "voronina-word-208",
+        "voronina-word-209",
+        "voronina-word-210",
+        "voronina-word-211",
+        "voronina-word-212",
+        "voronina-word-213",
+        "voronina-word-214",
+        "voronina-word-215",
+        "voronina-word-216",
+        "voronina-word-217",
+        "voronina-word-218",
+        "voronina-word-219",
+        "voronina-word-220",
+        "voronina-word-221",
+        "voronina-word-222",
+        "voronina-word-223",
+        "voronina-word-224",
+        "voronina-word-225",
+        "voronina-word-226",
+        "voronina-word-227",
+        "voronina-word-228",
+        "voronina-word-229",
+        "voronina-word-230",
+        "voronina-word-231",
+        "voronina-word-232",
+        "voronina-word-233",
+        "voronina-word-234",
+        "voronina-word-235",
+        "voronina-word-236",
+        "voronina-word-237",
+        "voronina-word-238",
+        "voronina-word-239",
+        "voronina-word-240",
+        "voronina-word-241",
+        "voronina-word-242",
+        "voronina-word-243",
+        "voronina-word-244",
+        "voronina-word-245",
+        "voronina-word-246",
+        "voronina-word-247",
+        "voronina-word-248",
+        "voronina-word-249",
+        "voronina-word-250",
+        "voronina-word-251",
+        "voronina-word-252",
+        "voronina-word-253",
+        "voronina-word-254",
+        "voronina-word-255",
+        "voronina-word-256",
+        "voronina-word-257",
+        "voronina-word-258",
+        "voronina-word-259",
+        "voronina-word-260",
+        "voronina-word-261",
+        "voronina-word-262",
+        "voronina-word-263",
+        "voronina-word-264",
+        "voronina-word-265",
+        "voronina-word-266",
+        "voronina-word-267",
+        "voronina-word-268",
+        "voronina-word-269",
+        "voronina-word-270",
+        "voronina-word-271",
+        "voronina-word-272",
+        "voronina-word-273",
+        "voronina-word-274",
+        "voronina-word-275",
+        "voronina-word-276",
+        "voronina-word-277",
+        "voronina-word-278",
+        "voronina-word-279",
+        "voronina-word-280",
+        "voronina-word-281",
+        "voronina-word-282"
+      ]
     }
   ]
 };
