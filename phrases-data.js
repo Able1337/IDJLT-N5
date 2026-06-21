@@ -152,5 +152,95 @@ window.IDJLT_PHRASES = [
     en: "Have you had lunch yet?\n— Not yet. I am going to eat now.",
     jp: "もう ひるごはんを たべましたか。\n— いいえ、まだです。これから たべます。",
     romaji: "Mou hirugohan o tabemashita ka.\n— iie, mada desu. Kore kara tabemasu."
+  },
+  {
+    id: "lesson7-v2-phrase-1",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "В России не едят палочками. Используют вилку, ложку и нож.",
+    en: "In Russia, people do not eat with chopsticks. They use a fork, spoon, and knife.",
+    jp: "ロシアで はしで たべません。\nフォークと スプーンと ナイフを つかいます。",
+    romaji: "Roshia de hashi de tabemasen.\nFooku to supuun to naifu o tsukaimasu."
+  },
+  {
+    id: "lesson7-v2-phrase-2",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Я сфотографировал кошку на мобильный телефон сестры.",
+    en: "I took a photo of a cat with my older sister's mobile phone.",
+    jp: "私は あねのケータイで ねこのしゃしんを とりました。",
+    romaji: "Watashi wa ane no keetai de neko no shashin o torimashita."
+  },
+  {
+    id: "lesson7-v2-phrase-3",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Сколько часов лететь до Токио на самолёте?",
+    en: "How many hours does it take to fly to Tokyo?",
+    jp: "とうきょうまで ひこうきで なんじかんですか。",
+    romaji: "Toukyou made hikouki de nanjikan desu ka."
+  },
+  {
+    id: "lesson7-v2-phrase-4",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Как сказать «степлер» по-японски?",
+    en: "How do you say 'stapler' in Japanese?",
+    jp: "「степлер」は 日本語で なんですか。",
+    romaji: "'Stepler' wa nihongo de nan desu ka."
+  },
+  {
+    id: "lesson7-v2-phrase-5",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Как будет «ластик» и «дырокол» по-испански?",
+    en: "How do you say 'eraser' and 'hole punch' in Spanish?",
+    jp: "「ластик」と「дырокол」は スペイン語で なんですか。",
+    romaji: "'Lastik' to 'dyrokol' wa supeingo de nan desu ka."
+  },
+  {
+    id: "lesson7-v2-phrase-6",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Как сказать «спасибо» по-китайски?",
+    en: "How do you say 'thank you' in Chinese?",
+    jp: "「спасибо」は ちゅうごく語で なんですか。",
+    romaji: "'Spasibo' wa chuugokugo de nan desu ka."
+  },
+  {
+    id: "lesson7-v2-phrase-7",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Что ты в прошлом году подарил отцу на день рождения?\n— Я подарил открытку и шарф.",
+    en: "What did you give your father for his birthday last year?\n— I gave him a postcard and a scarf.",
+    jp: "きょねん 父のたんじょうびに なにを あげましたか。\n— 私は はがきと マフラーを あげました。",
+    romaji: "Kyonen chichi no tanjoubi ni nani o agemashita ka.\n— Watashi wa hagaki to mafuraa o agemashita."
+  },
+  {
+    id: "lesson7-v2-phrase-8",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Кто дал тебе эту книгу на итальянском языке?\n— Я получил её от учителя.",
+    en: "Who gave you this Italian-language book?\n— I received it from my teacher.",
+    jp: "だれが あなたに このイタリア語のほんを あげましたか。\nあなたは だれに このイタリア語のほんを もらいましたか。\n— 先生に もらいました。",
+    romaji: "Dare ga anata ni kono itariago no hon o agemashita ka.\nAnata wa dare ni kono itariago no hon o moraimashita ka.\n— Sensei ni moraimashita."
+  },
+  {
+    id: "lesson7-v2-phrase-9",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Этот галстук и рубашку я получил от мамы.",
+    en: "I received this tie and shirt from my mother.",
+    jp: "私は ははに このネクタイとシャツを もらいました。",
+    romaji: "Watashi wa haha ni kono nekutai to shatsu o moraimashita."
+  },
+  {
+    id: "lesson7-v2-phrase-10",
+    setId: "lesson7-v2",
+    setTitle: { ru: "Урок 7 — Ver. 2", en: "Lesson 7 — Ver. 2" },
+    ru: "Я подарил младшему брату новый смартфон.",
+    en: "I gave my younger brother a new smartphone.",
+    jp: "私は おとうとに あたらしいスマホを あげました。",
+    romaji: "Watashi wa otouto ni atarashii sumaho o agemashita."
   }
 ];

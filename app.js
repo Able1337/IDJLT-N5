@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.16.11";
+const APP_VERSION = "0.17.0";
 const APP_RELEASE_DATE = "2026-06-21";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -392,17 +392,19 @@ function phraseSets() {
   const grouped = new Map();
   PHRASES_DATA.forEach(item => {
     const match = item.id.match(/^lesson(\d+)-/);
-    const id = match ? `lesson${match[1]}` : "other";
-    if (!grouped.has(id)) grouped.set(id, []);
-    grouped.get(id).push(item);
+    const id = item.setId || (match ? `lesson${match[1]}` : "other");
+    if (!grouped.has(id)) grouped.set(id, { items: [], title: item.setTitle || null });
+    const group = grouped.get(id);
+    if (!group.title && item.setTitle) group.title = item.setTitle;
+    group.items.push(item);
   });
-  return [...grouped.entries()].map(([id, items]) => ({
+  return [...grouped.entries()].map(([id, group]) => ({
     id,
-    title: id === "other" ? { ru: "Другое", en: "Other" } : { ru: `Урок ${id.replace("lesson", "")}`, en: `Lesson ${id.replace("lesson", "")}` },
-    items
+    title: group.title || (id === "other" ? { ru: "Другое", en: "Other" } : { ru: `Урок ${id.replace("lesson", "")}`, en: `Lesson ${id.replace("lesson", "")}` }),
+    items: group.items
   })).sort((a, b) => {
-    const an = Number(a.id.replace("lesson", "")) || 999;
-    const bn = Number(b.id.replace("lesson", "")) || 999;
+    const an = Number(a.id.match(/^lesson(\d+)/)?.[1]) || 999;
+    const bn = Number(b.id.match(/^lesson(\d+)/)?.[1]) || 999;
     return an - bn || a.id.localeCompare(b.id);
   });
 }

@@ -933,52 +933,41 @@ window.IDJLT_KANJI = {
       "kanji": "日",
       "meaning": "день; солнце",
       "readings": [
-        "にほんじん",
-        "げつようび",
-        "もくようび",
-        "すいようび",
-        "きんようび",
-        "かようび",
-        "どようび"
+        "ひ",
+        "び",
+        "か",
+        "ニチ",
+        "ニ",
+        "ジツ"
       ],
       "examples": [
         {
-          "term": "日本人",
-          "reading": "にほんじん",
-          "ru": "японец",
-          "en": "Japanese person"
+          "term": "雨の日",
+          "reading": "あめのひ",
+          "ru": "дождливый день",
+          "en": "rainy day"
         },
         {
-          "term": "月曜日",
-          "reading": "げつようび",
-          "ru": "Понедельник",
-          "en": "Monday"
+          "term": "日本語",
+          "reading": "にほんご",
+          "ru": "японский язык",
+          "en": "Japanese language"
         },
         {
-          "term": "木曜日",
-          "reading": "もくようび",
-          "ru": "Четверг",
-          "en": "Thursday"
-        },
-        {
-          "term": "水曜日",
-          "reading": "すいようび",
-          "ru": "Среда",
-          "en": "Wednesday"
-        },
-        {
-          "term": "金曜日",
-          "reading": "きんようび",
-          "ru": "Пятница",
-          "en": "Friday"
+          "term": "日曜日",
+          "reading": "にちようび",
+          "ru": "воскресенье",
+          "en": "Sunday"
         }
       ],
       "kun": [
         "ひ",
+        "び",
         "か"
       ],
       "on": [
         "ニチ",
+        "ニ",
         "ジツ"
       ],
       "meaningEn": "day; sun"
@@ -2988,8 +2977,8 @@ window.IDJLT_KANJI = {
         {
           "term": "彼女",
           "reading": "かのじょ",
-          "ru": "она; девушка",
-          "en": "she; girlfriend"
+          "ru": "девушка; возлюбленная",
+          "en": "girlfriend; beloved"
         }
       ],
       "kun": [
@@ -3166,6 +3155,7 @@ window.IDJLT_KANJI = {
       "meaning": "рисовое поле",
       "readings": [
         "た",
+        "だ",
         "デン"
       ],
       "examples": [
@@ -3177,7 +3167,8 @@ window.IDJLT_KANJI = {
         }
       ],
       "kun": [
-        "た"
+        "た",
+        "だ"
       ],
       "on": [
         "デン"
@@ -4389,8 +4380,8 @@ window.IDJLT_KANJI = {
         {
           "term": "電車",
           "reading": "でんしゃ",
-          "ru": "электричка; поезд",
-          "en": "train"
+          "ru": "электрический поезд",
+          "en": "electric train"
         }
       ],
       "kun": [
@@ -6647,20 +6638,20 @@ window.IDJLT_KANJI = {
       "meaning": "нравиться; любить",
       "readings": [
         "すき",
-        "このむ",
+        "すく",
         "コウ"
       ],
       "examples": [
         {
           "term": "好きな",
           "reading": "すきな",
-          "ru": "любимый; нравящийся",
-          "en": "favorite; liked"
+          "ru": "любимый",
+          "en": "favorite"
         }
       ],
       "kun": [
         "すき",
-        "このむ"
+        "すく"
       ],
       "on": [
         "コウ"
@@ -7297,7 +7288,6 @@ window.IDJLT_KANJI = {
       "meaning": "отдых; отдыхать",
       "readings": [
         "やすむ",
-        "やすみ",
         "キュウ"
       ],
       "examples": [
@@ -7310,8 +7300,8 @@ window.IDJLT_KANJI = {
         {
           "term": "休み",
           "reading": "やすみ",
-          "ru": "отдых; выходной",
-          "en": "rest; day off"
+          "ru": "отдых",
+          "en": "rest"
         },
         {
           "term": "休日",
@@ -7321,8 +7311,7 @@ window.IDJLT_KANJI = {
         }
       ],
       "kun": [
-        "やすむ",
-        "やすみ"
+        "やすむ"
       ],
       "on": [
         "キュウ"
@@ -7487,8 +7476,8 @@ window.IDJLT_KANJI = {
         {
           "term": "雨天",
           "reading": "うてん",
-          "ru": "дождливая погода",
-          "en": "rainy weather"
+          "ru": "дождливый день",
+          "en": "rainy day"
         }
       ],
       "kun": [
@@ -11644,8 +11633,8 @@ window.IDJLT_KANJI = {
       "id": "base-sheet-word-5",
       "term": "電車",
       "reading": "でんしゃ",
-      "ru": "электричка; поезд",
-      "en": "train",
+      "ru": "электрический поезд",
+      "en": "electric train",
       "sourceKanji": "車"
     },
     {
@@ -11668,16 +11657,16 @@ window.IDJLT_KANJI = {
       "id": "base-sheet-word-8",
       "term": "彼女",
       "reading": "かのじょ",
-      "ru": "она; девушка",
-      "en": "she; girlfriend",
+      "ru": "девушка; возлюбленная",
+      "en": "girlfriend; beloved",
       "sourceKanji": "女"
     },
     {
       "id": "base-sheet-word-9",
       "term": "好きな",
       "reading": "すきな",
-      "ru": "любимый; нравящийся",
-      "en": "favorite; liked",
+      "ru": "любимый",
+      "en": "favorite",
       "sourceKanji": "好"
     },
     {
@@ -11708,8 +11697,8 @@ window.IDJLT_KANJI = {
       "id": "base-sheet-word-13",
       "term": "休み",
       "reading": "やすみ",
-      "ru": "отдых; выходной",
-      "en": "rest; day off",
+      "ru": "отдых",
+      "en": "rest",
       "sourceKanji": "休"
     },
     {
@@ -11732,9 +11721,33 @@ window.IDJLT_KANJI = {
       "id": "base-sheet-word-16",
       "term": "雨天",
       "reading": "うてん",
-      "ru": "дождливая погода",
-      "en": "rainy weather",
+      "ru": "дождливый день",
+      "en": "rainy day",
       "sourceKanji": "雨"
+    },
+    {
+      "id": "base-sheet-word-17",
+      "term": "雨の日",
+      "reading": "あめのひ",
+      "ru": "дождливый день",
+      "en": "rainy day",
+      "sourceKanji": "日"
+    },
+    {
+      "id": "base-sheet-word-18",
+      "term": "日本語",
+      "reading": "にほんご",
+      "ru": "японский язык",
+      "en": "Japanese language",
+      "sourceKanji": "日"
+    },
+    {
+      "id": "base-sheet-word-19",
+      "term": "日曜日",
+      "reading": "にちようび",
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "sourceKanji": "日"
     }
   ],
   "sets": [
@@ -11906,7 +11919,10 @@ window.IDJLT_KANJI = {
         "base-sheet-word-13",
         "base-sheet-word-14",
         "base-sheet-word-15",
-        "base-sheet-word-16"
+        "base-sheet-word-16",
+        "base-sheet-word-17",
+        "base-sheet-word-18",
+        "base-sheet-word-19"
       ]
     },
     {
