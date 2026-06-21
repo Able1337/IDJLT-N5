@@ -2980,10 +2980,16 @@ window.IDJLT_KANJI = {
       ],
       "examples": [
         {
-          "term": "長女",
-          "reading": "ちょうじょ",
-          "ru": "старшая дочь",
-          "en": "старшая дочь"
+          "term": "女の人",
+          "reading": "おんなのひと",
+          "ru": "женщина",
+          "en": "woman"
+        },
+        {
+          "term": "彼女",
+          "reading": "かのじょ",
+          "ru": "она; девушка",
+          "en": "she; girlfriend"
         }
       ],
       "kun": [
@@ -2992,7 +2998,7 @@ window.IDJLT_KANJI = {
       "on": [
         "ジョ"
       ],
-      "meaningEn": "женщина"
+      "meaningEn": "woman"
     },
     {
       "id": "voronina-kanji-55",
@@ -3157,17 +3163,17 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-61",
       "kanji": "田",
-      "meaning": "поле",
+      "meaning": "рисовое поле",
       "readings": [
         "た",
         "デン"
       ],
       "examples": [
         {
-          "term": "田地",
-          "reading": "でんじ",
-          "ru": "поля, обрабатываемая земля",
-          "en": "поля, обрабатываемая земля"
+          "term": "田んぼ",
+          "reading": "たんぼ",
+          "ru": "рисовое поле",
+          "en": "rice field"
         }
       ],
       "kun": [
@@ -3176,7 +3182,7 @@ window.IDJLT_KANJI = {
       "on": [
         "デン"
       ],
-      "meaningEn": "поле"
+      "meaningEn": "rice field"
     },
     {
       "id": "voronina-kanji-62",
@@ -4368,17 +4374,23 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-111",
       "kanji": "車",
-      "meaning": "машина",
+      "meaning": "автомобиль; машина",
       "readings": [
         "くるま",
         "シャ"
       ],
       "examples": [
         {
-          "term": "風車",
-          "reading": "かぜぐるま",
-          "ru": "мельница",
-          "en": "мельница"
+          "term": "車",
+          "reading": "くるま",
+          "ru": "машина",
+          "en": "car"
+        },
+        {
+          "term": "電車",
+          "reading": "でんしゃ",
+          "ru": "электричка; поезд",
+          "en": "train"
         }
       ],
       "kun": [
@@ -4387,7 +4399,7 @@ window.IDJLT_KANJI = {
       "on": [
         "シャ"
       ],
-      "meaningEn": "машина"
+      "meaningEn": "car; vehicle"
     },
     {
       "id": "voronina-kanji-112",
@@ -4633,26 +4645,40 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-122",
       "kanji": "口",
-      "meaning": "1) рот 2) речь 3) отверстие",
+      "meaning": "рот; отверстие",
       "readings": [
         "くち",
+        "ぐち",
         "コウ"
       ],
       "examples": [
         {
-          "term": "口語",
-          "reading": "こうご",
-          "ru": "разговорный язык",
-          "en": "разговорный язык"
+          "term": "口",
+          "reading": "くち",
+          "ru": "рот",
+          "en": "mouth"
+        },
+        {
+          "term": "入口",
+          "reading": "いりぐち",
+          "ru": "вход",
+          "en": "entrance"
+        },
+        {
+          "term": "出口",
+          "reading": "でぐち",
+          "ru": "выход",
+          "en": "exit"
         }
       ],
       "kun": [
-        "くち"
+        "くち",
+        "ぐち"
       ],
       "on": [
         "コウ"
       ],
-      "meaningEn": "1) рот 2) речь 3) отверстие"
+      "meaningEn": "mouth; opening"
     },
     {
       "id": "voronina-kanji-123",
@@ -6267,17 +6293,23 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-189",
       "kanji": "森",
-      "meaning": "чаща, лес",
+      "meaning": "лес",
       "readings": [
         "もり",
         "シン"
       ],
       "examples": [
         {
+          "term": "森",
+          "reading": "もり",
+          "ru": "лес",
+          "en": "forest"
+        },
+        {
           "term": "森林",
           "reading": "しんりん",
           "ru": "лес",
-          "en": "лес"
+          "en": "forest"
         }
       ],
       "kun": [
@@ -6286,7 +6318,7 @@ window.IDJLT_KANJI = {
       "on": [
         "シン"
       ],
-      "meaningEn": "чаща, лес"
+      "meaningEn": "forest"
     },
     {
       "id": "voronina-kanji-190",
@@ -6336,17 +6368,17 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-192",
       "kanji": "林",
-      "meaning": "роща",
+      "meaning": "лес; роща",
       "readings": [
         "はやし",
         "リン"
       ],
       "examples": [
         {
-          "term": "林業",
-          "reading": "りんぎょう",
-          "ru": "лесоводство",
-          "en": "лесоводство"
+          "term": "林",
+          "reading": "はやし",
+          "ru": "лес; роща",
+          "en": "woods; grove"
         }
       ],
       "kun": [
@@ -6355,7 +6387,7 @@ window.IDJLT_KANJI = {
       "on": [
         "リン"
       ],
-      "meaningEn": "роща"
+      "meaningEn": "woods; grove"
     },
     {
       "id": "voronina-kanji-193",
@@ -6612,7 +6644,7 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-204",
       "kanji": "好",
-      "meaning": "нравиться, любить",
+      "meaning": "нравиться; любить",
       "readings": [
         "すき",
         "このむ",
@@ -6620,10 +6652,10 @@ window.IDJLT_KANJI = {
       ],
       "examples": [
         {
-          "term": "友好",
-          "reading": "ゆうこう",
-          "ru": "дружба",
-          "en": "дружба"
+          "term": "好きな",
+          "reading": "すきな",
+          "ru": "любимый; нравящийся",
+          "en": "favorite; liked"
         }
       ],
       "kun": [
@@ -6633,7 +6665,7 @@ window.IDJLT_KANJI = {
       "on": [
         "コウ"
       ],
-      "meaningEn": "нравиться, любить"
+      "meaningEn": "like; love"
     },
     {
       "id": "voronina-kanji-205",
@@ -7075,10 +7107,10 @@ window.IDJLT_KANJI = {
       ],
       "examples": [
         {
-          "term": "門口",
-          "reading": "かどぐち",
-          "ru": "подъезд",
-          "en": "подъезд"
+          "term": "門",
+          "reading": "もん",
+          "ru": "ворота",
+          "en": "gate"
         }
       ],
       "kun": [
@@ -7087,7 +7119,7 @@ window.IDJLT_KANJI = {
       "on": [
         "モン"
       ],
-      "meaningEn": "ворота"
+      "meaningEn": "gate"
     },
     {
       "id": "voronina-kanji-224",
@@ -7262,26 +7294,40 @@ window.IDJLT_KANJI = {
     {
       "id": "voronina-kanji-231",
       "kanji": "休",
-      "meaning": "отдыхать",
+      "meaning": "отдых; отдыхать",
       "readings": [
         "やすむ",
+        "やすみ",
         "キュウ"
       ],
       "examples": [
         {
-          "term": "お休みなさい",
-          "reading": "おやすみなさい",
-          "ru": "спокойной ночи",
-          "en": "спокойной ночи"
+          "term": "休みます",
+          "reading": "やすみます",
+          "ru": "отдыхать",
+          "en": "rest; take a break"
+        },
+        {
+          "term": "休み",
+          "reading": "やすみ",
+          "ru": "отдых; выходной",
+          "en": "rest; day off"
+        },
+        {
+          "term": "休日",
+          "reading": "きゅうじつ",
+          "ru": "выходной день",
+          "en": "holiday; day off"
         }
       ],
       "kun": [
-        "やすむ"
+        "やすむ",
+        "やすみ"
       ],
       "on": [
         "キュウ"
       ],
-      "meaningEn": "отдыхать"
+      "meaningEn": "rest; take a break"
     },
     {
       "id": "voronina-kanji-232",
@@ -7433,10 +7479,16 @@ window.IDJLT_KANJI = {
       ],
       "examples": [
         {
-          "term": "大雨",
-          "reading": "おおあめ、たいう",
-          "ru": "ливень",
-          "en": "ливень"
+          "term": "雨",
+          "reading": "あめ",
+          "ru": "дождь",
+          "en": "rain"
+        },
+        {
+          "term": "雨天",
+          "reading": "うてん",
+          "ru": "дождливая погода",
+          "en": "rainy weather"
         }
       ],
       "kun": [
@@ -7445,7 +7497,7 @@ window.IDJLT_KANJI = {
       "on": [
         "ウ"
       ],
-      "meaningEn": "дождь"
+      "meaningEn": "rain"
     },
     {
       "id": "voronina-kanji-239",
@@ -11555,6 +11607,134 @@ window.IDJLT_KANJI = {
       "ru": "китайская медицина",
       "en": "китайская медицина",
       "sourceKanji": "漢"
+    },
+    {
+      "id": "base-sheet-word-1",
+      "term": "田んぼ",
+      "reading": "たんぼ",
+      "ru": "рисовое поле",
+      "en": "rice field",
+      "sourceKanji": "田"
+    },
+    {
+      "id": "base-sheet-word-2",
+      "term": "口",
+      "reading": "くち",
+      "ru": "рот",
+      "en": "mouth",
+      "sourceKanji": "口"
+    },
+    {
+      "id": "base-sheet-word-3",
+      "term": "入口",
+      "reading": "いりぐち",
+      "ru": "вход",
+      "en": "entrance",
+      "sourceKanji": "口"
+    },
+    {
+      "id": "base-sheet-word-4",
+      "term": "車",
+      "reading": "くるま",
+      "ru": "машина",
+      "en": "car",
+      "sourceKanji": "車"
+    },
+    {
+      "id": "base-sheet-word-5",
+      "term": "電車",
+      "reading": "でんしゃ",
+      "ru": "электричка; поезд",
+      "en": "train",
+      "sourceKanji": "車"
+    },
+    {
+      "id": "base-sheet-word-6",
+      "term": "門",
+      "reading": "もん",
+      "ru": "ворота",
+      "en": "gate",
+      "sourceKanji": "門"
+    },
+    {
+      "id": "base-sheet-word-7",
+      "term": "女の人",
+      "reading": "おんなのひと",
+      "ru": "женщина",
+      "en": "woman",
+      "sourceKanji": "女"
+    },
+    {
+      "id": "base-sheet-word-8",
+      "term": "彼女",
+      "reading": "かのじょ",
+      "ru": "она; девушка",
+      "en": "she; girlfriend",
+      "sourceKanji": "女"
+    },
+    {
+      "id": "base-sheet-word-9",
+      "term": "好きな",
+      "reading": "すきな",
+      "ru": "любимый; нравящийся",
+      "en": "favorite; liked",
+      "sourceKanji": "好"
+    },
+    {
+      "id": "base-sheet-word-10",
+      "term": "林",
+      "reading": "はやし",
+      "ru": "лес; роща",
+      "en": "woods; grove",
+      "sourceKanji": "林"
+    },
+    {
+      "id": "base-sheet-word-11",
+      "term": "森",
+      "reading": "もり",
+      "ru": "лес",
+      "en": "forest",
+      "sourceKanji": "森"
+    },
+    {
+      "id": "base-sheet-word-12",
+      "term": "休みます",
+      "reading": "やすみます",
+      "ru": "отдыхать",
+      "en": "rest; take a break",
+      "sourceKanji": "休"
+    },
+    {
+      "id": "base-sheet-word-13",
+      "term": "休み",
+      "reading": "やすみ",
+      "ru": "отдых; выходной",
+      "en": "rest; day off",
+      "sourceKanji": "休"
+    },
+    {
+      "id": "base-sheet-word-14",
+      "term": "休日",
+      "reading": "きゅうじつ",
+      "ru": "выходной день",
+      "en": "holiday; day off",
+      "sourceKanji": "休"
+    },
+    {
+      "id": "base-sheet-word-15",
+      "term": "雨",
+      "reading": "あめ",
+      "ru": "дождь",
+      "en": "rain",
+      "sourceKanji": "雨"
+    },
+    {
+      "id": "base-sheet-word-16",
+      "term": "雨天",
+      "reading": "うてん",
+      "ru": "дождливая погода",
+      "en": "rainy weather",
+      "sourceKanji": "雨"
     }
   ],
   "sets": [
@@ -11605,7 +11785,17 @@ window.IDJLT_KANJI = {
         "kanji-single-37",
         "kanji-single-38",
         "kanji-single-39",
-        "kanji-single-40"
+        "kanji-single-40",
+        "voronina-kanji-61",
+        "voronina-kanji-122",
+        "voronina-kanji-111",
+        "voronina-kanji-223",
+        "voronina-kanji-54",
+        "voronina-kanji-204",
+        "voronina-kanji-192",
+        "voronina-kanji-189",
+        "voronina-kanji-231",
+        "voronina-kanji-238"
       ],
       "wordIds": [
         "kanji-word-0",
@@ -11698,7 +11888,25 @@ window.IDJLT_KANJI = {
         "kanji-word-87",
         "kanji-word-88",
         "kanji-word-89",
-        "kanji-word-90"
+        "kanji-word-90",
+        "base-sheet-word-1",
+        "base-sheet-word-2",
+        "base-sheet-word-3",
+        "voronina-word-11",
+        "base-sheet-word-4",
+        "base-sheet-word-5",
+        "base-sheet-word-6",
+        "base-sheet-word-7",
+        "base-sheet-word-8",
+        "base-sheet-word-9",
+        "base-sheet-word-10",
+        "base-sheet-word-11",
+        "voronina-word-188",
+        "base-sheet-word-12",
+        "base-sheet-word-13",
+        "base-sheet-word-14",
+        "base-sheet-word-15",
+        "base-sheet-word-16"
       ]
     },
     {
