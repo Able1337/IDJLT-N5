@@ -9450,7 +9450,7 @@ window.IDJLT_KANJI = {
       "term": "今日",
       "reading": "きょう",
       "ru": "сегодня",
-      "en": "сегодня",
+      "en": "today",
       "sourceKanji": "今"
     },
     {
@@ -11748,6 +11748,46 @@ window.IDJLT_KANJI = {
       "ru": "воскресенье",
       "en": "Sunday",
       "sourceKanji": "日"
+    },
+    {
+      "id": "base-card-v1-word-1",
+      "term": "百",
+      "reading": "ひゃく",
+      "ru": "сто",
+      "en": "hundred",
+      "sourceKanji": "百"
+    },
+    {
+      "id": "base-card-v1-word-2",
+      "term": "大学生",
+      "reading": "だいがくせい",
+      "ru": "студент университета",
+      "en": "university student",
+      "sourceKanji": "学"
+    },
+    {
+      "id": "base-card-v1-word-3",
+      "term": "日本語学校",
+      "reading": "にほんごがっこう",
+      "ru": "школа японского языка",
+      "en": "Japanese language school",
+      "sourceKanji": "校"
+    },
+    {
+      "id": "base-card-v1-word-4",
+      "term": "好きな食べ物",
+      "reading": "すきなたべもの",
+      "ru": "любимая еда",
+      "en": "favorite food",
+      "sourceKanji": "好"
+    },
+    {
+      "id": "base-card-v1-word-5",
+      "term": "友だち",
+      "reading": "ともだち",
+      "ru": "друг",
+      "en": "friend",
+      "sourceKanji": "友"
     }
   ],
   "sets": [
@@ -11922,7 +11962,13 @@ window.IDJLT_KANJI = {
         "base-sheet-word-16",
         "base-sheet-word-17",
         "base-sheet-word-18",
-        "base-sheet-word-19"
+        "base-sheet-word-19",
+        "base-card-v1-word-1",
+        "base-card-v1-word-2",
+        "base-card-v1-word-3",
+        "base-card-v1-word-4",
+        "base-card-v1-word-5",
+        "voronina-word-14"
       ]
     },
     {
