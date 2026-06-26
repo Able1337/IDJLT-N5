@@ -494,13 +494,15 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 
 .interview-audio-panel {
   display: grid;
-  grid-template-columns: 1fr repeat(3, auto);
+  grid-template-columns: 1fr 1fr repeat(3, auto);
   gap: 8px;
   align-items: center;
   margin-top: 12px;
 }
 
-.interview-speed {
+.interview-speed,
+.interview-volume,
+.audio-volume {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -508,9 +510,38 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   font-weight: 800;
 }
 
+.interview-volume input,
+.audio-volume input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
 .interview-audio-panel audio {
   grid-column: 1 / -1;
   width: 100%;
+}
+
+.interview-answer-example {
+  display: grid;
+  gap: 6px;
+}
+
+.interview-answer-example p {
+  margin: 0;
+}
+
+.jp-answer {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.kana-answer {
+  color: var(--accent);
+  font-weight: 750;
+}
+
+.translation-answer {
+  color: var(--muted);
 }
 
 .interview-word-grid {
@@ -956,6 +987,11 @@ th { color: var(--muted); font-size: 13px; }
   width: 100%;
   accent-color: var(--accent);
 }
+.audio-volume {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 2px;
+}
 .audio-controls {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1049,7 +1085,7 @@ th { color: var(--muted); font-size: 13px; }
   .interview-resource-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .interview-mode-row { grid-template-columns: 1fr 1fr; }
   .interview-audio-panel { grid-template-columns: 1fr 1fr; }
-  .interview-speed { grid-column: 1 / -1; }
+  .interview-speed, .interview-volume { grid-column: 1 / -1; }
   .interview-card { min-height: 260px; padding: 14px; }
   .interview-grammar li { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }

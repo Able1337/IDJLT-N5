@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.18.0";
+const APP_VERSION = "0.18.1";
 const APP_RELEASE_DATE = "2026-06-26";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -51,7 +51,7 @@ const I18N = {
     kanjiSet: "Набор", kanjiSets: "Наборы кандзи", kanjiMixed: "Кандзи + слова", kanjiSingles: "Только кандзи", kanjiWords: "Только слова", reverseKanji: "Обратный режим: вспомнить кандзи", cardKanji: "Кандзи", cardWord: "Слово"
     , kunReading: "Японское чтение (кун)", onReading: "Китайское чтение (он)", examples: "Примеры",
     phrasesSub: "Предложения и диалоги из уроков.", textbooksSub: "Открой учебник и слушай аудио рядом с PDF.", direction: "Направление",
-    openPdf: "Открыть PDF", cacheTextbook: "Сохранить в кеш", cacheReady: "Сохранено", caching: "Сохраняю...", audioTrack: "Дорожка", playAudio: "Пуск", pauseAudio: "Пауза", previousTrack: "Назад", nextTrack: "Дальше", rewind10: "-10 сек", rewind5: "-5 сек", rewind2: "-2 сек",
+    openPdf: "Открыть PDF", cacheTextbook: "Сохранить в кеш", cacheReady: "Сохранено", caching: "Сохраняю...", audioTrack: "Дорожка", audioVolume: "Громкость", playAudio: "Пуск", pauseAudio: "Пауза", previousTrack: "Назад", nextTrack: "Дальше", rewind10: "-10 сек", rewind5: "-5 сек", rewind2: "-2 сек",
     pdfPrev: "←", pdfNext: "→", pdfZoomOut: "−", pdfZoomIn: "+", pdfLoading: "Загружаю PDF...",
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
@@ -89,7 +89,7 @@ const I18N = {
     kanjiSet: "Set", kanjiSets: "Kanji sets", kanjiMixed: "Kanji + words", kanjiSingles: "Kanji only", kanjiWords: "Words only", reverseKanji: "Reverse mode: recall kanji", cardKanji: "Kanji", cardWord: "Word"
     , kunReading: "Japanese reading (kun)", onReading: "Chinese reading (on)", examples: "Examples",
     phrasesSub: "Sentences and dialogues from lessons.", textbooksSub: "Open a textbook and listen to audio next to the PDF.", direction: "Direction",
-    openPdf: "Open PDF", cacheTextbook: "Save to cache", cacheReady: "Saved", caching: "Saving...", audioTrack: "Track", playAudio: "Play", pauseAudio: "Pause", previousTrack: "Previous", nextTrack: "Next", rewind10: "-10 sec", rewind5: "-5 sec", rewind2: "-2 sec",
+    openPdf: "Open PDF", cacheTextbook: "Save to cache", cacheReady: "Saved", caching: "Saving...", audioTrack: "Track", audioVolume: "Volume", playAudio: "Play", pauseAudio: "Pause", previousTrack: "Previous", nextTrack: "Next", rewind10: "-10 sec", rewind5: "-5 sec", rewind2: "-2 sec",
     pdfPrev: "←", pdfNext: "→", pdfZoomOut: "−", pdfZoomIn: "+", pdfLoading: "Loading PDF...",
     ruToJp: "English → Japanese", jpToRu: "Japanese → English"
   }
@@ -132,6 +132,7 @@ const YOON = [
 let settings = loadSettings();
 settings.phrases ||= { direction: "native-jp" };
 settings.kanji = { mode: "single", reverse: false, ...(settings.kanji || {}) };
+settings.audioVolume ??= 1;
 let session = null;
 let cards = [];
 let current = null;
@@ -153,13 +154,14 @@ function loadSettings() {
   try {
     return {
       theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
+      audioVolume: 1,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
       kanji: { mode: "mixed", reverse: false },
       phrases: { direction: "native-jp" },
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, audioVolume: 1, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -1246,6 +1248,7 @@ function setupTextbooks() {
             <input id="audioSeek" type="range" min="0" max="0" step="0.1" value="0" aria-label="Audio progress">
             <span id="audioDuration">0:00</span>
           </div>
+          <label class="audio-volume"><span data-i18n="audioVolume">${t("audioVolume")}</span><input id="audioVolume" type="range" min="0" max="1" step="0.05" value="${settings.audioVolume}" aria-label="${t("audioVolume")}"></label>
           <div class="audio-controls">
             <button class="small primary" id="audioPlayPause" type="button" data-i18n="playAudio">${t("playAudio")}</button>
             <button class="small secondary" id="audioBack2" type="button" data-i18n="rewind2">${t("rewind2")}</button>
@@ -1297,6 +1300,11 @@ function bindTextbooks() {
     const audio = $("textbookAudio");
     audio.currentTime = Number(event.target.value) || 0;
     renderAudioProgress();
+  });
+  $("audioVolume")?.addEventListener("input", event => {
+    settings.audioVolume = Number(event.target.value);
+    saveSettings();
+    applyAudioVolume();
   });
   $("textbookAudio")?.addEventListener("loadedmetadata", renderAudioProgress);
   $("textbookAudio")?.addEventListener("timeupdate", renderAudioProgress);
@@ -1359,8 +1367,16 @@ function setAudioTrack(track, play = false) {
   $("audioTrackSelect").value = String(clamped);
   const audio = $("textbookAudio");
   audio.src = `${book.audioPrefix}${file}`;
+  applyAudioVolume();
   renderAudioProgress();
   if (play) audio.play().catch(() => {});
+}
+
+function applyAudioVolume() {
+  const volume = Math.max(0, Math.min(1, Number(settings.audioVolume ?? 1)));
+  const audio = $("textbookAudio");
+  if (audio) audio.volume = volume;
+  if ($("audioVolume")) $("audioVolume").value = String(volume);
 }
 
 async function loadPdf(url) {
@@ -1487,6 +1503,7 @@ function renderAudioProgress() {
   if ($("audioCurrentTime")) $("audioCurrentTime").textContent = formatTime(audio.currentTime || 0);
   if ($("audioDuration")) $("audioDuration").textContent = formatTime(duration);
   if ($("audioPlayPause")) $("audioPlayPause").textContent = audio.paused ? t("playAudio") : t("pauseAudio");
+  applyAudioVolume();
 }
 
 async function cacheActiveTextbook() {

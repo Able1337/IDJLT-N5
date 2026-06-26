@@ -17,7 +17,7 @@
       show: "Показать ответ", next: "Следующий вопрос", hard: "Сложно", good: "Уверенно", again: "Ещё раз",
       jp: "Японский", reading: "Чтение", translation: "Естественный перевод", literal: "Дословный перевод", grammarBreakdown: "Разбор грамматики",
       importantWords: "Важные слова", exampleAnswer: "Пример ответа", simpleAnswer: "Простой ответ N5", naturalAnswer: "Более естественный ответ N4", mistakes: "Типичные ошибки",
-      audio: "Аудио", male: "Мужской", female: "Женский", speed: "Скорость", play: "Пуск", stop: "Стоп", record: "Запись", stopRecord: "Остановить", original: "Оригинал",
+      audio: "Аудио", male: "Мужской", female: "Женский", speed: "Скорость", volume: "Громкость", play: "Пуск", stop: "Стоп", record: "Запись", stopRecord: "Остановить", original: "Оригинал",
       noText: "Слушай вопрос без текста.", stats: "Статистика", correct: "уверенно", difficult: "сложно", recommendations: "Рекомендации", due: "К повторению",
       emptySrs: "Пока нет сложных вопросов. Отмечай вопросы как «Сложно», и они появятся здесь чаще.",
       resources: "База", phraseCount: "интервью-фраз", dialogueCount: "диалогов", monologueCount: "мини-монологов", wordCount: "слов"
@@ -32,7 +32,7 @@
       show: "Reveal answer", next: "Next question", hard: "Hard", good: "Confident", again: "Again",
       jp: "Japanese", reading: "Reading", translation: "Natural translation", literal: "Literal translation", grammarBreakdown: "Grammar breakdown",
       importantWords: "Important words", exampleAnswer: "Example answer", simpleAnswer: "N5 simple answer", naturalAnswer: "N4 natural answer", mistakes: "Common mistakes",
-      audio: "Audio", male: "Male", female: "Female", speed: "Speed", play: "Play", stop: "Stop", record: "Record", stopRecord: "Stop", original: "Original",
+      audio: "Audio", male: "Male", female: "Female", speed: "Speed", volume: "Volume", play: "Play", stop: "Stop", record: "Record", stopRecord: "Stop", original: "Original",
       noText: "Listen without text.", stats: "Stats", correct: "confident", difficult: "hard", recommendations: "Recommendations", due: "Due",
       emptySrs: "No hard questions yet. Mark questions as Hard and they will return here more often.",
       resources: "Base", phraseCount: "interview phrases", dialogueCount: "dialogues", monologueCount: "mini monologues", wordCount: "words"
@@ -40,6 +40,7 @@
   };
 
   let settings = loadSettings();
+  settings.audioVolume ??= 1;
   let view = { moduleId: new URLSearchParams(location.search).get("module") || "", mode: "", deck: [], index: 0, revealed: false, results: [], recording: false, timer: 10 };
   let voices = [];
   let recorder = null;
@@ -50,6 +51,7 @@
     try { return { lang: "ru", theme: "dark", ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}") }; }
     catch { return { lang: "ru", theme: "dark" }; }
   }
+  function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
   function tr(key) { return l10n[settings.lang]?.[key] || l10n.ru[key] || key; }
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
@@ -203,12 +205,13 @@
       </article>
       <section class="interview-audio-panel">
         <div class="interview-speed"><span>${tr("speed")}</span><select id="speechRate"><option value="0.5">0.5x</option><option value="0.75">0.75x</option><option value="1" selected>1x</option></select></div>
+        <label class="interview-volume"><span>${tr("volume")}</span><input id="speechVolume" type="range" min="0" max="1" step="0.05" value="${settings.audioVolume}" aria-label="${tr("volume")}"></label>
         <button class="secondary" data-speak="male">${tr("male")}</button>
         <button class="secondary" data-speak="female">${tr("female")}</button>
         ${view.mode === "shadowing" ? `<button class="primary" data-speak-shadow>${tr("play")}</button>` : ""}
         ${view.mode === "shadowing" || speaking ? `<button class="secondary" data-record>${view.recording ? tr("stopRecord") : tr("record")}</button>` : ""}
       </section>
-      ${speaking ? `<section class="bottom-panel"><h3>${tr("original")}</h3><p>${escapeHtml(q.answer)}</p></section>` : ""}
+      ${speaking ? `<section class="bottom-panel"><h3>${tr("original")}</h3>${answerBlockHtml(q.answerBlock || { jp: q.answer, kana: q.answer, translation: q.translation })}</section>` : ""}
       <section class="interview-mode-row">
         ${view.revealed || noHints ? "" : `<button class="primary" data-reveal>${tr("show")}</button>`}
         <button class="dont" data-answer="hard">${tr("hard")}</button>
@@ -223,14 +226,18 @@
         <section><h3>${tr("reading")}</h3><p>${escapeHtml(q.reading)}</p></section>
         <section><h3>${tr("translation")}</h3><p>${escapeHtml(q.translation[settings.lang] || q.translation.ru)}</p></section>
         <section><h3>${tr("literal")}</h3><p>${escapeHtml(q.literal[settings.lang] || q.literal.ru)}</p></section>
-        <section><h3>${tr("exampleAnswer")}</h3><p>${escapeHtml(q.answer)}</p></section>
-        <section><h3>${tr("simpleAnswer")}</h3><p>${escapeHtml(q.simpleAnswer)}</p></section>
-        <section><h3>${tr("naturalAnswer")}</h3><p>${escapeHtml(q.naturalAnswer)}</p></section>
+        <section><h3>${tr("exampleAnswer")}</h3>${answerBlockHtml(q.answerBlock || { jp: q.answer, kana: q.answer, translation: q.translation })}</section>
+        <section><h3>${tr("simpleAnswer")}</h3>${answerBlockHtml(q.simpleAnswerBlock || { jp: q.simpleAnswer, kana: q.simpleAnswer, translation: q.translation })}</section>
+        <section><h3>${tr("naturalAnswer")}</h3>${answerBlockHtml(q.naturalAnswerBlock || { jp: q.naturalAnswer, kana: q.naturalAnswer, translation: q.translation })}</section>
         <section><h3>${tr("grammarBreakdown")}</h3>${grammarListHtml(q)}</section>
         <section><h3>${tr("importantWords")}</h3>${wordListHtml([q])}</section>
         <section><h3>${tr("mistakes")}</h3><ul>${q.mistakes.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>
       </div>
     `;
+  }
+  function answerBlockHtml(block) {
+    const translation = block.translation?.[settings.lang] || block.translation?.ru || "";
+    return `<div class="interview-answer-example"><p class="jp-answer">${escapeHtml(block.jp)}</p><p class="kana-answer">${escapeHtml(block.kana)}</p><p class="translation-answer">${escapeHtml(translation)}</p></div>`;
   }
   function wordListHtml(qs) {
     const seen = new Set();
@@ -305,6 +312,7 @@
     const utter = new SpeechSynthesisUtterance(q.jp);
     utter.lang = "ja-JP";
     utter.rate = Number(document.getElementById("speechRate")?.value || 1);
+    utter.volume = Math.max(0, Math.min(1, Number(settings.audioVolume ?? 1)));
     const voice = pickVoice(kind);
     if (voice) utter.voice = voice;
     speechSynthesis.speak(utter);
@@ -359,6 +367,11 @@
     if (event.target.closest("[data-speak-shadow]")) return speakCurrent("female");
     if (event.target.closest("[data-record]")) return toggleRecord();
   }
+  document.addEventListener("input", event => {
+    if (event.target.id !== "speechVolume") return;
+    settings.audioVolume = Number(event.target.value);
+    saveSettings();
+  });
   document.addEventListener("click", handleClick);
   document.getElementById("langSelect")?.addEventListener("change", () => {
     settings = loadSettings();

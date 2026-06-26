@@ -189,6 +189,105 @@
       就職: "трудоустройство", IT企業: "IT-компания", 十年後: "через 10 лет", キャリア: "карьера", 長期滞在: "долгое пребывание", 目標: "цель"
     }[value] || value;
   }
+  function answerReading(text) {
+    const fallback = {
+      一:"いち", 七:"なな", 両:"りょう", 中:"ちゅう", 主:"しゅ", 予:"よ", 事:"じ", 交:"こう", 京:"きょう", 人:"ひと", 今:"いま", 任:"にん", 休:"やす", 会:"かい", 住:"す", 使:"つか", 係:"かかり", 働:"はたら", 先:"さき", 内:"ない", 出:"で", 分:"ぶん", 切:"せつ", 初:"はじ", 前:"まえ", 力:"ちから", 務:"む", 十:"じゅう", 名:"な", 味:"み", 在:"ざい", 基:"き", 大:"だい", 始:"はじ", 子:"こ", 学:"がく", 守:"まも", 定:"てい", 実:"じつ", 容:"よう", 少:"すこ", 就:"しゅう", 平:"へい", 年:"ねん", 弱:"よわ", 後:"あと", 得:"とく", 復:"ふく", 必:"ひつ", 応:"おう", 意:"い", 成:"せい", 払:"はら", 指:"し", 掃:"そう", 授:"じゅ", 探:"さが", 援:"えん", 散:"さん", 数:"すう", 料:"りょう", 日:"にち", 映:"えい", 時:"じ", 最:"さい", 月:"げつ", 朝:"あさ", 期:"き", 東:"とう", 業:"ぎょう", 歩:"ぽ", 毎:"まい", 気:"き", 決:"き", 滞:"たい", 点:"てん", 無:"む", 理:"り", 生:"せい", 画:"が", 番:"ばん", 的:"てき", 眠:"みん", 睡:"すい", 確:"かく", 礎:"そ", 示:"じ", 社:"しゃ", 私:"わたし", 積:"つ", 立:"た", 第:"だい", 絡:"らく", 習:"しゅう", 考:"かんが", 職:"しょく", 自:"じ", 行:"い", 要:"よう", 見:"み", 親:"しん", 記:"き", 話:"はなし", 認:"にん", 読:"よ", 責:"せき", 費:"ひ", 賛:"さん", 起:"お", 趣:"しゅ", 身:"み", 転:"てん", 近:"ちか", 通:"つう", 連:"れん", 週:"しゅう", 進:"しん", 長:"なが", 間:"かん", 関:"かん", 除:"じょ", 集:"しゅう", 難:"むずか", 食:"しょく"
+    };
+    return text
+      .replaceAll("私は", "わたしは")
+      .replaceAll("ロシア", "ろしあ")
+      .replaceAll("日本語学校", "にほんごがっこう")
+      .replaceAll("日本語", "にほんご")
+      .replaceAll("日本", "にほん")
+      .replaceAll("ITエンジニア", "あいてぃーえんじにあ")
+      .replaceAll("IT企業", "あいてぃーきぎょう")
+      .replaceAll("仕事", "しごと")
+      .replaceAll("探す", "さがす")
+      .replaceAll("働きたい", "はたらきたい")
+      .replaceAll("働いています", "はたらいています")
+      .replaceAll("勉強", "べんきょう")
+      .replaceAll("生活", "せいかつ")
+      .replaceAll("将来", "しょうらい")
+      .replaceAll("卒業", "そつぎょう")
+      .replaceAll("家族", "かぞく")
+      .replaceAll("留学", "りゅうがく")
+      .replaceAll("目標", "もくひょう")
+      .replaceAll("学校", "がっこう")
+      .replaceAll("経験", "けいけん")
+      .replaceAll("開発", "かいはつ")
+      .replaceAll("問題", "もんだい")
+      .replaceAll("調査", "ちょうさ")
+      .replaceAll("担当", "たんとう")
+      .replaceAll("興味", "きょうみ")
+      .replaceAll("技術", "ぎじゅつ")
+      .replaceAll("企業", "きぎょう")
+      .replaceAll("費用", "ひよう")
+      .replaceAll("貯金", "ちょきん")
+      .replaceAll("大学", "だいがく")
+      .replaceAll("進学", "しんがく")
+      .replaceAll("長く", "ながく")
+      .replaceAll("安定", "あんてい")
+      .replaceAll("毎日", "まいにち")
+      .replaceAll("一時間", "いちじかん")
+      .replaceAll("二時間", "にじかん")
+      .replaceAll("一年", "いちねん")
+      .replaceAll("漢字", "かんじ")
+      .replaceAll("聞き取り", "ききとり")
+      .replaceAll("練習", "れんしゅう")
+      .replaceAll("教材", "きょうざい")
+      .replaceAll("教科書", "きょうかしょ")
+      .replaceAll("単語", "たんご")
+      .replaceAll("安心", "あんしん")
+      .replaceAll("安全", "あんぜん")
+      .replaceAll("文化", "ぶんか")
+      .replaceAll("計画", "けいかく")
+      .replaceAll("準備", "じゅんび")
+      .replaceAll("管理", "かんり")
+      .replaceAll("予算", "よさん")
+      .replaceAll("理由", "りゆう")
+      .replaceAll("自然", "しぜん")
+      .replaceAll("面接", "めんせつ")
+      .replaceAll("短くても", "みじかくても")
+      .replaceAll("添える", "そえる")
+      .replaceAll("思っています", "おもっています")
+      .replaceAll("思った", "おもった")
+      .replaceAll("来ました", "きました")
+      .replaceAll("入学", "にゅうがく")
+      .replaceAll("まず", "まず")
+      .replace(/[一-龯]/g, ch => fallback[ch] || "");
+  }
+  function answerTranslation(text) {
+    if (text.includes("ITエンジニアとして働いています")) return "Я приехал из России. Сейчас работаю IT-инженером. Хочу основательно выучить японский в языковой школе и в будущем работать IT-инженером в Японии.";
+    if (text.includes("私の名前")) return "Меня зовут Алексей.";
+    if (text.includes("ロシアから来ました")) return "Я приехал из России.";
+    if (text.includes("日本で生活できる力")) return "Я хочу интенсивно изучать японский и получить навыки, необходимые для жизни в Японии.";
+    if (text.includes("仕事を探すこと")) return "Моя цель — после окончания языковой школы искать работу IT-инженером в Японии.";
+    if (text.includes("ロシアに住んでいます")) return "Сейчас я живу в России.";
+    if (text.includes("パスポートがあります")) return "Да, у меня есть паспорт.";
+    if (text.includes("家族は私の留学に賛成")) return "Да, семья поддерживает мою учёбу в Японии.";
+    if (text.includes("毎週家族と連絡")) return "После переезда в Японию я буду связываться с семьёй каждую неделю.";
+    if (text.includes("システムの開発")) return "Сейчас я работаю IT-инженером: занимаюсь разработкой и поддержкой систем.";
+    if (text.includes("数年ぐらいITエンジニア")) return "Я работаю IT-инженером уже несколько лет.";
+    if (text.includes("システム開発")) return "В основном я отвечаю за разработку систем, расследование проблем и поддержку пользователей.";
+    if (text.includes("コンピューターに興味")) return "Я стал IT-инженером, потому что с детства интересовался компьютерами.";
+    if (text.includes("日本のIT企業")) return "Я хочу получить опыт в японской IT-компании и работать там долго.";
+    if (text.includes("大学を卒業")) return "Я окончил университет и изучал направление, связанное с IT.";
+    if (text.includes("日本語は一年")) return "Я изучаю японский примерно год. Каждый день занимаюсь около одного-двух часов.";
+    if (text.includes("勉強し始めました")) return "Я начал изучать японский, потому что хочу жить и работать в Японии.";
+    if (text.includes("漢字と聞き取り")) return "Кандзи и аудирование сложные, но я практикуюсь каждый день.";
+    if (text.includes("教科書")) return "Я использую учебники, карточки слов и приложение.";
+    if (text.includes("一番大切にします")) return "Если получится, я хотел бы подрабатывать, но сначала главным будет учёба.";
+    if (text.includes("無理のない計画")) return "Я готовлюсь по реалистичному плану без лишнего риска.";
+    if (text.includes("面接では")) return "На интервью естественно отвечать коротко, но добавлять одну причину.";
+    return "Ответ по профилю: Россия, IT-инженер, учёба в языковой школе и дальнейшая работа в Японии.";
+  }
+  function answerBlock(text) {
+    return {
+      jp: text,
+      kana: answerReading(text),
+      translation: { ru: answerTranslation(text), en: answerTranslation(text) }
+    };
+  }
   function makeSimpleAnswer(moduleId, seed, variant, index) {
     const base = seed[6];
     const extra = {
@@ -211,6 +310,8 @@
     const literal = index >= seeds[moduleId].length ? `${source[3]} ${variantRu(variant)} — также — расскажите.` : source[3];
     const answer = makeSimpleAnswer(moduleId, source, variant, index);
     const shortAnswer = answer.split("。").filter(Boolean).slice(0, 2).join("。");
+    const simpleAnswer = shortAnswer ? `${shortAnswer}。` : answer;
+    const naturalAnswer = answer + " 面接では、短くても理由を一つ添えると自然です。";
     return {
       id: `${moduleId}-${String(index + 1).padStart(3, "0")}`,
       moduleId,
@@ -222,8 +323,11 @@
       grammar: grammarParts(source[4]),
       words: [...new Set([...source[5], variant, "日本語学校", "日本", "仕事"])].map(wordEntry),
       answer,
-      simpleAnswer: shortAnswer ? `${shortAnswer}。` : answer,
-      naturalAnswer: answer + " 面接では、短くても理由を一つ添えると自然です。",
+      answerBlock: answerBlock(answer),
+      simpleAnswer,
+      simpleAnswerBlock: answerBlock(simpleAnswer),
+      naturalAnswer,
+      naturalAnswerBlock: answerBlock(naturalAnswer),
       mistakes: [
         "Слишком длинный ответ без главной мысли.",
         "Пропуск вежливой формы です／ます.",
