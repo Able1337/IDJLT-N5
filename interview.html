@@ -9,10 +9,10 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="app-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="app-icon-192.png">
-  <title>Урок 4 | IDJLT N5</title>
+  <title>Interview Preparation | IDJLT N5</title>
   <link rel="stylesheet" href="style.css?v=56">
 </head>
-<body data-page="lesson" data-dictionary="lesson4">
+<body data-page="interview">
   <header class="topbar">
     <a class="brand" href="index.html">IDJLT N5</a>
     <div class="toolbar">
@@ -20,12 +20,13 @@
       <select id="themeSelect" aria-label="Theme"><option value="dark" data-i18n="themeDark">Тёмная</option><option value="light" data-i18n="themeLight">Светлая</option><option value="oled" data-i18n="themeOled">OLED</option></select>
     </div>
   </header>
-  <main class="wrap">
-    <div class="lesson-head"><a class="btn small secondary" href="words.html" data-i18n="backWords">← К словарям</a><h1 id="lessonTitle"></h1></div>
-    <p class="sub" id="lessonSub"></p>
-    <div data-trainer></div>
+  <main class="wrap interview-wrap">
+    <div class="lesson-head"><a class="btn small secondary" href="index.html" data-i18n="backHome">← на главную</a><h1 id="interviewTitle">Interview Preparation</h1></div>
+    <p class="sub" id="interviewSub">Подготовка к интервью в японскую языковую школу.</p>
+    <div id="interviewApp"></div>
   </main>
-  <script src="data.js?v=56"></script>
+  <script src="interview-data.js?v=56"></script>
   <script src="app.js?v=56"></script>
+  <script src="interview.js?v=56"></script>
 </body>
 </html>

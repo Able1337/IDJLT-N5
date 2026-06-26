@@ -1,15 +1,18 @@
-const CACHE_NAME = "idjlt-n5-v36";
+const CACHE_NAME = "idjlt-n5-v38";
 const TEXTBOOK_CACHE = "idjlt-textbooks-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css?v=54",
-  "./app.js?v=54",
-  "./data.js?v=54",
-  "./kanji-data.js?v=54",
+  "./style.css?v=56",
+  "./app.js?v=56",
+  "./data.js?v=56",
+  "./kanji-data.js?v=56",
   "./phrases.html",
-  "./phrases-data.js?v=54",
+  "./phrases-data.js?v=56",
   "./textbooks.html",
+  "./interview.html",
+  "./interview-data.js?v=56",
+  "./interview.js?v=56",
   "./assets/pdfjs/pdf.mjs",
   "./assets/pdfjs/pdf.worker.mjs",
   "./manifest.webmanifest",

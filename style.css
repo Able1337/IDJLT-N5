@@ -365,6 +365,199 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   margin-top: 18px;
 }
 
+.interview-wrap {
+  max-width: 980px;
+}
+
+.interview-profile,
+.interview-section,
+.interview-card,
+.interview-run-head,
+.interview-audio-panel,
+.interview-lesson-head,
+.interview-resource-strip {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.interview-profile h2,
+.interview-section h3 {
+  margin-top: 0;
+}
+
+.interview-profile p,
+.interview-section p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.interview-resource-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.interview-resource-strip span {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.interview-resource-strip b {
+  color: var(--text);
+  font-size: 22px;
+}
+
+.interview-mode-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.interview-module {
+  width: 100%;
+  min-height: 150px;
+  text-align: left;
+}
+
+.interview-lesson-head,
+.interview-run-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.interview-lesson-head h2 {
+  margin: 0 0 4px;
+}
+
+.interview-lesson-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.interview-run-head {
+  justify-content: space-between;
+}
+
+.interview-run-head span,
+.interview-run-head b {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.interview-card {
+  min-height: 300px;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.interview-card h2 {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 52px);
+  line-height: 1.25;
+}
+
+.interview-card.revealed {
+  text-align: left;
+  align-content: start;
+}
+
+.interview-back {
+  display: grid;
+  gap: 12px;
+}
+
+.interview-back section {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.interview-back h3 {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.interview-back p,
+.interview-back li {
+  line-height: 1.5;
+}
+
+.interview-audio-panel {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.interview-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.interview-audio-panel audio {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.interview-word-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.interview-word-grid div {
+  display: grid;
+  gap: 3px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.interview-word-grid small,
+.interview-word-grid span,
+.interview-muted {
+  color: var(--muted);
+}
+
+.interview-grammar {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.interview-grammar li {
+  display: grid;
+  grid-template-columns: minmax(90px, auto) 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.interview-question-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.interview-question-list button {
+  text-align: left;
+}
+
 .mode-grid .mode-card {
   display: grid;
   gap: 8px;
@@ -853,6 +1046,12 @@ th { color: var(--muted); font-size: 13px; }
   .kana-tile span { font-size: 10px; }
   .kanji-examples { max-height: 30vh; padding: 10px; font-size: 16px; }
   .buttons, .stacks, .lessons, .modes, .mode-grid, #dictionaryList, #kanjiSetMenu, #phraseSetMenu, .textbook-grid { grid-template-columns: 1fr; }
+  .interview-resource-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .interview-mode-row { grid-template-columns: 1fr 1fr; }
+  .interview-audio-panel { grid-template-columns: 1fr 1fr; }
+  .interview-speed { grid-column: 1 / -1; }
+  .interview-card { min-height: 260px; padding: 14px; }
+  .interview-grammar li { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }

@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.17.1";
-const APP_RELEASE_DATE = "2026-06-25";
+const APP_VERSION = "0.18.0";
+const APP_RELEASE_DATE = "2026-06-26";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -20,8 +20,8 @@ const I18N = {
   ru: {
     themeDark: "Тёмная", themeLight: "Светлая", themeOled: "OLED",
     homeTitle: "Тренажёр японского", homeSub: "Выбери режим.",
-    wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", phrasesMode: "Фразы", textbooksMode: "Учебники", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи", phrasesTitle: "Фразы", textbooksTitle: "Учебники",
-    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана", kanjiModeSub: "Знаки и сочетания", phrasesModeSub: "Предложения и диалоги", textbooksModeSub: "PDF и аудио",
+    wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", phrasesMode: "Фразы", textbooksMode: "Учебники", interviewMode: "Интервью", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи", phrasesTitle: "Фразы", textbooksTitle: "Учебники", interviewTitle: "Интервью",
+    wordsModeSub: "Словари и карточки", kanaModeSub: "Хирагана и катакана", kanjiModeSub: "Знаки и сочетания", phrasesModeSub: "Предложения и диалоги", textbooksModeSub: "PDF и аудио", interviewModeSub: "Подготовка к языковой школе",
     wordsSub: "Словари, несколько словарей сразу, карточки и свайпы.",
     kanaSub: "Хирагана, катакана, дакутен и ёон по тем же правилам.",
     backHome: "← на главную", backWords: "← к словам", open: "Открыть", cards: "карточек",
@@ -36,7 +36,7 @@ const I18N = {
     installedApp: "Приложение уже установлено",
     aboutApp: "О приложении", appVersion: "Версия", releaseDate: "Дата выпуска",
     sourceCode: "Репозиторий GitHub", close: "Закрыть", shareApp: "Поделиться", shareCopied: "Ссылка скопирована",
-    appDescription: "Тренажёр японского языка уровня N5 со словами, каной, кандзи, фразами и учебниками.",
+    appDescription: "Тренажёр японского языка уровня N5 со словами, каной, кандзи, фразами, учебниками и подготовкой к интервью.",
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
@@ -58,8 +58,8 @@ const I18N = {
   en: {
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
     homeTitle: "Japanese trainer", homeSub: "Choose a mode.",
-    wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", phrasesMode: "Phrases", textbooksMode: "Textbooks", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji", phrasesTitle: "Phrases", textbooksTitle: "Textbooks",
-    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana", kanjiModeSub: "Characters and compounds", phrasesModeSub: "Sentences and dialogues", textbooksModeSub: "PDF and audio",
+    wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", phrasesMode: "Phrases", textbooksMode: "Textbooks", interviewMode: "Interview", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji", phrasesTitle: "Phrases", textbooksTitle: "Textbooks", interviewTitle: "Interview",
+    wordsModeSub: "Dictionaries and cards", kanaModeSub: "Hiragana and katakana", kanjiModeSub: "Characters and compounds", phrasesModeSub: "Sentences and dialogues", textbooksModeSub: "PDF and audio", interviewModeSub: "Language school preparation",
     wordsSub: "Dictionaries, multi-dictionary pools, cards, and swipes.",
     kanaSub: "Hiragana, katakana, dakuten, and yoon with the same flow.",
     backHome: "← home", backWords: "← words", open: "Open", cards: "cards",
@@ -74,7 +74,7 @@ const I18N = {
     installedApp: "App is already installed",
     aboutApp: "About", appVersion: "Version", releaseDate: "Release date",
     sourceCode: "GitHub repository", close: "Close", shareApp: "Share", shareCopied: "Link copied",
-    appDescription: "A Japanese N5 trainer for words, kana, kanji, phrases, and textbooks.",
+    appDescription: "A Japanese N5 trainer for words, kana, kanji, phrases, textbooks, and interview preparation.",
     stacks: "Stacks", table: "Table", settings: "Mode settings",
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
