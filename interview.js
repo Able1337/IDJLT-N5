@@ -1,5 +1,6 @@
 (function () {
   const DATA = window.IDJLT_INTERVIEW;
+  const KANJI_DATA = window.IDJLT_KANJI || { singles: [], words: [] };
   const SETTINGS_KEY = "idjlt.settings.v3";
   const SRS_KEY = "idjlt.interview.srs.v1";
   const SESSION_KEY = "idjlt.interview.session.v1";
@@ -78,16 +79,68 @@
       const rest = text.slice(i);
       const term = rubyTerms.find(([word]) => rest.startsWith(word));
       if (term) {
-        html += `<ruby>${escapeHtml(term[0])}<rt>${escapeHtml(term[1])}</rt></ruby>`;
+        const chars = [...term[0]].filter(ch => /[一-龯]/.test(ch)).join("");
+        const ruby = `<ruby>${escapeHtml(term[0])}<rt>${escapeHtml(term[1])}</rt></ruby>`;
+        html += chars ? `<button class="ruby-kanji-btn" type="button" data-kanji-info="${escapeHtml(chars)}">${ruby}</button>` : ruby;
         i += term[0].length;
         continue;
       }
       const ch = text[i];
-      if (rubyChars[ch]) html += `<ruby>${escapeHtml(ch)}<rt>${escapeHtml(rubyChars[ch])}</rt></ruby>`;
+      if (rubyChars[ch]) html += `<button class="ruby-kanji-btn" type="button" data-kanji-info="${escapeHtml(ch)}"><ruby>${escapeHtml(ch)}<rt>${escapeHtml(rubyChars[ch])}</rt></ruby></button>`;
       else html += escapeHtml(ch);
       i++;
     }
     return html;
+  }
+  function kanjiItem(character) {
+    return KANJI_DATA.singles.find(item => item.kanji === character);
+  }
+  function kanjiMeaning(item) {
+    if (!item) return settings.lang === "en" ? "Not found in kanji base" : "Нет в базе кандзи";
+    return settings.lang === "en" ? item.meaningEn || item.meaning : item.meaning;
+  }
+  function kanjiExamples(item) {
+    if (!item?.examples?.length) return "";
+    return item.examples.slice(0, 6).map(example => {
+      const text = settings.lang === "en" ? example.en || example.ru : example.ru;
+      return `<li><b>${escapeHtml(example.term)}</b><span>${escapeHtml(example.reading || "")}</span><small>${escapeHtml(text || "")}</small></li>`;
+    }).join("");
+  }
+  function kanjiInfoCard(character) {
+    const item = kanjiItem(character);
+    return `
+      <article class="kanji-info-card">
+        <b class="kanji-info-char">${escapeHtml(character)}</b>
+        <div class="kanji-info-main">
+          <strong>${escapeHtml(kanjiMeaning(item))}</strong>
+          <p><span>он:</span> ${escapeHtml(item?.on?.join(" / ") || "—")}</p>
+          <p><span>кун:</span> ${escapeHtml(item?.kun?.join(" / ") || "—")}</p>
+        </div>
+        ${item?.examples?.length ? `<ul class="kanji-info-examples">${kanjiExamples(item)}</ul>` : ""}
+      </article>
+    `;
+  }
+  function showKanjiInfo(chars) {
+    const uniqueChars = [...new Set([...String(chars || "")].filter(ch => /[一-龯]/.test(ch)))];
+    if (!uniqueChars.length) return;
+    let dialog = document.getElementById("interviewKanjiDialog");
+    if (!dialog) {
+      dialog = document.createElement("dialog");
+      dialog.id = "interviewKanjiDialog";
+      dialog.className = "settings-dialog kanji-info-dialog";
+      document.body.appendChild(dialog);
+      dialog.addEventListener("click", event => {
+        if (event.target === dialog) dialog.close();
+      });
+    }
+    dialog.innerHTML = `
+      <div class="dialog-head">
+        <h2>Кандзи</h2>
+        <button class="info-close" type="button" data-close-kanji-info>×</button>
+      </div>
+      <div class="kanji-info-list">${uniqueChars.map(kanjiInfoCard).join("")}</div>
+    `;
+    dialog.showModal();
   }
   function shuffle(items) {
     const arr = [...items];
@@ -381,6 +434,9 @@
     renderQuestion();
   }
   function handleClick(event) {
+    const kanjiInfo = event.target.closest("[data-kanji-info]");
+    if (kanjiInfo) return showKanjiInfo(kanjiInfo.dataset.kanjiInfo);
+    if (event.target.closest("[data-close-kanji-info]")) return document.getElementById("interviewKanjiDialog")?.close();
     const moduleBtn = event.target.closest("[data-module]");
     if (moduleBtn) return renderLesson(moduleBtn.dataset.module);
     if (event.target.closest("[data-back-menu]")) return renderMenu();

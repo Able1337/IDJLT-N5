@@ -547,10 +547,94 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   line-height: 1;
 }
 
+.ruby-kanji-btn {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent), transparent 35%);
+  text-underline-offset: 4px;
+}
+
+.ruby-kanji-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .translation-answer {
   color: var(--muted);
   border-top: 1px solid var(--line);
   padding-top: 6px;
+}
+
+.kanji-info-dialog {
+  width: min(640px, calc(100vw - 28px));
+}
+
+.kanji-info-list {
+  display: grid;
+  gap: 12px;
+}
+
+.kanji-info-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.kanji-info-char {
+  font-size: clamp(48px, 12vw, 78px);
+  line-height: 1;
+}
+
+.kanji-info-main strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.kanji-info-main p {
+  margin: 4px 0;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.kanji-info-main span {
+  color: var(--muted);
+}
+
+.kanji-info-examples {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kanji-info-examples li {
+  display: grid;
+  grid-template-columns: minmax(76px, auto) minmax(76px, auto) 1fr;
+  gap: 8px;
+  align-items: baseline;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.kanji-info-examples span,
+.kanji-info-examples small {
+  color: var(--muted);
 }
 
 .interview-word-grid {
@@ -1097,6 +1181,8 @@ th { color: var(--muted); font-size: 13px; }
   .interview-speed, .interview-volume { grid-column: 1 / -1; }
   .interview-card { min-height: 260px; padding: 14px; }
   .interview-grammar li { grid-template-columns: 1fr; }
+  .kanji-info-card { grid-template-columns: 1fr; }
+  .kanji-info-examples li { grid-template-columns: 1fr; }
   .textbook-view-head { align-items: flex-start; flex-direction: column; }
   .textbook-actions { width: 100%; justify-content: stretch; }
   .textbook-actions > * { flex: 1; }
