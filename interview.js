@@ -73,6 +73,47 @@
   const rubyChars = {
     一:"いち", 七:"なな", 両:"りょう", 中:"ちゅう", 主:"しゅ", 予:"よ", 事:"じ", 交:"こう", 京:"きょう", 人:"ひと", 任:"にん", 休:"やす", 会:"かい", 住:"す", 使:"つか", 係:"かかり", 働:"はたら", 先:"さき", 内:"ない", 出:"で", 分:"ぶん", 切:"せつ", 初:"はじ", 前:"まえ", 力:"ちから", 務:"む", 十:"じゅう", 名:"な", 味:"み", 在:"ざい", 基:"き", 大:"だい", 始:"はじ", 子:"こ", 学:"がく", 守:"まも", 定:"てい", 実:"じつ", 容:"よう", 少:"すこ", 就:"しゅう", 平:"へい", 年:"ねん", 弱:"よわ", 後:"あと", 得:"とく", 復:"ふく", 必:"ひつ", 応:"おう", 意:"い", 成:"せい", 払:"はら", 指:"し", 掃:"そう", 授:"じゅ", 探:"さが", 援:"えん", 散:"さん", 数:"すう", 料:"りょう", 日:"にち", 映:"えい", 時:"じ", 最:"さい", 月:"げつ", 朝:"あさ", 期:"き", 東:"とう", 業:"ぎょう", 歩:"ぽ", 毎:"まい", 気:"き", 決:"き", 滞:"たい", 点:"てん", 無:"む", 理:"り", 生:"せい", 画:"が", 番:"ばん", 的:"てき", 眠:"みん", 睡:"すい", 確:"かく", 礎:"そ", 示:"じ", 社:"しゃ", 積:"つ", 立:"た", 第:"だい", 絡:"らく", 習:"しゅう", 考:"かんが", 職:"しょく", 自:"じ", 行:"い", 要:"よう", 見:"み", 親:"しん", 記:"き", 話:"はなし", 認:"にん", 読:"よ", 責:"せき", 費:"ひ", 賛:"さん", 起:"お", 趣:"しゅ", 身:"み", 転:"てん", 近:"ちか", 通:"つう", 連:"れん", 週:"しゅう", 進:"しん", 長:"なが", 間:"かん", 関:"かん", 除:"じょ", 集:"しゅう", 難:"むずか", 食:"しょく"
   };
+  const interviewKanjiMeta = {
+    平: { meaning: "ровный; спокойный", meaningEn: "flat; calm", on: ["ヘイ", "ビョウ"], kun: ["たいら"] },
+    弱: { meaning: "слабый", meaningEn: "weak", on: ["ジャク"], kun: ["よわい", "よわる"] },
+    点: { meaning: "точка; пункт", meaningEn: "point", on: ["テン"], kun: [] },
+    何: { meaning: "что; сколько", meaningEn: "what; how many", on: ["カ"], kun: ["なに", "なん"] },
+    時: { meaning: "время; час", meaningEn: "time; hour", on: ["ジ"], kun: ["とき"] },
+    間: { meaning: "промежуток; время", meaningEn: "interval; time", on: ["カン", "ケン"], kun: ["あいだ"] },
+    勉: { meaning: "усердие; учёба", meaningEn: "effort; study", on: ["ベン"], kun: [] },
+    強: { meaning: "сильный; учиться", meaningEn: "strong; study", on: ["キョウ", "ゴウ"], kun: ["つよい"] },
+    語: { meaning: "язык; слово", meaningEn: "language; word", on: ["ゴ"], kun: ["かたる"] },
+    校: { meaning: "школа", meaningEn: "school", on: ["コウ"], kun: [] },
+    面: { meaning: "лицо; поверхность", meaningEn: "face; surface", on: ["メン"], kun: ["おも"] },
+    接: { meaning: "касаться; принимать", meaningEn: "contact; receive", on: ["セツ"], kun: ["つぐ"] }
+  };
+  function buildInterviewKanjiIndex() {
+    const index = {};
+    const pushExample = (term, reading, ru, en) => {
+      if (!term || !/[一-龯]/.test(term)) return;
+      [...term].filter(ch => /[一-龯]/.test(ch)).forEach(ch => {
+        const meta = interviewKanjiMeta[ch] || {};
+        const item = index[ch] || {
+          kanji: ch,
+          meaning: meta.meaning || "кандзи из интервью",
+          meaningEn: meta.meaningEn || "interview kanji",
+          on: meta.on || [],
+          kun: meta.kun || [],
+          examples: []
+        };
+        if (!item.examples.some(example => example.term === term)) {
+          item.examples.push({ term, reading, ru, en });
+        }
+        index[ch] = item;
+      });
+    };
+    DATA.questions.forEach(q => {
+      q.words?.forEach(w => pushExample(w.word, w.reading, w.meaning?.ru, w.meaning?.en));
+      [q.jp, q.answer, q.simpleAnswer, q.naturalAnswer].forEach(text => pushExample(text, "", q.translation?.ru, q.translation?.en));
+    });
+    return index;
+  }
+  const interviewKanjiIndex = buildInterviewKanjiIndex();
   function rubyHtml(text) {
     let html = "";
     for (let i = 0; i < String(text || "").length;) {
@@ -93,7 +134,7 @@
     return html;
   }
   function kanjiItem(character) {
-    return KANJI_DATA.singles.find(item => item.kanji === character);
+    return KANJI_DATA.singles.find(item => item.kanji === character) || interviewKanjiIndex[character];
   }
   function kanjiMeaning(item) {
     if (!item) return settings.lang === "en" ? "Not found in kanji base" : "Нет в базе кандзи";
@@ -286,7 +327,7 @@
       </section>
       <article class="interview-card ${view.revealed ? "revealed" : ""}">
         <div class="card-kind">${escapeHtml(currentQuestion().level)}</div>
-        ${listening && !view.revealed ? `<p class="interview-muted">${tr("noText")}</p>` : `<h2>${escapeHtml(q.jp)}</h2>`}
+        ${listening && !view.revealed ? `<p class="interview-muted">${tr("noText")}</p>` : `<h2>${rubyHtml(q.jp)}</h2>`}
         ${view.revealed ? questionBackHtml(q) : ""}
       </article>
       <section class="interview-audio-panel">
@@ -309,7 +350,6 @@
   function questionBackHtml(q) {
     return `
       <div class="interview-back">
-        <section><h3>${tr("reading")}</h3><p>${escapeHtml(q.reading)}</p></section>
         <section><h3>${tr("translation")}</h3><p>${escapeHtml(q.translation[settings.lang] || q.translation.ru)}</p></section>
         <section><h3>${tr("literal")}</h3><p>${escapeHtml(q.literal[settings.lang] || q.literal.ru)}</p></section>
         <section><h3>${tr("exampleAnswer")}</h3>${answerBlockHtml(q.answerBlock || { jp: q.answer, kana: q.answer, translation: q.translation })}</section>
@@ -334,7 +374,7 @@
         words.push(w);
       }
     }));
-    return `<div class="interview-word-grid">${words.map(w => `<div><b>${escapeHtml(w.word)}</b><small>${escapeHtml(w.reading || "")}</small><span>${escapeHtml(w.meaning[settings.lang] || w.meaning.ru)}</span></div>`).join("")}</div>`;
+    return `<div class="interview-word-grid">${words.map(w => `<div><b>${rubyHtml(w.word)}</b><small>${escapeHtml(w.reading || "")}</small><span>${escapeHtml(w.meaning[settings.lang] || w.meaning.ru)}</span></div>`).join("")}</div>`;
   }
   function grammarListHtml(q) {
     if (!q) return "";

@@ -540,11 +540,21 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   ruby-position: over;
 }
 
+.interview-card h2 ruby,
+.jp-answer ruby {
+  ruby-position: over;
+}
+
+.interview-card h2 rt,
 .jp-answer rt {
   color: var(--muted);
   font-size: .48em;
   font-weight: 700;
   line-height: 1;
+}
+
+.interview-card h2 .ruby-kanji-btn {
+  text-underline-offset: 8px;
 }
 
 .ruby-kanji-btn {
