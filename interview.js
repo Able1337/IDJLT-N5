@@ -56,6 +56,39 @@
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
   }
+  const rubyTerms = [
+    ["日本語学校", "にほんごがっこう"], ["ITエンジニア", "あいてぃーえんじにあ"], ["日本語", "にほんご"], ["将来", "しょうらい"], ["勉強", "べんきょう"],
+    ["働いています", "はたらいています"], ["働きたい", "はたらきたい"], ["仕事", "しごと"], ["生活", "せいかつ"], ["卒業", "そつぎょう"],
+    ["家族", "かぞく"], ["留学", "りゅうがく"], ["目標", "もくひょう"], ["学校", "がっこう"], ["経験", "けいけん"],
+    ["開発", "かいはつ"], ["問題", "もんだい"], ["調査", "ちょうさ"], ["担当", "たんとう"], ["興味", "きょうみ"],
+    ["技術", "ぎじゅつ"], ["企業", "きぎょう"], ["費用", "ひよう"], ["貯金", "ちょきん"], ["大学", "だいがく"],
+    ["進学", "しんがく"], ["長く", "ながく"], ["安定", "あんてい"], ["毎日", "まいにち"], ["一時間", "いちじかん"],
+    ["二時間", "にじかん"], ["一年", "いちねん"], ["漢字", "かんじ"], ["聞き取り", "ききとり"], ["練習", "れんしゅう"],
+    ["教材", "きょうざい"], ["教科書", "きょうかしょ"], ["単語", "たんご"], ["安全", "あんぜん"], ["文化", "ぶんか"],
+    ["計画", "けいかく"], ["準備", "じゅんび"], ["管理", "かんり"], ["予算", "よさん"], ["理由", "りゆう"],
+    ["自然", "しぜん"], ["面接", "めんせつ"], ["短くても", "みじかくても"], ["添える", "そえる"], ["思っています", "おもっています"],
+    ["思った", "おもった"], ["来ました", "きました"], ["入学", "にゅうがく"], ["日本", "にほん"], ["今", "いま"], ["私", "わたし"]
+  ].sort((a, b) => b[0].length - a[0].length);
+  const rubyChars = {
+    一:"いち", 七:"なな", 両:"りょう", 中:"ちゅう", 主:"しゅ", 予:"よ", 事:"じ", 交:"こう", 京:"きょう", 人:"ひと", 任:"にん", 休:"やす", 会:"かい", 住:"す", 使:"つか", 係:"かかり", 働:"はたら", 先:"さき", 内:"ない", 出:"で", 分:"ぶん", 切:"せつ", 初:"はじ", 前:"まえ", 力:"ちから", 務:"む", 十:"じゅう", 名:"な", 味:"み", 在:"ざい", 基:"き", 大:"だい", 始:"はじ", 子:"こ", 学:"がく", 守:"まも", 定:"てい", 実:"じつ", 容:"よう", 少:"すこ", 就:"しゅう", 平:"へい", 年:"ねん", 弱:"よわ", 後:"あと", 得:"とく", 復:"ふく", 必:"ひつ", 応:"おう", 意:"い", 成:"せい", 払:"はら", 指:"し", 掃:"そう", 授:"じゅ", 探:"さが", 援:"えん", 散:"さん", 数:"すう", 料:"りょう", 日:"にち", 映:"えい", 時:"じ", 最:"さい", 月:"げつ", 朝:"あさ", 期:"き", 東:"とう", 業:"ぎょう", 歩:"ぽ", 毎:"まい", 気:"き", 決:"き", 滞:"たい", 点:"てん", 無:"む", 理:"り", 生:"せい", 画:"が", 番:"ばん", 的:"てき", 眠:"みん", 睡:"すい", 確:"かく", 礎:"そ", 示:"じ", 社:"しゃ", 積:"つ", 立:"た", 第:"だい", 絡:"らく", 習:"しゅう", 考:"かんが", 職:"しょく", 自:"じ", 行:"い", 要:"よう", 見:"み", 親:"しん", 記:"き", 話:"はなし", 認:"にん", 読:"よ", 責:"せき", 費:"ひ", 賛:"さん", 起:"お", 趣:"しゅ", 身:"み", 転:"てん", 近:"ちか", 通:"つう", 連:"れん", 週:"しゅう", 進:"しん", 長:"なが", 間:"かん", 関:"かん", 除:"じょ", 集:"しゅう", 難:"むずか", 食:"しょく"
+  };
+  function rubyHtml(text) {
+    let html = "";
+    for (let i = 0; i < String(text || "").length;) {
+      const rest = text.slice(i);
+      const term = rubyTerms.find(([word]) => rest.startsWith(word));
+      if (term) {
+        html += `<ruby>${escapeHtml(term[0])}<rt>${escapeHtml(term[1])}</rt></ruby>`;
+        i += term[0].length;
+        continue;
+      }
+      const ch = text[i];
+      if (rubyChars[ch]) html += `<ruby>${escapeHtml(ch)}<rt>${escapeHtml(rubyChars[ch])}</rt></ruby>`;
+      else html += escapeHtml(ch);
+      i++;
+    }
+    return html;
+  }
   function shuffle(items) {
     const arr = [...items];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -236,8 +269,8 @@
     `;
   }
   function answerBlockHtml(block) {
-    const translation = block.translation?.[settings.lang] || block.translation?.ru || "";
-    return `<div class="interview-answer-example"><p class="jp-answer">${escapeHtml(block.jp)}</p><p class="kana-answer">${escapeHtml(block.kana)}</p><p class="translation-answer">${escapeHtml(translation)}</p></div>`;
+    const translation = block.literal?.[settings.lang] || block.literal?.ru || block.translation?.[settings.lang] || block.translation?.ru || "";
+    return `<div class="interview-answer-example"><p class="jp-answer">${rubyHtml(block.jp)}</p><p class="translation-answer">${escapeHtml(translation)}</p></div>`;
   }
   function wordListHtml(qs) {
     const seen = new Set();

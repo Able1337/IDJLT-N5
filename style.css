@@ -533,15 +533,24 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 .jp-answer {
   color: var(--text);
   font-weight: 800;
+  line-height: 1.9;
 }
 
-.kana-answer {
-  color: var(--accent);
-  font-weight: 750;
+.jp-answer ruby {
+  ruby-position: over;
+}
+
+.jp-answer rt {
+  color: var(--muted);
+  font-size: .48em;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .translation-answer {
   color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 6px;
 }
 
 .interview-word-grid {
