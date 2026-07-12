@@ -242,5 +242,152 @@ window.IDJLT_PHRASES = [
     en: "I gave my younger brother a new smartphone.",
     jp: "私は おとうとに あたらしいスマホを あげました。",
     romaji: "Watashi wa otouto ni atarashii sumaho o agemashita."
+  },
+  {
+    id: "lesson8-phrase-1",
+    ru: "Сакура красивая.",
+    en: "Cherry blossoms are beautiful.",
+    jp: "さくらは きれいです。",
+    romaji: "Sakura wa kirei desu."
+  },
+  {
+    id: "lesson8-phrase-2",
+    ru: "Гора Фудзи - высокая гора.",
+    en: "Mount Fuji is a high mountain.",
+    jp: "ふじさんは たかい やま です。",
+    romaji: "Fujisan wa takai yama desu."
+  },
+  {
+    id: "lesson8-phrase-3",
+    ru: "Сакура - красивый цветок.",
+    en: "Cherry blossom is a beautiful flower.",
+    jp: "さくらは きれいな はな です。",
+    romaji: "Sakura wa kirei na hana desu."
+  },
+  {
+    id: "lesson8-phrase-4",
+    ru: "Осака оживлённая?\n- Да, оживлённая.",
+    en: "Is Osaka lively?\n- Yes, it is lively.",
+    jp: "おおさかは にぎやかですか。\nはい、にぎやかです。",
+    romaji: "Oosaka wa nigiyaka desu ka.\nHai, nigiyaka desu."
+  },
+  {
+    id: "lesson8-phrase-5",
+    ru: "Университет Сакура знаменитый?\n- Нет, не знаменитый.",
+    en: "Is Sakura University famous?\n- No, it is not famous.",
+    jp: "さくらだいがくは ゆうめいですか。\nいいえ、ゆうめいじゃありません。",
+    romaji: "Sakura daigaku wa yuumei desu ka.\nIie, yuumei ja arimasen."
+  },
+  {
+    id: "lesson8-phrase-6",
+    ru: "В Пекине сейчас холодно?\n- Нет, не очень холодно.",
+    en: "Is it cold in Beijing now?\n- No, it is not very cold.",
+    jp: "ペキンは いま さむいですか。\nいいえ、あまり さむくないです。",
+    romaji: "Pekin wa ima samui desu ka.\nIie, amari samukunai desu."
+  },
+  {
+    id: "lesson8-phrase-7",
+    ru: "В Шанхае тоже холодно?\n- Нет, не очень холодно.",
+    en: "Is it cold in Shanghai too?\n- No, it is not very cold.",
+    jp: "シャンハイも さむいですか。\nいいえ、あまり さむくないです。",
+    romaji: "Shanhai mo samui desu ka.\nIie, amari samukunai desu."
+  },
+  {
+    id: "lesson8-phrase-8",
+    ru: "Как общежитие университета?\n- Старое, но удобное.",
+    en: "How is the university dormitory?\n- It is old, but convenient.",
+    jp: "だいがくの りょうは どうですか。\nふるいですが、べんりです。",
+    romaji: "Daigaku no ryou wa dou desu ka.\nFurui desu ga, benri desu."
+  },
+  {
+    id: "lesson8-phrase-9",
+    ru: "Вчера я ходил домой к господину Мацумото.\n- Какой дом?\n- Красивый. И большой.",
+    en: "Yesterday I went to Mr. Matsumoto's house.\n- What kind of house is it?\n- It is beautiful. And it is big.",
+    jp: "きのう まつもとさんの うちへ いきました。\nどんなうちですか。\nきれいな うちです。そして、おおきい うちです。",
+    romaji: "Kinou Matsumoto-san no uchi e ikimashita.\nDonna uchi desu ka.\nKirei na uchi desu. Soshite, ookii uchi desu."
+  },
+  {
+    id: "lesson8-phrase-10",
+    ru: "Вчера я посмотрел интересный фильм.\n- Что смотрел?\n- \"Семь самураев\".",
+    en: "Yesterday I watched an interesting movie.\n- What did you watch?\n- Seven Samurai.",
+    jp: "きのう おもしろい えいがを みました。\nなにを みましたか。\n「しちにんの さむらい」です。",
+    romaji: "Kinou omoshiroi eiga o mimashita.\nNani o mimashita ka.\nShichinin no samurai desu."
+  },
+  {
+    id: "lesson8-phrase-11",
+    ru: "Сегодня утром был сильный дождь. На дороге появились большие лужи.",
+    en: "This morning it rained heavily. Big puddles formed on the road.",
+    jp: "けさ おおあめが ふりました。みちに おおきな みずたまりが できました。",
+    romaji: "Kesa ooame ga furimashita. Michi ni ookina mizutamari ga dekimashita."
+  },
+  {
+    id: "lesson8-phrase-12",
+    ru: "Здания Санкт-Петербурга очень красивые. И знаменитые.",
+    en: "The buildings of Saint Petersburg are very beautiful. And famous.",
+    jp: "サンクト・ペテルブルグの たてものは とてもきれいです。そして、ゆうめいです。",
+    romaji: "Sankuto Peteruburugu no tatemono wa totemo kirei desu. Soshite, yuumei desu."
+  },
+  {
+    id: "lesson8-phrase-13",
+    ru: "Вчера вечером я с женой обедал в дорогом ресторане японской кухни.",
+    en: "Last night I had lunch with my wife at an expensive Japanese restaurant.",
+    jp: "きのうの よる、つまと こうきゅうにほんしょくりょうりレストランで ひるごはんを たべました。",
+    romaji: "Kinou no yoru, tsuma to koukyuu nihonshoku ryouri resutoran de hirugohan o tabemashita."
+  },
+  {
+    id: "lesson8-phrase-14",
+    ru: "Вода в этом озере не очень чистая.",
+    en: "The water of this lake is not very clean.",
+    jp: "この みずうみの みずは あまり きれいじゃありません。",
+    romaji: "Kono mizuumi no mizu wa amari kirei ja arimasen."
+  },
+  {
+    id: "lesson8-phrase-15",
+    ru: "Климат Испании очень жаркий.",
+    en: "Spain's climate is very hot.",
+    jp: "スペインの きこうは とても あついです。",
+    romaji: "Supein no kikou wa totemo atsui desu."
+  },
+  {
+    id: "lesson8-phrase-16",
+    ru: "В прошлом году я сделал много фотографий красивого озера Байкал.",
+    en: "Last year I took many photos of beautiful Lake Baikal.",
+    jp: "きょねん きれいなバイカルこ のしゃしんを たくさん とりました。",
+    romaji: "Kyonen kirei na Baikaru-ko no shashin o takusan torimashita."
+  },
+  {
+    id: "lesson8-phrase-17",
+    ru: "Сегодня тот человек плохо себя чувствует.",
+    en: "Today that person is not feeling well.",
+    jp: "きょう、あのひとは たいちょうが よくないです。",
+    romaji: "Kyou, ano hito wa taichou ga yokunai desu."
+  },
+  {
+    id: "lesson8-phrase-18",
+    ru: "На прошлой неделе в Московском зоопарке я видел редких животных и птиц.",
+    en: "Last week I saw rare animals and birds at the Moscow Zoo.",
+    jp: "せんしゅう モスクワどうぶつえんで めずらしいどうぶつ と とりを みました。",
+    romaji: "Senshuu Mosukuwa doubutsuen de mezurashii doubutsu to tori o mimashita."
+  },
+  {
+    id: "lesson8-phrase-19",
+    ru: "В последнее время тот человек очень занят.",
+    en: "Recently that person has been very busy.",
+    jp: "さいきん、あのひとは とても いそがしいです。",
+    romaji: "Saikin, ano hito wa totemo isogashii desu."
+  },
+  {
+    id: "lesson8-phrase-20",
+    ru: "Этот компьютер очень дорогой, но не очень удобный.",
+    en: "This computer is very expensive, but not very convenient.",
+    jp: "このコンピューターは とてもたかいですが、あまり べんりじゃありません。",
+    romaji: "Kono konpyuutaa wa totemo takai desu ga, amari benri ja arimasen."
+  },
+  {
+    id: "lesson8-phrase-21",
+    ru: "Этот компьютер очень дорогой, но пользоваться им не очень удобно.",
+    en: "This computer is very expensive, but it is not very easy to use.",
+    jp: "このコンピューターは すごくたかいのに、つかいがってが あまり よくないです。",
+    romaji: "Kono konpyuutaa wa sugoku takai noni, tsukaigatte ga amari yokunai desu."
   }
 ];
