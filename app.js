@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.18.6";
-const APP_RELEASE_DATE = "2026-07-12";
+const APP_VERSION = "0.18.7";
+const APP_RELEASE_DATE = "2026-07-13";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -913,6 +913,13 @@ function renderTable(kind) {
   } else if (kind === "kanji") {
     wrap.innerHTML = kanjiTableHtml();
     bindKanjiTableExamples(wrap);
+  } else if (kind === "phrase") {
+    wrap.innerHTML = `<div class="phrase-table">${cards.map(c => `
+      <article class="phrase-table-card">
+        <p class="phrase-table-native">${escapeHtml(nativeText(c))}</p>
+        <p class="phrase-table-jp">${escapeHtml(c.jp)}</p>
+      </article>
+    `).join("")}</div>`;
   } else {
     wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
   }

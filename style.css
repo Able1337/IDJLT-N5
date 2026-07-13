@@ -797,6 +797,39 @@ th:first-child, td:first-child { border-left: 1px solid var(--line); border-radi
 th:last-child, td:last-child { border-right: 1px solid var(--line); border-radius: 0 12px 12px 0; }
 th { color: var(--muted); font-size: 13px; }
 
+.phrase-table {
+  display: grid;
+  gap: 10px;
+}
+
+.phrase-table-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.phrase-table-card p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.phrase-table-native {
+  color: var(--text);
+  font-size: clamp(18px, 4.4vw, 24px);
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.phrase-table-jp {
+  color: var(--text);
+  font-size: clamp(20px, 5vw, 28px);
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
 .kana-table-groups {
   display: grid;
   gap: 14px;
