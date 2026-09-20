@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.18.8";
-const APP_RELEASE_DATE = "2026-07-29";
+const APP_VERSION = "0.19.1";
+const APP_RELEASE_DATE = "2026-09-20";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -18,6 +18,7 @@ const TEXTBOOKS = [
 
 const I18N = {
   ru: {
+    grammarDemo: "Демо: мастерская форм", grammarDemoSub: "て-форма и прилагательные: ввод ответа и разбор",
     themeDark: "Тёмная", themeLight: "Светлая", themeOled: "OLED",
     homeTitle: "Тренажёр японского", homeSub: "Выбери режим.",
     wordsMode: "Слова", kanaMode: "Кана", kanjiMode: "Кандзи", phrasesMode: "Фразы", textbooksMode: "Учебники", interviewMode: "Интервью", wordsTitle: "Слова", kanaTitle: "Кана", kanjiTitle: "Кандзи", phrasesTitle: "Фразы", textbooksTitle: "Учебники", interviewTitle: "Интервью",
@@ -56,6 +57,7 @@ const I18N = {
     ruToJp: "Русский → японский", jpToRu: "Японский → русский"
   },
   en: {
+    grammarDemo: "Demo: form workshop", grammarDemoSub: "Te-form and adjectives: type answers and learn the rules",
     themeDark: "Dark", themeLight: "Light", themeOled: "OLED",
     homeTitle: "Japanese trainer", homeSub: "Choose a mode.",
     wordsMode: "Words", kanaMode: "Kana", kanjiMode: "Kanji", phrasesMode: "Phrases", textbooksMode: "Textbooks", interviewMode: "Interview", wordsTitle: "Words", kanaTitle: "Kana", kanjiTitle: "Kanji", phrasesTitle: "Phrases", textbooksTitle: "Textbooks", interviewTitle: "Interview",
@@ -558,7 +560,8 @@ function phraseCardsFor(setIds) {
     const set = phraseSetById(id);
     if (!set) return;
     set.items.forEach(item => {
-      const key = normalizeStudyKey(item.jp) || normalizeStudyKey(item.ru);
+      // Grammar prompts may share an answer: よぶ and よむ both become よんで.
+      const key = item.studyKey || normalizeStudyKey(item.jp) || normalizeStudyKey(item.ru);
       if (!unique.has(key)) unique.set(key, { ...item, type: "phrase", source: phraseSetTitle(set) });
     });
   });
@@ -703,7 +706,9 @@ function repeatUnknown() {
   renderMode();
 }
 function restartAll() {
+  const key = session.key;
   session = newSession(cards, currentKind === "kana" ? settings.kana.order : "random");
+  session.key = key;
   nextCard();
   saveSession();
   renderMode();

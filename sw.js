@@ -1,18 +1,33 @@
-const CACHE_NAME = "idjlt-n5-v47";
+const CACHE_NAME = "idjlt-n5-v49";
 const TEXTBOOK_CACHE = "idjlt-textbooks-v1";
+// Retired private documents: also remove copies saved by earlier app versions.
+const RETIRED_DOCUMENTS = ["lesson11-vocabulary.pdf", "lesson14.pdf", "adjective-forms.pdf"];
+const isRetiredDocument = url => RETIRED_DOCUMENTS.some(name => new URL(url).pathname === new URL(`./assets/textbooks/${name}`, self.location.href).pathname);
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css?v=65",
-  "./app.js?v=65",
-  "./data.js?v=65",
-  "./kanji-data.js?v=65",
+  "./words.html",
+  "./lesson.html",
+  "./custom.html",
+  "./lesson11.html",
+  "./lesson14.html",
+  "./adjectives-i.html",
+  "./adjectives-na.html",
+  "./grammar-demo.html",
+  "./grammar-demo.css?v=67",
+  "./grammar-demo.js?v=67",
+  "./assets/wanakana/wanakana.min.js?v=67",
+  "./supplemental-data.js?v=67",
+  "./style.css?v=67",
+  "./app.js?v=67",
+  "./data.js?v=67",
+  "./kanji-data.js?v=67",
   "./phrases.html",
-  "./phrases-data.js?v=65",
+  "./phrases-data.js?v=67",
   "./textbooks.html",
   "./interview.html",
-  "./interview-data.js?v=65",
-  "./interview.js?v=65",
+  "./interview-data.js?v=67",
+  "./interview.js?v=67",
   "./assets/pdfjs/pdf.mjs",
   "./assets/pdfjs/pdf.worker.mjs",
   "./manifest.webmanifest",
@@ -28,20 +43,32 @@ self.addEventListener("install", event => {
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== TEXTBOOK_CACHE).map(key => caches.delete(key))))
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(async key => {
+        if (key !== CACHE_NAME && key !== TEXTBOOK_CACHE) return caches.delete(key);
+        const cache = await caches.open(key);
+        const requests = await cache.keys();
+        await Promise.all(requests.filter(request => isRetiredDocument(request.url)).map(request => cache.delete(request)));
+      }));
+      await self.clients.claim();
+    })()
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+  if (isRetiredDocument(event.request.url)) {
+    event.respondWith(Promise.resolve(new Response("Not found", { status: 404 })));
+    return;
+  }
   if (event.request.mode === "navigate") {
     event.respondWith(
       fetch(event.request).then(response => {
         const copy = response.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
         return response;
-      }).catch(() => caches.match(event.request).then(cached => cached || caches.match("./index.html")))
+      }).catch(() => caches.match(event.request, { ignoreSearch: true }).then(cached => cached || caches.match("./index.html")))
     );
     return;
   }
