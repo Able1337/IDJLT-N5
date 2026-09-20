@@ -47,12 +47,23 @@
   let recorder = null;
   let chunks = [];
   let countdown = null;
+  let audioUrls = [], mediaGeneration = 0, speechTimer = null;
+  function stopMedia() {
+    mediaGeneration++;
+    clearInterval(countdown); clearTimeout(speechTimer);
+    window.speechSynthesis?.cancel();
+    if (recorder?.state === "recording") recorder.stop();
+    recorder?.stream?.getTracks().forEach(track => track.stop());
+    view.recording = false;
+    audioUrls.forEach(url=>URL.revokeObjectURL(url)); audioUrls=[];
+  }
+  window.addEventListener("pagehide", stopMedia);
 
   function loadSettings() {
     try { return { lang: "ru", theme: "dark", ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}") }; }
     catch { return { lang: "ru", theme: "dark" }; }
   }
-  function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
+  function saveSettings() { persistLegacy(SETTINGS_KEY, settings); }
   function tr(key) { return l10n[settings.lang]?.[key] || l10n.ru[key] || key; }
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
@@ -199,7 +210,7 @@
   function readSrs() {
     try { return JSON.parse(localStorage.getItem(SRS_KEY) || "{}"); } catch { return {}; }
   }
-  function writeSrs(srs) { localStorage.setItem(SRS_KEY, JSON.stringify(srs)); }
+  function writeSrs(srs) { persistLegacy(SRS_KEY, srs); }
   function updateSrs(id, good) {
     const srs = readSrs();
     const item = srs[id] || { ease: 1, interval: 0, due: Date.now(), hard: 0, good: 0 };
@@ -230,6 +241,7 @@
     document.getElementById("interviewSub").textContent = tr("sub");
   }
   function renderMenu() {
+    stopMedia(); view.mode = ""; view.deck = [];
     renderHeader();
     view.moduleId = "";
     setUrl("");
@@ -261,6 +273,7 @@
     `;
   }
   function renderLesson(moduleId) {
+    stopMedia(); view.mode = ""; view.deck = [];
     const mod = moduleById(moduleId);
     if (!mod) return renderMenu();
     renderHeader();
@@ -305,12 +318,12 @@
     startSession(modeName, shuffle(questionsFor(view.moduleId)).slice(0, size));
   }
   function startSession(modeName, deck) {
-    clearInterval(countdown);
+    stopMedia();
     view = { ...view, mode: modeName, deck, index: 0, revealed: false, results: [], timer: modeName === "rapid" ? 10 : 0 };
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ modeName, ids: deck.map(q => q.id), startedAt: Date.now() }));
+    persistLegacy(SESSION_KEY, { modeName, ids: deck.map(q => q.id), startedAt: Date.now() });
     renderQuestion();
     if (modeName === "rapid") startCountdown();
-    if (modeName === "listening") setTimeout(() => speakCurrent("female"), 350);
+    if (modeName === "listening") speechTimer = setTimeout(() => speakCurrent("female"), 350);
   }
   function currentQuestion() { return view.deck[view.index]; }
   function renderQuestion() {
@@ -383,21 +396,23 @@
   function markAnswer(good) {
     const q = currentQuestion();
     if (!q) return;
+    stopMedia();
     updateSrs(q.id, good);
     view.results.push({ id: q.id, good });
     view.index++;
     view.revealed = false;
     renderQuestion();
     if (view.mode === "rapid") startCountdown();
-    if (view.mode === "listening") setTimeout(() => speakCurrent("female"), 350);
+    if (view.mode === "listening") speechTimer = setTimeout(() => speakCurrent("female"), 350);
   }
   function nextQuestion() {
+    stopMedia();
     view.index++;
     view.revealed = false;
     renderQuestion();
   }
   function renderStats() {
-    clearInterval(countdown);
+    stopMedia();
     const good = view.results.filter(r => r.good).length;
     const hard = view.results.filter(r => !r.good).length;
     const hardQuestions = view.results.filter(r => !r.good).map(r => DATA.questions.find(q => q.id === r.id)).filter(Boolean);
@@ -414,6 +429,7 @@
   }
   function startCountdown() {
     clearInterval(countdown);
+    if (!currentQuestion()) return;
     view.timer = 10;
     countdown = setInterval(() => {
       view.timer--;
@@ -429,7 +445,7 @@
     loadVoices();
     const ja = voices.filter(v => /ja|Japan/i.test(v.lang + " " + v.name));
     const hinted = ja.find(v => new RegExp(kind === "female" ? "female|kyoko|haruka|nanami|siri" : "male|otoya|ichiro", "i").test(v.name));
-    return hinted || ja[0] || voices[0] || null;
+    return hinted || ja[0] || null;
   }
   function speakCurrent(kind = "female") {
     const q = currentQuestion();
@@ -451,16 +467,20 @@
       return;
     }
     if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) return;
+    const generation = mediaGeneration;
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true }).catch(() => null);
     if (!stream) return;
+    if (generation !== mediaGeneration) { stream.getTracks().forEach(track=>track.stop()); return; }
     chunks = [];
     recorder = new MediaRecorder(stream);
     recorder.ondataavailable = e => chunks.push(e.data);
     recorder.onstop = () => {
       stream.getTracks().forEach(track => track.stop());
+      if (generation !== mediaGeneration) return;
       const audio = document.createElement("audio");
       audio.controls = true;
       audio.src = URL.createObjectURL(new Blob(chunks, { type: "audio/webm" }));
+      audioUrls.push(audio.src);
       root.querySelector(".interview-audio-panel")?.appendChild(audio);
     };
     recorder.start();

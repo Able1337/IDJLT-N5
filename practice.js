@@ -84,7 +84,12 @@
   };
   const builder={
     html:e=>`<p class="small-note">${tr('Нажимай слова снизу, чтобы добавить их. Нажми слово в ответе, чтобы вернуть его.','Tap words below to add them. Tap a word in your answer to put it back.')}</p><div class="token-answer" aria-label="${tr('Твоё предложение','Your sentence')}">${run.selected.map(i=>`<button type="button" class="token selected" data-remove="${i}">${esc(e.tokens[i])}</button>`).join('')||`<span class="sub">${tr('Здесь будет предложение','Build your sentence here')}</span>`}</div><div class="token-bank">${run.order.map(i=>`<button type="button" class="token" data-add="${i}" ${run.selected.includes(i)?'disabled':''}>${esc(e.tokens[i])}</button>`).join('')}</div><button class="small secondary" id="undoToken" type="button" ${run.selected.length?'':'disabled'}>${tr('Убрать последнее','Undo last word')}</button>`,
-    bind:()=>{root.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{run.selected.push(Number(b.dataset.add));save();renderRun();});root.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{run.selected=run.selected.filter(i=>i!==Number(b.dataset.remove));save();renderRun();});document.getElementById('undoToken').onclick=()=>{run.selected.pop();save();renderRun();};},
+    bind:()=>{
+      const update=selector=>{save();renderRun();(root.querySelector(selector)||document.getElementById('practiceCheck')).focus({preventScroll:true});};
+      root.querySelectorAll('[data-add]').forEach(button=>button.onclick=()=>{run.selected.push(Number(button.dataset.add));update('[data-add]:not(:disabled)');});
+      root.querySelectorAll('[data-remove]').forEach(button=>button.onclick=()=>{run.selected=run.selected.filter(i=>i!==Number(button.dataset.remove));update(`[data-add="${button.dataset.remove}"]`);});
+      document.getElementById('undoToken').onclick=()=>{const removed=run.selected.pop();update(`[data-add="${removed}"]`);};
+    },
     answer:e=>run.selected.map(i=>e.tokens[i]).join('')
   };
   const choice={html:e=>`<fieldset class="particle-options"><legend>${tr('Выбери частицу','Choose a particle')}</legend>${e.choices.map(c=>`<label><input type="radio" name="particle" value="${c}" ${run.answer===c?'checked':''}><span>${c}</span></label>`).join('')}</fieldset>`,bind:()=>root.querySelectorAll('[name=particle]').forEach(n=>n.onchange=()=>{run.answer=n.value;save();}),answer:()=>run.answer};
@@ -105,7 +110,7 @@
       <aside class="practice-aside"><h2>${tr('Шаг за шагом','One step at a time')}</h2><p>${tr('Enter — проверить и продолжить. Tab — перейти к следующей кнопке.','Enter checks and continues. Tab moves to the next control.')}</p><p>${tr('Подсказки помогают учиться. После них материал вернётся на повторение.','Hints help you learn. Hinted material will return for review.')}</p><p>${tr('Ответ сохраняется сразу после проверки. Сессию можно продолжить позже.','Results save after each check. You can resume the session later.')}</p></aside></div>`;
     document.getElementById('pausePractice').onclick=()=>{save();renderSetup();};
     document.getElementById('practiceForm').onsubmit=event=>{event.preventDefault();if(!composing&&!feedback)submit(false);};
-    if(!feedback){renderer.bind(e);document.getElementById('practiceHint').onclick=()=>{run.answer=renderer.answer(e);run.hinted=true;save();renderRun();};document.getElementById('practiceReveal').onclick=()=>submit(true);}
+    if(!feedback){renderer.bind(e);if(matchMedia('(pointer:fine)').matches)document.getElementById('practiceAnswer')?.focus({preventScroll:true});document.getElementById('practiceHint').onclick=()=>{run.answer=renderer.answer(e);run.hinted=true;save();renderRun();};document.getElementById('practiceReveal').onclick=()=>submit(true);}
     else {
       document.getElementById('practiceNext').onclick=()=>{run.index++;run.phase=run.index===run.queue.length?'done':'answer';prepare();save();renderRun();};
       document.getElementById('acceptVariant')?.addEventListener('click',()=>{if(S.acceptAlternative(e,`${run.id}:${run.index}`,result.answer)){result.correct=true;result.selfAssessed=true;save();renderRun();}});
