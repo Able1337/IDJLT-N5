@@ -16,6 +16,7 @@ const APP_SHELL = [
   "./grammar-demo.html",
   "./grammar-demo.css?v=67",
   "./grammar-demo.js?v=67",
+  "./japanese-input.js?v=67",
   "./assets/wanakana/wanakana.min.js?v=67",
   "./supplemental-data.js?v=67",
   "./style.css?v=67",
