@@ -9,12 +9,11 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="app-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="app-icon-192.png">
-  <title>Демо: мастерская форм | IDJLT N5</title>
+  <title>Словарь | IDJLT N5</title>
   <link rel="stylesheet" href="style.css?v=67">
-  <link rel="stylesheet" href="grammar-demo.css?v=67">
   <link rel="stylesheet" href="study.css?v=67">
 </head>
-<body data-page="grammar-demo">
+<body data-page="vocabulary">
   <header class="topbar">
     <a class="brand" href="index.html">IDJLT N5</a>
     <div class="toolbar">
@@ -24,9 +23,12 @@
   </header>
   <main class="wrap">
     <a class="btn small secondary" href="index.html" data-i18n="backHome">← Главная</a>
-    <div id="grammarDemo"></div>
+    <h1 id="vocabularyTitle">Словарь</h1><div id="vocabularyApp"></div>
   </main>
   
+  <script src="data.js?v=67"></script>
+  <script src="kanji-data.js?v=67"></script>
+  <script src="phrases-data.js?v=67"></script>
   <script src="supplemental-data.js?v=67"></script>
   <script src="study-core.js?v=67"></script>
   <script src="assets/wanakana/wanakana.min.js?v=67"></script>
@@ -34,7 +36,6 @@
   <script src="vocabulary.js?v=67"></script>
   <script src="app.js?v=67"></script>
   <script src="japanese-input.js?v=67"></script>
-  <script src="grammar-demo.js?v=67"></script>
   <script src="study-navigation.js?v=67"></script>
 </body>
 </html>

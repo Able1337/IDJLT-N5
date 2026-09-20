@@ -18,7 +18,12 @@
   function valid(value) {
     if(!value || value.version!==1 || !['ru','en'].includes(value.lang) || !Array.isArray(value.queue) || !value.queue.length || value.queue.length>15 || !Number.isInteger(value.index) || value.index<0 || value.index>value.queue.length || !Array.isArray(value.results) || value.results.length<value.index || value.results.length>value.index+1 || !['answer','feedback','done'].includes(value.phase))return false;
     const ids=new Set(D.build(value.lang).map(e=>e.id));
-    return value.queue.every(id=>ids.has(id)) && value.results.every(r=>r && typeof r.answer==='string' && typeof r.correct==='boolean') && typeof value.id==='string';
+    if (!value.queue.every(id=>ids.has(id)) || !value.results.every(r=>r && typeof r.answer==='string' && typeof r.correct==='boolean') || typeof value.id!=='string' || typeof value.answer!=='string' || !Array.isArray(value.selected) || !Array.isArray(value.order)) return false;
+    if (value.phase==='done') return value.index===value.queue.length && value.results.length===value.queue.length;
+    if (value.index>=value.queue.length || value.results.length!==value.index+(value.phase==='feedback'?1:0)) return false;
+    const exercise=D.build(value.lang).find(e=>e.id===value.queue[value.index]);
+    if(exercise.tokens) return value.order.length===exercise.tokens.length && new Set(value.order).size===value.order.length && value.order.every(i=>Number.isInteger(i)&&i>=0&&i<exercise.tokens.length) && new Set(value.selected).size===value.selected.length && value.selected.every(i=>value.order.includes(i));
+    return value.selected.length===0;
   }
   const current=()=>D.build(run.lang).find(e=>e.id===run.queue[run.index]);
   function filtered() {
@@ -130,4 +135,5 @@
   window.addEventListener('storage',event=>{if(event.key===S.KEY){S.refresh();if(!run)renderSetup();}});
   window.addEventListener('pagehide',save);
   renderSetup();
+  if(params.get('quick')==='1') { const previous=saved(); if(valid(previous)&&previous.phase!=='done'){run=previous;renderRun();}else begin(); }
 })();

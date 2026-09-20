@@ -34,7 +34,8 @@
     return clean;
   }
   let state = sanitize(read(KEY, null));
-  function persist() { return write(KEY, state); }
+  let progressIndex = null;
+  function persist() { progressIndex = null; return write(KEY, state); }
   function dayKey(time = Date.now()) {
     const date = new Date(time);
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
@@ -90,9 +91,13 @@
     persist(); return true;
   }
   function progressFor(ref) {
-    const items = Object.values(state.items).filter(i => i.ref === ref);
+    if (!progressIndex) {
+      progressIndex = new Map();
+      Object.values(state.items).forEach(item => { if (!progressIndex.has(item.ref)) progressIndex.set(item.ref, []); progressIndex.get(item.ref).push(item); });
+    }
+    const items = progressIndex.get(ref) || [];
     const latest = items.slice().sort((a,b) => b.lastAt - a.lastAt)[0];
-    return { ...latest, correct: items.reduce((n,i)=>n+i.correct,0), errors: items.reduce((n,i)=>n+i.errors,0), status: state.flags[ref] || items.some(i=>status(i)==="weak") ? "weak" : status(latest), flagged: !!state.flags[ref] };
+    return { ...latest, difficulty: state.flags[ref] ? 1 : Math.max(0,...items.map(i=>i.difficulty)), correct: items.reduce((n,i)=>n+i.correct,0), errors: items.reduce((n,i)=>n+i.errors,0), status: state.flags[ref] || items.some(i=>status(i)==="weak") ? "weak" : status(latest), flagged: !!state.flags[ref] };
   }
   function markDifficult(ref) {
     if (!safeKey(ref)) return;
@@ -118,7 +123,7 @@
     return chosen.sort((a,b)=>score(b)-score(a)).slice(0,count);
   }
   function summary() {
-    const refs = [...new Set(Object.values(state.items).map(i=>i.ref))];
+    const refs = [...new Set([...Object.values(state.items).map(i=>i.ref), ...Object.keys(state.flags)])];
     const counts = { new:0, learning:0, familiar:0, mastered:0, weak:0 };
     refs.forEach(ref=>counts[progressFor(ref).status]++);
     let streak=0; const date=new Date();
@@ -128,7 +133,7 @@
   }
   return { KEY, SESSION_KEY, read, write, normalize, alternatives, check, status, evolve, record, acceptAlternative, progressFor, markDifficult, select, summary, dayKey, sanitize,
     get state() { return state; }, get persistenceError() { return persistenceError; },
-    refresh() { state = sanitize(read(KEY, null)); },
+    refresh() { state = sanitize(read(KEY, null)); progressIndex = null; },
     exportProgress() { return JSON.stringify(state, null, 2); }
   };
 });

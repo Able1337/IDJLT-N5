@@ -56,6 +56,7 @@ assert.equal(vm.runInContext("phraseCardsFor(['lesson14-te']).length", phraseCtx
 const storage = new Map();
 const sessionCtx = vm.createContext({
   localStorage: { getItem: key => storage.get(key) || null, setItem: (key, value) => storage.set(key, value) },
+  persistLegacy: (key,value) => storage.set(key,JSON.stringify(value)),
   cards: [{ id: 'one' }, { id: 'two' }], currentKind: 'word',
   shuffle: items => [...items], renderMode() {}, settings: { kana: { order: 'random' } }
 });
