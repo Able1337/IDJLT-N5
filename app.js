@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.20.0";
+const APP_VERSION = "0.19.1";
 const APP_RELEASE_DATE = "2026-09-20";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -153,28 +153,20 @@ const $ = id => document.getElementById(id);
 const t = key => I18N[settings.lang]?.[key] || I18N.ru[key] || key;
 
 function loadSettings() {
-  const defaults = { theme: "dark", lang: "ru", showButtons: true, showRomaji: true, audioVolume: 1,
-    kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
-  let raw = {}; try { raw = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}") || {}; } catch {}
-  const result = { ...defaults, ...raw, kana: { ...defaults.kana, ...raw.kana }, kanji: { ...defaults.kanji, ...raw.kanji }, phrases: { ...defaults.phrases, ...raw.phrases } };
-  if (!["ru","en"].includes(result.lang)) result.lang = "ru";
-  if (!["dark","light","oled"].includes(result.theme)) result.theme = "dark";
-  if (!Array.isArray(result.kana.rows)) result.kana.rows = defaults.kana.rows;
-  result.kana.rows = result.kana.rows.filter(row => [...defaults.kana.rows,"g","z","d","b","p","yoon"].includes(row));
-  if (!["hiragana","katakana","bothMix","bothTogether"].includes(result.kana.script)) result.kana.script = "hiragana";
-  if (!["random","sequential"].includes(result.kana.order)) result.kana.order = "random";
-  result.audioVolume = Number.isFinite(Number(result.audioVolume)) ? Math.max(0,Math.min(1,Number(result.audioVolume))) : 1;
-  return result;
-}
-function saveSettings() { persistLegacy(SETTINGS_KEY, settings); }
-function persistLegacy(key, value) {
-  if (IDJLTStudy.write(key, value)) return;
-  if (!$("storageWarning")) {
-    const warning = document.createElement("p"); warning.id = "storageWarning"; warning.className = "notice"; warning.setAttribute("role","alert");
-    warning.textContent = settings.lang === "en" ? "Storage is unavailable. Changes last only in this tab." : "Сохранение недоступно. Изменения останутся только в этой вкладке.";
-    document.querySelector("main")?.prepend(warning);
+  try {
+    return {
+      theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
+      audioVolume: 1,
+      kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
+      kanji: { mode: "mixed", reverse: false },
+      phrases: { direction: "native-jp" },
+      ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
+    };
+  } catch {
+    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, audioVolume: 1, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
   }
 }
+function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
 function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
 function shuffle(items) {
   const arr = [...items];
@@ -664,7 +656,7 @@ function phraseSettingsHtml() {
 
 function newSession(cardsList, order = "random") {
   const ids = cardsList.map(c => c.id);
-  return { version: 1, total: cardsList.length, pool: order === "sequential" ? ids.slice().reverse() : shuffle(ids), known: [], unknown: [], current: null, round: 1, done: false };
+  return { version: 1, total: cardsList.length, pool: order === "sequential" ? ids : shuffle(ids), known: [], unknown: [], current: null, round: 1, done: false };
 }
 function loadSession(key, cardsList, order = "random") {
   try {
@@ -679,7 +671,7 @@ function loadSession(key, cardsList, order = "random") {
   s.key = key;
   return s;
 }
-function saveSession() { if (session?.key) persistLegacy(session.key, session); }
+function saveSession() { if (session?.key) localStorage.setItem(session.key, JSON.stringify(session)); }
 function cardById(id) { return cards.find(card => card.id === id); }
 function nextCard() {
   if (!session.pool.length) return finishRound();
@@ -752,15 +744,6 @@ let trainerBound = false;
 function bindTrainer(kind) {
   if (trainerBound) return;
   trainerBound = true;
-  if ($("card")) { $("card").tabIndex = 0; $("card").setAttribute("role","button"); $("card").setAttribute("aria-label", settings.lang === "en" ? "Reveal answer" : "Показать ответ"); }
-  const shortcuts = document.createElement("p"); shortcuts.className = "small-note keyboard-hint";
-  shortcuts.textContent = settings.lang === "en" ? "Space: reveal · ←: review · →: known" : "Пробел: ответ · ←: повторить · →: знаю";
-  $("game")?.append(shortcuts);
-  document.addEventListener("keydown", event => {
-    if (!current || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest("input,select,textarea,button,a,summary,[contenteditable=true]") || $("game")?.hidden || $("wordTable")?.contains(event.target)) return;
-    if (event.code === "Space" || event.code === "Enter") { event.preventDefault(); reveal(); }
-    if (event.code === "ArrowLeft" || event.code === "ArrowRight") { event.preventDefault(); answer(event.code === "ArrowRight"); }
-  });
   $("card")?.addEventListener("click", () => { if (suppressClick) { suppressClick = false; return; } reveal(); });
   $("card")?.addEventListener("pointerdown", onPointerDown);
   $("card")?.addEventListener("pointermove", onPointerMove);
@@ -775,7 +758,7 @@ function bindTrainer(kind) {
   $("fullRestartBtn")?.addEventListener("click", restartAll);
   $("repeatUnknownBtn")?.addEventListener("click", repeatUnknown);
   $("showButtonsSetting")?.addEventListener("change", e => { settings.showButtons = e.target.checked; saveSettings(); applyGlobal(); });
-  $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); renderTable(kind); });
+  $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); });
   document.addEventListener("fullscreenchange", () => {
     if (!document.fullscreenElement) setCardFocus(false, false);
   });
@@ -843,7 +826,7 @@ function clearDrag() {
 function renderWordTitle(ids) {
   const title = $("lessonTitle");
   if (!title) return;
-  if (ids.length === 1) title.textContent = dictionaryById(ids[0]) ? dictTitle(dictionaryById(ids[0])) : (settings.lang === "en" ? "Set not found" : "Набор не найден");
+  if (ids.length === 1) title.textContent = dictTitle(dictionaryById(ids[0]));
   else title.textContent = t("customTitle");
   $("lessonSub").textContent = ids.length === 1 ? `${cards.length} ${t("cards")}` : `${ids.length} · ${cards.length} ${t("cards")}`;
 }
@@ -882,7 +865,7 @@ function kanjiExamplesText(card) {
     return `${example.term}${example.reading ? " · " + example.reading : ""}${translation ? "\n" + translation : ""}`;
   }).join("\n\n");
 }
-
+function nativeText(card) { return settings.lang === "en" ? card.en : card.ru; }
 
 function renderMode() {
   if (!session) return;
@@ -943,7 +926,7 @@ function renderTable(kind) {
       </article>
     `).join("")}</div>`;
   } else {
-    IDJLTVocabulary.mount(wrap, new Set(cards.map(card => card.id)));
+    wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
   }
 }
 
@@ -1023,11 +1006,6 @@ function buildKanjiCards(setIds = selectedKanjiSetIds()) {
   const singleIds = new Set(activeSets.flatMap(set => set.singleIds || []));
   const wordIds = new Set(activeSets.flatMap(set => set.wordIds || []));
   const kanjiCharacters = new Set(KANJI_DATA.singles.map(item => item.kanji));
-  const wordsByCharacter = new Map();
-  KANJI_DATA.words.forEach((word,index) => [...new Set(word.term)].forEach(character => {
-    if (!wordsByCharacter.has(character)) wordsByCharacter.set(character,[]);
-    wordsByCharacter.get(character).push({word,index});
-  }));
   const singleCards = KANJI_DATA.singles.map(item => ({
     id: item.id,
     type: "kanji-single",
@@ -1042,8 +1020,9 @@ function buildKanjiCards(setIds = selectedKanjiSetIds()) {
   }));
   const wordCards = KANJI_DATA.words.map(item => {
     const characters = [...item.term].filter(character => kanjiCharacters.has(character));
-    const relatedExamples = [...new Map(characters.flatMap(character => wordsByCharacter.get(character)||[]).map(entry => [entry.word.id,entry])).values()]
-      .filter(entry => entry.word.id !== item.id).sort((a,b)=>a.index-b.index).slice(0,4).map(entry=>entry.word);
+    const relatedExamples = KANJI_DATA.words
+      .filter(other => other.id !== item.id && characters.some(character => other.term.includes(character)))
+      .slice(0, 4);
     return {
     id: item.id,
     type: "kanji-word",
@@ -1412,12 +1391,8 @@ function applyAudioVolume() {
   if ($("audioVolume")) $("audioVolume").value = String(volume);
 }
 
-let pdfLoadToken = 0;
 async function loadPdf(url) {
-  const loadToken = ++pdfLoadToken;
-  const oldDoc = pdfDoc;
   pdfDoc = null;
-  oldDoc?.destroy();
   pdfPage = 1;
   pdfRenderToken++;
   if (pdfRenderTask) {
@@ -1431,14 +1406,10 @@ async function loadPdf(url) {
   updatePdfToolbar();
   try {
     const lib = await pdfLib();
-    if (loadToken !== pdfLoadToken) return;
-    const loaded = await lib.getDocument(url).promise;
-    if (loadToken !== pdfLoadToken) { loaded.destroy(); return; }
-    pdfDoc = loaded;
+    pdfDoc = await lib.getDocument(url).promise;
     updatePdfToolbar();
     await renderPdfPage();
   } catch {
-    if (loadToken !== pdfLoadToken) return;
     if ($("pdfStatus")) $("pdfStatus").textContent = t("openPdf");
   }
 }

@@ -6,6 +6,28 @@
   let topic = "te", selectedForm = "mixed", started = false;
   const tr = (ru, en) => settings.lang === "en" ? en : ru;
   const normalize = value => value.normalize("NFKC").replace(/[\s。.!！?？~〜]/g, "").replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+  function bindRomajiInput(input) {
+    // Keep the second n available for the next syllable: konni → こんに,
+    // while nn alone still displays ん. WanaKana otherwise commits both n's.
+    let carry = null, rememberN = false;
+    input.addEventListener("input", event => {
+      rememberN = false;
+      if (event.isComposing) { carry = null; return; }
+      if (carry && event.inputType === "insertText" && /^[aiueoy]$/i.test(event.data || "") &&
+          input.value === carry.value.slice(0, carry.cursor) + event.data + carry.value.slice(carry.cursor)) {
+        const cursor = input.selectionStart;
+        input.value = input.value.slice(0, carry.cursor) + "n" + input.value.slice(carry.cursor);
+        input.setSelectionRange(cursor + 1, cursor + 1);
+      }
+      rememberN = /nn$/i.test(input.value.slice(0, input.selectionStart));
+      carry = null;
+    });
+    wanakana.bind(input, { IMEMode: "toHiragana" });
+    input.addEventListener("input", () => {
+      if (rememberN) carry = { value: input.value, cursor: input.selectionStart };
+      rememberN = false;
+    });
+  }
   function explanation(item) {
     if (item.verb) {
       const v = item.verb;
@@ -34,7 +56,7 @@
   function render(preserveDraft = false) {
     const oldInput = document.getElementById("demoAnswer");
     const draft = preserveDraft && oldInput && !checked ? oldInput.value : "";
-    if (oldInput?.dataset.wanakanaId) IDJLTInput.unbind(oldInput);
+    if (oldInput?.dataset.wanakanaId) wanakana.unbind(oldInput);
     const item = deck[index];
     const finished = started && index >= deck.length;
     root.innerHTML = `
@@ -78,7 +100,7 @@
     const answerInput = document.getElementById("demoAnswer");
     if (answerInput && !checked) {
       answerInput.value = draft;
-      IDJLTInput.bind(answerInput);
+      bindRomajiInput(answerInput);
     }
     document.getElementById("demoTopic").addEventListener("change", e => { topic = e.target.value; started = false; deck = []; checked = false; render(); });
     document.getElementById("demoForm").addEventListener("change", e => { selectedForm = e.target.value; started = false; deck = []; checked = false; render(); });
@@ -102,7 +124,7 @@
     const input = document.getElementById("demoAnswer");
     const feedback = document.getElementById("demoFeedback");
     // Commit a trailing n (ん) when checking, while keeping incomplete syllables during typing.
-    IDJLTInput.commit(input);
+    input.value = wanakana.toHiragana(input.value);
     if (!reveal && !input.value.trim()) { feedback.textContent = tr("Сначала введи ответ.", "Type an answer first."); input.focus(); return; }
     const item = deck[index];
     // Romaji long vowels (kyuuto) may produce きゅうと rather than キュート.
