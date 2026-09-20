@@ -62,3 +62,19 @@ small deployment surface, offline shell, existing user settings and stable IDs.
 
 Preserve dark/light/OLED palettes and rounded cards. No personal documents or links
 to them. Keep short original practice examples distinct from imported lesson data.
+
+## Delivered
+
+Implemented the four stages above. The expanded vocabulary uses search, statuses,
+flags, pronunciation, practice links and pagination; responsive rows replace the
+two-column word table. Seven exercise types share grading, progress and resumed
+sessions. Home has a daily summary and direct practice/resume entry. Existing
+trainers retain their data, with keyboard controls and safer settings handling.
+Fixed sequential kana, invalid lesson titles, duplicate translation helper,
+kanji example lookup, PDF load races and interview timer/recording cleanup.
+The offline shell includes every lesson and new page; failed resources no longer
+receive HTML, partial responses are not cached, and saved audio supports ranges.
+
+Automated checks pass. Scope, model rules, test commands and remaining limitations
+are documented in [LEARNING.md](LEARNING.md). The redesign preserves the original
+palette, rounded cards, RU/EN interface, themes and legacy navigation URLs.
