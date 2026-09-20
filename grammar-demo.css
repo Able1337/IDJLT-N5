@@ -19,3 +19,13 @@
 .demo-answer { font-size: 28px; margin: 8px 0; }
 .demo-links { line-height: 1.8; }
 .demo-links a { color: var(--accent); }
+.form-lesson h2 { font-size:18px; margin:20px 0 8px; }
+.form-examples { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.form-examples>div { background:var(--panel); border-radius:12px; padding:12px; }
+.form-examples small { color:var(--muted); }
+.form-examples p { margin:6px 0; overflow-wrap:anywhere; }
+.demo-guide { overflow-wrap:anywhere; }
+.demo-exercise { scroll-margin-top:100px; }
+.demo-controls button,.demo-controls select,.demo-actions button { min-height:44px; }
+@media(max-width:480px) { .form-examples { grid-template-columns:1fr; } .demo-controls { padding:16px; } .demo-guide { padding:14px; } }
+@media(max-width:400px) { body[data-page="grammar-demo"] .brand { font-size:14px; white-space:nowrap; } body[data-page="grammar-demo"] .toolbar { gap:4px; } body[data-page="grammar-demo"] .toolbar select { padding:8px; } }

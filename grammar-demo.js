@@ -1,9 +1,10 @@
 // Experimental exercises. Study progress in the regular modes is never read or written.
 (function () {
   const { verbs, adjectives, forms } = window.IDJLT_GRAMMAR_MATERIALS;
+  const library = window.IDJLT_FORM_LIBRARY;
   const root = document.getElementById("grammarDemo");
   let deck = [], index = 0, correct = 0, checked = false, mistakes = [], lastResult = null;
-  let topic = "te", selectedForm = "mixed", started = false;
+  let topic = "te", selectedForm = "te", started = false;
   const tr = (ru, en) => settings.lang === "en" ? en : ru;
   const normalize = value => value.normalize("NFKC").replace(/[\s。.!！?？~〜]/g, "").replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
   function bindRomajiInput(input) {
@@ -29,6 +30,7 @@
     });
   }
   function explanation(item) {
+    if (item.lesson) return `${item.base} → ${item.answer}. ${item.lesson.rule[settings.lang]}`;
     if (item.verb) {
       const v = item.verb;
       if (v.jp === "いく") return tr("Исключение: いく → いって, не いいて.", "Exception: いく → いって, not いいて.");
@@ -41,8 +43,39 @@
     if (a.type === "na") return tr("な-прилагательное: основу сохраняем. Окончания: じゃない / で / だった / じゃなかった. きれい и きらい тоже относятся к этому типу.", "Na-adjective: keep the stem. Endings: じゃない / で / だった / じゃなかった. きれい and きらい belong to this type too.");
     return (a.good ? tr("Исключение いい: используем основу よ. ", "Exception いい: use the stem よ. ") : tr("Убираем последнее い. ", "Remove the final い. ")) + tr("Добавляем くない / くて / かった / くなかった.", "Add くない / くて / かった / くなかった.");
   }
+  function formOptions() {
+    if(topic!=="te")return `<option value="mixed">${tr("Все формы","All forms")}</option>`+forms.map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('');
+    return [['base','Основы','Basics'],['te','Семейство て','Te family'],['wish','Семейство たい','Tai family'],['next','Следующий шаг','Next steps']].map(([id,ru,en])=>`<optgroup label="${tr(ru,en)}">${library.forms.filter(f=>f.section===id).map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('')}</optgroup>`).join('');
+  }
+  function guide() {
+    const groups=`<details class="demo-guide"><summary>${tr("Сначала: что такое форма и как узнать группу глагола?","Start here: what is a form and how do verb groups work?")}</summary>
+      <p>${tr("Форма меняет способ выражения действия: читаю, не читаю, читал, хочу читать. Конструкция добавляет смысл к готовой форме: よんで + ください — «прочитайте, пожалуйста». Лицо не меняет окончание: я, ты и он могут использовать один и тот же глагол.","A form changes how an action is expressed: read, do not read, read in the past, want to read. A construction adds meaning to a form: よんで + ください means please read. The verb ending does not change with I, you or they.")}</p>
+      <p><b>Ⅰ · 五段</b> — ${tr("меняется последний слог: よむ → よみます, よまない. Глагол на る тоже может быть в этой группе: かえる (возвращаться), はいる, はしる, きる (резать).","The final kana changes: よむ → よみます, よまない. Some verbs ending in る belong here: かえる (return), はいる, はしる, きる (cut).")}</p>
+      <p><b>Ⅱ · 一段</b> — ${tr("убираем る: たべる → たべ, みる → み. Обычно окончание -いる/-える, но по одному окончанию группу надёжно не определить — проверяй в словаре.","Remove る: たべる → たべ, みる → み. Usually -iru/-eru, but the ending alone is not a reliable test: check a dictionary.")}</p>
+      <p><b>Ⅲ · 不規則</b> — する / くる: します / きます; しない / こない; して / きて.</p>
+      <p><b>${tr("Основа ます","Masu stem")}</b>: Ⅰ — ${tr("ряд い","i-row")}: う→い, く→き, ぐ→ぎ, す→し, つ→ち, ぬ→に, ぶ→び, む→み, る→り. Ⅱ: る→∅. Ⅲ: する→し, くる→き.</p>
+      <p>${tr("Если уже знаешь ます-форму, просто убери ます: よみます → よみ. От этой основы строятся たい и ましょう.","If you know the masu-form, remove ます: よみます → よみ. This stem builds たい and ましょう.")}</p>
+    </details>`;
+    if(topic!=='te')return groups+`<details class="demo-guide" ${started?'':'open'}><summary>${tr("Как изменяются прилагательные","How adjectives change")}</summary><p>${topic==='i'?tr("У い-прилагательного убираем последнее い: おいしい → おいしくない, おいしくて, おいしかった, おいしくなかった. В утверждении с です оставляем い: おいしいです. Исключение いい: よくない, よくて, よかった. たい изменяется так же.","Remove the final い: おいしい → おいしくない, おいしくて, おいしかった, おいしくなかった. Keep い before です: おいしいです. Exception いい: よくない, よくて, よかった. たい follows the same pattern."):tr("У な-прилагательного основа не меняется: しずかです, しずかじゃない, しずかで, しずかだった, しずかじゃなかった. きれい и きらい — тоже な-прилагательные. な ставим перед существительным: しずかな へや. おなじ — особое слово: おなじ へや, без な.","Keep the na-adjective stem: しずかです, しずかじゃない, しずかで, しずかだった, しずかじゃなかった. きれい and きらい are na-adjectives too. Use な before a noun: しずかな へや. おなじ is special: おなじ へや, without な.")}</p><p>${tr("В отрицательных и прошедших заданиях вводи простую форму без です. Для な принимаются и ではない / ではなかった.","Enter plain negative and past answers without です. Na-adjectives also accept ではない / ではなかった.")}</p></details>`;
+    const lesson=library.forms.find(f=>f.id===selectedForm);
+    return groups+`<details class="demo-guide form-lesson" ${started?'':'open'}><summary>${escapeHtml(lesson[settings.lang])} · ${tr("объяснение и примеры","explanation and examples")}</summary>
+      ${lesson.section==='next'?`<p class="demo-note">${tr("Следующий шаг после основ. Здесь разбираем образование формы; её употребление требует контекста.","A step beyond the basics. This teaches formation; usage needs context.")}</p>`:''}
+      <h2>${tr("Что означает","What it means")}</h2><p>${escapeHtml(lesson.purpose[settings.lang])}</p>
+      <h2>${tr("Как образовать","How to form it")}</h2><p>${escapeHtml(lesson.rule[settings.lang])}</p>
+      <div class="form-examples">${library.samples.map(v=>`<div><small>${tr("Группа","Group")} ${v.group}</small><p lang="ja">${v.jp} → <b>${library.conjugate(v,lesson.id)}</b></p></div>`).join('')}</div>
+      <h2>${tr("В предложении","In a sentence")}</h2><p lang="ja">${lesson.example.jp}</p><p class="sub">${wanakana.toRomaji(lesson.example.jp.replace(/は(?=\s)/g,'わ').replace(/へ(?=\s)/g,'え').replace(/を/g,'お'))}</p><p>${escapeHtml(lesson.example[settings.lang])}</p>
+      <p class="demo-note">${tr("В тренировке вводи форму из схемы, без добавлений: например, たい, а не たいです. Для потенциальной, условной, страдательной и побудительной форм — простую форму.","In practice, enter exactly the form in the pattern: for example たい, not たいです. Potential, conditional, passive and causative exercises ask for the plain form.")}</p>
+      ${started?'':`<button class="primary" id="guidePractice" type="button">${tr("Потренировать эту форму","Practice this form")}</button>`}
+    </details>`;
+  }
   function pool() {
-    if (topic === "te") return verbs.map(v => ({ id: v.id, verb: v, base: v.jp, ru: v.ru, en: v.en, answer: v.te, romaji: v.teRomaji }));
+    if (topic === "te") {
+      const lesson = library.forms.find(f => f.id === selectedForm) || library.forms.find(f => f.id === 'te');
+      return verbs.filter(v => !['ふる','しぬ'].includes(v.jp) || ['dictionary','masu','masen','mashita','masen-deshita','nai','nakatta','te','ta','tara','tari'].includes(lesson.id)).map(v => {
+        const answer=library.conjugate(v,lesson.id);
+        return {id:`${v.id}-${lesson.id}`,verb:v,lesson,base:v.jp,ru:v.ru,en:v.en,answer,romaji:wanakana.toRomaji(answer)};
+      });
+    }
     return adjectives.filter(a => a.type === topic).flatMap(a => forms.filter(f => selectedForm === "mixed" || f.id === selectedForm).map(f => {
       const i = forms.indexOf(f);
       return { id: `${a.id}-${f.id}`, adj: a, form: f, base: a.jp, ru: a.ru, en: a.en, answer: a.answers[i], romaji: a.latinAnswers[i] };
@@ -52,6 +85,7 @@
     deck = shuffle(items).slice(0, 10);
     index = 0; correct = 0; mistakes = []; checked = false; lastResult = null; started = true;
     render();
+    document.querySelector('.demo-exercise')?.scrollIntoView({block:'start'});
   }
   function render(preserveDraft = false) {
     const oldInput = document.getElementById("demoAnswer");
@@ -63,27 +97,22 @@
       <div class="demo-intro">
         <span class="demo-badge">${tr("ДЕМО", "DEMO")}</span>
         <h1>${tr("Мастерская форм", "Form workshop")}</h1>
-        <p class="sub">${tr("Вспомни форму, введи ответ и посмотри объяснение. До 10 заданий за подход.", "Recall the form, type your answer and read the explanation. Up to 10 questions per round.")}</p>
+        <p class="sub">${tr("Выбери форму, разберись в правиле и попробуй сам. До 10 заданий за подход.", "Choose a form, learn the rule and try it yourself. Up to 10 questions per round.")}</p>
         <p class="sub demo-note">${tr("Результаты демо не сохраняются и не влияют на основные наборы.", "Demo results are not saved and do not affect the regular sets.")}</p>
       </div>
       <section class="demo-controls" aria-label="${tr("Настройки тренировки", "Practice settings")}">
         <label>${tr("Тема", "Topic")}<select id="demoTopic">
-          <option value="te" ${topic === "te" ? "selected" : ""}>${tr("Глаголы: て-форма", "Verbs: te-form")}</option>
+          <option value="te" ${topic === "te" ? "selected" : ""}>${tr("Глаголы", "Verbs")}</option>
           <option value="i" ${topic === "i" ? "selected" : ""}>${tr("い-прилагательные", "I-adjectives")}</option>
           <option value="na" ${topic === "na" ? "selected" : ""}>${tr("な-прилагательные", "Na-adjectives")}</option>
         </select></label>
-        <label ${topic === "te" ? "hidden" : ""}>${tr("Форма", "Form")}<select id="demoForm"><option value="mixed">${tr("Все формы", "All forms")}</option>${forms.map(f => `<option value="${f.id}" ${selectedForm === f.id ? "selected" : ""}>${escapeHtml(f[settings.lang])}</option>`).join("")}</select></label>
+        <label>${tr("Форма", "Form")}<select id="demoForm">${formOptions()}</select></label>
         <button id="demoStart" type="button" class="primary">${tr(started ? "Новая тренировка" : "Начать", started ? "New round" : "Start")}</button>
       </section>
-      <details class="demo-guide"><summary>${tr("Короткая памятка", "Quick reference")}</summary>
-        <p>${tr("Глаголы: сначала определи группу. Не каждый глагол на -いる/-える относится ко второй: например, かえる (возвращаться) → かえって.", "Verbs: identify the group first. Not every -iru/-eru verb is in group 2: for example, かえる (return) → かえって.")}</p>
-        <p>Ⅰ: う・つ・る → って / む・ぶ・ぬ → んで / く → いて / ぐ → いで / す → して<br>Ⅱ: る → て<br>Ⅲ: する → して / くる → きて<br>いく → いって</p>
-        <p>い: おいしい → おいしくない / おいしくて / おいしかった / おいしくなかった<br>いい → よくない / よくて / よかった / よくなかった<br>な: しずか → しずかじゃない / しずかで / しずかだった / しずかじゃなかった</p>
-        <p>${tr("В отрицательных и прошедших заданиях нужна простая форма, без です. Для な-прилагательных принимается также полное ではない / ではなかった. ～たい — суффикс желания, изменяется по модели い; おなじ перед существительным обычно не требует な.", "Negative and past questions ask for plain forms, without です. For na-adjectives, full ではない / ではなかった forms are also accepted. ～たい is a desire suffix that follows the i-pattern; おなじ usually takes no な before a noun.")}</p>
-      </details>
+      ${guide()}
       ${item ? `<section class="demo-exercise">
         <div class="demo-progress"><span>${index + 1} / ${deck.length}</span><span>${tr("Верно", "Correct")}: ${correct}</span></div>
-        <p class="demo-prompt">${item.verb ? tr("Образуй て-форму", "Make the te-form") : escapeHtml(item.form[settings.lang])}</p>
+        <p class="demo-prompt">${item.verb ? escapeHtml(item.lesson[settings.lang]) : escapeHtml(item.form[settings.lang])}</p>
         <p class="demo-word" lang="ja">${escapeHtml(item.base)}</p>
         <p class="sub">${escapeHtml(item[settings.lang])}${item.verb ? ` · ${tr("Группа", "Group")} ${item.verb.group}` : ""}</p>
         <form id="demoAnswerForm" autocomplete="off">
@@ -102,9 +131,10 @@
       answerInput.value = draft;
       bindRomajiInput(answerInput);
     }
-    document.getElementById("demoTopic").addEventListener("change", e => { topic = e.target.value; started = false; deck = []; checked = false; render(); });
+    document.getElementById("demoTopic").addEventListener("change", e => { topic = e.target.value; selectedForm = topic === "te" ? "te" : "mixed"; started = false; deck = []; checked = false; render(); });
     document.getElementById("demoForm").addEventListener("change", e => { selectedForm = e.target.value; started = false; deck = []; checked = false; render(); });
     document.getElementById("demoStart").addEventListener("click", () => start());
+    document.getElementById("guidePractice")?.addEventListener("click", () => start());
     document.getElementById("demoRetry")?.addEventListener("click", () => start([...mistakes]));
     document.getElementById("demoAnswerForm")?.addEventListener("submit", e => { e.preventDefault(); check(false); });
     document.getElementById("demoAnswer")?.addEventListener("keydown", e => {
@@ -114,10 +144,10 @@
     document.getElementById("demoNext")?.addEventListener("click", () => { index++; checked = false; lastResult = null; render(); });
     if (checked && lastResult && item) showFeedback(item, lastResult);
   }
-  function showFeedback(item, { good, reveal }) {
+  function showFeedback(item, { good, reveal, answer }) {
     const feedback = document.getElementById("demoFeedback");
     feedback.dataset.result = good ? "good" : "review";
-    feedback.innerHTML = `<strong>${good ? tr("Верно!", "Correct!") : reveal ? tr("Разберём форму", "Let's review") : tr("Нужно повторить", "Needs review")}</strong><p class="demo-answer" lang="ja">${escapeHtml(item.answer)}</p><p>${escapeHtml(item.romaji)}</p><p>${escapeHtml(explanation(item))}</p>`;
+    feedback.innerHTML = `<strong>${good ? tr("Верно!", "Correct!") : reveal ? tr("Разберём форму", "Let's review") : tr("Нужно повторить", "Needs review")}</strong>${!good && !reveal ? `<p>${tr("Твой ответ", "Your answer")}: ${escapeHtml(answer)}</p>` : ""}<p class="demo-answer" lang="ja">${escapeHtml(item.answer)}</p><p>${escapeHtml(item.romaji)}</p><p>${escapeHtml(explanation(item))}</p>`;
   }
   function check(reveal) {
     if (checked || !deck[index]) return;
@@ -138,7 +168,7 @@
     document.getElementById("demoCheck").disabled = true;
     document.getElementById("demoReveal").disabled = true;
     document.getElementById("demoNext").hidden = false;
-    lastResult = { good, reveal };
+    lastResult = { good, reveal, answer: input.value };
     showFeedback(item, lastResult);
     document.getElementById("demoNext").focus();
   }
