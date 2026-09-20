@@ -1,4 +1,4 @@
-const CACHE_NAME = "idjlt-n5-v49";
+const CACHE_NAME = "idjlt-n5-v51";
 const TEXTBOOK_CACHE = "idjlt-textbooks-v1";
 // Retired private documents: also remove copies saved by earlier app versions.
 const RETIRED_DOCUMENTS = ["lesson11-vocabulary.pdf", "lesson14.pdf", "adjective-forms.pdf"];
@@ -14,20 +14,20 @@ const APP_SHELL = [
   "./adjectives-i.html",
   "./adjectives-na.html",
   "./grammar-demo.html",
-  "./grammar-demo.css?v=67",
-  "./grammar-demo.js?v=67",
-  "./assets/wanakana/wanakana.min.js?v=67",
-  "./supplemental-data.js?v=67",
-  "./style.css?v=67",
-  "./app.js?v=67",
-  "./data.js?v=67",
-  "./kanji-data.js?v=67",
+  "./grammar-demo.css?v=69",
+  "./grammar-demo.js?v=69",
+  "./assets/wanakana/wanakana.min.js?v=69",
+  "./supplemental-data.js?v=69",
+  "./style.css?v=69",
+  "./app.js?v=69",
+  "./data.js?v=69",
+  "./kanji-data.js?v=69",
   "./phrases.html",
-  "./phrases-data.js?v=67",
+  "./phrases-data.js?v=69",
   "./textbooks.html",
   "./interview.html",
-  "./interview-data.js?v=67",
-  "./interview.js?v=67",
+  "./interview-data.js?v=69",
+  "./interview.js?v=69",
   "./assets/pdfjs/pdf.mjs",
   "./assets/pdfjs/pdf.worker.mjs",
   "./manifest.webmanifest",

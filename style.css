@@ -10,6 +10,15 @@
   --accent: #7aa7ff;
 }
 
+/* Small improvements to the existing controls and two-column word table. */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.word-reference { width:100%; table-layout:fixed; }
+.word-reference td { vertical-align:top; overflow-wrap:anywhere; line-height:1.6; }
+.word-reference td [lang="ja"] { font-size:20px; }
+.word-reference small { display:block; color:var(--muted); font-size:14px; margin-top:5px; }
+.bottom-panel>summary { min-height:44px; box-sizing:border-box; }
+#answerButtons button { min-height:48px; }
+
 body[data-theme="light"] {
   --bg: #f6f7fb;
   --card: #fff;

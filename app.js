@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.19.1";
+const APP_VERSION = "0.19.2";
 const APP_RELEASE_DATE = "2026-09-20";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -41,8 +41,8 @@ const I18N = {
     stacks: "Стопки", table: "Таблица", settings: "Настройки режима",
     showButtons: "Показывать кнопки «Знаю / Не знаю»",
     showRomaji: "Показывать ромаджи",
-    tapHint: "тыкни, чтобы показать ответ", tapExamples: "нажми ещё раз, чтобы показать примеры", swipeHint: "свайп вправо — знаю, влево — не знаю",
-    chooseHint: "выбери стопку", noItems: "пусто", doneAll: "Все карточки отмечены как известные. Отлично!",
+    tapHint: "Нажми на карточку, чтобы увидеть ответ", tapExamples: "Нажми ещё раз, чтобы увидеть примеры", swipeHint: "Свайп вправо — знаю, влево — не знаю",
+    chooseHint: "Отметь: «Знаю» или «Не знаю»", noItems: "пусто", doneAll: "Все карточки отмечены как известные. Отлично!",
     doneSome: "Неизвестных карточек: {n}. Их можно вернуть в пул и повторить.",
     native: "Русский", jp: "日本語", kana: "Кана", reading: "Чтение",
     script: "Азбука", hiragana: "Хирагана", katakana: "Катакана", bothMix: "Обе, микс", bothTogether: "Обе вместе",
@@ -81,7 +81,7 @@ const I18N = {
     showButtons: "Show Known / Unknown buttons",
     showRomaji: "Show romaji",
     tapHint: "tap to reveal the answer", tapExamples: "tap again to show examples", swipeHint: "swipe right for known, left for unknown",
-    chooseHint: "choose a stack", noItems: "empty", doneAll: "All cards are marked as known. Nice!",
+    chooseHint: "Choose Known or Unknown", noItems: "empty", doneAll: "All cards are marked as known. Nice!",
     doneSome: "Unknown cards: {n}. Return them to the pool and repeat.",
     native: "English", jp: "日本語", kana: "Kana", reading: "Reading",
     script: "Script", hiragana: "Hiragana", katakana: "Katakana", bothMix: "Both, mixed", bothTogether: "Both together",
@@ -155,7 +155,7 @@ const t = key => I18N[settings.lang]?.[key] || I18N.ru[key] || key;
 function loadSettings() {
   try {
     return {
-      theme: "dark", lang: "ru", showButtons: false, showRomaji: true,
+      theme: "dark", lang: "ru", showButtons: true, showRomaji: true,
       audioVolume: 1,
       kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] },
       kanji: { mode: "mixed", reverse: false },
@@ -163,7 +163,7 @@ function loadSettings() {
       ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")
     };
   } catch {
-    return { theme: "dark", lang: "ru", showButtons: false, showRomaji: true, audioVolume: 1, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
+    return { theme: "dark", lang: "ru", showButtons: true, showRomaji: true, audioVolume: 1, kana: { script: "hiragana", order: "random", dakuten: false, yoon: false, reverse: false, rows: ["vowels","k","s","t","n","h","m","y","r","w"] }, kanji: { mode: "mixed", reverse: false }, phrases: { direction: "native-jp" } };
   }
 }
 function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
@@ -656,7 +656,7 @@ function phraseSettingsHtml() {
 
 function newSession(cardsList, order = "random") {
   const ids = cardsList.map(c => c.id);
-  return { version: 1, total: cardsList.length, pool: order === "sequential" ? ids : shuffle(ids), known: [], unknown: [], current: null, round: 1, done: false };
+  return { version: 1, total: cardsList.length, pool: order === "sequential" ? ids.slice().reverse() : shuffle(ids), known: [], unknown: [], current: null, round: 1, done: false };
 }
 function loadSession(key, cardsList, order = "random") {
   try {
@@ -744,6 +744,11 @@ let trainerBound = false;
 function bindTrainer(kind) {
   if (trainerBound) return;
   trainerBound = true;
+  $("card")?.setAttribute("role", "button");
+  $("card")?.addEventListener("keydown", event => {
+    if (event.repeat || !current) return;
+    if (event.code === "Space" || event.code === "Enter") { event.preventDefault(); reveal(); }
+  });
   $("card")?.addEventListener("click", () => { if (suppressClick) { suppressClick = false; return; } reveal(); });
   $("card")?.addEventListener("pointerdown", onPointerDown);
   $("card")?.addEventListener("pointermove", onPointerMove);
@@ -758,7 +763,7 @@ function bindTrainer(kind) {
   $("fullRestartBtn")?.addEventListener("click", restartAll);
   $("repeatUnknownBtn")?.addEventListener("click", repeatUnknown);
   $("showButtonsSetting")?.addEventListener("change", e => { settings.showButtons = e.target.checked; saveSettings(); applyGlobal(); });
-  $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); });
+  $("showRomajiSetting")?.addEventListener("change", e => { settings.showRomaji = e.target.checked; saveSettings(); renderMode(); renderTable(kind); });
   document.addEventListener("fullscreenchange", () => {
     if (!document.fullscreenElement) setCardFocus(false, false);
   });
@@ -926,7 +931,7 @@ function renderTable(kind) {
       </article>
     `).join("")}</div>`;
   } else {
-    wrap.innerHTML = `<table><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${nativeText(c)}</td><td>${c.jp}</td></tr>`).join("")}</tbody></table>`;
+    wrap.innerHTML = `<table class="word-reference"><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${escapeHtml(nativeText(c))}</td><td><span lang="ja">${escapeHtml(c.jp)}</span>${settings.showRomaji && c.romaji ? `<small>${escapeHtml(c.romaji)}</small>` : ""}</td></tr>`).join("")}</tbody></table>`;
   }
 }
 
