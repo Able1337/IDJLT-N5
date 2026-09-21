@@ -205,10 +205,28 @@
     document.getElementById("demoNext")?.addEventListener("click", () => { index++; checked = false; lastResult = null; render(); });
     if (checked && lastResult && item) showFeedback(item, lastResult);
   }
+  function feedbackExplanation(item) {
+    if (item.lesson?.id !== 'te') return `<p>${escapeHtml(explanation(item))}</p>`;
+    const v=item.verb, ending=v.jp.slice(-1);
+    let from=ending, to='', note='';
+    if(v.jp==='いく') {
+      from='いく'; to='いって';
+      note=tr('Исключение: у いく запоминаем いって, а не いいて.','Exception: learn いく → いって, not いいて.');
+    } else if(v.group==='3') {
+      from=v.jp.endsWith('する')?'する':'くる'; to=from==='する'?'して':'きて';
+      note=tr('Группа III — неправильный глагол. Запомни эту пару. В составном глаголе на する меняется только часть する.','Group III — irregular verb. Learn this pair. In a compound with する, only the する part changes.');
+    } else if(v.group==='2') {
+      to='て';note=tr('Группа II: убираем последнее る и добавляем て.','Group II: remove the final る and add て.');
+    } else {
+      to={'う':'って','つ':'って','る':'って','む':'んで','ぶ':'んで','ぬ':'んで','く':'いて','ぐ':'いで','す':'して'}[ending];
+      note=tr(`Группа I: заменяем окончание ${ending} на ${to}. Остальную часть слова сохраняем.`,`Group I: replace the ending ${ending} with ${to}. Keep the rest of the word.`);
+    }
+    return `<p>${escapeHtml(note)}</p><table class="te-rule-table"><caption>${tr('Преобразование этого глагола','This verb’s transformation')}</caption><thead><tr><th scope="col">${tr('Было','Before')}</th><th scope="col">${tr('Стало','After')}</th><th scope="col">${tr('Результат','Result')}</th></tr></thead><tbody><tr><td lang="ja">${from}</td><td lang="ja">${to}</td><td lang="ja">${escapeHtml(item.base)} → <b>${escapeHtml(item.answer)}</b></td></tr></tbody></table><details class="feedback-rule-reference"><summary>${tr('Все правила て-формы — таблицы','All te-form rules — tables')}</summary>${formationRule(item.lesson)}</details>`;
+  }
   function showFeedback(item, { good, reveal, answer }) {
     const feedback = document.getElementById("demoFeedback");
     feedback.dataset.result = good ? "good" : "review";
-    feedback.innerHTML = `<strong>${good ? tr("Верно!", "Correct!") : reveal ? tr("Разберём форму", "Let's review") : tr("Нужно повторить", "Needs review")}</strong>${!good && !reveal ? `<p>${tr("Твой ответ", "Your answer")}: ${escapeHtml(answer)}</p>` : ""}<p class="demo-answer" lang="ja">${escapeHtml(item.answer)}</p><p>${escapeHtml(item.romaji)}</p><p>${escapeHtml(explanation(item))}</p>`;
+    feedback.innerHTML = `<strong>${good ? tr("Верно!", "Correct!") : reveal ? tr("Разберём форму", "Let's review") : tr("Нужно повторить", "Needs review")}</strong>${!good && !reveal ? `<p>${tr("Твой ответ", "Your answer")}: ${escapeHtml(answer)}</p>` : ""}<p class="demo-answer" lang="ja">${escapeHtml(item.answer)}</p><p>${escapeHtml(item.romaji)}</p>${feedbackExplanation(item)}`;
   }
   function check(reveal) {
     if (checked || !deck[index]) return;
