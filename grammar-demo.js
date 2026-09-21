@@ -182,10 +182,9 @@
           <label for="demoAnswer">${tr("Ответ на японском", "Answer in Japanese")}</label>
           <input id="demoAnswer" lang="ja" type="text" enterkeyhint="next" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="${tr("Печатай ромадзи: shite → して", "Type romaji: shite → して")}">
           <div class="demo-actions"><button class="primary" id="demoCheck" type="submit" ${checked ? "disabled" : ""}>${tr("Проверить", "Check")}</button>
-          <button class="secondary" id="demoReveal" type="button" ${checked ? "disabled" : ""}>${tr("Показать ответ", "Show answer")}</button></div>
+          <button class="primary" id="demoNext" type="button" ${checked ? "" : "disabled"}>${tr(index + 1 === deck.length ? "Результат" : "Дальше", index + 1 === deck.length ? "Results" : "Next")}</button></div>
         </form>
         <div id="demoFeedback" class="demo-feedback" role="status" aria-live="polite"></div>
-        <button class="primary" id="demoNext" type="button" ${checked ? "" : "hidden"}>${tr(index + 1 === deck.length ? "Результат" : "Дальше", index + 1 === deck.length ? "Results" : "Next")}</button>
       </section>` : finished ? `<section class="demo-exercise"><h2>${tr("Тренировка завершена", "Round complete")}</h2><p class="demo-word">${correct} / ${deck.length}</p><p>${tr("Ответов верно с первой попытки.", "Answers correct on the first try.")}</p>${mistakes.length ? `<button class="primary" id="demoRetry" type="button">${tr("Повторить ошибки", "Retry mistakes")} (${mistakes.length})</button>` : `<p>${tr("Все формы верны!", "All forms correct!")}</p>`}</section>` : ""}
       `;
     const answerInput = document.getElementById("demoAnswer");
@@ -205,10 +204,9 @@
       if (e.isComposing || e.keyCode === 229 || e.repeat) return;
       if(checked) nextQuestion(); else check(false);
     });
-    document.getElementById("demoReveal")?.addEventListener("click", () => check(true));
     document.getElementById("demoNext")?.addEventListener("click", nextQuestion);
     // Keep the editable input focused during pointer actions, including touch.
-    for(const id of ['demoCheck','demoReveal','demoNext']) {
+    for(const id of ['demoCheck','demoNext']) {
       document.getElementById(id)?.addEventListener('pointerdown', e=> {
         if(document.activeElement===answerInput) e.preventDefault();
       });
@@ -234,9 +232,8 @@
     const feedback=document.getElementById('demoFeedback');
     feedback.replaceChildren(); delete feedback.dataset.result;
     document.getElementById('demoCheck').disabled=false;
-    document.getElementById('demoReveal').disabled=false;
     const next=document.getElementById('demoNext');
-    next.hidden=true;
+    next.disabled=true;
     next.textContent=tr(index+1===deck.length?'Результат':'Дальше',index+1===deck.length?'Results':'Next');
     input.focus({preventScroll:true});
     window.scrollBy({top:input.getBoundingClientRect().top-top,behavior:'instant'});
@@ -282,8 +279,7 @@
     if (good) correct++; else mistakes.push(item);
     root.querySelector(".demo-progress span:last-child").textContent = `${tr("Верно", "Correct")}: ${correct}`;
     document.getElementById("demoCheck").disabled = true;
-    document.getElementById("demoReveal").disabled = true;
-    document.getElementById("demoNext").hidden = false;
+    document.getElementById("demoNext").disabled = false;
     lastResult = { good, reveal, answer: input.value };
     showFeedback(item, lastResult);
     input.focus({preventScroll:true});
