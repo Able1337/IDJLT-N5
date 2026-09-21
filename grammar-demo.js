@@ -6,6 +6,18 @@
   let deck = [], index = 0, correct = 0, checked = false, mistakes = [], lastResult = null;
   let topic = "te", selectedForm = "te", started = false;
   const tr = (ru, en) => settings.lang === "en" ? en : ru;
+  function setExerciseFullscreen(active) {
+    document.body.classList.toggle('demo-fullscreen',active);
+    const button=document.getElementById('demoFullscreen');
+    if(button) {
+      button.textContent=active?'⤢':'⛶';
+      button.setAttribute('aria-pressed',String(active));
+      button.title=button.ariaLabel=tr(active?'Свернуть карточку':'Карточка на весь экран',active?'Exit fullscreen card':'Fullscreen card');
+    }
+  }
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape') setExerciseFullscreen(false);
+  });
   const normalize = value => value.normalize("NFKC").replace(/[\s。.!！?？~〜]/g, "").replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
   function bindRomajiInput(input) {
     // Keep the second n available for the next syllable: konni → こんに,
@@ -151,6 +163,7 @@
     input?.scrollIntoView({block:'center',behavior:'instant'});
   }
   function render(preserveDraft = false) {
+    setExerciseFullscreen(false);
     const oldInput = document.getElementById("demoAnswer");
     const draft = preserveDraft && oldInput && !checked ? oldInput.value : "";
     if (oldInput?.dataset.wanakanaId) wanakana.unbind(oldInput);
@@ -175,7 +188,7 @@
       </section>
       ${guide()}
       ${item ? `<section class="demo-exercise">
-        <div class="demo-progress"><span>${index + 1} / ${deck.length}</span><strong id="demoResultLabel" role="status"></strong><span>${tr("Верно", "Correct")}: ${correct}</span></div>
+        <div class="demo-progress"><div class="demo-progress-start"><button id="demoFullscreen" type="button" class="secondary" aria-pressed="false" aria-label="${tr('Карточка на весь экран','Fullscreen card')}" title="${tr('Карточка на весь экран','Fullscreen card')}">⛶</button><span id="demoCounter">${index + 1} / ${deck.length}</span></div><strong id="demoResultLabel" role="status"></strong><span>${tr("Верно", "Correct")}: ${correct}</span></div>
         <p class="demo-word" lang="ja">${escapeHtml(item.base)}</p>
         <p class="sub">${escapeHtml(item[settings.lang])}${item.verb ? ` · ${tr("Группа", "Group")} ${item.verb.group}` : ""}</p>
         <form id="demoAnswerForm" autocomplete="off">
@@ -205,8 +218,9 @@
       if(checked) nextQuestion(); else check(false);
     });
     document.getElementById("demoNext")?.addEventListener("click", nextQuestion);
+    document.getElementById('demoFullscreen')?.addEventListener('click',()=>setExerciseFullscreen(!document.body.classList.contains('demo-fullscreen')));
     // Keep the editable input focused during pointer actions, including touch.
-    for(const id of ['demoCheck','demoNext']) {
+    for(const id of ['demoCheck','demoNext','demoFullscreen']) {
       document.getElementById(id)?.addEventListener('pointerdown', e=> {
         if(document.activeElement===answerInput) e.preventDefault();
       });
@@ -224,7 +238,7 @@
     document.getElementById('demoResultLabel').textContent='';
     // Do not detach or disable the input: mobile browsers would close the keyboard.
     exercise.style.minHeight=`${exercise.getBoundingClientRect().height}px`;
-    exercise.querySelector('.demo-progress span:first-child').textContent=`${index+1} / ${deck.length}`;
+    document.getElementById('demoCounter').textContent=`${index+1} / ${deck.length}`;
     exercise.querySelector('.demo-word').textContent=item.base;
     exercise.querySelector('.demo-word + .sub').textContent=item[settings.lang]+(item.verb?` · ${tr('Группа','Group')} ${item.verb.group}`:'');
     input.value='';
@@ -236,7 +250,7 @@
     next.disabled=true;
     next.textContent=tr(index+1===deck.length?'Результат':'Дальше',index+1===deck.length?'Results':'Next');
     input.focus({preventScroll:true});
-    window.scrollBy({top:input.getBoundingClientRect().top-top,behavior:'instant'});
+    (document.body.classList.contains('demo-fullscreen')?exercise:window).scrollBy({top:input.getBoundingClientRect().top-top,behavior:'instant'});
   }
   function feedbackExplanation(item) {
     if (item.lesson?.id !== 'te') return `<p>${escapeHtml(explanation(item))}</p>`;
@@ -277,7 +291,7 @@
     const good = !reveal && answers.some(answer => normalize(answer) === normalize(input.value));
     checked = true;
     if (good) correct++; else mistakes.push(item);
-    root.querySelector(".demo-progress span:last-child").textContent = `${tr("Верно", "Correct")}: ${correct}`;
+    root.querySelector(".demo-progress > span:last-child").textContent = `${tr("Верно", "Correct")}: ${correct}`;
     document.getElementById("demoCheck").disabled = true;
     document.getElementById("demoNext").disabled = false;
     lastResult = { good, reveal, answer: input.value };
