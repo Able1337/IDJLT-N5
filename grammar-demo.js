@@ -47,6 +47,35 @@
     if(topic!=="te")return `<option value="mixed">${tr("Все формы","All forms")}</option>`+forms.map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('');
     return [['base','Основы','Basics'],['te','Семейство て','Te family'],['wish','Семейство たい','Tai family'],['next','Следующий шаг','Next steps']].map(([id,ru,en])=>`<optgroup label="${tr(ru,en)}">${library.forms.filter(f=>f.section===id).map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('')}</optgroup>`).join('');
   }
+  function groupTwoGuide() {
+    const exceptions=[
+      ['帰る（かえる）','возвращаться','return','かえります','かえって'],
+      ['入る（はいる）','входить','enter','はいります','はいって'],
+      ['走る（はしる）','бежать','run','はしります','はしって'],
+      ['切る（きる）','резать','cut','きります','きって'],
+      ['知る（しる）','знать','know','しります','しって'],
+      ['要る（いる）','быть нужным','be needed','いります','いって']
+    ];
+    return `<div class="group-two-guide">
+      <p><b>${tr('～いる / ～える — подсказка, а не гарантия.','-iru / -eru is a clue, not a guarantee.')}</b> ${tr('Если глагол так заканчивается, по одному звучанию нельзя на 100% определить группу. Большинство таких глаголов — II группа, но частые исключения относятся к I.','The ending alone cannot identify the group with certainty. Most such verbs belong to group II, but common exceptions belong to group I.')}</p>
+      <h4>${tr('Как определять группу','How to identify the group')}</h4>
+      <ol>
+        <li>${tr('Сначала выдели III группу: する, くる и составные глаголы на する, например べんきょうする.','First identify group III: する, くる and compounds with する, such as べんきょうする.')}</li>
+        <li>${tr('Не заканчивается на る → I группа: かく, のむ, かう, はなす.','Does not end in る → group I: かく, のむ, かう, はなす.')}</li>
+        <li>${tr('Заканчивается на -aru / -uru / -oru → для обычных глаголов начального уровня это I группа: わかる, つくる, のる. Смотри на чтение, а не только на кандзи.','Ends in -aru / -uru / -oru → ordinary beginner-level verbs belong to group I: わかる, つくる, のる. Use the reading, not just the kanji.')}</li>
+        <li>${tr('Заканчивается на -iru / -eru → обычно II: たべる, みる, おきる, ねる. Проверь, не исключение ли это, и запомни группу вместе со значением.','Ends in -iru / -eru → usually group II: たべる, みる, おきる, ねる. Check for exceptions and learn the group with the meaning.')}</li>
+      </ol>
+      <details class="demo-guide group-exceptions"><summary>${tr('6 частых исключений: ～いる / ～える, но I группа','6 common exceptions: -iru / -eru, but group I')}</summary>
+        ${exceptions.map(([jp,ru,en,masu,te])=>`<div class="formation-row"><div><b lang="ja">${jp}</b><small>${tr(ru,en)} · ${tr('группа I','group I')}</small></div><div><small>ます</small><span lang="ja">${masu}</span></div><div><small>て</small><span lang="ja">${te}</span></div></div>`).join('')}
+        <p>${tr('Особенно важно: 要る（いる） «быть нужным» — I: いります. 居る（いる） «быть, находиться» — II: います. 切る（きる） «резать» — I, а 着る（きる） «надевать» — II. Одинаковое чтение не означает одинаковую группу.','Important: 要る（いる） “be needed” is group I: いります. 居る（いる） “exist, be present” is group II: います. 切る（きる） “cut” is group I, while 着る（きる） “put on” is group II. The same reading does not mean the same group.')}</p>
+        <p class="demo-note">${tr('Это список частых исключений, не всех существующих. Для нового или неоднозначного слова проверяй группу в словаре.','These are common exceptions, not an exhaustive list. Check a dictionary for new or ambiguous words.')}</p>
+      </details>
+      <h4>${tr('Учи связкой из трёх форм','Learn three forms together')}</h4>
+      <p>${tr('Не только «かえる = возвращаться», а сразу «かえる → かえります → かえって». Так закрепляется и группа, и готовая форма.','Do not learn only “かえる = return”; learn “かえる → かえります → かえって”. This reinforces both the group and the actual forms.')}</p>
+      <div class="formation-rule" lang="ja">食べる（たべる）【II】 → たべます → たべて<br>帰る（かえる）【I】 → かえります → かえって<br>見る（みる）【II】 → みます → みて<br>切る（きる）【I】 → きります → きって</div>
+      <p>${tr('У II группы убираем る. У I группы на る меняем его: перед ます — на り, в て-форме — на って. Не нужно угадывать группу каждый раз: постепенно запоминай эти связки.','Group II drops る. Group I verbs ending in る change it to り before ます, or to って in the te-form. Gradually learn these combinations instead of guessing the group each time.')}</p>
+    </div>`;
+  }
   function formationExamples(lesson) {
     const stemForms=['masu','masen','mashita','masen-deshita','tai','takunai','takatta','takunakatta','takute','mashou'];
     const usesStem=stemForms.includes(lesson.id);
@@ -62,7 +91,7 @@
       <p class="demo-note">${tr('Важно: かえる «возвращаться» — группа 1, хотя заканчивается на -える. きる «резать», はいる «входить», はしる «бежать» — тоже группа 1. Само окончание る ещё не определяет группу.','Important: かえる “return” is group 1 despite ending in -eru. きる “cut”, はいる “enter” and はしる “run” are group 1 too. Ending in る does not determine the group.')}</p>
       ${teForms?`<p class="formation-rule">${tr('Исключение','Exception')}: いく → いって${lesson.id==='te'?'':` → ${library.conjugate({jp:'いく',group:'1',te:'いって'},lesson.id)}`}. ${tr('Не いいて. В た-форме: いった.','Not いいて. The ta-form is いった.')}</p>`:''}
       ${['nai','nakatta','naide-kudasai','nakereba','nakutemo'].includes(lesson.id)?`<p class="formation-rule">${tr('Два важных случая','Two important cases')}: かう → かわない (${tr('не かあない','not かあない')}); ある → ない (${tr('не あらない','not あらない')}).</p>`:''}
-    </section><section class="formation-group"><h3>${tr('Группа 2 · убираем る','Group 2 · remove る')}</h3><p>${tr('Здесь не меняем る на り. Убираем る целиком: たべる → たべ, みる → み. Затем добавляем окончание выбранной формы.','Do not change る to り here. Remove it entirely: たべる → たべ, みる → み. Then add the selected form’s ending.')}</p><div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='2').map(row).join('')}</div></section>
+    </section><section class="formation-group"><h3>${tr('Группа 2 · убираем る','Group 2 · remove る')}</h3><p>${tr('Здесь не меняем る на り. Убираем る целиком: たべる → たべ, みる → み. Затем добавляем окончание выбранной формы.','Do not change る to り here. Remove it entirely: たべる → たべ, みる → み. Then add the selected form’s ending.')}</p><div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='2').map(row).join('')}</div>${groupTwoGuide()}</section>
     <section class="formation-group"><h3>${tr('Группа 3 · запоминаем отдельно','Group 3 · learn separately')}</h3><p>${tr('する и くる не следуют обычной схеме. Составные глаголы на する меняют только эту часть: コピーする → コピーします.','する and くる do not follow the regular patterns. In compounds, only the する part changes: コピーする → コピーします.')}</p><div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='3').map(row).join('')}</div></section>`;
   }
   function guide() {
