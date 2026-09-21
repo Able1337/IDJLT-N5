@@ -19,6 +19,15 @@
 .demo-answer { font-size: 28px; margin: 8px 0; }
 .demo-links { line-height: 1.8; }
 .demo-links a { color: var(--accent); }
+.te-rule-table { width:100%; border-collapse:collapse; margin:18px 0; table-layout:fixed; }
+.te-rule-table caption { text-align:left; font-weight:700; margin-bottom:10px; }
+.te-rule-table th,.te-rule-table td { padding:12px 8px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+.te-rule-table th:first-child { width:24%; }
+.te-rule-table th:nth-child(2) { width:20%; }
+.te-rule-table thead { color:var(--muted); font-size:13px; }
+.te-rule-table tbody tr:nth-child(odd) { background:var(--panel); }
+.te-rule-table td span { display:block; margin-bottom:4px; }
+@media(max-width:480px) { .te-rule-table { font-size:14px; } .te-rule-table th,.te-rule-table td { padding:10px 4px; } .te-rule-table thead { font-size:12px; } }
 .formation-group { margin:24px 0; }
 .formation-group h3 { font-size:18px; }
 .formation-rule { padding:12px; background:var(--panel); border-radius:10px; }
