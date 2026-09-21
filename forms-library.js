@@ -53,7 +53,7 @@
   function conjugate(v,id){
     const p=parts(v),ta=v.te.replace(/て$/,'た').replace(/で$/,'だ');
     const suffix={masu:'ます',masen:'ません',mashita:'ました','masen-deshita':'ませんでした',tai:'たい',takunai:'たくない',takatta:'たかった',takunakatta:'たくなかった',takute:'たくて',mashou:'ましょう'};
-    if(suffix[id])return p.masu+suffix[id];
+    if(suffix[id])return (v.jp==='いらっしゃる' && ['masu','masen','mashita','masen-deshita','mashou'].includes(id)?'いらっしゃい':p.masu)+suffix[id];
     const teSuffix={'te-miru':'みる','te-oku':'おく','te-shimau':'しまう','te-hoshii':'ほしい'};
     if(teSuffix[id])return v.te+teSuffix[id];
     if(p[id])return p[id];

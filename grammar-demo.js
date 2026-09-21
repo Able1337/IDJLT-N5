@@ -1,6 +1,6 @@
 // Experimental exercises. Study progress in the regular modes is never read or written.
 (function () {
-  const { verbs, adjectives, forms } = window.IDJLT_GRAMMAR_MATERIALS;
+  const { trainingVerbs: verbs, adjectives, forms } = window.IDJLT_GRAMMAR_MATERIALS;
   const library = window.IDJLT_FORM_LIBRARY;
   const root = document.getElementById("grammarDemo");
   let deck = [], index = 0, correct = 0, checked = false, mistakes = [], lastResult = null;
@@ -132,7 +132,7 @@
   function pool() {
     if (topic === "te") {
       const lesson = library.forms.find(f => f.id === selectedForm) || library.forms.find(f => f.id === 'te');
-      return verbs.filter(v => !['ふる','しぬ'].includes(v.jp) || ['dictionary','masu','masen','mashita','masen-deshita','nai','nakatta','te','ta','tara','tari'].includes(lesson.id)).map(v => {
+      return verbs.filter(v => !['ふる','しぬ','ある','いる','わかる','かかる','いらっしゃる'].includes(v.jp) || ['dictionary','masu','masen','mashita','masen-deshita','nai','nakatta','te','ta','tara','tari'].includes(lesson.id)).map(v => {
         const answer=library.conjugate(v,lesson.id);
         return {id:`${v.id}-${lesson.id}`,verb:v,lesson,base:v.jp,ru:v.ru,en:v.en,answer,romaji:wanakana.toRomaji(answer)};
       });
@@ -159,6 +159,7 @@
         <span class="demo-badge">${tr("ДЕМО", "DEMO")}</span>
         <h1>${tr("Мастерская форм", "Form workshop")}</h1>
         <p class="sub">${tr("Выбери форму, разберись в правиле и попробуй сам. До 10 заданий за подход.", "Choose a form, learn the rule and try it yourself. Up to 10 questions per round.")}</p>
+        ${topic==='te'?`<p class="sub">${tr('Пул глаголов:','Verb pool:')} <a href="verb-dictionary-lessons.html">${tr('Словарные формы — все уроки','Dictionary forms — all lessons')}</a> · ${verbs.length}. ${tr('Для некоторых форм используются только подходящие по смыслу глаголы.','Some forms use only verbs with suitable meanings.')}</p>`:''}
         <p class="sub demo-note">${tr("Результаты демо не сохраняются и не влияют на основные наборы.", "Demo results are not saved and do not affect the regular sets.")}</p>
       </div>
       <section class="demo-controls" aria-label="${tr("Настройки тренировки", "Practice settings")}">

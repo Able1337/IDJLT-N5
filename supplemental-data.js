@@ -700,7 +700,7 @@
   `));
   const groupNames = { '1':['五段','五段'], '2':['一段','一段'], '3':['неправильный глагол','irregular verb'] };
   window.IDJLT_DICTIONARIES.push({
-    id:'verb-dictionary', title:{ru:'Словарные формы глаголов',en:'Verb dictionary forms'},
+    id:'verb-dictionary', title:{ru:'Словарные формы глаголов — 200',en:'Verb dictionary forms — 200'},
     cards:[...dictionaryVerbs.values()].map(v=>({
       ...v, id:`verb-dictionary-${v.stableKey || v.romaji.replace(/ /g,'-')}`,
       kanji:kanjiSpellings.get(v.jp), reading:v.jp.replace(/（.*?）/g,''),
@@ -708,4 +708,20 @@
       en:`${v.en}\nGroup ${v.group} — ${groupNames[v.group][1]}`
     }))
   });
+  // Preserve the expanded set and its progress; the lesson set has its own session.
+  const lessonVerbs = window.IDJLT_DICTIONARIES.find(d=>d.id==='verb-dictionary').cards
+    .filter(v=>v.collection!=='beginner-expansion')
+    .map(v=>({...v,id:v.id.replace('verb-dictionary-','verb-dictionary-lessons-')}));
+  window.IDJLT_DICTIONARIES.push({
+    id:'verb-dictionary-lessons',
+    title:{ru:'Словарные формы глаголов — все уроки',en:'Verb dictionary forms — all lessons'},
+    cards:lessonVerbs
+  });
+  const teEndings={'う':'って','つ':'って','る':'って','む':'んで','ぶ':'んで','ぬ':'んで','く':'いて','ぐ':'いで','す':'して'};
+  window.IDJLT_GRAMMAR_MATERIALS.trainingVerbs = lessonVerbs.map(v=>({
+    ...v, jp:v.reading, ru:v.ru.split('\n')[0], en:v.en.split('\n')[0],
+    te:verbs.find(original=>original.jp===v.jp)?.te ||
+      (v.group==='3' ? v.reading.slice(0,-2)+(v.reading.endsWith('する')?'して':'きて') :
+       v.group==='2' ? v.reading.slice(0,-1)+'て' : v.reading.slice(0,-1)+teEndings[v.reading.slice(-1)])
+  }));
 })();
