@@ -80,6 +80,6 @@ for (const dict of words) assert.ok(fs.existsSync(`${dict.id}.html`), dict.id);
 const swCtx = vm.createContext({ self: { addEventListener() {} } });
 vm.runInContext(read('sw.js'), swCtx);
 for (const url of vm.runInContext('APP_SHELL', swCtx)) assert.ok(fs.existsSync(url.split('?')[0]), url);
-assert.equal(read('VERSION').trim(), '0.19.12');
-assert.ok(app.includes('APP_VERSION = "0.19.12"'));
+assert.equal(read('VERSION').trim(), '0.19.13');
+assert.ok(app.includes('APP_VERSION = "0.19.13"'));
 console.log('PASS: content integrity, existing sets, grammar exceptions, session persistence, links and cache.');

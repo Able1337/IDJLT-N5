@@ -175,14 +175,12 @@
       </section>
       ${guide()}
       ${item ? `<section class="demo-exercise">
-        <div class="demo-progress"><span>${index + 1} / ${deck.length}</span><span>${tr("Верно", "Correct")}: ${correct}</span></div>
-        <p class="demo-prompt">${item.verb ? escapeHtml(item.lesson[settings.lang]) : escapeHtml(item.form[settings.lang])}</p>
+        <div class="demo-progress"><span>${index + 1} / ${deck.length}</span><strong id="demoResultLabel" role="status"></strong><span>${tr("Верно", "Correct")}: ${correct}</span></div>
         <p class="demo-word" lang="ja">${escapeHtml(item.base)}</p>
         <p class="sub">${escapeHtml(item[settings.lang])}${item.verb ? ` · ${tr("Группа", "Group")} ${item.verb.group}` : ""}</p>
         <form id="demoAnswerForm" autocomplete="off">
           <label for="demoAnswer">${tr("Ответ на японском", "Answer in Japanese")}</label>
-          <input id="demoAnswer" lang="ja" type="text" enterkeyhint="next" spellcheck="false" autocapitalize="off" autocorrect="off" aria-describedby="demoInputHint" placeholder="${tr("Печатай ромадзи: shite → して", "Type romaji: shite → して")}">
-          <p class="sub demo-note" id="demoInputHint">${tr("Ромадзи автоматически превращаются в кану. Например: matte → まって, kyonen → きょねん. Для отдельного ん перед гласной: n'. Можно вводить и готовую кану.", "Romaji turns into kana as you type: matte → まって, kyonen → きょねん. Use n' for ん before a vowel. You can also enter kana directly.")}</p>
+          <input id="demoAnswer" lang="ja" type="text" enterkeyhint="next" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="${tr("Печатай ромадзи: shite → して", "Type romaji: shite → して")}">
           <div class="demo-actions"><button class="primary" id="demoCheck" type="submit" ${checked ? "disabled" : ""}>${tr("Проверить", "Check")}</button>
           <button class="secondary" id="demoReveal" type="button" ${checked ? "disabled" : ""}>${tr("Показать ответ", "Show answer")}</button></div>
         </form>
@@ -224,10 +222,11 @@
     const item=deck[index], exercise=root.querySelector('.demo-exercise');
     const input=document.getElementById('demoAnswer');
     const top=input.getBoundingClientRect().top;
+    delete exercise.dataset.result;
+    document.getElementById('demoResultLabel').textContent='';
     // Do not detach or disable the input: mobile browsers would close the keyboard.
     exercise.style.minHeight=`${exercise.getBoundingClientRect().height}px`;
     exercise.querySelector('.demo-progress span:first-child').textContent=`${index+1} / ${deck.length}`;
-    exercise.querySelector('.demo-prompt').textContent=item.verb?item.lesson[settings.lang]:item.form[settings.lang];
     exercise.querySelector('.demo-word').textContent=item.base;
     exercise.querySelector('.demo-word + .sub').textContent=item[settings.lang]+(item.verb?` · ${tr('Группа','Group')} ${item.verb.group}`:'');
     input.value='';
@@ -262,6 +261,8 @@
   }
   function showFeedback(item, { good, reveal, answer }) {
     const feedback = document.getElementById("demoFeedback");
+    root.querySelector('.demo-exercise').dataset.result=good?'good':'review';
+    document.getElementById('demoResultLabel').textContent=good?tr('✓ Верно','✓ Correct'):reveal?tr('Ответ','Answer'):tr('Не совсем','Not quite');
     feedback.dataset.result = good ? "good" : "review";
     feedback.innerHTML = `<strong>${good ? tr("Верно!", "Correct!") : reveal ? tr("Разберём форму", "Let's review") : tr("Нужно повторить", "Needs review")}</strong>${!good && !reveal ? `<p>${tr("Твой ответ", "Your answer")}: ${escapeHtml(answer)}</p>` : ""}<p class="demo-answer" lang="ja">${escapeHtml(item.answer)}</p><p>${escapeHtml(item.romaji)}</p>${feedbackExplanation(item)}`;
   }

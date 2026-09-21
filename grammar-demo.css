@@ -8,6 +8,18 @@
 .demo-guide summary { cursor: pointer; font-weight: 650; color: var(--accent); }
 .demo-exercise { background: var(--card); padding: clamp(18px, 5vw, 32px); border: 1px solid var(--line); border-radius: 22px; margin: 20px 0; }
 .demo-progress { display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; }
+.demo-progress { align-items: center; gap: 8px; min-height: 24px; }
+.demo-exercise[data-result="good"] { border-color: var(--good); box-shadow: inset 0 0 0 2px var(--good); }
+.demo-exercise[data-result="good"] #demoResultLabel { color: var(--good); }
+#demoResultLabel { font-size: 16px; }
+@media(max-width:480px) {
+  .demo-exercise { padding: 16px; }
+  .demo-exercise .demo-word { margin: 8px 0; }
+  .demo-exercise .demo-word + .sub { margin: 6px 0; }
+  #demoAnswerForm label { margin-top: 12px; }
+  #demoAnswer { padding: 10px 12px; }
+  .demo-actions { gap: 8px; margin: 10px 0; }
+}
 .demo-prompt { color: var(--accent); margin: 24px 0 8px; }
 .demo-word { font-size: clamp(28px, 6vw, 44px); font-weight: 700; margin: 12px 0; overflow-wrap: anywhere; }
 #demoAnswerForm label { display: block; margin: 22px 0 8px; }
