@@ -146,7 +146,9 @@
     deck = shuffle(items).slice(0, 10);
     index = 0; correct = 0; mistakes = []; checked = false; lastResult = null; started = true;
     render();
-    document.querySelector('.demo-exercise')?.scrollIntoView({block:'start'});
+    const input = document.getElementById('demoAnswer');
+    input?.focus({preventScroll:true});
+    input?.scrollIntoView({block:'center',behavior:'instant'});
   }
   function render(preserveDraft = false) {
     const oldInput = document.getElementById("demoAnswer");
@@ -179,7 +181,7 @@
         <p class="sub">${escapeHtml(item[settings.lang])}${item.verb ? ` · ${tr("Группа", "Group")} ${item.verb.group}` : ""}</p>
         <form id="demoAnswerForm" autocomplete="off">
           <label for="demoAnswer">${tr("Ответ на японском", "Answer in Japanese")}</label>
-          <input id="demoAnswer" lang="ja" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" aria-describedby="demoInputHint" placeholder="${tr("Печатай ромадзи: shite → して", "Type romaji: shite → して")}" ${checked ? "disabled" : ""}>
+          <input id="demoAnswer" lang="ja" type="text" enterkeyhint="next" spellcheck="false" autocapitalize="off" autocorrect="off" aria-describedby="demoInputHint" placeholder="${tr("Печатай ромадзи: shite → して", "Type romaji: shite → して")}">
           <p class="sub demo-note" id="demoInputHint">${tr("Ромадзи автоматически превращаются в кану. Например: matte → まって, kyonen → きょねん. Для отдельного ん перед гласной: n'. Можно вводить и готовую кану.", "Romaji turns into kana as you type: matte → まって, kyonen → きょねん. Use n' for ん before a vowel. You can also enter kana directly.")}</p>
           <div class="demo-actions"><button class="primary" id="demoCheck" type="submit" ${checked ? "disabled" : ""}>${tr("Проверить", "Check")}</button>
           <button class="secondary" id="demoReveal" type="button" ${checked ? "disabled" : ""}>${tr("Показать ответ", "Show answer")}</button></div>
@@ -189,7 +191,7 @@
       </section>` : finished ? `<section class="demo-exercise"><h2>${tr("Тренировка завершена", "Round complete")}</h2><p class="demo-word">${correct} / ${deck.length}</p><p>${tr("Ответов верно с первой попытки.", "Answers correct on the first try.")}</p>${mistakes.length ? `<button class="primary" id="demoRetry" type="button">${tr("Повторить ошибки", "Retry mistakes")} (${mistakes.length})</button>` : `<p>${tr("Все формы верны!", "All forms correct!")}</p>`}</section>` : ""}
       `;
     const answerInput = document.getElementById("demoAnswer");
-    if (answerInput && !checked) {
+    if (answerInput) {
       answerInput.value = draft;
       bindRomajiInput(answerInput);
     }
@@ -198,13 +200,47 @@
     document.getElementById("demoStart").addEventListener("click", () => start());
     document.getElementById("guidePractice")?.addEventListener("click", () => start());
     document.getElementById("demoRetry")?.addEventListener("click", () => start([...mistakes]));
-    document.getElementById("demoAnswerForm")?.addEventListener("submit", e => { e.preventDefault(); check(false); });
+    document.getElementById("demoAnswerForm")?.addEventListener("submit", e => { e.preventDefault(); if(checked) nextQuestion(); else check(false); });
     document.getElementById("demoAnswer")?.addEventListener("keydown", e => {
-      if (e.key === "Enter" && e.isComposing) e.preventDefault();
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      if (e.isComposing || e.keyCode === 229 || e.repeat) return;
+      if(checked) nextQuestion(); else check(false);
     });
     document.getElementById("demoReveal")?.addEventListener("click", () => check(true));
-    document.getElementById("demoNext")?.addEventListener("click", () => { index++; checked = false; lastResult = null; render(); });
+    document.getElementById("demoNext")?.addEventListener("click", nextQuestion);
+    // Keep the editable input focused during pointer actions, including touch.
+    for(const id of ['demoCheck','demoReveal','demoNext']) {
+      document.getElementById(id)?.addEventListener('pointerdown', e=> {
+        if(document.activeElement===answerInput) e.preventDefault();
+      });
+    }
     if (checked && lastResult && item) showFeedback(item, lastResult);
+  }
+  function nextQuestion() {
+    if(!checked) return;
+    index++; checked=false; lastResult=null;
+    if(index>=deck.length) { render(); return; }
+    const item=deck[index], exercise=root.querySelector('.demo-exercise');
+    const input=document.getElementById('demoAnswer');
+    const top=input.getBoundingClientRect().top;
+    // Do not detach or disable the input: mobile browsers would close the keyboard.
+    exercise.style.minHeight=`${exercise.getBoundingClientRect().height}px`;
+    exercise.querySelector('.demo-progress span:first-child').textContent=`${index+1} / ${deck.length}`;
+    exercise.querySelector('.demo-prompt').textContent=item.verb?item.lesson[settings.lang]:item.form[settings.lang];
+    exercise.querySelector('.demo-word').textContent=item.base;
+    exercise.querySelector('.demo-word + .sub').textContent=item[settings.lang]+(item.verb?` · ${tr('Группа','Group')} ${item.verb.group}`:'');
+    input.value='';
+    input.dispatchEvent(new Event('input',{bubbles:true}));
+    const feedback=document.getElementById('demoFeedback');
+    feedback.replaceChildren(); delete feedback.dataset.result;
+    document.getElementById('demoCheck').disabled=false;
+    document.getElementById('demoReveal').disabled=false;
+    const next=document.getElementById('demoNext');
+    next.hidden=true;
+    next.textContent=tr(index+1===deck.length?'Результат':'Дальше',index+1===deck.length?'Results':'Next');
+    input.focus({preventScroll:true});
+    window.scrollBy({top:input.getBoundingClientRect().top-top,behavior:'instant'});
   }
   function feedbackExplanation(item) {
     if (item.lesson?.id !== 'te') return `<p>${escapeHtml(explanation(item))}</p>`;
@@ -244,13 +280,12 @@
     checked = true;
     if (good) correct++; else mistakes.push(item);
     root.querySelector(".demo-progress span:last-child").textContent = `${tr("Верно", "Correct")}: ${correct}`;
-    input.disabled = true;
     document.getElementById("demoCheck").disabled = true;
     document.getElementById("demoReveal").disabled = true;
     document.getElementById("demoNext").hidden = false;
     lastResult = { good, reveal, answer: input.value };
     showFeedback(item, lastResult);
-    document.getElementById("demoNext").focus();
+    input.focus({preventScroll:true});
   }
   document.getElementById("langSelect")?.addEventListener("change", () => render(true));
   render();
