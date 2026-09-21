@@ -303,4 +303,53 @@
     ...phrases14, ...tePhrases, ...adjectivePhrases
   ];
   window.IDJLT_GRAMMAR_MATERIALS = { verbs, adjectives, forms };
+
+  // Dictionary forms from the existing word sets, including verbs inside set phrases.
+  // Explicit readings/groups avoid ambiguous reversal of endings such as -ります.
+  const dictionaryVerbs = new Map(verbs.map(v => [v.jp, {
+    jp:v.jp, ru:v.ru, en:v.en, romaji:v.romaji, group:v.group, sourceIds:[v.id]
+  }]));
+  const additionalVerbs = rows(`
+のむ|Пить|Drink|nomu|1|lesson6-1
+すう|Курить; вдыхать|Smoke; inhale|suu|1|lesson6-2
+きく|Слушать; слышать|Listen; hear|kiku|1|lesson6-5
+あう|Встречать; встречаться|Meet|au|1|lesson6-10
+あげる|Давать|Give|ageru|2|lesson7-0
+もらう|Получать|Receive|morau|1|lesson7-1
+おくる|Посылать; отправлять|Send|okuru|1|lesson7-2
+きる|Резать; нарезать|Cut|kiru|1|lesson7-3
+かりる|Брать взаймы|Borrow|kariru|2|lesson7-4
+かす|Давать взаймы|Lend|kasu|1|lesson7-5,lesson9-41
+ならう|Учиться; изучать у кого-либо|Learn from someone|narau|1|lesson7-6
+かける|Звонить (でんわを かける)|Make a phone call (でんわを かける)|kakeru|2|lesson7-9
+わかる|Понимать|Understand|wakaru|1|lesson9-0
+ある|Быть; находиться (о неодушевлённом); иметься|Exist (inanimate); be available|aru|1|lesson9-1,lesson10-0
+いる|Быть; находиться (об одушевлённом)|Exist (animate); be present|iru|2|lesson10-2,lesson11-0,lesson11-1
+かかる|Требоваться (о времени или деньгах)|Take (time); cost|kakaru|1|lesson11-2
+やすむ|Отдыхать; брать выходной|Rest; take time off|yasumu|1|lesson11-3
+しつれいする|Прощаться; уходить (в формуле вежливости); поступать невежливо|Excuse oneself; leave politely; be rude|shitsurei suru|3|lesson7-41,lesson8-51
+いただく|Получать; есть; пить (скромно, вежливо)|Receive; eat; drink (humble)|itadaku|1|lesson7-44
+いらっしゃる|Приходить; уходить; быть (уважительно)|Come; go; be (honorific)|irassharu|1|lesson7-39,lesson8-53,lesson11-47
+あがる|Подниматься; заходить в дом (в приглашении)|Go up; enter a home (in an invitation)|agaru|1|lesson7-40
+かしこまる|Почтительно соглашаться; принимать поручение|Acknowledge respectfully; accept an instruction|kashikomaru|1|lesson11-43
+おねがいする|Просить|Ask; request|onegai suru|3|lesson9-47,lesson11-51
+  `);
+  additionalVerbs.forEach(([jp,ru,en,romaji,group,ids])=>dictionaryVerbs.set(jp,{jp,ru,en,romaji,group,sourceIds:ids.split(',')}));
+  const sharedVerbs = {
+    'たべる':['lesson6-0'], 'みる':['lesson6-3'], 'よむ':['lesson6-4'], 'かく':['lesson6-6'],
+    'かう':['lesson6-7'], 'する':['lesson6-8'], 'とる':['lesson6-9'], 'おしえる':['lesson7-7'],
+    'いく':['lesson11-48'], 'くる':['lesson11-48']
+  };
+  Object.entries(sharedVerbs).forEach(([jp,ids])=>dictionaryVerbs.get(jp).sourceIds.push(...ids));
+  dictionaryVerbs.get('とる').ru += '; фотографировать (しゃしんを とる)';
+  dictionaryVerbs.get('とる').en += '; take a photo (しゃしんを とる)';
+  const groupNames = { '1':['五段','五段'], '2':['一段','一段'], '3':['неправильный глагол','irregular verb'] };
+  window.IDJLT_DICTIONARIES.push({
+    id:'verb-dictionary', title:{ru:'Словарные формы глаголов',en:'Verb dictionary forms'},
+    cards:[...dictionaryVerbs.values()].map(v=>({
+      ...v, id:`verb-dictionary-${v.romaji.replace(/ /g,'-')}`,
+      ru:`${v.ru}\nГруппа ${v.group} — ${groupNames[v.group][0]}`,
+      en:`${v.en}\nGroup ${v.group} — ${groupNames[v.group][1]}`
+    }))
+  });
 })();

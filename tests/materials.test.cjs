@@ -15,7 +15,7 @@ vm.runInContext(read('supplemental-data.js'), ctx);
 const { IDJLT_DICTIONARIES: words, IDJLT_PHRASES: phrases, IDJLT_GRAMMAR_MATERIALS: grammar } = ctx.window;
 assert.equal(JSON.stringify(words.slice(0, 14)), oldWords, 'Existing dictionaries are unchanged');
 assert.equal(JSON.stringify(phrases.slice(0, 53)), oldPhrases, 'Existing phrases are unchanged');
-assert.equal(words.length, 18);
+assert.equal(words.length, 19);
 assert.equal(phrases.length, 746);
 assert.equal(words.find(d => d.id === 'lesson11').cards.length, 52);
 assert.equal(words.find(d => d.id === 'lesson14').cards.length, 31);
@@ -28,7 +28,7 @@ for (const list of [words.flatMap(d => d.cards), phrases]) {
     assert.ok(card[key].trim(), `${card.id}.${key} must not be empty`);
   }
 }
-for (const card of [...words.slice(-4).flatMap(d => d.cards), ...phrases.slice(53)]) {
+for (const card of [...words.slice(14,18).flatMap(d => d.cards), ...phrases.slice(53)]) {
   assert.ok(card.source && Number.isInteger(card.sourcePage) && card.sourcePage > 0, card.id);
   assert.ok(!/undefined|NaN/.test(JSON.stringify(card)), card.id);
 }
@@ -80,6 +80,6 @@ for (const dict of words) assert.ok(fs.existsSync(`${dict.id}.html`), dict.id);
 const swCtx = vm.createContext({ self: { addEventListener() {} } });
 vm.runInContext(read('sw.js'), swCtx);
 for (const url of vm.runInContext('APP_SHELL', swCtx)) assert.ok(fs.existsSync(url.split('?')[0]), url);
-assert.equal(read('VERSION').trim(), '0.19.3');
-assert.ok(app.includes('APP_VERSION = "0.19.3"'));
+assert.equal(read('VERSION').trim(), '0.19.4');
+assert.ok(app.includes('APP_VERSION = "0.19.4"'));
 console.log('PASS: content integrity, existing sets, grammar exceptions, session persistence, links and cache.');
