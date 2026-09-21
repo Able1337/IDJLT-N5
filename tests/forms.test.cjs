@@ -13,5 +13,7 @@ for(const [jp,id,expected] of [
 ])assert.equal(form(jp,id),expected,`${jp} ${id}`);
 assert.equal(library.conjugate({jp:'ある',group:'1',te:'あって'},'nai'),'ない');
 assert.equal(new Set(library.forms.map(f=>f.id)).size,library.forms.length);
+assert.deepEqual(Array.from(library.samples.filter(v=>v.group==='1'),v=>v.jp.slice(-1)).sort(),['う','く','ぐ','す','つ','ぬ','ぶ','む','る'].sort());
+assert.deepEqual(Array.from(library.samples.filter(v=>v.group==='1'),v=>library.conjugate(v,'masu')),['かいます','かきます','およぎます','はなします','まちます','しにます','あそびます','よみます','かえります']);
 for(const f of library.forms){for(const lang of ['ru','en']){assert(f[lang]&&f.purpose[lang]&&f.rule[lang]&&f.example[lang]);}for(const v of verbs)assert.equal(typeof library.conjugate(v,f.id),'string',`${v.jp} ${f.id}`);}
 console.log(`PASS: ${library.forms.length} forms, bilingual explanations and irregular/group conjugation checks.`);

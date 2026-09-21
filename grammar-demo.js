@@ -47,6 +47,24 @@
     if(topic!=="te")return `<option value="mixed">${tr("Все формы","All forms")}</option>`+forms.map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('');
     return [['base','Основы','Basics'],['te','Семейство て','Te family'],['wish','Семейство たい','Tai family'],['next','Следующий шаг','Next steps']].map(([id,ru,en])=>`<optgroup label="${tr(ru,en)}">${library.forms.filter(f=>f.section===id).map(f=>`<option value="${f.id}" ${selectedForm===f.id?'selected':''}>${escapeHtml(f[settings.lang])}</option>`).join('')}</optgroup>`).join('');
   }
+  function formationExamples(lesson) {
+    const stemForms=['masu','masen','mashita','masen-deshita','tai','takunai','takatta','takunakatta','takute','mashou'];
+    const usesStem=stemForms.includes(lesson.id);
+    const teForms=lesson.section==='te'||['ta','tara','tari'].includes(lesson.id);
+    const intermediate=v=>usesStem?library.parts(v).masu:teForms?v.te:library.parts(v).nai;
+    const showStep=usesStem || (teForms && lesson.id!=='te') || ['nakatta','naide-kudasai','nakereba','nakutemo'].includes(lesson.id);
+    const stepLabel=usesStem?tr('Основа ます','Masu stem'):teForms?'て':tr('ない-форма','Nai-form');
+    const row=v=>`<div class="formation-row"><div><small>${tr('Словарная','Dictionary')}</small><span lang="ja">${escapeHtml(v.jp)}</span><small>${wanakana.toRomaji(v.jp)}</small></div><div><small>${tr('Окончание','Ending')}</small><b lang="ja">${v.jp.slice(-1)}</b></div>${showStep?`<div><small>${stepLabel}</small><span lang="ja">${intermediate(v)}</span></div>`:''}<div><small>${tr('Результат','Result')}</small><b lang="ja">${library.conjugate(v,lesson.id)}</b></div></div>`;
+    return `<section class="formation-group"><h3>${tr('Группа 1 · все 9 окончаний','Group 1 · all 9 endings')}</h3>
+      <p>${tr('よむ — лишь пример на む. В первой группе возможны う・く・ぐ・す・つ・ぬ・ぶ・む・る. Меняется последняя кана, остальная часть слова сохраняется.','よむ is only the む example. Group 1 has nine endings: う・く・ぐ・す・つ・ぬ・ぶ・む・る. Change the final kana and keep the rest of the word.')}</p>
+      ${usesStem?`<ol><li>${tr('Найди последнюю кану: かく → く.','Find the final kana: かく → く.')}</li><li>${tr('Замени её на кану того же ряда со звуком «и»: く → き. Получится основа かき.','Change it to the i-vowel kana in the same row: く → き. The stem is かき.')}</li><li>${tr('Добавь нужное окончание к основе. Ниже показаны все варианты для выбранной формы.','Attach the required ending to the stem. All patterns for the selected form are shown below.')}</li></ol><p class="formation-rule" lang="ja">う→い · く→き · ぐ→ぎ · す→し · つ→ち · ぬ→に · ぶ→び · む→み · る→り</p>`:''}
+      <div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='1').map(row).join('')}</div>
+      <p class="demo-note">${tr('Важно: かえる «возвращаться» — группа 1, хотя заканчивается на -える. きる «резать», はいる «входить», はしる «бежать» — тоже группа 1. Само окончание る ещё не определяет группу.','Important: かえる “return” is group 1 despite ending in -eru. きる “cut”, はいる “enter” and はしる “run” are group 1 too. Ending in る does not determine the group.')}</p>
+      ${teForms?`<p class="formation-rule">${tr('Исключение','Exception')}: いく → いって${lesson.id==='te'?'':` → ${library.conjugate({jp:'いく',group:'1',te:'いって'},lesson.id)}`}. ${tr('Не いいて. В た-форме: いった.','Not いいて. The ta-form is いった.')}</p>`:''}
+      ${['nai','nakatta','naide-kudasai','nakereba','nakutemo'].includes(lesson.id)?`<p class="formation-rule">${tr('Два важных случая','Two important cases')}: かう → かわない (${tr('не かあない','not かあない')}); ある → ない (${tr('не あらない','not あらない')}).</p>`:''}
+    </section><section class="formation-group"><h3>${tr('Группа 2 · убираем る','Group 2 · remove る')}</h3><p>${tr('Здесь не меняем る на り. Убираем る целиком: たべる → たべ, みる → み. Затем добавляем окончание выбранной формы.','Do not change る to り here. Remove it entirely: たべる → たべ, みる → み. Then add the selected form’s ending.')}</p><div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='2').map(row).join('')}</div></section>
+    <section class="formation-group"><h3>${tr('Группа 3 · запоминаем отдельно','Group 3 · learn separately')}</h3><p>${tr('する и くる не следуют обычной схеме. Составные глаголы на する меняют только эту часть: コピーする → コピーします.','する and くる do not follow the regular patterns. In compounds, only the する part changes: コピーする → コピーします.')}</p><div class="formation-rows ${showStep?'with-step':''}">${library.samples.filter(v=>v.group==='3').map(row).join('')}</div></section>`;
+  }
   function guide() {
     const groups=`<details class="demo-guide"><summary>${tr("Сначала: что такое форма и как узнать группу глагола?","Start here: what is a form and how do verb groups work?")}</summary>
       <p>${tr("Форма меняет способ выражения действия: читаю, не читаю, читал, хочу читать. Конструкция добавляет смысл к готовой форме: よんで + ください — «прочитайте, пожалуйста». Лицо не меняет окончание: я, ты и он могут использовать один и тот же глагол.","A form changes how an action is expressed: read, do not read, read in the past, want to read. A construction adds meaning to a form: よんで + ください means please read. The verb ending does not change with I, you or they.")}</p>
@@ -62,7 +80,7 @@
       ${lesson.section==='next'?`<p class="demo-note">${tr("Следующий шаг после основ. Здесь разбираем образование формы; её употребление требует контекста.","A step beyond the basics. This teaches formation; usage needs context.")}</p>`:''}
       <h2>${tr("Что означает","What it means")}</h2><p>${escapeHtml(lesson.purpose[settings.lang])}</p>
       <h2>${tr("Как образовать","How to form it")}</h2><p>${escapeHtml(lesson.rule[settings.lang])}</p>
-      <div class="form-examples">${library.samples.map(v=>`<div><small>${tr("Группа","Group")} ${v.group}</small><p lang="ja">${v.jp} → <b>${library.conjugate(v,lesson.id)}</b></p></div>`).join('')}</div>
+      ${formationExamples(lesson)}
       <h2>${tr("В предложении","In a sentence")}</h2><p lang="ja">${lesson.example.jp}</p><p class="sub">${wanakana.toRomaji(lesson.example.jp.replace(/は(?=\s)/g,'わ').replace(/へ(?=\s)/g,'え').replace(/を/g,'お'))}</p><p>${escapeHtml(lesson.example[settings.lang])}</p>
       <p class="demo-note">${tr("В тренировке вводи форму из схемы, без добавлений: например, たい, а не たいです. Для потенциальной, условной, страдательной и побудительной форм — простую форму.","In practice, enter exactly the form in the pattern: for example たい, not たいです. Potential, conditional, passive and causative exercises ask for the plain form.")}</p>
       ${started?'':`<button class="primary" id="guidePractice" type="button">${tr("Потренировать эту форму","Practice this form")}</button>`}

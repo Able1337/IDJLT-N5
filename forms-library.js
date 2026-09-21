@@ -59,6 +59,15 @@
     if(p[id])return p[id];
     return {dictionary:v.jp,te:v.te,ta,nakatta:p.nai.slice(0,-1)+'かった','te-imasu':v.te+'います','te-kudasai':v.te+'ください','te-mo-ii':v.te+'もいいです','te-wa-ikenai':v.te+'はいけません','te-kara':v.te+'から','naide-kudasai':p.nai+'でください',nakereba:p.nai.slice(0,-2)+'なければなりません',nakutemo:p.nai.slice(0,-2)+'なくてもいいです',tara:ta+'ら',tari:ta+'り'}[id];
   }
-  const samples=[{jp:'よむ',group:'1',te:'よんで'},{jp:'たべる',group:'2',te:'たべて'},{jp:'する',group:'3',te:'して'},{jp:'くる',group:'3',te:'きて'}];
+  const samples=[
+    {jp:'かう',group:'1',te:'かって'}, {jp:'かく',group:'1',te:'かいて'},
+    {jp:'およぐ',group:'1',te:'およいで'}, {jp:'はなす',group:'1',te:'はなして'},
+    {jp:'まつ',group:'1',te:'まって'}, {jp:'しぬ',group:'1',te:'しんで'},
+    {jp:'あそぶ',group:'1',te:'あそんで'}, {jp:'よむ',group:'1',te:'よんで'},
+    {jp:'かえる',group:'1',te:'かえって'},
+    {jp:'たべる',group:'2',te:'たべて'}, {jp:'みる',group:'2',te:'みて'},
+    {jp:'する',group:'3',te:'して'}, {jp:'くる',group:'3',te:'きて'},
+    {jp:'コピーする',group:'3',te:'コピーして'}
+  ];
   window.IDJLT_FORM_LIBRARY={forms,conjugate,parts,samples};
 })();
