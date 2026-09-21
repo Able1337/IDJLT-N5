@@ -343,11 +343,367 @@
   Object.entries(sharedVerbs).forEach(([jp,ids])=>dictionaryVerbs.get(jp).sourceIds.push(...ids));
   dictionaryVerbs.get('とる').ru += '; фотографировать (しゃしんを とる)';
   dictionaryVerbs.get('とる').en += '; take a photo (しゃしんを とる)';
+  // Curated everyday beginner vocabulary; not an official JLPT level list.
+  const beginnerVerbs = rows(`
+おきる|Просыпаться; вставать с постели|Wake up; get up|okiru|2
+ねる|Спать; ложиться спать|Sleep; go to bed|neru|2
+はたらく|Работать|Work|hataraku|1
+べんきょうする|Учиться; заниматься|Study|benkyou suru|3
+れんしゅうする|Тренироваться; упражняться|Practice|renshuu suru|3
+さわる|Трогать; касаться|Touch|sawaru|1
+ふくしゅうする|Повторять изученное|Review a lesson|fukushuu suru|3
+よしゅうする|Готовиться к следующему уроку|Prepare for a lesson|yoshuu suru|3
+しつもんする|Задавать вопрос|Ask a question|shitsumon suru|3
+こたえる|Отвечать|Answer|kotaeru|2
+おぼえる|Запоминать|Memorize|oboeru|2
+わすれる|Забывать|Forget|wasureru|2
+しる|Знать; узнавать|Know; find out|shiru|1
+かんがえる|Думать; обдумывать|Think; consider|kangaeru|2
+おもう|Думать; полагать|Think; believe|omou|1
+いう|Говорить; сказать|Say|iu|1
+つたえる|Передавать; сообщать|Convey; tell|tsutaeru|2
+せつめいする|Объяснять|Explain|setsumei suru|3
+しょうかいする|Представлять; знакомить|Introduce|shoukai suru|3
+そうだんする|Советоваться|Consult|soudan suru|3
+れんらくする|Связываться; сообщать|Contact; notify|renraku suru|3
+でんわする|Звонить по телефону|Phone|denwa suru|3
+へんじする|Отвечать (на обращение, письмо)|Reply|henji suru|3
+やくそくする|Обещать; договариваться|Promise; arrange|yakusoku suru|3
+あいさつする|Приветствовать|Greet|aisatsu suru|3
+あやまる|Извиняться|Apologize|ayamaru|1
+おす|Нажимать; толкать|Press; push|osu|1
+はいる|Входить; поступать|Enter; join|hairu|1
+でる|Выходить; покидать|Go out; leave|deru|2
+でかける|Выходить из дома; отправляться|Go out; set off|dekakeru|2
+もどる|Возвращаться обратно|Return; go back|modoru|1
+あるく|Ходить пешком|Walk|aruku|1
+はしる|Бежать|Run|hashiru|1
+のる|Садиться в транспорт; ехать|Get on; ride|noru|1
+おりる|Выходить из транспорта; спускаться|Get off; go down|oriru|2
+のりかえる|Пересаживаться|Change trains or buses|norikaeru|2
+つく|Прибывать|Arrive|tsuku|1
+しゅっぱつする|Отправляться; выезжать|Depart|shuppatsu suru|3
+とうちゃくする|Прибывать (о транспорте, путешествии)|Arrive at a destination|touchaku suru|3
+とまる|Останавливаться|Stop (intransitive)|tomaru|1
+わたる|Переходить; пересекать|Cross|wataru|1
+とおる|Проходить через; проезжать|Pass through|tooru|1
+のぼる|Подниматься; взбираться|Climb|noboru|1
+さがる|Спускаться; снижаться|Go down; decrease|sagaru|1
+うんてんする|Водить транспорт|Drive|unten suru|3
+りょこうする|Путешествовать|Travel|ryokou suru|3
+さんぽする|Гулять; прогуливаться|Take a walk|sanpo suru|3
+とまる（泊まる）|Ночевать; останавливаться на ночь|Stay overnight|tomaru-stay|1
+よやくする|Бронировать; записываться заранее|Reserve; book|yoyaku suru|3
+むかえる|Встречать прибывающего|Welcome; meet an arrival|mukaeru|2
+まよう|Заблудиться; колебаться|Get lost; be unsure|mayou|1
+さがす|Искать|Look for|sagasu|1
+みつける|Находить|Find|mitsukeru|2
+みつかる|Находиться; обнаруживаться|Be found|mitsukaru|1
+おくれる|Опаздывать|Be late|okureru|2
+まにあう|Успевать вовремя|Be on time|maniau|1
+すむ|Жить; проживать|Live; reside|sumu|1
+ひっこす|Переезжать|Move house|hikkosu|1
+そうじする|Убирать; делать уборку|Clean|souji suru|3
+せんたくする|Стирать бельё|Do laundry|sentaku suru|3
+あらう|Мыть|Wash|arau|1
+ふく|Вытирать|Wipe|fuku|1
+みがく|Чистить; полировать|Brush; polish|migaku|1
+かたづける|Прибирать; убирать на место|Tidy up; put away|katazukeru|2
+すてる|Выбрасывать|Throw away|suteru|2
+ひろう|Подбирать|Pick up|hirou|1
+いれる|Класть внутрь; наливать|Put in; pour|ireru|2
+だす|Доставать; вынимать; подавать|Take out; submit|dasu|1
+おく|Класть; ставить|Put; place|oku|1
+ならべる|Расставлять; раскладывать|Arrange; line up things|naraberu|2
+ならぶ|Стоять в очереди; выстраиваться|Line up; queue|narabu|1
+あく|Открываться|Open (intransitive)|aku|1
+しまる|Закрываться|Close (intransitive)|shimaru|1
+きえる|Гаснуть; исчезать|Go out; disappear|kieru|2
+つく（点く）|Загораться; включаться (о свете)|Come on; light up|tsuku-light|1
+なおす|Чинить; исправлять|Repair; correct|naosu|1
+なおる|Исправляться; выздоравливать|Be fixed; recover|naoru|1
+こわす|Ломать|Break (transitive)|kowasu|1
+こわれる|Ломаться|Break (intransitive)|kowareru|2
+つかう|Использовать|Use|tsukau|1
+つくる|Делать; создавать; готовить|Make; create; cook|tsukuru|1
+りょうりする|Готовить еду|Cook|ryouri suru|3
+やく|Жарить; печь|Grill; bake|yaku|1
+にる|Варить; тушить|Boil; simmer|niru|2
+まぜる|Смешивать; перемешивать|Mix; stir|mazeru|2
+あたためる|Подогревать|Warm up|atatameru|2
+ひやす|Охлаждать|Cool; chill|hiyasu|1
+ちゅうもんする|Заказывать (еду, товар)|Order food or goods|chuumon suru|3
+はらう|Платить|Pay|harau|1
+うる|Продавать|Sell|uru|1
+えらぶ|Выбирать|Choose|erabu|1
+くらべる|Сравнивать|Compare|kuraberu|2
+かえる（変える）|Менять; изменять|Change (transitive)|kaeru-change|2
+かえす|Возвращать что-либо|Return something|kaesu|1
+とりかえる|Заменять; обменивать|Replace; exchange|torikaeru|2
+つつむ|Заворачивать; упаковывать|Wrap|tsutsumu|1
+はこぶ|Нести; перевозить|Carry; transport|hakobu|1
+とどける|Доставлять|Deliver|todokeru|2
+とどく|Доходить; доставляться|Reach; arrive (delivery)|todoku|1
+うけとる|Получать; принимать из рук|Receive; accept delivery|uketoru|1
+きる（着る）|Надевать одежду на верхнюю часть тела|Put on upper-body clothing|kiru-wear|2
+はく|Надевать обувь, брюки, юбку|Put on shoes or lower-body clothing|haku|1
+かぶる|Надевать головной убор|Put on a hat|kaburu|1
+ぬぐ|Снимать одежду или обувь|Take off clothes or shoes|nugu|1
+あびる|Принимать душ; обливаться|Take a shower; bathe in|abiru|2
+きがえる|Переодеваться|Change clothes|kigaeru|2
+すわる|Сидеть; садиться|Sit|suwaru|1
+ねむる|Спать; засыпать|Sleep; fall asleep|nemuru|1
+つかれる|Уставать|Get tired|tsukareru|2
+いたむ|Болеть (о части тела)|Ache; hurt|itamu|1
+ひく（引く）|Тянуть; вытягивать|Pull|hiku-pull|1
+おちる|Падать; опускаться|Fall; drop (intransitive)|ochiru|2
+うごく|Двигаться|Move (intransitive)|ugoku|1
+うごかす|Двигать; приводить в движение|Move something|ugokasu|1
+ころぶ|Падать; спотыкаться|Fall over|korobu|1
+わらう|Смеяться; улыбаться|Laugh; smile|warau|1
+なく|Плакать|Cry|naku|1
+おこる|Сердиться|Get angry|okoru|1
+よろこぶ|Радоваться|Be pleased; rejoice|yorokobu|1
+おどろく|Удивляться|Be surprised|odoroku|1
+こまる|Попадать в затруднение|Be in trouble|komaru|1
+しんぱいする|Беспокоиться|Worry|shinpai suru|3
+あんしんする|Чувствовать облегчение|Feel relieved|anshin suru|3
+たのしむ|Наслаждаться; получать удовольствие|Enjoy|tanoshimu|1
+うたう|Петь|Sing|utau|1
+おどる|Танцевать|Dance|odoru|1
+ひく|Играть на струнном или клавишном инструменте|Play a string or keyboard instrument|hiku|1
+ふく（吹く）|Дуть; играть на духовом инструменте|Blow; play a wind instrument|fuku-blow|1
+えがく|Рисовать; изображать|Draw; depict|egaku|1
+あつめる|Собирать (коллекцию, предметы)|Collect; gather things|atsumeru|2
+あつまる|Собираться (о людях)|Gather; assemble|atsumaru|1
+はじめる|Начинать что-либо|Begin something|hajimeru|2
+はじまる|Начинаться|Begin (intransitive)|hajimaru|1
+つづける|Продолжать|Continue something|tsuzukeru|2
+やめる|Прекращать; бросать занятие|Stop doing; quit|yameru|2
+ぬれる|Мокнуть; промокать|Get wet|nureru|2
+おとす|Ронять; терять|Drop; lose|otosu|1
+うんどうする|Делать физические упражнения|Exercise|undou suru|3
+とぶ|Летать; прыгать|Fly; jump|tobu|1
+かつ|Побеждать|Win|katsu|1
+まける|Проигрывать|Lose a game|makeru|2
+がんばる|Стараться; держаться|Do one's best; persevere|ganbaru|1
+できる|Мочь; уметь; получаться|Be able; be completed|dekiru|2
+いる（要る）|Быть нужным; требоваться|Be needed|iru-need|1
+くれる|Давать мне или близкому мне человеку|Give to me or someone close to me|kureru|2
+たりる|Хватать; быть достаточным|Be sufficient|tariru|2
+  `);
+  beginnerVerbs.forEach(([jp,ru,en,key,group])=>dictionaryVerbs.set(jp,{
+    jp,ru,en,romaji:key.replace(/-(stay|light|change|wear|blow|need|pull)$/,''),group,
+    stableKey:key.replace(/ /g,'-'),sourceIds:[],collection:'beginner-expansion'
+  }));
+  const kanjiSpellings = new Map(rows(`
+つける|付ける
+けす|消す
+あける|開ける
+しめる|閉める
+いそぐ|急ぐ
+まつ|待つ
+とめる|止める
+まがる|曲がる
+もつ|持つ
+とる|取る
+よぶ|呼ぶ
+はなす|話す
+みせる|見せる
+てつだう|手伝う
+おしえる|教える
+おわる|終わる
+ふる|降る
+コピーする|コピーする
+する|する
+くる|来る
+たべる|食べる
+みる|見る
+かう|買う
+たつ|立つ
+かえる|帰る
+よむ|読む
+あそぶ|遊ぶ
+しぬ|死ぬ
+かく|書く
+いく|行く
+およぐ|泳ぐ
+のむ|飲む
+すう|吸う
+きく|聞く
+あう|会う
+あげる|あげる
+もらう|もらう
+おくる|送る
+きる|切る
+かりる|借りる
+かす|貸す
+ならう|習う
+かける|掛ける
+わかる|分かる
+ある|ある
+いる|居る
+かかる|掛かる
+やすむ|休む
+しつれいする|失礼する
+いただく|頂く
+いらっしゃる|いらっしゃる
+あがる|上がる
+かしこまる|畏まる
+おねがいする|お願いする
+おきる|起きる
+ねる|寝る
+はたらく|働く
+べんきょうする|勉強する
+れんしゅうする|練習する
+さわる|触る
+ふくしゅうする|復習する
+よしゅうする|予習する
+しつもんする|質問する
+こたえる|答える
+おぼえる|覚える
+わすれる|忘れる
+しる|知る
+かんがえる|考える
+おもう|思う
+いう|言う
+つたえる|伝える
+せつめいする|説明する
+しょうかいする|紹介する
+そうだんする|相談する
+れんらくする|連絡する
+でんわする|電話する
+へんじする|返事する
+やくそくする|約束する
+あいさつする|挨拶する
+あやまる|謝る
+おす|押す
+はいる|入る
+でる|出る
+でかける|出かける
+もどる|戻る
+あるく|歩く
+はしる|走る
+のる|乗る
+おりる|降りる
+のりかえる|乗り換える
+つく|着く
+しゅっぱつする|出発する
+とうちゃくする|到着する
+とまる|止まる
+わたる|渡る
+とおる|通る
+のぼる|登る
+さがる|下がる
+うんてんする|運転する
+りょこうする|旅行する
+さんぽする|散歩する
+とまる（泊まる）|泊まる
+よやくする|予約する
+むかえる|迎える
+まよう|迷う
+さがす|探す
+みつける|見つける
+みつかる|見つかる
+おくれる|遅れる
+まにあう|間に合う
+すむ|住む
+ひっこす|引っ越す
+そうじする|掃除する
+せんたくする|洗濯する
+あらう|洗う
+ふく|拭く
+みがく|磨く
+かたづける|片付ける
+すてる|捨てる
+ひろう|拾う
+いれる|入れる
+だす|出す
+おく|置く
+ならべる|並べる
+ならぶ|並ぶ
+あく|開く
+しまる|閉まる
+きえる|消える
+つく（点く）|点く
+なおす|直す
+なおる|治る
+こわす|壊す
+こわれる|壊れる
+つかう|使う
+つくる|作る
+りょうりする|料理する
+やく|焼く
+にる|煮る
+まぜる|混ぜる
+あたためる|温める
+ひやす|冷やす
+ちゅうもんする|注文する
+はらう|払う
+うる|売る
+えらぶ|選ぶ
+くらべる|比べる
+かえる（変える）|変える
+かえす|返す
+とりかえる|取り替える
+つつむ|包む
+はこぶ|運ぶ
+とどける|届ける
+とどく|届く
+うけとる|受け取る
+きる（着る）|着る
+はく|履く
+かぶる|被る
+ぬぐ|脱ぐ
+あびる|浴びる
+きがえる|着替える
+すわる|座る
+ねむる|眠る
+つかれる|疲れる
+いたむ|痛む
+ひく（引く）|引く
+おちる|落ちる
+うごく|動く
+うごかす|動かす
+ころぶ|転ぶ
+わらう|笑う
+なく|泣く
+おこる|怒る
+よろこぶ|喜ぶ
+おどろく|驚く
+こまる|困る
+しんぱいする|心配する
+あんしんする|安心する
+たのしむ|楽しむ
+うたう|歌う
+おどる|踊る
+ひく|弾く
+ふく（吹く）|吹く
+えがく|描く
+あつめる|集める
+あつまる|集まる
+はじめる|始める
+はじまる|始まる
+つづける|続ける
+やめる|やめる
+ぬれる|濡れる
+おとす|落とす
+うんどうする|運動する
+とぶ|飛ぶ
+かつ|勝つ
+まける|負ける
+がんばる|頑張る
+できる|できる
+いる（要る）|要る
+くれる|くれる
+たりる|足りる
+  `));
   const groupNames = { '1':['五段','五段'], '2':['一段','一段'], '3':['неправильный глагол','irregular verb'] };
   window.IDJLT_DICTIONARIES.push({
     id:'verb-dictionary', title:{ru:'Словарные формы глаголов',en:'Verb dictionary forms'},
     cards:[...dictionaryVerbs.values()].map(v=>({
-      ...v, id:`verb-dictionary-${v.romaji.replace(/ /g,'-')}`,
+      ...v, id:`verb-dictionary-${v.stableKey || v.romaji.replace(/ /g,'-')}`,
+      kanji:kanjiSpellings.get(v.jp), reading:v.jp.replace(/（.*?）/g,''),
       ru:`${v.ru}\nГруппа ${v.group} — ${groupNames[v.group][0]}`,
       en:`${v.en}\nGroup ${v.group} — ${groupNames[v.group][1]}`
     }))

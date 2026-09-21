@@ -21,6 +21,10 @@
 .word-direction { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:14px 0; color:var(--muted); }
 .word-direction select { max-width:100%; min-height:44px; }
 .word-group { margin:12px 0; font-size:20px; font-weight:650; color:var(--muted); }
+.card ruby,.word-reference ruby,.item ruby { ruby-position:over; ruby-align:center; }
+.card rt,.word-reference rt,.item rt { font-size:.45em; font-weight:500; color:var(--muted); }
+.card ruby { line-height:1.8; }
+.word-reference ruby,.item ruby { line-height:2; }
 .word-reverse .jp { font-size:clamp(24px,5vw,36px); }
 
 body[data-theme="light"] {

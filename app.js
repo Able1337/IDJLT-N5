@@ -666,6 +666,15 @@ function loadSession(key, cardsList, order = "random") {
   try {
     const saved = JSON.parse(localStorage.getItem(key) || "null");
     const ids = new Set(cardsList.map(c => c.id));
+    if (key.startsWith('idjlt.words.') && key.includes('verb-dictionary') && saved?.version === 1 && saved.total < cardsList.length && Array.isArray(saved.pool) && Array.isArray(saved.known) && Array.isArray(saved.unknown)) {
+      const previous = new Set([...saved.pool,...saved.known,...saved.unknown,saved.current].filter(Boolean));
+      if ([...previous].every(id=>ids.has(id))) {
+        const added = [...ids].filter(id=>!previous.has(id));
+        saved.pool.push(...shuffle(added));
+        saved.total = cardsList.length;
+        if (added.length) saved.done = false;
+      }
+    }
     if (saved?.version === 1 && saved.total === cardsList.length && [...saved.pool, ...saved.known, ...saved.unknown, saved.current].filter(Boolean).every(id => ids.has(id))) {
       saved.key = key;
       return saved;
@@ -907,6 +916,13 @@ function renderMode() {
     $("cardKind").style.display = currentKind === "kanji" ? "inline-flex" : "none";
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
+    if (currentKind === "word" && current.kanji) {
+      $("ru").lang = settings.wordDirection === "jp-native" ? 'ja' : settings.lang;
+      $("jp").lang = settings.wordDirection === "jp-native" ? settings.lang : 'ja';
+      const japaneseNode = settings.wordDirection === "jp-native" ? $("ru") : $("jp");
+      japaneseNode.innerHTML = wordJapaneseHtml(current);
+      japaneseNode.lang = 'ja';
+    }
     $("jp").style.display = shown ? "block" : "none";
     if (currentKind === "word") {
       let group = $("wordGroup");
@@ -934,7 +950,8 @@ function stackHtml(ids) {
   if (!ids.length) return t("noItems");
   return ids.map(id => {
     const card = cardById(id);
-    return `<div class="item">${frontText(card)} — ${answerText(card)}</div>`;
+    if (card.kanji) return `<div class="item">${wordJapaneseHtml(card)} — ${escapeHtml(nativeText(card))}</div>`;
+    return `<div class="item">${escapeHtml(frontText(card))} — ${escapeHtml(answerText(card))}</div>`;
   }).join("");
 }
 function renderTable(kind) {
@@ -953,10 +970,19 @@ function renderTable(kind) {
       </article>
     `).join("")}</div>`;
   } else {
-    wrap.innerHTML = `<table class="word-reference"><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${escapeHtml(nativeText(c))}</td><td><span lang="ja">${escapeHtml(c.jp)}</span>${settings.showRomaji && c.romaji ? `<small>${escapeHtml(c.romaji)}</small>` : ""}</td></tr>`).join("")}</tbody></table>`;
+    wrap.innerHTML = `<table class="word-reference"><thead><tr><th>${t("native")}</th><th>${t("jp")}</th></tr></thead><tbody>${cards.map(c => `<tr><td>${escapeHtml(nativeText(c))}</td><td><span lang="ja">${wordJapaneseHtml(c)}</span>${settings.showRomaji && c.romaji ? `<small>${escapeHtml(c.romaji)}</small>` : ""}</td></tr>`).join("")}</tbody></table>`;
   }
 }
 
+function wordJapaneseHtml(card) {
+  if (!card.kanji || !/[一-龯々]/.test(card.kanji)) return escapeHtml(card.kanji || card.jp);
+  const written=card.kanji, reading=card.reading;
+  if (!reading) return escapeHtml(written);
+  let start=0, end=0;
+  while(start<Math.min(written.length,reading.length) && written[start]===reading[start])start++;
+  while(end<written.length-start && end<reading.length-start && written[written.length-1-end]===reading[reading.length-1-end])end++;
+  return `${escapeHtml(written.slice(0,start))}<ruby>${escapeHtml(written.slice(start,written.length-end))}<rp>(</rp><rt>${escapeHtml(reading.slice(start,reading.length-end))}</rt><rp>)</rp></ruby>${escapeHtml(end?written.slice(-end):'')}`;
+}
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
     "&": "&amp;",

@@ -186,7 +186,7 @@
         <div id="demoFeedback" class="demo-feedback" role="status" aria-live="polite"></div>
         <button class="primary" id="demoNext" type="button" ${checked ? "" : "hidden"}>${tr(index + 1 === deck.length ? "Результат" : "Дальше", index + 1 === deck.length ? "Results" : "Next")}</button>
       </section>` : finished ? `<section class="demo-exercise"><h2>${tr("Тренировка завершена", "Round complete")}</h2><p class="demo-word">${correct} / ${deck.length}</p><p>${tr("Ответов верно с первой попытки.", "Answers correct on the first try.")}</p>${mistakes.length ? `<button class="primary" id="demoRetry" type="button">${tr("Повторить ошибки", "Retry mistakes")} (${mistakes.length})</button>` : `<p>${tr("Все формы верны!", "All forms correct!")}</p>`}</section>` : ""}
-      <p class="demo-links"><a href="phrases.html?set=lesson14-te">${tr("Обычные карточки: て-форма", "Regular cards: te-form")}</a></p>`;
+      `;
     const answerInput = document.getElementById("demoAnswer");
     if (answerInput && !checked) {
       answerInput.value = draft;
