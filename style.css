@@ -18,6 +18,10 @@
 .word-reference small { display:block; color:var(--muted); font-size:14px; margin-top:5px; }
 .bottom-panel>summary { min-height:44px; box-sizing:border-box; }
 #answerButtons button { min-height:48px; }
+.word-direction { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:14px 0; color:var(--muted); }
+.word-direction select { max-width:100%; min-height:44px; }
+.word-group { margin:12px 0; font-size:20px; font-weight:650; color:var(--muted); }
+.word-reverse .jp { font-size:clamp(24px,5vw,36px); }
 
 body[data-theme="light"] {
   --bg: #f6f7fb;

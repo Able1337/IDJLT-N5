@@ -1,5 +1,5 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.19.4";
+const APP_VERSION = "0.19.5";
 const APP_RELEASE_DATE = "2026-09-21";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
@@ -146,6 +146,7 @@ let suppressClick = false;
 let swipeTimer = null;
 let mode = document.body.dataset.page;
 let currentKind = "";
+let activeWordIds = [];
 let kanaSettingsBound = false;
 let installPromptEvent = null;
 
@@ -187,6 +188,7 @@ function applyGlobal() {
   if ($("answerButtons")) $("answerButtons").hidden = !settings.showButtons;
   if ($("showButtonsSetting")) $("showButtonsSetting").checked = settings.showButtons;
   if ($("showRomajiSetting")) $("showRomajiSetting").checked = settings.showRomaji;
+  if ($("wordDirection")) $("wordDirection").value = settings.wordDirection === "jp-native" ? "jp-native" : "native-jp";
   updatePwaInstallUi();
   updateAppInfoUi();
 }
@@ -506,12 +508,13 @@ function wordCardsFor(ids) {
 }
 
 function startWords(ids) {
+  activeWordIds = [...ids];
   currentKind = "word";
   shown = false;
   examplesShown = false;
   ensureTrainerMarkup("word");
   cards = wordCardsFor(ids);
-  const key = WORD_SESSION_PREFIX + ids.join("+");
+  const key = WORD_SESSION_PREFIX + ids.join("+") + (settings.wordDirection === "jp-native" ? ".jp-native" : "");
   session = loadSession(key, cards);
   if (session.current === null && !session.done) nextCard();
   bindTrainer("word");
@@ -601,6 +604,7 @@ function ensureTrainerMarkup(kind) {
       <button class="small secondary" id="resetBtn" data-i18n="restart">${t("restart")}</button>
       <button class="small secondary" id="focusBtn" type="button" data-i18n="fullscreen">${t("fullscreen")}</button>
     </section>
+    ${kind === "word" ? `<label class="word-direction"><span data-i18n="direction">${t("direction")}</span><select id="wordDirection"><option value="native-jp" data-i18n="ruToJp">${t("ruToJp")}</option><option value="jp-native" data-i18n="jpToRu">${t("jpToRu")}</option></select></label>` : ""}
     <section id="game">
       <button class="focus-exit" id="focusExitBtn" type="button">${t("exitFullscreen")}</button>
       <article class="card" id="card" tabindex="0">
@@ -744,6 +748,11 @@ let trainerBound = false;
 function bindTrainer(kind) {
   if (trainerBound) return;
   trainerBound = true;
+  $("wordDirection")?.addEventListener("change", event => {
+    settings.wordDirection = event.target.value;
+    saveSettings();
+    startWords(activeWordIds);
+  });
   $("card")?.setAttribute("role", "button");
   $("card")?.addEventListener("keydown", event => {
     if (event.repeat || !current) return;
@@ -855,14 +864,20 @@ function frontText(card) {
     return nativeKanjiMeaning(card.sourceItem);
   }
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? card.jp : nativeText(card);
-  return nativeText(card);
+  return settings.wordDirection === "jp-native" ? card.jp : wordMeaning(card);
 }
 function answerText(card) {
   if (card.type === "kana") return settings.kana.reverse ? card.front : card.r;
   if (card.type === "kanji-single") return settings.kanji.reverse ? card.reverseAnswer : kanjiSingleAnswer(card.sourceItem);
   if (card.type === "kanji-word") return settings.kanji.reverse ? card.reverseAnswer : [card.sourceItem.reading, nativeKanjiText(card.sourceItem)].filter(Boolean).join("\n");
   if (card.type === "phrase") return settings.phrases.direction === "jp-native" ? nativeText(card) : card.jp;
-  return card.jp;
+  return settings.wordDirection === "jp-native" ? wordMeaning(card) : card.jp;
+}
+function wordMeaning(card) {
+  return card.group ? nativeText(card).split(/\r?\n(?:Группа|Group) /)[0] : nativeText(card);
+}
+function wordGroup(card) {
+  return card.group ? nativeText(card).split(/\r?\n/).find(line => /^(Группа|Group) /.test(line)) || "" : "";
 }
 function kanjiExamplesText(card) {
   return (card.examples || []).map(example => {
@@ -881,6 +896,7 @@ function renderMode() {
   $("card")?.classList.toggle("kanji-card", currentKind === "kanji");
   $("card")?.classList.toggle("kanji-reverse", currentKind === "kanji" && settings.kanji.reverse);
   $("card")?.classList.toggle("phrase-card", currentKind === "phrase");
+  $("card")?.classList.toggle("word-reverse", currentKind === "word" && settings.wordDirection === "jp-native");
   $("left").textContent = session.pool.length + (current ? 1 : 0);
   $("knownCount").textContent = session.known.length;
   $("unknownCount").textContent = session.unknown.length;
@@ -892,6 +908,12 @@ function renderMode() {
     $("ru").textContent = frontText(current);
     $("jp").textContent = answerText(current);
     $("jp").style.display = shown ? "block" : "none";
+    if (currentKind === "word") {
+      let group = $("wordGroup");
+      if (!group) { group = document.createElement("div"); group.id = "wordGroup"; group.className = "word-group"; $("jp").after(group); }
+      group.textContent = shown ? wordGroup(current) : "";
+      group.hidden = !shown || !current.group;
+    }
     $("romaji").textContent = (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && current.romaji ? current.romaji : "";
     $("romaji").style.display = shown && (currentKind === "word" || currentKind === "kanji" || currentKind === "phrase") && settings.showRomaji && current.romaji ? "block" : "none";
     $("kanjiExamples").textContent = currentKind === "kanji" ? kanjiExamplesText(current) : "";
