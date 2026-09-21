@@ -5,6 +5,12 @@
   const root = document.getElementById("grammarDemo");
   let deck = [], index = 0, correct = 0, checked = false, mistakes = [], lastResult = null;
   let topic = "te", selectedForm = "te", started = false;
+  // Links from the lesson demo select a related exercise without changing saved settings.
+  const demoParams = new URLSearchParams(location.search);
+  if (["te", "i", "na"].includes(demoParams.get("topic"))) topic = demoParams.get("topic");
+  const requestedForm = demoParams.get("form");
+  if (topic === "te") selectedForm = library.forms.some(f => f.id === requestedForm) ? requestedForm : "te";
+  else selectedForm = forms.some(f => f.id === requestedForm) ? requestedForm : "mixed";
   const tr = (ru, en) => settings.lang === "en" ? en : ru;
   function setExerciseFullscreen(active) {
     document.body.classList.toggle('demo-fullscreen',active);

@@ -69,7 +69,8 @@ assert.ok(restored.current);
 // Check local HTML assets, dictionary destinations, and every precached URL.
 for (const file of fs.readdirSync('.').filter(f => f.endsWith('.html'))) {
   const html = read(file);
-  assert.ok(html.indexOf('supplemental-data.js') < html.indexOf('src="app.js'), file);
+  // Standalone prototypes can have their own controller instead of app.js.
+  if (html.includes('src="app.js')) assert.ok(html.indexOf('supplemental-data.js') < html.indexOf('src="app.js'), file);
   for (const [, url] of html.matchAll(/(?:href|src)="([^"#]+)"/g)) {
     if (/^(https?:|data:|mailto:)/.test(url)) continue;
     assert.ok(fs.existsSync(url.split('?')[0]), `${file}: ${url}`);
