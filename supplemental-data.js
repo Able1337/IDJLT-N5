@@ -295,7 +295,11 @@
   }));
   window.IDJLT_DICTIONARIES = [...(window.IDJLT_DICTIONARIES || []),
     { id: "lesson11", title: { ru: "Урок 11", en: "Lesson 11" }, order: 11, cards: words11 },
-    { id: "lesson14", title: { ru: "Урок 14: глаголы", en: "Lesson 14: verbs" }, order: 14, cards: verbs },
+    { id: "lesson14", title: { ru: "Урок 14: глаголы", en: "Lesson 14: verbs" }, order: 14, cards: verbs.map(v=>({
+      ...v,
+      ru:`${v.ru}\nГруппа ${v.group} — ${{'1':'五段','2':'一段','3':'неправильный глагол'}[v.group]}`,
+      en:`${v.en}\nGroup ${v.group} — ${{'1':'五段','2':'一段','3':'irregular verb'}[v.group]}`
+    })) },
     ...["i", "na"].map(type => ({ id: `adjectives-${type}`, title: { ru: `${type === "i" ? "い" : "な"}-прилагательные`, en: `${type === "i" ? "I" : "Na"}-adjectives` }, cards: adjectives.filter(a => a.type === type) }))
   ];
   window.IDJLT_PHRASES = [...(window.IDJLT_PHRASES || []),
