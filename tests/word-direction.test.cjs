@@ -11,4 +11,14 @@ for(const lang of ['ru','en'])for(const direction of ['native-jp','jp-native']){
  assert.match(c.wordGroup(card),/2 — 一段/);
 }
 assert.equal(c.wordGroup({ru:'Книга',en:'Book'}),'');
+const data=vm.createContext({window:{}});
+vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../supplemental-data.js'),'utf8'),data);
+const lesson14=data.window.IDJLT_DICTIONARIES.find(d=>d.id==='lesson14');
+assert.equal(lesson14.cards.length,31);
+for(const card of lesson14.cards)for(const lang of ['ru','en'])for(const direction of ['native-jp','jp-native']){
+ c.settings.lang=lang;c.settings.wordDirection=direction;
+ assert(!/Группа|Group/.test(c.frontText(card)));
+ assert(!/Группа|Group/.test(c.answerText(card)));
+ assert(c.wordGroup(card).includes(card.group));
+}
 console.log('PASS word direction and group separation in both languages.');
