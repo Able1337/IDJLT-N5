@@ -729,3 +729,41 @@
        v.group==='2' ? v.reading.slice(0,-1)+'て' : v.reading.slice(0,-1)+teEndings[v.reading.slice(-1)])
   }));
 })();
+
+(function () {
+  const rows=`
+あそびます|遊びます|Развлекаться; играть|Play; enjoy oneself|asobimasu|1
+およぎます|泳ぎます|Плавать|Swim|oyogimasu|1
+むかえます|迎えます|Встречать; принимать|Meet; welcome; pick someone up|mukaemasu|2
+つかれます|疲れます|Уставать (уже устал: つかれました)|Get tired (already tired: つかれました)|tsukaremasu|2
+けっこんします|結婚します|Жениться; выходить замуж|Get married|kekkon shimasu|3
+かいものします|買い物します|Делать покупки|Go shopping|kaimono shimasu|3
+しょくじします|食事します|Есть; принимать пищу|Have a meal|shokuji shimasu|3
+さんぽします|散歩します|Гулять (в парке: こうえんを さんぽします)|Take a walk (in a park: こうえんを さんぽします)|sanpo shimasu|3
+たいへん|大変|Трудный; тяжёлый; ужасный (な-прилагательное)|Difficult; tough; terrible (na-adjective)|taihen|
+ほしい|欲しい|Хотеть что-либо; желаемый (い-прилагательное)|Want something; desired (i-adjective)|hoshii|
+ひろい|広い|Широкий; просторный|Wide; spacious|hiroi|
+せまい|狭い|Узкий; тесный|Narrow; cramped|semai|
+プール|プール|Бассейн|Swimming pool|puuru|
+かわ|川|Река|River|kawa|
+びじゅつ|美術|Изобразительное искусство|Fine arts|bijutsu|
+つり|釣り|Рыбалка (つりを します — рыбачить)|Fishing (つりを します — go fishing)|tsuri|
+スキー|スキー|Лыжи; лыжный спорт (スキーを します — кататься на лыжах)|Skiing (スキーを します — go skiing)|sukii|
+しゅうまつ|週末|Конец недели; выходные|Weekend|shuumatsu|
+おしょうがつ|お正月|Новый год (также しょうがつ)|New Year (also しょうがつ)|oshougatsu|
+～ごろ|～ごろ|Примерно; около (о времени)|About; around (a time)|~goro|
+なにか|何か|Что-то; что-нибудь|Something; anything|nanika|
+どこか|どこか|Где-то; где-нибудь|Somewhere; anywhere|dokoka|
+のどが かわきます|喉が 渇きます|Испытывать жажду (хочу пить: のどが かわきました)|Get thirsty (I am thirsty: のどが かわきました)|nodo ga kawakimasu|1
+おなかが すきます|お腹が 空きます|Проголодаться (хочу есть: おなかが すきました)|Get hungry (I am hungry: おなかが すきました)|onaka ga sukimasu|1
+そう しましょう。|そう しましょう。|Давайте так и сделаем (согласие с предложением)|Let's do that (agreeing with a suggestion)|sou shimashou.|
+  `.trim().split('\n').map(line=>line.trim().split('|'));
+  const names={'1':'五段','2':'一段','3':'неправильный глагол'};
+  const cards=rows.map(([jp,kanji,ru,en,romaji,group],i)=>({
+    id:`lesson13-${i}`,jp,kanji,reading:jp,romaji,
+    ...(group?{group}:{}),
+    ru:ru+(group?`\nГруппа ${group} — ${names[group]}`:''),
+    en:en+(group?`\nGroup ${group} — ${group==='3'?'irregular verb':names[group]}`:'')
+  }));
+  window.IDJLT_DICTIONARIES.push({id:'lesson13',title:{ru:'Урок 13',en:'Lesson 13'},order:13,cards});
+})();
