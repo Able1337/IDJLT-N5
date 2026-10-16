@@ -1,5 +1,8 @@
-const CACHE_NAME = "idjlt-n5-v66";
+const CACHE_NAME = "idjlt-n5-v67";
 const TEXTBOOK_CACHE = "idjlt-textbooks-v1";
+// Cache Storage is shared with other applications on this origin.
+// Only these versioned namespaces belong to IDJLT (including historical caches).
+const isIdjltCache = key => /^idjlt-(?:n5|textbooks)-v\d+$/.test(key);
 // Retired private documents: also remove copies saved by earlier app versions.
 const RETIRED_DOCUMENTS = ["lesson11-vocabulary.pdf", "lesson14.pdf", "adjective-forms.pdf"];
 const isRetiredDocument = url => RETIRED_DOCUMENTS.some(name => new URL(url).pathname === new URL(`./assets/textbooks/${name}`, self.location.href).pathname);
@@ -50,6 +53,7 @@ self.addEventListener("activate", event => {
     (async () => {
       const keys = await caches.keys();
       await Promise.all(keys.map(async key => {
+        if (!isIdjltCache(key)) return;
         if (key !== CACHE_NAME && key !== TEXTBOOK_CACHE) return caches.delete(key);
         const cache = await caches.open(key);
         const requests = await cache.keys();
