@@ -1,6 +1,6 @@
 const SETTINGS_KEY = "idjlt.settings.v3";
-const APP_VERSION = "0.19.17";
-const APP_RELEASE_DATE = "2026-10-08";
+const APP_VERSION = "0.19.18";
+const APP_RELEASE_DATE = "2026-10-23";
 const APP_REPOSITORY = "https://github.com/Able1337/IDJLT-N5";
 const WORD_SESSION_PREFIX = "idjlt.words.";
 const KANA_SESSION_KEY = "idjlt.kana.session.v1";
@@ -500,7 +500,7 @@ function wordCardsFor(ids) {
     const dict = dictionaryById(id);
     if (!dict) return;
     dict.cards.forEach(card => {
-      const key = normalizeStudyKey(card.jp) || normalizeStudyKey(card.romaji) || normalizeStudyKey(card.ru);
+      const key = card.id.startsWith('personal-') ? JSON.stringify([card.kanji,card.reading]) : normalizeStudyKey(card.jp) || normalizeStudyKey(card.romaji) || normalizeStudyKey(card.ru);
       if (!unique.has(key)) unique.set(key, { ...card, source: dictTitle(dict) });
     });
   });
@@ -666,7 +666,7 @@ function loadSession(key, cardsList, order = "random") {
   try {
     const saved = JSON.parse(localStorage.getItem(key) || "null");
     const ids = new Set(cardsList.map(c => c.id));
-    if (key.startsWith('idjlt.words.') && key.includes('verb-dictionary') && saved?.version === 1 && saved.total < cardsList.length && Array.isArray(saved.pool) && Array.isArray(saved.known) && Array.isArray(saved.unknown)) {
+    if (((key.startsWith('idjlt.words.') && key.includes('verb-dictionary')) || key.includes('personal-')) && saved?.version === 1 && saved.total < cardsList.length && Array.isArray(saved.pool) && Array.isArray(saved.known) && Array.isArray(saved.unknown)) {
       const previous = new Set([...saved.pool,...saved.known,...saved.unknown,saved.current].filter(Boolean));
       if ([...previous].every(id=>ids.has(id))) {
         const added = [...ids].filter(id=>!previous.has(id));

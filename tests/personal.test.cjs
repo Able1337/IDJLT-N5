@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const store=new Map(),c=vm.createContext({window:{},URL,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)}});
+vm.runInContext(fs.readFileSync(path.join(__dirname,'../personal-store.js'),'utf8'),c);
+const api=c.window.PersonalDictionary;
+const source={version:1,groups:[{name:'Урок 学',kind:'kanji',items:[{kanji:'学',ru:'учёба',on:['ガク'],kun:['まな.ぶ'],examples:[{term:'学生',reading:'がくせい',ru:'студент'}]}]},{name:'Глаголы',kind:'words',items:[{jp:'切る',reading:'きる',ru:'резать',verbGroup:1},{jp:'着る',reading:'きる',ru:'надевать',verbGroup:2}]}]};
+const decoded=api.parse('https://able1337.github.io/IDJLT-N5/personal.html#import='+encodeURIComponent(JSON.stringify(source)));
+assert.equal(decoded.groups[0].items[0].kanji,'学');
+api.save(decoded);assert.equal(api.load().groups.length,2);
+let result=api.merge(api.load(),decoded);assert.equal(result.added,0);assert.equal(result.skipped,3);
+result=api.merge(api.load(),api.validate({version:1,groups:[{name:'Глаголы',kind:'words',items:[{jp:'食べる',reading:'たべる',ru:'есть',verbGroup:2}]}]}));assert.equal(result.added,1);assert.equal(result.data.groups[1].items.length,3);
+api.install(result.data);assert.equal(c.window.IDJLT_DICTIONARIES[0].cards.length,3);assert.equal(c.window.IDJLT_KANJI.singles.length,1);assert(c.window.IDJLT_DICTIONARIES[0].cards[0].ru.includes('Группа 1'));
+for(const bad of ['{}','{broken','https://evil.test/#import={}',JSON.stringify({...source,version:2}),JSON.stringify({version:1,groups:[{name:'x',kind:'words',items:[{jp:'x',reading:'x',ru:'x',verbGroup:4}]}]})])assert.throws(()=>api.parse(bad));
+const before=store.get(api.KEY);assert.throws(()=>api.save({version:1,groups:[]}));assert.equal(store.get(api.KEY),before);
+store.set(api.KEY,'bad');assert.throws(()=>api.load());assert.equal(store.get(api.KEY),'bad');
+console.log('PASS personal Unicode imports, validation, merge/dedup, verb groups, kanji mapping and non-destructive failures');

@@ -1,0 +1,11 @@
+.personal-panel { padding:20px; border:1px solid var(--line); border-radius:18px; background:var(--panel); margin:18px 0; }
+.personal-panel label { display:grid; gap:7px; margin:12px 0; }
+.personal-panel input,.personal-panel textarea,.personal-panel select { width:100%; min-width:0; max-width:100%; padding:12px; color:var(--text); background:var(--bg); border:1px solid var(--line); border-radius:10px; font:inherit; font-size:16px; }
+.personal-panel textarea { resize:vertical; }
+.personal-panel button { margin:8px 8px 8px 0; }
+#personalMessage { overflow-wrap:anywhere; }
+#personalPreviewItems { max-height:420px; overflow:auto; }
+#personalPreviewItems p { white-space:pre-wrap; overflow-wrap:anywhere; border-bottom:1px solid var(--line); padding:10px 0; }
+#personalGroups p { overflow-wrap:anywhere; }
+.personal-panel summary { cursor:pointer; font-weight:700; }
+@media(max-width:480px){.personal-panel{padding:14px;}}
